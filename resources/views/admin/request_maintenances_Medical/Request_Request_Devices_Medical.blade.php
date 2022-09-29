@@ -16,12 +16,23 @@
 <!-- breadcrumb -->
 @endsection
 @section('content')
+<div class="row">
+    <div class="col-md-12 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif">عرض تذاكر الأجهزة الطبية </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <h5 class="card-title">فلترة البيانات</h5>
+                <h5 class="card-title" style="font-family: 'Cairo', sans-serif">فلترة البيانات</h5>
                 <form>
                     <div class="row">
                         <div class="col-sm-3 mb-40">

@@ -8,9 +8,9 @@
 @endsection
 <!-- breadcrumb -->
 @section('PageTitle')
-<div class="col-sm-6" >
+{{-- <div class="col-sm-6" >
     <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">عرض الأجهزة </h4>
-  </div>
+  </div> --}}
 <!-- breadcrumb -->
 
 @section('PageTitle2')
@@ -19,6 +19,17 @@
 <!-- breadcrumb -->
 @endsection
 @section('content')
+<div class="row">
+    <div class="col-md-12 mb-10">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif">قائمة الأجهزة </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- row -->
 <div class="row">
     <div class="col-md-2">

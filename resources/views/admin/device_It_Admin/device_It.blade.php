@@ -8,9 +8,6 @@
 @endsection
 <!-- breadcrumb -->
 @section('PageTitle')
-<div class="col-sm-12" >
-    <h4 class="mb-0" style="font-family: 'Cairo', sans-serif"> عرض أجهزة تكنولوجيا المعلومات</h4>
-  </div>
 <!-- breadcrumb -->
 
 @section('PageTitle2')
@@ -19,6 +16,20 @@
 <!-- breadcrumb -->
 @endsection
 @section('content')
+<div class="row">
+    <div class="col-md-12 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+
+                <form>
+                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
+                    <h4 style="font-family: 'Cairo', sans-serif"> قائمة أجهزة تكنلوجيا المعلومات </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- row -->
 <!-- row -->
 <div class="row">
     <div class="col-md-2">

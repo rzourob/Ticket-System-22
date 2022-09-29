@@ -105,7 +105,7 @@
                                     </li>
                                 @endcan
 
-                                <li> <a href="{{ route('user.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a> </li>
+                                {{-- <li> <a href="{{ route('user.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a> </li> --}}
 
                                 {{-- <li>
                                         <a href="javascript:void(0);" data-toggle="collapse"

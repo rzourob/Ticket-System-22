@@ -6,9 +6,6 @@
 @stop
 @endsection
 @section('page-header')
-{{-- <div class="col-sm-6" >
-    <h4 class="mb-0" style="font-family: 'Cairo', sans-serif"> عرض تنقلات الجهاز</h4>
-  </div> --}}
 <!-- breadcrumb -->
 @section('PageTitle2')
     تنقلات الجهاز
@@ -20,9 +17,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-
                 <form>
-                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
                     <h4 style="font-family: 'Cairo', sans-serif">عرض تفاصيل وتنقلات الجهاز</h4>
                 </form>
             </div>
@@ -76,8 +71,7 @@
                     <div class="form-group">
                         <img class="profile-user-img img-fluid img-circle"
                             style="width:200px; height:200px; position:absolute; top:-1px; left:100px; border-radius:50%"
-                            src="{{ Storage::url('public/devices/' . $devices->image ?? '')}}"
-                            alt="User profile picture">
+                            src="{{ Storage::url('public/devices/' . $devices->image ?? '')}}" alt="User profile picture">
                     </div>
                 </div>
             </div>

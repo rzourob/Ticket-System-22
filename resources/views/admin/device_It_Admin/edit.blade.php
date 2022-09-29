@@ -8,21 +8,32 @@
 <link rel="stylesheet" href="{{asset('assets/js/select2/css/select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/js/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 @section('title')
-؟؟؟؟
+تعديل البيانات 
 @stop
 @endsection
 @section('PageTitle')
-<div class="col-sm-6" >
-    <h4 class="mb-0" style="font-family: 'Cairo', sans-serif"> تعديل بيانات الجهاز</h4>
-  </div>
 <!-- breadcrumb -->
 @section('PageTitle2')
-    ؟؟؟؟؟؟
+تعديل بيانات 
 
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
+<!-- row -->
+<div class="row">
+    <div class="col-md-12 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+
+                <form>
+                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
+                    <h4 style="font-family: 'Cairo', sans-serif"> تعديل بيانات الجهاز </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- row -->
 {{-- <div class="row">
     <div class="col-md-12 mb-30">

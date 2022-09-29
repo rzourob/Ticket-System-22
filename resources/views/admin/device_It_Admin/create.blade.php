@@ -13,9 +13,6 @@
 @stop
 @endsection
 @section('PageTitle')
-{{-- <div class="col-sm-6" >
-    <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">أضافة جهاز جديد</h4>
-  </div> --}}
 <!-- breadcrumb -->
 @section('PageTitle2')
 أضافة جهاز
