@@ -100,8 +100,8 @@
                                 <div class="col-sm-4 invoice-col">
                                     <address>
                                         <strong></strong><br>
-                                        <h5><strong>بار كود الجهاز : {{ $devices->codeDevices }}</strong></h5><br>
-                                        <h5><strong>اسم الجهاز : {{ $devices->title }}</strong></h5><br>
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>بار كود الجهاز : {{ $devices->codeDevices }}</strong></h5><br>
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>اسم الجهاز : {{ $devices->title }}</strong></h5><br>
 
                                     </address>
                                 </div>
@@ -109,7 +109,7 @@
                                 <div class="col-sm-4 invoice-col">
                                     <address>
                                         <strong></strong><br>
-                                        <h5><strong>نوع الجهاز :
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>نوع الجهاز :
                                                 <td>
                                                     <span>
                                                         @if ($devices->deviceTypes == '1')
@@ -124,33 +124,33 @@
                                                     </span>
                                                 </td>
                                             </strong></h5><br>
-                                        <h5><strong>الشركة المصنعة : {{ $devices->manufacturer }}</strong></h5><br>
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>الشركة المصنعة : {{ $devices->manufacturer }}</strong></h5><br>
                                     </address>
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4 invoice-col">
                                     <strong></strong><br>
-                                    <h5><strong>موديل الجهاز : {{ $devices->model }} </strong></h5><br>
-                                    <h5><strong>SN: {{ $devices->sn }}</strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong>موديل الجهاز : {{ $devices->model }} </strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong>SN: {{ $devices->sn }}</strong></h5><br>
                                     <br>
                                 </div>
 
                                 <div class="col-sm-4 invoice-col">
-                                    <h5><strong> الشركة الموردة : {{ $devices->supplier }}</strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> الشركة الموردة : {{ $devices->supplier }}</strong></h5><br>
 
                                     <br>
                                 </div>
 
                                 <div class="col-sm-4 invoice-col">
 
-                                    <h5><strong> فترة الضمان : {{ $devices->warranty }}</strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> فترة الضمان : {{ $devices->warranty }}</strong></h5><br>
                                     <br>
                                 </div>
 
 
                                 <div class="col-sm-12 invoice-col">
-                                    <h5><strong>ملاحظات: </strong></h5><br>
-                                    <h5><strong> </strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong>ملاحظات: </strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> </strong></h5><br>
                                     <br>
                                     {{-- <b>Order ID:</b> 4F3S8J<br>
               <b>Payment Due:</b> 2/22/2014<br>
@@ -185,7 +185,7 @@
 
                             @foreach ($deviceMovements as $deviceMovement)
                                 <div class="card mt-3">
-                                    <h5 class="card-header">
+                                    <h5 class="card-header" style="font-family: 'Cairo', sans-serif">
                                         {{ $deviceMovement->title }}
 
                                         <span class="badge rounded-pill bg-warning text-dark">

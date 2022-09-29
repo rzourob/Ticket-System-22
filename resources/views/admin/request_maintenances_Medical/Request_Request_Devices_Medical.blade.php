@@ -104,7 +104,8 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table id="request_maintenances_Medical" class="table table-striped table-bordered p-0" class="table datatable">
+                    <table id="request_maintenances_Medical" class="table table-striped table-bordered p-0"
+                        class="table datatable">
                         <thead>
                             <tr>
                                 <th>No.</th>

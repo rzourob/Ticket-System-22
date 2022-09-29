@@ -3,7 +3,7 @@
 @section('css')
 
 @section('title')
-    عرض أجهزة تكنولوجيا المعلومات
+    قائمة أجهزة تكنولوجيا المعلومات
 @stop
 @endsection
 <!-- breadcrumb -->
@@ -11,7 +11,7 @@
 <!-- breadcrumb -->
 
 @section('PageTitle2')
-    عرض أجهزة تكنولوجيا المعلومات
+قائمة أجهزة تكنولوجيا المعلومات
  @stop
 <!-- breadcrumb -->
 @endsection

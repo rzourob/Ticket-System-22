@@ -12,7 +12,6 @@
     <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">عرض الأجهزة </h4>
   </div> --}}
 <!-- breadcrumb -->
-
 @section('PageTitle2')
 عرض الأجهزة
 @stop
@@ -204,7 +203,7 @@
                                 <th>ملاحظات</th>
                                 <th>اسم الموظف</th>
                                 <th>تاريخ الانشاء</th>
-                                <th>الاعدادات</th>
+                                {{-- <th>الاعدادات</th> --}}
                             </tr>
                         </thead>
 
@@ -279,13 +278,13 @@
                 name: 'created_at',
                 searchable: false
             },
-            {
-                data: 'actions',
-                name: 'actions',
-                searchable: false,
-                sortable: false,
-                width: '10%'
-            },
+            // {
+            //     data: 'actions',
+            //     name: 'actions',
+            //     searchable: false,
+            //     sortable: false,
+            //     width: '10%'
+            // },
         ],
         order: [
             [9, 'desc']

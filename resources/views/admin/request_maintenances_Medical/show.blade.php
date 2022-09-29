@@ -24,8 +24,8 @@
             </div>
         </div>
     </div>
-  </div>
-  <!-- row -->
+</div>
+<!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
 
@@ -147,23 +147,23 @@
                         @else --}}
                         <div class="float-end ">
 
-                            
-
-                                <a href="#" class="btn btn-success left ">
-                                    تعديل الرد</i>
-                                </a>
 
 
-                                <a href="#" onclick="performDestroy({{ $comment->id }},this)  "
-                                    class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    حذف الرد</a>
-                            
+                            <a href="#" class="btn btn-success left ">
+                                تعديل الرد</i>
+                            </a>
 
-                           
+
+                            <a href="#" onclick="performDestroy({{ $comment->id }},this)  "
+                                class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                حذف الرد</a>
+
+
+
 
                         </div>
-                       
-                        
+
+
 
                         {{-- @endif --}}
 

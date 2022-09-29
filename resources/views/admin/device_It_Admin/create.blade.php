@@ -25,9 +25,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-
                 <form>
-                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
                     <h4 style="font-family: 'Cairo', sans-serif"> أضافة جهاز جديد </h4>
                 </form>
             </div>
@@ -173,10 +171,7 @@
                                       
                     <div class="col-md-12 mb-30">
                         <div class="custom-file">
-                                {{-- <table class="card-title ">
-                                    <h5 class=" card-header  mb-0 my-auto"> صورة شخصية :</h5>
-                                </table> --}}
-                                    <p class="text-danger">* صيغة الصورة الشخصية pdf, jpeg ,.jpg , png </p>
+                            <p class="text-danger">* صيغة الصورة الشخصية pdf, jpeg ,.jpg , png </p>
                             <input type="file" name="image" id="image" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
                                 data-height="70" />
                         </div>
