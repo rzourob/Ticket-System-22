@@ -1,0 +1,3 @@
+
+{{$subdepartment->description}}
+

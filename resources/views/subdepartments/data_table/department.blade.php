@@ -1,0 +1,1 @@
+{{$subdepartment->department->title}}

@@ -1,0 +1,51 @@
+<?php
+
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+// Route::get('/', function () {
+//     return view('/layouts/master');
+// });
+
+Route::get('/', [HomeController::class, 'showSelected'])->name('selection');
+
+                       //Admin login
+// Route::prefix('admin')->middleware('guest')->group(function () {
+// Route::get('login', [AdminLoginController::class, 'showLogin'])-> name('administrator.login');
+// Route::post('login', [AdminLoginController::class, 'login']);
+// });
+
+Route::group(['namespace=>'=>'Admin'],function () {
+
+    Route::get('/login/{type}', [AdminLoginController::class, 'showLogin'])->middleware('guest')->name('show.login');
+    Route::post('login', [AdminLoginController::class, 'login']);
+
+    });
+
+Auth::routes();
+
+// Route::get('/', function () {
+//         return view('welcome');
+//     });
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ 
+
+Route::prefix('admin')->middleware('auth:web')->group(function () {
+
+    Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/logout/{type}', [AdminLoginController::class, 'logout'])->name('admin.logout');
+
+});

@@ -1,0 +1,1 @@
+{{$maintenancerequest->department->title}}
