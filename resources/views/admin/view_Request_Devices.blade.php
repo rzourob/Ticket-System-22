@@ -3,7 +3,7 @@
 @section('css')
 
 @section('title')
-    عرض طلبات الصيانة
+    عرض تذاكر الصيانة
 @stop
 @endsection
 <!-- breadcrumb -->
@@ -11,13 +11,13 @@
 <!-- breadcrumb -->
 
 @section('PageTitle2')
-    عرض طلبات الصيانة
+    عرض تذاكر الصيانة
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
@@ -32,7 +32,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <h5 class="card-title" style="font-family: 'Cairo', sans-serif">فلترة البيانات</h5>
+                <h5 class="card-title" style="font-family: 'Cairo', sans-serif">بحث متقدم</h5>
                 <form>
                     <div class="row">
                         <div class="col-sm-3 ">

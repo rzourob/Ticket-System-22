@@ -90,28 +90,28 @@
                                 </a>
                                 <ul id="maintenances-level" class="collapse" data-parent="#sidebarnav">
 
-                                        <li>
-                                            <a href="javascript:void(0);" data-toggle="collapse"
-                                                data-target="#maintenances-level1">عرض أدارة الأجهزة<div class="pull-right"><i
-                                                        class="ti-plus"></i></div>
-                                                <div class="clearfix"></div>
-                                            </a>
-                                            <ul id="maintenances-level1" class="collapse">
+                                    <li>
+                                        <a href="javascript:void(0);" data-toggle="collapse"
+                                            data-target="#maintenances-level1">عرض أدارة الأجهزة<div class="pull-right"><i
+                                                    class="ti-plus"></i></div>
+                                            <div class="clearfix"></div>
+                                        </a>
+                                        <ul id="maintenances-level1" class="collapse">
 
-                                                @can('Index-Deives')
-                                                    <li> <a href="{{ route('admin.viewdevice') }}">عرض الأجهزة </a> </li>
-                                                @endcan
+                                            @can('Index-Deives')
+                                                <li> <a href="{{ route('admin.viewdevice') }}">عرض الأجهزة </a> </li>
+                                            @endcan
 
-                                                @can('View-Medical')
+                                            @can('View-Medical')
                                                 <li> <a href="{{ route('admin.DevicesMedical') }}">عرض الأجهزة الطبية</a> </li>
                                             @endcan
-            
-            
+
+
                                             {{-- @can('View-IT') --}}
-                                                <li> <a href="{{ route('user.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a> </li>
+                                            <li> <a href="{{ route('user.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a> </li>
                                             {{-- @endcan --}}
 
-                                                {{-- <li>
+                                            {{-- <li>
                                                     <a href="javascript:void(0);" data-toggle="collapse"
                                                         data-target="#maintenances-level2">Level item 1.1<div class="pull-right"><i
                                                                 class="ti-plus"></i></div>
@@ -132,9 +132,9 @@
                                                     </ul>
                                                 </li> --}}
 
-                                                {{-- <li> <a href="#">level item 1.2</a> </li> --}}
-                                            </ul>
-                                        </li>
+                                            {{-- <li> <a href="#">level item 1.2</a> </li> --}}
+                                        </ul>
+                                    </li>
                                     @canany(['Index-R-Man.', 'View-R-Man.', 'Create-R-Man.-IT', ' Create-R-Man.-Medical'])
                                         <li>
                                             <a href="javascript:void(0);" data-toggle="collapse"
@@ -150,12 +150,14 @@
                                                 @endcan
 
                                                 @can('Create-R-Man.-Medical')
-                                                <li> <a href="{{ route('admin.Request_Device_Medical') }}">طلبات أجهزة طبية</a> </li>
-                                            @endcan
-            
-                                            @can('Create-R-Man.-IT')
-                                                <li> <a href="{{ route('admin.Request_Device_It') }}">طلبات أجهزة تكنولوجيا العلومات </a> </li>
-                                            @endcan
+                                                    <li> <a href="{{ route('admin.Request_Device_Medical') }}">طلبات أجهزة طبية</a>
+                                                    </li>
+                                                @endcan
+
+                                                @can('Create-R-Man.-IT')
+                                                    <li> <a href="{{ route('admin.Request_Device_It') }}">طلبات أجهزة تكنولوجيا العلومات
+                                                        </a> </li>
+                                                @endcan
 
                                             </ul>
                                         </li>
@@ -212,7 +214,7 @@
                     @canany(['Create-Request'])
                         <li>
                             {{-- <a href="{{ route('maintenances.create') }}"><i class="ti-comments"></i><span --}}
-                                <a href="{{ route('admin.Request_Device_Medical.create') }}"><i class="ti-comments"></i><span
+                            <a href="{{ route('admin.Request_Device_Medical.create') }}"><i class="ti-comments"></i><span
                                     class="right-nav-text">أنشاء تذكرة</span></a>
                         </li>
                     @endcanany
@@ -316,7 +318,8 @@
 
 
                                 @can('Index-Admin')
-                                    <li> <a href="{{ route('admin.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>
+                                    <li> <a href="{{ route('admin.index') }}"><i class="fa fa-user-plus"
+                                                aria-hidden="true"></i>
                                             أضافة مسؤولين</a> </li>
                                 @endcan
 

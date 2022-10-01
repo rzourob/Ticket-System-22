@@ -3,7 +3,7 @@
 @section('css')
 
 @section('title')
-    عرض طلبات الأجهزة الطبية
+    عرض تذاكر الأجهزة الطبية
 @stop
 @endsection
 <!-- breadcrumb -->
@@ -11,13 +11,13 @@
 <!-- breadcrumb -->
 
 @section('PageTitle2')
-    عرض طلبات الأجهزة الطبية
+    عرض تذاكر الأجهزة الطبية
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
@@ -64,11 +64,11 @@
                         <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
-                                <label> نوع الجهاز </label>
+                                <label> حالة التذكرة </label>
                                 <select class="custom-select" id="deviceTypes">
-                                    <option value=""> اختارح نوع الطلب</option>
-                                    <option value="1">أجهة طبية</option>
-                                    <option value="2">أجهزة تكنولوجيا المعلومات</option>
+                                    <option value=""> اختارح حالة التذكرة</option>
+                                    <option value="Deno">انتهت</option>
+                                    <option value="Todo">جاري العمل عليها</option>
                                 </select>
                             </div>
                         </div>

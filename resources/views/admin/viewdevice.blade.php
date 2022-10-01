@@ -3,23 +3,20 @@
 @section('css')
 
 @section('title')
-    عرض الأجهزة
+قائمة الأجهزة
 @stop
 @endsection
 <!-- breadcrumb -->
 @section('PageTitle')
-{{-- <div class="col-sm-6" >
-    <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">عرض الأجهزة </h4>
-  </div> --}}
 <!-- breadcrumb -->
 @section('PageTitle2')
-عرض الأجهزة
+قائمة الأجهزة
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <div class="row">
-    <div class="col-md-12 mb-10">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
@@ -30,90 +27,12 @@
     </div>
 </div>
 <!-- row -->
-<div class="row">
-    <div class="col-md-2">
-        <tbody>
-            <tr>
-                <td>
-                    {{-- <a href="{{ route('devices.create') }}" class="btn btn-block btn-outline-success btn-lg">أضافة
-                        جهاز</a> --}}
-                </td>
-            </tr>
-        </tbody>
-    </div>
-</div>
 <br>
-{{-- <div class="card-body">
-    <!-- Large modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">اضافة قسم</button> 
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="modal-title"><div class="mb-10">
-              <h2>أضافة قسم جديد</h2>
-            </div>
-            </div>
-          </div>
-          <div class="modal-body">
-
-            <form id="create_form">
-                @csrf
-
-                <div class="row">
-                            
-                    <div class="col-md-6 mb-30">
-                        <div class="col">
-                            <label for="title_ar" class="mr-sm-2">أسم القسم</label>
-                            <input type="text" name="title" class="form-control" id="title"
-                            placeholder="ادخل اسم القسم باللغة العربية">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col">
-                             <label for="title_en" class="mr-sm-2">أسم القسم</label>
-                             <input type="text" name="title_en" class="form-control" id="title_en"
-                               placeholder="ادخل اسم المدينة القسم الانجيليزية">
-                        </div>
-                    </div>  
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 mb-30">
-                        <div class="col">
-                              <label for="description">وصف القسم</label>
-                              <textarea class="form-control" style="resize: none;"  type="text" id="description" name="description" rows="4"
-                               placeholder="وصف القسم" cols="50"></textarea>
-                        </div>
-                    </div>
-               </div>
-
-               <div class="form-check">
-                    <input type="checkbox" name="active"class="form-check-input" id="active">
-                         <label class="form-check-label" for="active">تفعيل</label>
-                </div>
-
-            <div class="modal-footer">
-                <button type="button" onclick="performStore()" class="btn btn-primary">أنشاء قسم</button>
-            </div> 
-
-            </form>
-
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" onclick="performStore()" class="btn btn-primary">أنشاء قسم</button>
-          </div>
-        </div>
-      </div>
-    </div>
-</div> --}}
-
 <div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <h5 class="card-title" style="font-family: 'Cairo', sans-serif">فلترة البيانات</h5>
+                <h5 class="card-title" style="font-family: 'Cairo', sans-serif">بحث متقدم</h5>
                 <form>
                     <div class="row">
                         <div class="col-sm-3 ">
@@ -306,7 +225,7 @@
     // });
 
     $('#deviceTypes').change(function() {
-        $('#devices-table').dataTable().fnFilter($(this).val(), -7);
+        $('#devices-table').dataTable().fnFilter($(this).val(), -9);
     });
 
 

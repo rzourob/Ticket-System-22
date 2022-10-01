@@ -16,20 +16,6 @@
 <!-- breadcrumb -->
 @endsection
 @section('content')
-<div class="row">
-    <div class="col-md-12 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
-
-                <form>
-                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
-                    <h4 style="font-family: 'Cairo', sans-serif"> قائمة أجهزة تكنلوجيا المعلومات </h4>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- row -->
 <!-- row -->
 <div class="row">
     <div class="col-md-2">
@@ -43,73 +29,23 @@
         </tbody>
     </div>
 </div>
+<!-- row -->
 <br>
-{{-- <div class="card-body">
-    <!-- Large modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">اضافة قسم</button> 
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="modal-title"><div class="mb-10">
-              <h2>أضافة قسم جديد</h2>
+<!-- row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+
+                <form>
+                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
+                    <h4 style="font-family: 'Cairo', sans-serif"> قائمة أجهزة تكنلوجيا المعلومات </h4>
+                </form>
             </div>
-            </div>
-          </div>
-          <div class="modal-body">
-
-            <form id="create_form">
-                @csrf
-
-                <div class="row">
-                            
-                    <div class="col-md-6 mb-30">
-                        <div class="col">
-                            <label for="title_ar" class="mr-sm-2">أسم القسم</label>
-                            <input type="text" name="title" class="form-control" id="title"
-                            placeholder="ادخل اسم القسم باللغة العربية">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col">
-                             <label for="title_en" class="mr-sm-2">أسم القسم</label>
-                             <input type="text" name="title_en" class="form-control" id="title_en"
-                               placeholder="ادخل اسم المدينة القسم الانجيليزية">
-                        </div>
-                    </div>  
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 mb-30">
-                        <div class="col">
-                              <label for="description">وصف القسم</label>
-                              <textarea class="form-control" style="resize: none;"  type="text" id="description" name="description" rows="4"
-                               placeholder="وصف القسم" cols="50"></textarea>
-                        </div>
-                    </div>
-               </div>
-
-               <div class="form-check">
-                    <input type="checkbox" name="active"class="form-check-input" id="active">
-                         <label class="form-check-label" for="active">تفعيل</label>
-                </div>
-
-            <div class="modal-footer">
-                <button type="button" onclick="performStore()" class="btn btn-primary">أنشاء قسم</button>
-            </div> 
-
-            </form>
-
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" onclick="performStore()" class="btn btn-primary">أنشاء قسم</button>
-          </div>
         </div>
-      </div>
     </div>
-</div> --}}
-
+</div>
+<!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">

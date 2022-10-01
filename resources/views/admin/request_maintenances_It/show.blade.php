@@ -2,43 +2,34 @@
 @section('css')
 
 @section('title')
-    تفاصيل الجها
+    تفاصيل التذكرة
 @stop
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle2')
-    تفاصيل الجهاز
+    تفاصيل التذكرة
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <!-- row -->
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
-                    <h4 style="font-family: 'Cairo', sans-serif"> تفاصيل الجهاز </h4>
+                    <h4 style="font-family: 'Cairo', sans-serif"> تفاصيل التذكرة </h4>
                 </form>
             </div>
         </div>
     </div>
-  </div>
-  <!-- row -->
-
+</div>
+<!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
 
-        <div>
-
-            <div class="float-start">
-                <h4 class="pb-3" style="font-family: 'Cairo', sans-serif">تفاصيل التذكرة</h4>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-
+        
         <div class="card mt-3">
             <h5 class="card-header">
                 @if ($maintenancerequests->status === 'Todo')
@@ -49,8 +40,8 @@
                 @endif
 
                 <span class="badge rounded-pill bg-warning text-dark">
-                     {{ $maintenancerequests->Created_by }}
-                </span> 
+                    {{ $maintenancerequests->Created_by }}
+                </span>
 
                 <span class="badge rounded-pill bg-warning text-dark">
                     {{ $maintenancerequests->created_at->diffForHumans() }}
@@ -144,11 +135,12 @@
 
                         <small>أخرتحديث - {{ $comment->updated_at->diffForHumans() }} </small>
 
-
-
-    
-
+                        {{-- @if (!Auth::user()->id == $comment->id)
+                        @else --}}
                         <div class="float-end ">
+
+
+
                             <a href="#" class="btn btn-success left ">
                                 تعديل الرد</i>
                             </a>
@@ -158,20 +150,14 @@
                                 class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                 حذف الرد</a>
 
-                            {{-- <form action="#" style="display: inline" method="POST" onsubmit="return confirm('Are you sure to delete ?')">
-                    @csrf
-                    @method('DELETE')
 
-                    <button type="submit" class="btn btn-danger">
-                        حذف رد</i>
 
-                        
-                    </button>
-                </form> --}}
 
-                        {{-- </div> --}}
+                        </div>
 
-                     
+
+
+                        {{-- @endif --}}
 
 
                         <div class="clearfix"></div>

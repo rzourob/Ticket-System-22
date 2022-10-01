@@ -37,8 +37,8 @@ class Request_Maintenance_MedicalController extends Controller
             // ->addColumn('record_select', 'admin.users.data_table.record_select')tiket_no
 
 
-            ->filterColumn('deviceTypes', function ($query, $deviceTypes) {
-                $query->where('deviceTypes', $deviceTypes);
+            ->filterColumn('status', function ($query, $status) {
+                $query->where('status', $status);
             })
 
             ->filterColumn('sub_department_id', function ($query, $sub_department_id) {

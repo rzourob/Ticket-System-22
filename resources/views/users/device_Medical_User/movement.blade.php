@@ -3,18 +3,30 @@
     <link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 @section('title')
-    حركة الجهاز
+    أضافة حركة للجهاز
 @stop
 @endsection
 @section('PageTitle')
 <!-- breadcrumb -->
 @section('PageTitle2')
-    حركة الجهاز
+    أضافة حركة للجهاز
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
 
+<!-- row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif"> أضافة حركة للجهاز </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
@@ -65,7 +77,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="modal-footer">
-                        <button type="button" onclick="performStore()" class="btn btn-primary">أضافة رد</button>
+                        <button type="button" onclick="performStore()" class="btn btn-primary">أضافة حركة</button>
                     </div>
                 </form>
             </div>

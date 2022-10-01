@@ -22,7 +22,7 @@
 @endsection
 @section('content')
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
@@ -188,7 +188,7 @@
 
             <!-- /.card-body -->
             <div class="modal-footer">
-                <button type="button" onclick="performStore()" class="btn btn-primary">أنشاء قسم</button>
+                <button type="button" onclick="performStore()" class="btn btn-primary">أضافة جهاز</button>
             </div>
         </form> 
         </div>

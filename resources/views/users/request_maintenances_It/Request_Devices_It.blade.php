@@ -3,7 +3,7 @@
 @section('css')
 
 @section('title')
-    عرض طلبات تكنولوجيا المعلومات
+      تذاكر تكنولوجيا المعلومات
 @stop
 @endsection
 <!-- breadcrumb -->
@@ -11,19 +11,17 @@
 <!-- breadcrumb -->
 
 @section('PageTitle2')
-عرض طلبات تكنولوجيا المعلومات
+ تذاكر طلبات تكنولوجيا المعلومات
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
-
                 <form>
-                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
-                    <h4 style="font-family: 'Cairo', sans-serif"> قائمة طلبات تكنلوجيا المعلومات </h4>
+                    <h4 style="font-family: 'Cairo', sans-serif"> قائمة تذاكر تكنلوجيا المعلومات </h4>
                 </form>
             </div>
         </div>
@@ -66,11 +64,11 @@
                         <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
-                                <label> نوع الجهاز </label>
-                                <select class="custom-select" id="deviceTypes">
-                                    <option value=""> اختارح نوع الطلب</option>
-                                    <option value="1">أجهة طبية</option>
-                                    <option value="2">أجهزة تكنولوجيا المعلومات</option>
+                                <label> حالة التذكرة </label>
+                                <select class="custom-select" id="status">
+                                    <option value=""> اختارح حالة التذكرة</option>
+                                    <option value="Deno">انتهت</option>
+                                    <option value="Todo">جاري العمل عليها</option>
                                 </select>
                             </div>
                         </div>
@@ -204,8 +202,8 @@
         request_maintenances_ItTable.search(this.value).draw();
     })
 
-    $('#deviceTypes').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -7);
+    $('#status').change(function() {
+        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -4);
     });
 
 

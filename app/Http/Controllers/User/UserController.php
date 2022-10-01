@@ -13,6 +13,7 @@ use App\Http\Traits\UserTrait;
 use App\Models\Admin;
 use App\Models\Department\Department;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -125,8 +126,9 @@ class UserController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        $roles = Role::all();
-        return view('users.edit', ['user'=>$user ,'roles'=>$roles]);
+        $roles = Role::where('guard_name', '=', 'user')->get();
+        $currentRole = $user->roles[0];
+        return view('users.edit', ['user'=>$user ,'roles'=>$roles , 'currentRole' => $currentRole]);
     }
 
     /**
@@ -181,5 +183,44 @@ class UserController extends Controller
         }
         return response()->json(['message' => $isDeleted ?
             " تم حذف المستخدم بنجاح" : "فشل حذف المستخدم"], $isDeleted ? 200 : 400);
+    }
+
+    public function editPassword(Request $request)
+    {
+
+        $users = User::findorFail(Auth()->user()->id);
+
+        return response()->view('userLogin.changepassword', compact('users'));
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $validator = Validator($request->all(), [
+
+            'password' => 'required|string|current_password:admin',
+            'new_password' => 'required|string|min:3|max:15|confirmed',
+            'new_password_confirmation' => 'required|string|min:3|max:15',
+        ], [
+
+            'password.required' => 'رجاء, أدخل  كلمة المرور القديمة',
+            'current_password' => 'كلمة المرور غير صحيحة',
+            'email' => 'wwwwwwwwwwwwwwwww',
+            'new_password.required' => ' رجاء, أدخل كلمة المرور جديدة',
+            'credentials.required' => 'رررررررررررررررررررررر',
+
+        ]);
+
+        if (!$validator->fails()) {
+
+            $user = auth('user')->user();
+            $user->password = Hash::make($request->get('new_password'));
+            $isSaved = $user->save();
+
+            return response()->json([
+                'message' => $isSaved ? "تمت العملية بنجاح" : "فشلت العملية"
+            ], $isSaved ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+        } else {
+            return response()->json(['message' => $validator->getMessageBag()->first()], 400);
+        }
     }
 }

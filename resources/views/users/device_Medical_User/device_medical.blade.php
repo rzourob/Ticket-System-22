@@ -18,12 +18,10 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
-
                 <form>
-                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
                     <h4 style="font-family: 'Cairo', sans-serif"> قائمة الأجهزة الطبية </h4>
                 </form>
             </div>
@@ -57,7 +55,7 @@
                         <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
-                                <label> حالة الوحدة</label>
+                                <label> الوحدة</label>
                                 <select class="custom-select" id="subdepartments">
                                     <option value="">يرجي أختيار اسم الوحدة</option>
                                     {{-- @foreach ($subdepartments as $subdepartment)

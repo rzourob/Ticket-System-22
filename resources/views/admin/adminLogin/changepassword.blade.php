@@ -47,7 +47,7 @@
                                 <div class="form-group">
                                     <img class="profile-user-img img-fluid img-circle"
                                         style="width:150px; height:150px; position:absolute; top:-37px; left:100px; border-radius:50%"
-                                        src="{{ Storage::url('public/admins/' . auth()->user()->image) }}"
+                                        src="{{ Storage::url('public/' . auth()->user()->image) }}"
                                         alt="User profile picture">
                                 </div>
                             </div>

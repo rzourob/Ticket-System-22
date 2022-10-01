@@ -69,10 +69,10 @@
                                     @endcan
 
                                     @can('Create-R-Man.-Medical')
-                                        <li> <a href="#">طلبات أجهزة طبية</a>
+                                        <li> <a href="{{ route('user.View_Request_Medical') }}">طلبات أجهزة طبية</a>
                                         </li>
                                     @endcan
-
+                                    
                                     @can('Create-R-Man.-IT')
                                         <li> <a href="{{ route('user.View_Request_IT') }}">طلبات أجهزة تكنولوجيا العلومات
                                             </a> </li>

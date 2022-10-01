@@ -15,9 +15,12 @@ use Carbon\Carbon;
 class Device_ItController extends Controller
 {
     //
+    const MEDICAL = 1;
+        const IT = 2;
     public function index()
     {
-        $devices = Device::where('deviceTypes', 2)->get();
+        // $devices = Device::where('deviceTypes', 2)->get();
+        $devices = auth()->user()->department->devicee->where('deviceTypes', $this::IT);
         $subdepartments = SubDepartment::get();
         $departments = Department::get();
         return view('users.device_It_User.device_it', [
@@ -48,7 +51,7 @@ class Device_ItController extends Controller
             })
 
             ->addColumn('title', function (device $device) {
-                return view('users.data_table.title', compact('device'));
+                return view('users.device_It_User.data_table.title', compact('device'));
             })
             ->addColumn('description', function (device $device) {
                 return view('users.device_It_User.data_table.description', compact('device'));

@@ -277,6 +277,6 @@ class Device_MedicalController extends Controller
 
         $devices = Device::where('id', $id)->first();
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
-        return response()->view('devices.device_movement', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
+        return response()->view('admin.device_Medical_Admin.device_movement', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
     }
 }

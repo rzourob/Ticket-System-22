@@ -3,7 +3,7 @@
 @section('css')
 
 @section('title')
-    الأجهزة تكنولوجيا المعلومات
+    قائمة أجهزة  تكنولوجيا المعلومات
 @stop
 @endsection
 <!-- breadcrumb -->
@@ -11,20 +11,17 @@
 <!-- breadcrumb -->
 
 @section('PageTitle2')
-    الأجهزة تكنولوجيا المعلومات
+    قائمة أجهزة تكنولوجيا المعلومات
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
-
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
-
                 <form>
-                    {{-- <label class="large-xl" for="طلبات تكنولوجيا المعلومات">  طلبات تكنولوجيا المعلومات</label> --}}
-                    <h4 style="font-family: 'Cairo', sans-serif"> الأجهزة تكنولوجيا المعلومات </h4>
+                    <h4 style="font-family: 'Cairo', sans-serif"> قائمة أجهزة تكنولوجيا المعلومات </h4>
                 </form>
             </div>
         </div>
@@ -35,7 +32,6 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                {{-- <h5 class="card-title">فلترة البيانات</h5> --}}
                 <h4 style="font-family: 'Cairo', sans-serif"> بحث متقدم </h4>
                 <br>
                 <form>
@@ -56,7 +52,7 @@
                         <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
-                                <label> حالة الوحدة</label>
+                                <label>الوحدة</label>
                                 <select class="custom-select" id="subdepartments">
                                     <option value="">يرجي أختيار اسم الوحدة</option>
                                     {{-- @foreach ($subdepartments as $subdepartment)

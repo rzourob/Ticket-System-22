@@ -3,7 +3,7 @@
 @section('css')
 
 @section('title')
-    عرض طلبات تكنولوجيا المعلومات
+    عرض  تذاكر تكنولوجيا المعلومات
 @stop
 @endsection
 <!-- breadcrumb -->
@@ -11,17 +11,17 @@
 <!-- breadcrumb -->
 
 @section('PageTitle2')
-عرض طلبات تكنولوجيا المعلومات
+عرض  تذاكر تكنولوجيا المعلومات
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
-                    <h4 style="font-family: 'Cairo', sans-serif">عرض تذاكر تكنلوجيا المعلومات </h4>
+                    <h4 style="font-family: 'Cairo', sans-serif">عرض  تذاكر تكنلوجيا المعلومات </h4>
                 </form>
             </div>
         </div>
@@ -32,7 +32,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <h5 class="card-title" style="font-family: 'Cairo', sans-serif">فلترة البيانات</h5>
+                <h5 class="card-title" style="font-family: 'Cairo', sans-serif">بحث متقدم</h5>
                 <form>
                     <div class="row">
                         <div class="col-sm-3 ">
@@ -64,11 +64,11 @@
                         <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
-                                <label> نوع الجهاز </label>
+                                <label> حالة التذكرة </label>
                                 <select class="custom-select" id="deviceTypes">
-                                    <option value=""> اختارح نوع الطلب</option>
-                                    <option value="1">أجهة طبية</option>
-                                    <option value="2">أجهزة تكنولوجيا المعلومات</option>
+                                    <option value=""> اختارح حالة التذكرة</option>
+                                    <option value="Deno">انتهت</option>
+                                    <option value="Todo">جاري العمل عليها</option>
                                 </select>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
     })
 
     $('#deviceTypes').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -7);
+        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -4);
     });
 
 

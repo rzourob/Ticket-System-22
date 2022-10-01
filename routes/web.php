@@ -9,7 +9,9 @@ use App\Http\Controllers\User\Maintenance_User\RequestDeviceMedicalController;
 use App\Http\Controllers\User\Device_User\ViewDeviceItController;
 use App\Http\Controllers\User\Device_User\ViewDeviceMedicalController;
 use App\Http\Controllers\User\Maintenance_It\Request_Maintenance_ItController;
+use App\Http\Controllers\User\Maintenance_Medical\Request_Maintenance_MedicalController;
 use App\Http\Controllers\User\Maintenance_User\MaintenanceRequestUsersController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +43,8 @@ Route::group(['namespace'=>'user'],function () {
 Route::prefix('user')->middleware('auth')->group(function () {
 
     Route::get('dashboard', [DashbordController::class, 'dashboard'])->name('dashboard');
+
+    Route::put('changepassword/user', [UserController::class, 'updatePassword'])->name('user.updatepassword');
 
 
 
@@ -87,6 +91,24 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
     Route::post('maintenances_It/store',[Request_Maintenance_ItController::class, 'store'])->name('user.Request_Device_It.store');
 
     Route::get('cmments/{id}', [Request_Maintenance_ItController::class, 'comment_show'])->name('user.cmmentShow');
+
+
+
+    Route::get('Maintenances_Medical', [Request_Maintenance_MedicalController::class,'index'])->name('user.View_Request_Medical'); 
+
+    Route::get('Maintenances_Medical/data', [Request_Maintenance_MedicalController::class, 'data'])->name('user.View_Request_Medical.data');
+
+    Route::get('details/{id}', [Request_Maintenance_MedicalController::class, 'show'])->name('user.Details_Medical.show');
+
+    Route::get('Maintenances_Medical/{id}', [Request_Maintenance_MedicalController::class, 'edit'])->name('user.Request_Medical.edit');
+
+    // Route::PUT('xxxxxxx/update/{id}',[Request_Maintenance_ItController::class,'update'])->name('user.Request_Device_It.update');
+
+    Route::get('Maintenance_Medical/create',[Request_Maintenance_MedicalController::class, 'create'])->name('user.Device_Medical.create');
+
+    Route::post('maintenances_Medical/store',[Request_Maintenance_MedicalController::class, 'store'])->name('user.Request_Device_Medical.store');
+
+    Route::get('cmments/{id}', [Request_Maintenance_MedicalController::class, 'comment_show'])->name('user.cmmentShow');
 
 
 
