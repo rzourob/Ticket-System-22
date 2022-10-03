@@ -17,6 +17,34 @@
 @endsection
 @section('content')
 <!-- row -->
+<!-- row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif"> تعديل مسؤولية </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif"> تعديل مسؤولية</h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- row -->
+<!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
@@ -47,7 +75,7 @@
                     <br>
                     <!-- /.card-body -->
                     <div class="modal-footer">
-                        <button type="button" onclick="performUpdate({{$role->id}})" class="btn btn-primary">تعديل البيانات</button>
+                        <button type="button" onclick="performUpdate({{$role->id}})" class="btn btn-primary">تعديل مسؤولية</button>
                     </div>
                 </form>
             </div>

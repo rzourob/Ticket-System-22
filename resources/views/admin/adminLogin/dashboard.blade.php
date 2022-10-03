@@ -104,6 +104,29 @@ wrapper -->
       </div>
     </div>
   </div>
+  ///
+  {{-- <canvas id="myChart" width="290" height="290"></canvas> --}}
+
+  <div class="row">
+    <div class="col-12 mb-30 ">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <h5 class="card-title">أحصائيات سنوية</h5>
+                        <canvas id="myChart" width="800" height="200"></canvas>
+                      </div>
+
+                      <div class="col-xl-6">
+                        <h5 class="card-title">أحصائيات سنوية</h5>
+                        <canvas id="myChart2" width="450" height="200"></canvas>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  ///
 
   <!-- Orders Status widgets-->
 <div class="calendar-main mb-30">
@@ -194,5 +217,51 @@ wrapper -->
 <!-- row closed -->
 @endsection
 @section('js')
+  <!-- charts morris -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+  <script>
+    const ctx = document.getElementById('myChart2').getContext('2d');
+    const myChart2 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+            datasets: [{
+                label: 'نسبة ',
+                data: [{{ \App\Models\Maintenance\MaintenanceRequest::query()->where('status', 'Todo')->count()}},
+                {{ \App\Models\Maintenance\MaintenanceRequest::query()->where('status', 'Done')->count()}},60
+                      ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>
+
 
 @endsection

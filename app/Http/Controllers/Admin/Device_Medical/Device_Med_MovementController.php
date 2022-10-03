@@ -65,7 +65,7 @@ class Device_Med_MovementController extends Controller
             $deviceMovements->Created_by  = Auth::user()->name;
             $isSaved = $deviceMovements->save();
 
-            return response()->json(['message' => $isSaved ? "تم أضافة القسم بنجاح" : "فشل أضافة القسم"], $isSaved ? 201 : 400);
+            return response()->json(['message' => $isSaved ? "تم أضافة الحركة بنجاح" : "فشل أضافة الحركة"], $isSaved ? 201 : 400);
         } else {
             return response()->json(['message' => $validator->getMessageBag()->first()], 400);
             //    return response()->json(['message' => "Failed to save"], 400);

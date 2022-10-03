@@ -93,16 +93,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col">
-                                <label for="roles" class="mr-sm-2">
-                                    <h5>نوع المستخدم</h5>
-                                </label>
-                                <select class="form-control roles" multiple="multiple" name="roles[]" id="roles"
-                                    style="width: 100%;" multiple="">
+                                <label for="roles" class="mr-sm-2" ><h5>نوع المستخدم</h5></label>
+                                <select class="form-control roles" multiple="multiple" id="roles" style="width: 100%;" multiple="">
                                     <option value="">أختار نوع المستخدم</option>
                                     @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}"
-                                            {{ $role->id == $user->role->id ? 'selected' : '' }}>{{ $role->name }}
-                                        </option>
+                                    <option value="{{$role->id}}" @selected($currentRole->id == $role->id)>{{$role->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

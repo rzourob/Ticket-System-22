@@ -234,7 +234,7 @@
     });
 
     $('#departments').change(function() {
-        $('#devices-table').dataTable().fnFilter($(this).val(), -7);
+        $('#devices-table').dataTable().fnFilter($(this).val(), -6);
     });
 </script>
 

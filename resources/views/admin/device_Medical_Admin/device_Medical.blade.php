@@ -242,7 +242,7 @@
     // });
 
     $('#deviceTypes').change(function() {
-        $('#devicesMedical-table').dataTable().fnFilter($(this).val(), -7);
+        $('#devicesMedical-table').dataTable().fnFilter($(this).val(), -10);
     });
 
 

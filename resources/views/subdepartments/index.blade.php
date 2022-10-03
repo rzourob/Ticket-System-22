@@ -4,7 +4,7 @@
 @section('css')
 
 @section('title')
-    عرض الأقسام الفرعية
+قائمة الوحدة الطبية والادارية
 @stop
 @endsection
 <!-- breadcrumb -->
@@ -12,12 +12,12 @@
 <!-- breadcrumb -->
 
 @section('PageTitle2')
-عرض الأقسام الفرعية  
+قائمة الوحدة الطبية والادارية 
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
-<!-- row -->
+
 <div class="row">
     <div class="col-md-2">
         <tbody>
@@ -30,6 +30,19 @@
     </div>
 </div>
 <br>
+<!-- row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif"> قائمة الوحدة الطبية والادارية  </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">

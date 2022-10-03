@@ -3,17 +3,30 @@
 <link rel="stylesheet" href="{{asset('assets/js/select2/css/select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/js/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 @section('title')
-    أنشاء قسم فرعي
+    أنشاء وحدة 
 @stop
 @endsection
 @section('PageTitle')
 <!-- breadcrumb -->
 @section('PageTitle2')
-أنشاء قسم فرعي
+أنشاء وحدة  
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
+<!-- row -->
+<!-- row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif"> أنشاء وحدة جديدة    </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
@@ -81,7 +94,7 @@
                     <!-- /.card-body -->
 
                             <div class="modal-footer">
-                                <button type="button" onclick="performStore()" class="btn btn-primary">أنشاء قسم</button>
+                                <button type="button" onclick="performStore()" class="btn btn-primary">أنشاء وحدة</button>
                             </div>
 
                 </form> 

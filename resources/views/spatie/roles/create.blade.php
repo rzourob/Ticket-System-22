@@ -17,6 +17,20 @@
 @section('content')
 <!-- row -->
 <div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif"> أضافة مسؤولية </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- row -->
+<!-- row -->
+<div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
@@ -46,7 +60,7 @@
                     <br>
                     <!-- /.card-body -->
                     <div class="modal-footer">
-                        <button type="button" onclick="performStore()" class="btn btn-primary">أضافة Roles</button>
+                        <button type="button" onclick="performStore()" class="btn btn-primary">أضافة مسؤولية</button>
                     </div>
                 </form>
             </div>

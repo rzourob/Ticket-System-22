@@ -126,7 +126,7 @@ class UserController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        $roles = Role::where('guard_name', '=', 'user')->get();
+        $roles = Role::where('guard_name', '=', 'web')->get();
         $currentRole = $user->roles[0];
         return view('users.edit', ['user'=>$user ,'roles'=>$roles , 'currentRole' => $currentRole]);
     }

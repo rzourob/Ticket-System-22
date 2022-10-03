@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Device_Medical\Device_MedicalController;
 use App\Http\Controllers\Admin\Maintenance_It\Request_Maintenance_ItController;
 use App\Http\Controllers\Admin\Maintenance_Medical\Request_Maintenance_MedicalController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Dashborad\DashbordController;
 use App\Http\Controllers\User\UserController;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
@@ -36,6 +37,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('dashboard', function () {
         return view('admin.adminLogin.dashboard');
+
+
+
     });
 
 
@@ -55,6 +59,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::get('AAAAA/admin', [AdminController::class, 'editPassword'])->name('admin.changepassword');
 
         Route::put('changepassword/admin', [AdminController::class, 'updatePassword'])->name('admin.updatepassword');
+
+        Route::get('/charts/tickets', [DashbordController::class, 'dashboard'])->name('admin.charts.tickets');
+
     });
 
 /*

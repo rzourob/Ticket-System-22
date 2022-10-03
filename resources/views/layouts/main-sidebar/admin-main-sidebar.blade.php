@@ -85,14 +85,14 @@
 
                         <li>
                             <a href="javascript:void(0);" data-toggle="collapse"
-                                data-target="#maintenances-level1">عرض أدارة الأجهزة<div class="pull-right"><i
+                                data-target="#maintenances-level1"> قائمة الأجهزة<div class="pull-right"><i
                                         class="ti-plus"></i></div>
                                 <div class="clearfix"></div>
                             </a>
                             <ul id="maintenances-level1" class="collapse">
 
                                 @can('Index-Deives')
-                                    <li> <a href="{{ route('admin.viewdevice') }}">عرض الأجهزة </a> </li>
+                                    <li> <a href="{{ route('admin.viewdevice') }}">عرض جميع الأجهزة </a> </li>
                                 @endcan
 
                                 @can('View-Medical')
@@ -134,24 +134,24 @@
                         @canany(['Index-R-Man.', 'View-R-Man.', 'Create-R-Man.-IT', ' Create-R-Man.-Medical'])
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse"
-                                    data-target="#maintenances-level4">عرض طلبات الصيانة<div class="pull-right">
+                                    data-target="#maintenances-level4"> تذاكر الصيانة<div class="pull-right">
                                         <i class="ti-plus"></i>
                                     </div>
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="maintenances-level4" class="collapse">
                                     @can('Index-R-Man.')
-                                        <li> <a href="{{ route('maintenances.viewDeviceMedical') }}">عرض جميع الطلبات</a>
+                                        <li> <a href="{{ route('maintenances.viewDeviceMedical') }}">عرض جميع التذاكر</a>
                                         </li>
                                     @endcan
 
                                     @can('Create-R-Man.-Medical')
-                                        <li> <a href="{{ route('admin.Request_Device_Medical') }}">طلبات أجهزة طبية</a>
+                                        <li> <a href="{{ route('admin.Request_Device_Medical') }}">عرض تذاكر أجهزة الطبية</a>
                                         </li>
                                     @endcan
 
                                     @can('Create-R-Man.-IT')
-                                        <li> <a href="{{ route('admin.Request_Device_It') }}">طلبات أجهزة تكنولوجيا العلومات
+                                        <li> <a href="{{ route('admin.Request_Device_It') }}">عرض تذاكر أجهزة تكنولوجيا المعلومات 
                                             </a> </li>
                                     @endcan
 

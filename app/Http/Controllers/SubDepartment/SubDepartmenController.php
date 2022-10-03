@@ -114,7 +114,7 @@ class SubDepartmenController extends Controller
            $subdepartments->active = $request->get('active');
            $isSaved = $subdepartments->save();
 
-            return response()->json(['message' => $isSaved ? "تم الأضافة  بنجاح" : "Failed to save"], $isSaved ? 201 : 400);
+            return response()->json(['message' => $isSaved ? "تم الأضافة الوحدة بنجاح" : "فشل عملية الأضافة"], $isSaved ? 201 : 400);
         } else {
            //  return response()->json(['message' => $validator->getMessageBag()->first()], 400);
            return response()->json(['message' => $validator->getMessageBag()->first()], 400);
@@ -181,7 +181,7 @@ class SubDepartmenController extends Controller
            $subdepartment->active = $request->get('active');
            $isSaved = $subdepartment->save();
 
-            return response()->json(['message' => $isSaved ? "تم التعديل  بنجاح" : "Failed to save"], $isSaved ? 201 : 400);
+            return response()->json(['message' => $isSaved ? "تم تعديل البيانات  بنجاح" : "فشل تعديل البيانات"], $isSaved ? 201 : 400);
         } else {
            //  return response()->json(['message' => $validator->getMessageBag()->first()], 400);
            return response()->json(['message' => $validator->getMessageBag()->first()], 400);

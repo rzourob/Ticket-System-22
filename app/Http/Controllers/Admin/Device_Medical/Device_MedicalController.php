@@ -110,17 +110,29 @@ class Device_MedicalController extends Controller
     {
         $validator = Validator($request->all(), [
 
-            // 'codeDevices' => 'required| string',
-            // 'sn' => 'required| string|min:3| max:35',
-            // 'title' => 'required| string',
-            // 'description' => 'required| string',
-            // 'department' => 'required| string',
+            'codeDevices' => 'required| string',
+            'deviceTypes' => 'required| string',
+            'title' => 'required|string',
+            'sn' => 'required|string',
+            'department_id' => 'required|string',
+            'room' => 'required|string',
+            'manufacturer' => 'required|string',
+            'model' => 'required|string',
+            'supplier' => 'required|string',
+            'warranty' => 'required|string',
+          
+
         ], [
-            //    'codeDevices.required' =>'الرجاء ادخال اسم الجهاز الطبي',
-            //    'department.required' => 'الرجاء ادخال اسم القسم',
-            //    'sn.required' => 'الرجاء ادخال السيريل نمبر الجهاز',
-            //    'title.required' => 'الرجاء ادخال عنوان للمشكلة',
-               
+            'codeDevices.required' => 'الرجاء ادخال الباركود الخاص بالجهاز',
+            'deviceTypes.required' => 'الرجاء تحديد نوع الجهاز',
+            'title.required' => 'الرجاء أدخال اسم الجهاز',
+            'sn.required' => 'الرجاء ادخال السيريال نمبر الخاص بالجهاز',
+            'department_id.required' => 'الرجاء اختيار القسم',
+            'room.required' => 'الرجاء ادخال رقم الغرفة',
+            'manufacturer.required' => 'الرجاء ادخال اسم الشركة المصنعة',
+            'model.required' => 'الرجاء ادخال موديل الجهاز',
+            'supplier.required' => 'الرجاء ادخال اسم الشركة الموردة',
+            'warranty.required' => 'الرجاء ادخال اسم الشركة الموردة',
         ]);
 
 

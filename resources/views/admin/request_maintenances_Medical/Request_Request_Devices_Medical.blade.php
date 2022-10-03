@@ -204,21 +204,21 @@
     })
 
     $('#deviceTypes').change(function() {
-        $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -7);
+        $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -4);
     });
 
 
-    $('#subdepartments').change(function() {
+    // $('#subdepartments').change(function() {
+    //     $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -5);
+    // });
+
+    $('#departments').change(function() {
         $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -5);
     });
 
-    $('#departments').change(function() {
-        $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -6);
-    });
-
-    $('#departments').change(function() {
-        $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -6);
-    });
+    // $('#departments').change(function() {
+    //     $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -6);
+    // });
 
     $('#fromDate').change(function() {
         var toDate = $('#toDate').val();

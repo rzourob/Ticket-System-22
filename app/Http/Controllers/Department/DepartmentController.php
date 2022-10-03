@@ -175,7 +175,7 @@ class DepartmentController extends Controller
             $department->active = $request->get('active');
             $isSaved = $department->save();
 
-            return response()->json(['message' => $isSaved ? "تم التعديل  بنجاح" : "Failed to save"], $isSaved ? 201 : 400);
+            return response()->json(['message' => $isSaved ? "تم تحديث البيانات  بنجاح" : "فشل تحديث  البيانات"], $isSaved ? 201 : 400);
         } else {
             return response()->json(['message' => $validator->getMessageBag()->first()], 400);
         }

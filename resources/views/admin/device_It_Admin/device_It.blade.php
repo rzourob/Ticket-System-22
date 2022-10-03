@@ -243,7 +243,7 @@
     // });
 
     $('#deviceTypes').change(function() {
-        $('#devicesIt-table').dataTable().fnFilter($(this).val(), -7);
+        $('#devicesIt-table').dataTable().fnFilter($(this).val(), -10);
     });
 
 

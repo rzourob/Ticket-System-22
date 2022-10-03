@@ -5,17 +5,29 @@
 <link rel="stylesheet" href="{{asset('assets/js/select2/css/select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/js/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 @section('title')
-    Create Roles
+ تعديل بيانات القسم
 @stop
 @endsection
 @section('PageTitle')
 <!-- breadcrumb -->
 @section('PageTitle2')
-Create Roles
+تعديل بيانات القسم
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
+<!-- row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif"> تعديل بيانات  </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
