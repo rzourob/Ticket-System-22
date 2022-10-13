@@ -134,7 +134,7 @@
                         @canany(['Index-R-Man.', 'View-R-Man.', 'Create-R-Man.-IT', ' Create-R-Man.-Medical'])
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse"
-                                    data-target="#maintenances-level4"> تذاكر الصيانة<div class="pull-right">
+                                    data-target="#maintenances-level4"> قائمة تذاكر الصيانة<div class="pull-right">
                                         <i class="ti-plus"></i>
                                     </div>
                                     <div class="clearfix"></div>

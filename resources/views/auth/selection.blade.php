@@ -30,13 +30,14 @@
     <div class="wrapper">
 
         <section class="height-100vh d-flex align-items-center page-section-ptb login" 
-                 style="background-image: url('{{ asset('assets/images/sativa.png')}}');">
+                 style="background-image: url('{{ asset('assets/images/ss/aass.png')}}'); background-size:cover ; background-repeate: no-repeat ; min-height:200px;">
             <div class="container">
+                
                 <div class="row justify-content-center no-gutters vertical-align">
 
                     <div style="border-radius: 15px;" class="col-lg-8 col-md-8 bg-white">
                         <div class="login-fancy pb-40 clearfix">
-                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">حدد طريقة الدخول</h3>
+                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30"><strong>حدد طريقة الدخول</strong></h3>
                             <div class="form-inline">
                                 <a class="btn btn-default col-lg-3" title="مسؤول النظام" href="{{ route('show.login','admin')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/zz.png')}}">

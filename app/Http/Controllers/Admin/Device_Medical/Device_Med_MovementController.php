@@ -8,32 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Device_Med_MovementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
@@ -41,17 +16,14 @@ class Device_Med_MovementController extends Controller
 
         $validator = Validator($request->all(), [
 
-            // 'title' => 'required| string|min:3| max:35',
-            // 'title_en' => 'required| string|min:3| max:35',
-            // 'active' => 'required|boolean'
-
+            'title' => 'required| string|min:3| max:35',
+            'newLocation' => 'required|string|min:3| max:35',
+            'body' => 'required| string|min:3| max:100',
         ], [
 
-
-            //    'title.required' => 'الرجاء ادخال اسم القسم باللغة العربية',
-            //    'title_en.required' => 'الرجاء ادخال اسم القسم باللغة الانجيلزية',
-
-
+               'title.required' => 'الرجاء أدخل عنوان للحركة',
+               'newLocation.required' => 'الرجاء تحديد موقع الجهاز',
+               'body.required' => 'الرجاء ادخال تعليق مختصر لعملية النقل',
         ]);
 
 
@@ -72,46 +44,16 @@ class Device_Med_MovementController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\DeviceMovement\DeviceMovement  $deviceMovement
-     * @return \Illuminate\Http\Response
-     */
-    public function show(DeviceMovement $deviceMovement)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\DeviceMovement\DeviceMovement  $deviceMovement
-     * @return \Illuminate\Http\Response
-     */
     public function edit(DeviceMovement $deviceMovement)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DeviceMovement\DeviceMovement  $deviceMovement
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, DeviceMovement $deviceMovement)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\DeviceMovement\DeviceMovement  $deviceMovement
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(DeviceMovement $deviceMovement)
     {
         //

@@ -100,7 +100,7 @@
             newLocation: document.getElementById('newLocation').value,
         };
 
-        store('/devices/Device_Movements', data);
+        store('/admin/Movements/store', data);
     }
 </script>
 

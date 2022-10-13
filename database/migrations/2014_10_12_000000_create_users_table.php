@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('status', 10);
             $table->string('image')->nullable();
-            // $table->foreignId('role_id');
-            // $table->foreign('role_id')->on('roles')->references('id');
             $table->foreignId('department_id');
             $table->foreign('department_id')->on('departments')->references('id');
             $table->rememberToken();

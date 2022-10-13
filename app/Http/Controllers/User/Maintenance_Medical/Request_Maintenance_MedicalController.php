@@ -60,33 +60,33 @@ class Request_Maintenance_MedicalController extends Controller
             })
 
             ->addColumn('tiket_no', function (maintenancerequest $maintenancerequest) {
-                return view('maintenances.data_table.tiket_no', compact('maintenancerequest'));
+                return view('users.request_maintenances_Medical.data_table.tiket_no', compact('maintenancerequest'));
             })
 
             ->addColumn('title', function (maintenancerequest $maintenancerequest) {
-                return view('maintenances.data_table.subject', compact('maintenancerequest'));
+                return view('users.request_maintenances_Medical.data_table.subject', compact('maintenancerequest'));
             })
 
             ->addColumn('department_id', function (maintenancerequest $maintenancerequest) {
-                return view('maintenances.data_table.departments', compact('maintenancerequest'));
+                return view('users.request_maintenances_Medical.data_table.departments', compact('maintenancerequest'));
             })
 
             ->addColumn('sub_department_id', function (maintenancerequest $maintenancerequest) {
-                return view('maintenances.data_table.subdepartments', compact('maintenancerequest'));
+                return view('users.request_maintenances_Medical.data_table.subdepartments', compact('maintenancerequest'));
             })
 
             ->addColumn('status', function (maintenancerequest $maintenancerequest) {
-                return view('maintenances.data_table.active', compact('maintenancerequest'));
+                return view('users.request_maintenances_Medical.data_table.active', compact('maintenancerequest'));
             })
 
             ->addColumn('deviceTypes', function (maintenancerequest $maintenancerequest) {
-                return view('maintenances.data_table.deviceTypes', compact('maintenancerequest'));
+                return view('users.request_maintenances_Medical.data_table.deviceTypes', compact('maintenancerequest'));
             })
 
             ->editColumn('created_at', function (maintenancerequest $maintenancerequest) {
                 return $maintenancerequest->created_at->format('Y-m-d');
             })
-            ->addColumn('actions', 'maintenances.data_table.actions')
+            ->addColumn('actions', 'users.request_maintenances_Medical.data_table.actions')
             ->rawColumns(['actions'])
             ->toJson();
     } // end of data

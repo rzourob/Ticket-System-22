@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\Maintenance_Admin\RequestMaintenanceMedicalController;
 use App\Http\Controllers\Admin\Device_Admin\ViewAdminDeviceController;
 use App\Http\Controllers\Admin\Device_IT\Device_ItController;
+use App\Http\Controllers\Admin\Device_IT\DeviceMovementController as Device_ITDeviceMovementController;
 use App\Http\Controllers\Admin\Device_Medical\Device_Med_MovementController;
 use App\Http\Controllers\Admin\Device_Medical\Device_MedicalController;
 use App\Http\Controllers\Admin\Maintenance_It\Request_Maintenance_ItController;
@@ -111,7 +112,10 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('devices_It/{id}', [Device_ItController::class, 'show'])->name('admin.devices_It.show');
 
-    Route::get('Movements_It/Movements_show/{id}', [Device_ItController::class, 'Movements_show'])->name('admin.Movements_It.Movements_show');
+    Route::get('Movements_It/{id}', [Device_ItController::class, 'Movements_show'])->name('admin.Movements_It.Movements_show');
+
+    Route::post('Movements/store', [Device_ITDeviceMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
+
 
 
 /*
@@ -164,6 +168,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('cmments/{id}', [Request_Maintenance_ItController::class, 'comment_show'])->name('cmmentShow.data');
 
+    // Route::post('Movements/store', [Device_ITDeviceMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -198,7 +205,7 @@ Route::get('aaa', function () {
     return new TicketEmail();
 });
 
-Route::group(['middleware' => ['auth:admin,web']], function () {
+Route::group(['prefix' => 'admin','middleware' => ['auth:admin,web']], function () {
 
     // Route::resource('devices', DeviceController::class);
 
@@ -267,10 +274,10 @@ Route::group(['prefix' => 'Request', 'middleware' => ['auth:admin,web']], functi
 //     Route::get('maintenance/data', [RequestDeviceMedicalController::class, 'data'])->name('Requestmaintenances.data');
 // });
 
-Route::group(['prefix' => 'Request', 'middleware' => ['auth:admin,web']], function () {
+// Route::group(['prefix' => 'Request', 'middleware' => ['auth:admin,web']], function () {
 
-    Route::resource('comments', CommentController::class);
-});
+//     Route::resource('comments', CommentController::class);
+// });
 
 Route::group(['prefix' => 'devices', 'middleware' => ['auth:admin,web']], function () {
 

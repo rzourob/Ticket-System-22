@@ -29,13 +29,9 @@ class ViewAdminDeviceController extends Controller
     }
     public function data()
     {
-        // $patients = Department::with(['nationality:id,title_ar','city:id,title_ar'])->select();
         $devices = Device::get();
-
-
         return DataTables::of(Device::query())
             // ->addColumn('record_select', 'admin.users.data_table.record_select')
-
             ->filterColumn('deviceTypes', function ($query, $deviceTypes) {
                 $query->where('deviceTypes', $deviceTypes);
             })
@@ -47,13 +43,6 @@ class ViewAdminDeviceController extends Controller
             ->filterColumn('department_id', function ($query, $department_id) {
                 $query->where('department_id', $department_id);
             })
-
-            // ->filterColumn('created_at', function ($query, $value) {
-            //     list($from, $to) = explode('#', $value);
-            //     // $query->where('created_at', '>=', $from)->where('created_at', '<=', $to);
-            //     $query->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)]);
-            // })
-
 
             ->addColumn('title', function (device $device) {
                 return view('admin.data_table.titleRequest', compact('device'));

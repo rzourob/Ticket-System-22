@@ -283,7 +283,7 @@
         };
             
         let redirectUrl = '/Request/deviceit'
-        update('/admin/xxxxxxx/update/'+id,data);
+        update('/user/xxxxxxx/update/'+id,data);
     }
 </script>
 @endsection

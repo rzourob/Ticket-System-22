@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
-            $table->string('codeDevices');
+            $table->string('codeDevices')->unique();
             $table->string('title');
             $table->string('deviceTypes');
             $table->string('manufacturer');
             $table->string('model');
-            $table->string('sn')->nullable();
+            $table->string('sn')->unique();
             $table->string('supplier');
             $table->string('warranty');
             $table->string('image')->nullable();

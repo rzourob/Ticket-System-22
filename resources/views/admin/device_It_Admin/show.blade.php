@@ -56,41 +56,55 @@
                         <div class="tab-pane fade active show" id="home-07" role="tabpanel"
                             aria-labelledby="home-07-tab">
 
-                            <!-- -->
-           <div class="row invoice-info text-left">
-            <div class="col-sm-4 ">
-            </div>
-            <div class="col-sm-5">
-            </div>
-            <div class="col-sm-3 ">
-
-              {{-- <img class="img-circle img-bordered-sm" height="250" with="150" src="{{Storage::url('public/patients/' . $familydetails->patient->image)}}"  alt="User profile picture"> --}}
-              {{-- <img class="img-circle img-bordered-sm" height="200" with="80"   src="{{Storage::url('public/devices/' . $devices->image ?? '')}}" alt="User profile picture"> --}}
-
-                <div class="form-group">
-                    <div class="form-group">
-                        <img class="profile-user-img img-fluid img-circle"
-                            style="width:200px; height:200px; position:absolute; top:-1px; left:100px; border-radius:50%"
-                            src="{{ Storage::url('public/devices/' . $devices->image ?? '')}}" alt="User profile picture">
+                            <div class="col-sm-12 invoice-col">
+                                <div class="row">
+                                    <div class="col-md-12 mb-60">
+                                <div class="col-sm-12 invoice-col">
+                                    <!-- -->
+                                <div class="row invoice-info text-left">
+                                    <div class="col-sm-4 ">
+                                    </div>
+                                    <div class="col-sm-5">
+                                    </div>
+                                    <div class="col-sm-3 ">
+    
+                                        {{-- <img class="img-circle img-bordered-sm" height="250" with="150" src="{{Storage::url('public/patients/' . $familydetails->patient->image)}}"  alt="User profile picture"> --}}
+                                        {{-- <img class="img-circle img-bordered-sm" height="200" with="80"   src="{{Storage::url('public/devices/' . $devices->image ?? '')}}" alt="User profile picture"> --}}
+    
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <img class="profile-user-img img-fluid img-circle"
+                                                    style="width:200px; height:200px; position:absolute; top:-1px; left:100px; border-radius:50%"
+                                                    src="{{ Storage::url('public/devices/' . $devices->image ?? '') }}"
+                                                    alt="User profile picture">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- -->
-        <br><br><br><br><br><br>
+                                <!-- -->
+
+                            </div>
+                            <br><br><br><br><br><br>
 
                             <!-- -->
                             <div class="row invoice-info">
-                                <div class="col-sm-4 invoice-col">
+                                <div class="col-sm-3 invoice-col">
                                     <address>
                                         <strong></strong><br>
-                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>بار كود الجهاز : {{ $devices->codeDevices }}</strong></h5><br>
-                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>اسم الجهاز : {{ $devices->title }}</strong></h5><br>
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>بار كود الجهاز :
+                                                {{ $devices->codeDevices }}</strong></h5><br>
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>اسم الجهاز :
+                                                {{ $devices->title }}</strong></h5><br>
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong> فترة الضمان :
+                                                    {{ $devices->warranty }}</strong></h5><br>
 
                                     </address>
                                 </div>
                                 <!-- /.col -->
-                                <div class="col-sm-4 invoice-col">
+                                <div class="col-sm-3 invoice-col">
                                     <address>
                                         <strong></strong><br>
                                         <h5 style="font-family: 'Cairo', sans-serif"><strong>نوع الجهاز :
@@ -108,56 +122,48 @@
                                                     </span>
                                                 </td>
                                             </strong></h5><br>
-                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>الشركة المصنعة : {{ $devices->manufacturer }}</strong></h5><br>
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong>الشركة المصنعة :
+                                                {{ $devices->manufacturer }}</strong></h5><br>
+                                        <h5 style="font-family: 'Cairo', sans-serif"><strong> الشركة الموردة :
+                                                    {{ $devices->supplier }}</strong></h5><br>
                                     </address>
                                 </div>
                                 <!-- /.col -->
-                                <div class="col-sm-4 invoice-col">
+                                <div class="col-sm-3 invoice-col">
                                     <strong></strong><br>
-                                    <h5 style="font-family: 'Cairo', sans-serif"><strong>موديل الجهاز : {{ $devices->model }} </strong></h5><br>
-                                    <h5 style="font-family: 'Cairo', sans-serif"><strong>السيريال نمبر: {{ $devices->sn }}</strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong>موديل الجهاز :
+                                            {{ $devices->model }} </strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong>السيريال نمبر:
+                                            {{ $devices->sn }}</strong></h5><br>
                                     <br>
                                 </div>
 
-                                <div class="col-sm-4 invoice-col">
-                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> الشركة الموردة : {{ $devices->supplier }}</strong></h5><br>
+                                {{-- <div class="col-sm-3 invoice-col">
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> الشركة الموردة :
+                                            {{ $devices->supplier }}</strong></h5><br>
 
                                     <br>
-                                </div>
+                                </div> --}}
 
-                                <div class="col-sm-4 invoice-col">
+                                {{-- <div class="col-sm-3 invoice-col">
 
-                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> فترة الضمان : {{ $devices->warranty }}</strong></h5><br>
+                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> فترة الضمان :
+                                            {{ $devices->warranty }}</strong></h5><br>
                                     <br>
-                                </div>
+                                </div> --}}
 
 
                                 <div class="col-sm-12 invoice-col">
                                     <h5 style="font-family: 'Cairo', sans-serif"><strong>ملاحظات: </strong></h5><br>
                                     <h5 style="font-family: 'Cairo', sans-serif"><strong> </strong></h5><br>
                                     <br>
-                                    {{-- <b>Order ID:</b> 4F3S8J<br>
-              <b>Payment Due:</b> 2/22/2014<br>
-              <b>Account:</b> 968-34567 --}}
 
-                                    {{-- <div  class="col-md-12 text-center card-footer">
-                  <a class="btn btn-primary btn-outline backForm btn-lg " href="{{ route('patients.index') }}"
-                  type="button">العودة الى قائمة المرضى
-                      </a> 
-
-              </div> --}}
                                     <div class="row no-print col-md-12 text-center table-responsive p-20">
                                         <div class="col-12">
-                                            {{-- <a href="{{ route('patients.show',$patients->id) }}" rel="noopener" target="_blank" class="btn btn-info btn-outline btn-lg">
-                    <i class="fas fa-print"></i> طباعة الملف</a> --}}
-                                            {{-- <button class="btn btn-danger  float-left mt-3 mr-2" id="print_Button" onclick="printDiv()"> 
-                      <i class="mdi mdi-printer ml-1"></i>طباعة</button> --}}
-
-
-                                            <a class="btn btn-primary btn-outline backForm btn-lg " href="#"
+                                            <a class="btn btn-primary btn-outline backForm btn-lg " href="{{ route('admin.DevicesIt') }}"
                                                 type="button">العودة الى قائمة الرئيسية
                                             </a>
-                                        </div>
+                                        </div>   
                                     </div>
 
                                 </div>
@@ -168,8 +174,8 @@
                         <div class="tab-pane fade" id="profile-07" role="tabpanel" aria-labelledby="profile-07-tab">
 
                             @foreach ($deviceMovements as $deviceMovement)
-                                <div class="card mt-3" >
-                                    <h5 class="card-header" style="font-family: 'Cairo', sans-serif" >
+                                <div class="card mt-3">
+                                    <h5 class="card-header" style="font-family: 'Cairo', sans-serif">
                                         {{ $deviceMovement->title }}
 
                                         <span class="badge rounded-pill bg-warning text-dark">

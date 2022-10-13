@@ -52,15 +52,15 @@ class CommentController extends Controller
         $validator = Validator($request->all(), [
 
             // 'title' => 'required| string|min:3| max:35',
-            // 'title_en' => 'required| string|min:3| max:35',
-            // 'active' => 'required|boolean'
+            'body' => 'required| string|min:3| max:100',
+            'newLocation' => 'required|string'
 
-        ],[
+        ], [
 
 
-        //    'title.required' => 'الرجاء ادخال اسم القسم باللغة العربية',
-        //    'title_en.required' => 'الرجاء ادخال اسم القسم باللغة الانجيلزية',
-
+               'body.required' => 'الرجاء أضافة تعليق على طلب الصيانة ',
+            //    'body.required' => 'الرجاء ادخال اسم القسم باللغة الانجيلزية',
+               'newLocation.required' => 'الرجاء تحديد حالة التذكرة',
 
         ]);
 

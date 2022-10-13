@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable();
             $table->enum('new_status',['Todo','Done'])->default('Todo');
             $table->text('body');
+            $table->string('Created_by');
             $table->foreign('user_id')->on('users')->references('id');
             $table->foreign('maintenancerequest_id')->on('maintenancerequests')->references('id');
             $table->timestamps();

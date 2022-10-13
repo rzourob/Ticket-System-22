@@ -39,7 +39,7 @@ preloader -->
 login-->
 
     <section class="height-100vh d-flex align-items-center page-section-ptb login"
-             style="background-image: url('{{ asset('assets/images/sativa.png')}}');">
+             style="background-image: url('{{ asset('assets/images/ss/aass.png')}}'); background-size:cover; background-repeate: ni-repeate ;" alt="">
         <div class="container">
             <div class="row justify-content-center no-gutters vertical-align">
                 <div class="col-lg-4 col-md-6 login-fancy-bg bg"
@@ -60,10 +60,10 @@ login-->
                             <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول رئيس قسم</h3>
                         @elseif($type == 'technician')
                             <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول  فني الصيانة</h3>
-                        @elseif($type == 'teacher')
-                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول معلم</h3>
+                        {{-- @elseif($type == 'teacher')
+                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول معلم</h3> --}}
                         @else
-                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول ادمن</h3>
+                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول مدير النظام</h3>
                         @endif
                         <form method="POST" action="{{route('login')}}">
                             @csrf

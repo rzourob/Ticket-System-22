@@ -81,6 +81,19 @@
 <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
 <script src="{{asset('admin/plugins/select2/js/select2.full.min.js')}}"></script>
     
+{{-- <script>
+
+    function performStore(){
+        let data = {
+            maintenancerequest_id: document.getElementById('maintenancerequest_id').value,
+            body: document.getElementById('body').value,
+            new_status: document.getElementById('new_status').value,
+
+        };
+            
+        store('/user/cmments/{id}',data);
+    }
+</script> --}}
 <script>
 
     function performStore(){
@@ -91,7 +104,7 @@
 
         };
             
-        store('/Request/comments',data);
+        store('/user/cmments/store',data);
     }
 </script>
 

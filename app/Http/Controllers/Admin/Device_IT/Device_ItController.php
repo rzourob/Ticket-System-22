@@ -33,7 +33,6 @@ class Device_ItController extends Controller
     }
     public function data()
     {
-        // $patients = Department::with(['nationality:id,title_ar','city:id,title_ar'])->select();
         $devices =  Device::where('deviceTypes', 2);
 
 
@@ -51,13 +50,6 @@ class Device_ItController extends Controller
             ->filterColumn('department_id', function ($query, $department_id) {
                 $query->where('department_id', $department_id);
             })
-
-            // ->filterColumn('created_at', function ($query, $value) {
-            //     list($from, $to) = explode('#', $value);
-            //     // $query->where('created_at', '>=', $from)->where('created_at', '<=', $to);
-            //     $query->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)]);
-            // })
-
 
             ->addColumn('title', function (device $device) {
                 return view('admin.device_It_Admin.data_table.titleRequest', compact('device'));
@@ -96,8 +88,6 @@ class Device_ItController extends Controller
 
     public function create()
     {
-        //
-
         $departments = Department::where('active', true)->get();
         $subdepartments = SubDepartment::where('active', true)->get();
         return response()->view('admin.device_It_Admin.create', [
@@ -106,12 +96,6 @@ class Device_ItController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
@@ -134,6 +118,7 @@ class Device_ItController extends Controller
             'deviceTypes.required' => 'الرجاء تحديد نوع الجهاز',
             'title.required' => 'الرجاء أدخال اسم الجهاز',
             'sn.required' => 'الرجاء ادخال السيريال نمبر الخاص بالجهاز',
+            'sn.unique' => 'الرجاء ادخال اسم الشركة ?????????',
             'department_id.required' => 'الرجاء اختيار القسم',
             'room.required' => 'الرجاء ادخال رقم الغرفة',
             'manufacturer.required' => 'الرجاء ادخال اسم الشركة المصنعة',
@@ -180,22 +165,12 @@ class Device_ItController extends Controller
         }
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
         $devices  = Device::where('id', $id)->first();
-
         $departments = Department::get();
-
         $subdepartments = SubDepartment::get();
-
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
 
         return response()->view('admin.device_It_Admin.show', [
@@ -207,12 +182,6 @@ class Device_ItController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
@@ -237,14 +206,6 @@ class Device_ItController extends Controller
         return response()->view('admin.device_It_Admin.device_movement', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Device $device,$id)
     {
         //
@@ -266,7 +227,6 @@ class Device_ItController extends Controller
 
         if (!$validator->fails()) {
 
-            // $device->codeDevices = $request->get('codeDevices');
             $device = Device::findOrFail($id);
             $device->codeDevices = $request->get('codeDevices');
             $device->title = $request->get('title');
@@ -291,27 +251,19 @@ class Device_ItController extends Controller
                     $request->file('image')->storePubliclyAs('devices', $imageName , ['disk'=>'public']);
                     $device->image = $imageName; 
                }
-            //     // $devicedetail->image = $file_name;
-
-
             $isSaved = $device->save();
-
             return response()->json(['message' => $isSaved ? "تم تحديث  البيانات" : "فشل تحديث البيانات"], $isSaved ? 201 : 400);
         } else {
             return response()->json(['message' => $validator->getMessageBag()->first()], 400);
             //    return response()->json(['message' => "Failed to save"], 400);
         }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
+
+
+        
     }
 
     public function getdetail($id)

@@ -15,56 +15,66 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        //
-        Permission::create(['name' => 'Create-Admin', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Edit-Admin', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Index-Admin', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Admin', 'guard_name' => 'admin']);
+        //أضافة مدير للنظام
+        Permission::create(['name' => 'أضافة مدير', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'تعديل بيانات مدير', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض قائمة حسابات المدراء', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'حذف حساب مدير', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-User', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Edit-User', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Index-User', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-User', 'guard_name' => 'admin']);
+        //أضافة رئيس قسم للنظام
+        Permission::create(['name' => 'أضافة رئيس قسم', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'تعديل بيانات رئيس قسم', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض قائمة حسابات رئساء الأقسام', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'حذف حساب رئيس قسم', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Deives', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Edit-Deives', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Index-Deives', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Deives', 'guard_name' => 'admin']);
+        //أضافة رئيس قسم للنظام
+        Permission::create(['name' => 'أضافة جهازجديد', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'تعديل بيانات جهاز', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض قائمةالأجهزة', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'حذف جهاز', 'guard_name' => 'admin']);
         Permission::create(['name' => 'View-Deives', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Roles', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Edit-Roles', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Index-Roles', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Roles', 'guard_name' => 'admin']);
+        //أضافة مسؤوليات
+        Permission::create(['name' => 'أضافة مسؤولية', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'تعديل بيانات مسؤولية', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض قائمة المسؤوليات', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'حذف مسؤولية', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Permissions', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Edit-Permissions', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Index-Permissions', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Permissions', 'guard_name' => 'admin']);
+        //أضافة صلاحيات
+        Permission::create(['name' => 'أضافة صلاحية', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'تعديل بيانات صلاحية', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض قائمة الصلاحيات', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'حذف صلاحية', 'guard_name' => 'admin']);
 
-
+        //أضافة صلاحيات
         Permission::create(['name' => 'View-IT', 'guard_name' => 'admin']);
         Permission::create(['name' => 'View-Medical', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'View-departments', 'guard_name' => 'admin']);
         Permission::create(['name' => 'View-Subdepartments', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Edit-departments', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-departments', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Show-departments', 'guard_name' => 'admin']);
+        //أضافة صلاحيات
         Permission::create(['name' => 'Index-R-Man.', 'guard_name' => 'admin']);
 
+        //أضافة صلاحيات
         Permission::create(['name' => 'View-R-Man.', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Delete-R-Man.', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Edit-R-Man.	', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Create-R-Man.-IT', 'guard_name' => 'admin']);
 
+        //أضافة صلاحيات
         Permission::create(['name' => 'Create-R-Man.-Medical', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Dep-Medical', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Create-Request	', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Detiles-Deives', 'guard_name' => 'admin']);
 
+        //أضافة صلاحيات
         Permission::create(['name' => 'Movements-Deives', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Detiles', 'guard_name' => 'admin']);
+
+        //أضافة قسم للنظام
+        Permission::create(['name' => 'View-departments', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'تعديل بيانات قسم', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'حذف قسم', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Show-departments', 'guard_name' => 'admin']);
 
 
         // Permission::create(['name' => 'Create-Professional', 'guard_name' => 'admin']);

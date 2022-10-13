@@ -8,7 +8,7 @@
 				عرض تفاصيل التذكرة</a>
 
 
-		<a class="dropdown-item" href="{{ route('user.cmmentShow',$id) }}"><i class="fa fa-eye" aria-hidden="true"></i>
+		<a class="dropdown-item" href="{{ route('user.cmmentShowIt.data',$id) }}"><i class="fa fa-eye" aria-hidden="true"></i>
 			أضافة رد</a>
 
 		{{-- <a class="dropdown-item" href="#" onclick="performDestroy({{$id}}, this)  " class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>

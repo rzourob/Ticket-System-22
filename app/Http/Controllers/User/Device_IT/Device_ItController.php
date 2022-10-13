@@ -111,6 +111,8 @@ class Device_ItController extends Controller
         $devices = Device::where('id', $id)->first();
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
 
-        return response()->view('users.device_It_User.movement', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
+        return response()->view('users.device_It_User.movement', [
+        'devices' => $devices, 
+        'deviceMovements' => $deviceMovements]);
     }
 }

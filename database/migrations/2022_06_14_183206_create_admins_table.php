@@ -20,9 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('status', 10);
-            $table->string('image')->default('asset\admin\dist\img\avatar5.png');
-            // $table->foreignId('role_id');
-            // $table->foreign('role_id')->on('roles')->references('id');
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

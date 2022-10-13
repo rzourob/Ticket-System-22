@@ -33,7 +33,6 @@ class Device_MedicalController extends Controller
     }
     public function data()
     {
-        // $patients = Department::with(['nationality:id,title_ar','city:id,title_ar'])->select();
         $devices =  Device::where('deviceTypes', 1);
 
 
@@ -51,13 +50,6 @@ class Device_MedicalController extends Controller
             ->filterColumn('department_id', function ($query, $department_id) {
                 $query->where('department_id', $department_id);
             })
-
-            // ->filterColumn('created_at', function ($query, $value) {
-            //     list($from, $to) = explode('#', $value);
-            //     // $query->where('created_at', '>=', $from)->where('created_at', '<=', $to);
-            //     $query->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)]);
-            // })
-
 
             ->addColumn('title', function (device $device) {
                 return view('admin.device_Medical_Admin.data_table.titleRequest', compact('device'));
@@ -93,8 +85,6 @@ class Device_MedicalController extends Controller
             ->rawColumns(['actions'])
             ->toJson();
     } // end of data
-
-
 
     public function create()
     {
@@ -177,11 +167,8 @@ class Device_MedicalController extends Controller
     {
         //
         $devices  = Device::where('id', $id)->first();
-
         $departments = Department::get();
-
         $subdepartments = SubDepartment::get();
-
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
 
         return response()->view('admin.device_Medical_Admin.show', [
@@ -195,8 +182,6 @@ class Device_MedicalController extends Controller
 
     public function edit($id,Device $device)
     {
-        //
-        // $devices = Device::findOrFail($id);
         $devices = Device::findOrFail($id);
         $departments = Department::where('active', true)->get();
         $subdepartments = SubDepartment::where('active', true)->get();
@@ -210,7 +195,6 @@ class Device_MedicalController extends Controller
 
     public function update(Request $request,Device $device,$id)
     {
-        //
         $validator = Validator($request->all(), [
 
             // 'title' => 'required| string',
@@ -266,12 +250,6 @@ class Device_MedicalController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

@@ -43,7 +43,6 @@ class Request_Maintenance_ItController extends Controller
 
             // ->addColumn('record_select', 'admin.users.data_table.record_select')tiket_no
 
-
             ->filterColumn('status', function ($query, $status) {
                 $query->where('status', $status);
             })
@@ -142,7 +141,7 @@ class Request_Maintenance_ItController extends Controller
 
         ], [
 
-            'author_name.required'  => 'الرجاء أدخال اسم المرسل   ',
+            'author_name.required'  => 'الرجاء أدخال اسم المرسل',
             'author_email.required' => 'الرجاء أضافة البريد الاكتروني',
             'mobile.required'                => 'الرجاء ادخل رقم الموبايل',
             'deviceTypes.required'  => 'الرجاء أختار نوع الجهاز   ',
@@ -150,8 +149,6 @@ class Request_Maintenance_ItController extends Controller
             'title.required'        =>'الرجاء أضافة عنوان للمشكلة',
             'content.required'      => 'الرجاء أضافة وصف مختصر للمشكلة',
             // 'department.required' => 'الرجاء أختار القسم ',
-
-
         ]);
         if (!$validator->fails()) {
 

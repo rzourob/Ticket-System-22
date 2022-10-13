@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Dashborad\DashbordController;
 use App\Http\Controllers\User\Device_IT\Device_ItController;
 use App\Http\Controllers\User\Device_Medical\Device_MedicalController;
@@ -80,17 +81,23 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
     Route::get('Maintenances_It/data', [Request_Maintenance_ItController::class, 'data'])->name('user.View_Request_IT.data');
 
-    Route::get('details/{id}', [Request_Maintenance_ItController::class, 'show'])->name('user.Details_IT.show');
+    Route::get('detail/{id}', [Request_Maintenance_ItController::class, 'show'])->name('user.Details_IT.show');
 
     Route::get('Maintenances_It/{id}', [Request_Maintenance_ItController::class, 'edit'])->name('user.Request_IT.edit');
 
-    // Route::PUT('xxxxxxx/update/{id}',[Request_Maintenance_ItController::class,'update'])->name('user.Request_Device_It.update');
+    Route::PUT('xxxxxxx/update/{id}',[Request_Maintenance_ItController::class,'update'])->name('user.Request_Device_It.update');
 
     Route::get('Maintenance_It/create',[Request_Maintenance_ItController::class, 'create'])->name('user.Device_It.create');
 
     Route::post('maintenances_It/store',[Request_Maintenance_ItController::class, 'store'])->name('user.Request_Device_It.store');
 
-    Route::get('cmments/{id}', [Request_Maintenance_ItController::class, 'comment_show'])->name('user.cmmentShow');
+    Route::get('cmments/{id}', [Request_Maintenance_ItController::class, 'comment_show'])->name('user.cmmentShowIt.data');
+
+    Route::post('cmments/store', [CommentController::class, 'store'])->name('user.Request_Device_It_cmments.store');
+
+
+    
+    
 
 
 
@@ -102,13 +109,16 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
     Route::get('Maintenances_Medical/{id}', [Request_Maintenance_MedicalController::class, 'edit'])->name('user.Request_Medical.edit');
 
-    // Route::PUT('xxxxxxx/update/{id}',[Request_Maintenance_ItController::class,'update'])->name('user.Request_Device_It.update');
+    Route::PUT('xxxxxxx/update/{id}',[Request_Maintenance_ItController::class,'update'])->name('user.Request_Device_It.update');
 
     Route::get('Maintenance_Medical/create',[Request_Maintenance_MedicalController::class, 'create'])->name('user.Device_Medical.create');
 
     Route::post('maintenances_Medical/store',[Request_Maintenance_MedicalController::class, 'store'])->name('user.Request_Device_Medical.store');
 
-    Route::get('cmments/{id}', [Request_Maintenance_MedicalController::class, 'comment_show'])->name('user.cmmentShow');
+    Route::get('cmment/{id}', [Request_Maintenance_MedicalController::class, 'comment_show'])->name('user.cmmentShowMed.data');
+
+    // Route::post('cmments/store', [CommentController::class, 'store'])->name('user.Request_Device_Medical_cmments.store');
+
 
 
 

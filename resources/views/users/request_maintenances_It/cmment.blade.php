@@ -91,7 +91,7 @@
 
         };
             
-        store('/Request/comments',data);
+        store('/user/cmments/store',data);
     }
 </script>
 
