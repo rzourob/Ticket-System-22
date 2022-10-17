@@ -65,9 +65,9 @@
                             <!-- select -->
                             <div class="form-group ">
                                 <label> حالة التذكرة </label>
-                                <select class="custom-select" id="deviceTypes">
+                                <select class="custom-select" id="status">
                                     <option value=""> اختارح حالة التذكرة</option>
-                                    <option value="Deno">انتهت</option>
+                                    <option value="Done">انتهت</option>
                                     <option value="Todo">جاري العمل عليها</option>
                                 </select>
                             </div>
@@ -203,7 +203,7 @@
         request_maintenances_MedicalTable.search(this.value).draw();
     })
 
-    $('#deviceTypes').change(function() {
+    $('#status').change(function() {
         $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -4);
     });
 
@@ -247,7 +247,7 @@
 
         function getSubdepartments(departmentId) {
             // axios.get(`/admin/departments/${departmentId}`)   
-            axios.get(`/departments/${departmentId}`)
+            axios.get(`/admin/departments/${departmentId}`)
                 .then(function(response) {
                     console.log(response);
                     if (response.data.subDepartment.length != 0) {

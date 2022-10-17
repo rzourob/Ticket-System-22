@@ -54,9 +54,9 @@
                                 <label> حالة الوحدة</label>
                                 <select class="custom-select" id="subdepartments">
                                     <option value="">يرجي أختيار اسم الوحدة</option>
-                                    @foreach ($subdepartments as $subdepartment)
+                                    {{-- @foreach ($subdepartments as $subdepartment)
                                         <option value="{{ $subdepartment->id }}">{{ $subdepartment->title }}</option>
-                                    @endforeach
+                                    @endforeach --}}
                                 </select>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                                 <label> حالة التذكرة </label>
                                 <select class="custom-select" id="status">
                                     <option value=""> اختارح حالة التذكرة</option>
-                                    <option value="Deno">انتهت</option>
+                                    <option value="Done">انتهت</option>
                                     <option value="Todo">جاري العمل عليها</option>
                                 </select>
                             </div>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table id="request_maintenances_It" class="table table-striped table-bordered p-0" class="table datatable">
+                    <table id="request_maintenances_Medical" class="table table-striped table-bordered p-0" class="table datatable">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -131,7 +131,7 @@
 @section('js')
 
 <script>
-    let request_maintenances_ItTable = $('#request_maintenances_It').DataTable({
+    let request_maintenances_MedicalTable = $('#request_maintenances_Medical').DataTable({
         dom: "tiplr",
         responsive: true,
         serverSide: true,
@@ -199,40 +199,40 @@
     });
 
     $('#requests-table-search').keyup(function() {
-        request_maintenances_ItTable.search(this.value).draw();
+        request_maintenances_MedicalTable.search(this.value).draw();
     })
 
     $('#status').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -4);
+        $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -4);
     });
 
 
-    $('#subdepartments').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -5);
-    });
-
-    $('#departments').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
-    });
+    // $('#subdepartments').change(function() {
+    //     $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -4);
+    // });
 
     $('#departments').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
+        $('#request_maintenances_Medical').dataTable().fnFilter($(this).val(), -5);
     });
 
-    $('#fromDate').change(function() {
-        var toDate = $('#toDate').val();
-        if (toDate.length > 0)
-            $('#request_maintenances_It').dataTable().fnFilter($(this).val() + '#' + toDate, -2);
-    });
+    // $('#departments').change(function() {
+    //     $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
+    // });
 
-    $('#toDate').change(function() {
-        var fromDate = $('#fromDate').val();
-        if (fromDate.length > 0)
-            $('#request_maintenances_It').dataTable().fnFilter(fromDate + '#' + $(this).val(), -2);
-    });
+    // $('#fromDate').change(function() {
+    //     var toDate = $('#toDate').val();
+    //     if (toDate.length > 0)
+    //         $('#request_maintenances_Medical').dataTable().fnFilter($(this).val() + '#' + toDate, -2);
+    // });
+
+    // $('#toDate').change(function() {
+    //     var fromDate = $('#fromDate').val();
+    //     if (fromDate.length > 0)
+    //         $('#request_maintenances_Medical').dataTable().fnFilter(fromDate + '#' + $(this).val(), -2);
+    // });
 </script>
 
-<script>
+{{-- <script>
     $('#subdepartments').attr('disabled', true);
     $('#departments').on('change', function() {
         $('#subdepartments').attr('disabled', this.value == -1);
@@ -246,7 +246,7 @@
 
         function getSubdepartments(departmentId) {
             // axios.get(`/admin/departments/${departmentId}`)   
-            axios.get(`/departments/${departmentId}`)
+            axios.get(`/admin/departments/${departmentId}`)
                 .then(function(response) {
                     console.log(response);
                     if (response.data.subDepartment.length != 0) {
@@ -260,6 +260,6 @@
                 })
         }
     })
-</script>
+</script> --}}
 
 @endsection

@@ -54,7 +54,7 @@
                             <div class="form-group ">
                                 <label>الوحدة</label>
                                 <select class="custom-select" id="subdepartments">
-                                    <option value="">يرجي أختيار اسم الوحدة</option>
+                                    <option value=""> أختيار  الوحدة</option>
                                     {{-- @foreach ($subdepartments as $subdepartment)
                                     <option value="{{$subdepartment->id}}">{{$subdepartment->title}}</option>
                                     @endforeach --}}
@@ -250,7 +250,7 @@
 
         function getSubdepartments(departmentId) {
             // axios.get(`/admin/departments/${departmentId}`)   
-            axios.get(`/departments/${departmentId}`)
+            axios.get(`/admin/departments/${departmentId}`)
                 .then(function(response) {
                     console.log(response);
                     if (response.data.subDepartment.length != 0) {

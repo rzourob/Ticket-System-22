@@ -17,48 +17,54 @@ class DashbordController extends Controller
         return view('auth.selection');
     }
 
-
     public function dashboard()
     {
-        // return view('adminLogin.dashboard');
-        // $itTicketCount =   MaintenanceRequest :: select(DB :: raw("COUNT(*) as count"))
-        // ->whereYear('created_at',date('Y'))
-        // ->groupBy(DB :: raw("Month(created_at)"))
-        // ->pluck('count');
 
-        // $months =   MaintenanceRequest :: select(DB :: raw("Month(created_at) as month"))
-        // ->whereYear('created_at',date('Y'))
-        // ->groupBy(DB :: raw("Month(created_at)"))
-        // ->pluck('month');
+        $months =   MaintenanceRequest :: select(DB :: raw("COUNT(*) as count"),DB :: raw("Month(created_at) as month"))
+        ->whereYear('created_at',date('Y'))
+        ->groupBy(DB :: raw("Month(created_at)"))
+        ->get('month','count')->toArray();
 
-        // $datas = array(0,0,0,0,0,0,0,0,0,0,0,0);
+$data =[];
+for ($i =1 ; $i<=12 ; $i++ )
+{
+    $ee= array_search($i,array_column($months,'month'));
+    if($ee === false){
+        $data[$i] = 0;
+    
+    }
+    else{
 
-        // foreach($months as $index =>$month){
-        //     $datas[$month] = $itTicketCount[$index];
-        // }
+        $data[$i] = $months[array_search($i,array_column($months,'month'))]['count'];
+    }
+}
 
-        // $maintenanceRequests = MaintenanceRequest::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
-        //             ->whereYear('created_at', date('Y'))
-        //             ->groupBy(DB::raw("Month(created_at)"))
-        //             ->pluck('count', 'month_name');
- 
-        // $labels = $maintenanceRequests->keys();
-        // $data = $maintenanceRequests->values();
+//////
 
-        $data = MaintenanceRequest :: select ('id','created_at')->get()
-        ->groupBy(function($data){
-            return  Carbon:: parse($data->created_at)->format('M');
-        });
+$dataTodo =   MaintenanceRequest :: select(DB :: raw("COUNT(*) as count"),DB :: raw("Month(created_at) as month"))
+->whereYear('created_at',date('Y'))
+->where('status','Done')
+->groupBy(DB :: raw("Month(created_at)"))
+->get('month','count')->toArray();
 
-        $months =[];
-        $monthCount = [];
-        foreach($data as $month => $values){
-            $months[] = $month;
-            $monthCount[] = count($values);
-        }
+$data2 =[];
+for ($i =1 ; $i<=12 ; $i++ )
+{
+$ss= array_search($i,array_column($dataTodo,'month'));
+if($ss === false){
+$data2[$i] = 0;
+
+}
+else{
+
+$data2[$i] = $dataTodo[array_search($i,array_column($dataTodo,'month'))]['count'];
+}
+}
+
+// dd($data);
 
         
-        return view('admin.adminLogin.dashboard', ['data'=>$data ,'months'=>$months,'monthCount'=>$monthCount]);
+        return view('admin.adminLogin.dashboard', ['aaa'=>$data ,'ttt'=>$data2]);
     }
 
     

@@ -1,3 +1,3 @@
 {{$maintenancerequest->title}}
 
-{{$maintenancerequest->tiket_no}}
+{{-- {{$maintenancerequest->tiket_no}} --}}

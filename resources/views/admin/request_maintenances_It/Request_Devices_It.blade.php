@@ -51,7 +51,7 @@
                         <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
-                                <label> حالة الوحدة</label>
+                                <label> أختار الوحدة</label>
                                 <select class="custom-select" id="subdepartments">
                                     <option value="">يرجي أختيار اسم الوحدة</option>
                                     @foreach ($subdepartments as $subdepartment)
@@ -65,9 +65,9 @@
                             <!-- select -->
                             <div class="form-group ">
                                 <label> حالة التذكرة </label>
-                                <select class="custom-select" id="deviceTypes">
+                                <select class="custom-select" id="status">
                                     <option value=""> اختارح حالة التذكرة</option>
-                                    <option value="Deno">انتهت</option>
+                                    <option value="Done">انتهت</option>
                                     <option value="Todo">جاري العمل عليها</option>
                                 </select>
                             </div>
@@ -161,10 +161,6 @@
                 data: 'department_id',
                 name: 'department_id'
             },
-            // {
-            //     data: 'sub_department_id',
-            //     name: 'sub_department_id'
-            // },
             {
                 data: 'status',
                 name: 'status'
@@ -202,21 +198,21 @@
         request_maintenances_ItTable.search(this.value).draw();
     })
 
-    $('#deviceTypes').change(function() {
+    $('#status').change(function() {
         $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -4);
     });
 
 
-    $('#subdepartments').change(function() {
+    // $('#subdepartments').change(function() {
+    //     $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -5);
+    // });
+
+    // $('#departments').change(function() {
+    //     $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
+    // });
+
+    $('#departments').change(function() {
         $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -5);
-    });
-
-    $('#departments').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
-    });
-
-    $('#departments').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
     });
 
     $('#fromDate').change(function() {
@@ -246,7 +242,7 @@
 
         function getSubdepartments(departmentId) {
             // axios.get(`/admin/departments/${departmentId}`)   
-            axios.get(`/departments/${departmentId}`)
+            axios.get(`/admin/departments/${departmentId}`)
                 .then(function(response) {
                     console.log(response);
                     if (response.data.subDepartment.length != 0) {

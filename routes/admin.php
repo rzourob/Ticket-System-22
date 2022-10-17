@@ -36,12 +36,14 @@ use App\Mail\WelcomeEmail;
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
-    Route::get('dashboard', function () {
-        return view('admin.adminLogin.dashboard');
+    // Route::get('dashboard', function () {
+    //     return view('admin.adminLogin.dashboard');
+
+       
 
 
-
-    });
+    // });
+    Route::get('dashboard', [DashbordController::class,'dashboard'] );
 
 
 
@@ -274,10 +276,10 @@ Route::group(['prefix' => 'Request', 'middleware' => ['auth:admin,web']], functi
 //     Route::get('maintenance/data', [RequestDeviceMedicalController::class, 'data'])->name('Requestmaintenances.data');
 // });
 
-// Route::group(['prefix' => 'Request', 'middleware' => ['auth:admin,web']], function () {
+Route::group(['prefix' => 'Request', 'middleware' => ['auth:admin,web']], function () {
 
-//     Route::resource('comments', CommentController::class);
-// });
+    Route::resource('comments', CommentController::class);
+});
 
 Route::group(['prefix' => 'devices', 'middleware' => ['auth:admin,web']], function () {
 

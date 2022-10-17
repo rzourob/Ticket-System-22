@@ -118,6 +118,8 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
     Route::get('cmment/{id}', [Request_Maintenance_MedicalController::class, 'comment_show'])->name('user.cmmentShowMed.data');
 
     // Route::post('cmments/store', [CommentController::class, 'store'])->name('user.Request_Device_Medical_cmments.store');
+    
+    Route::get('/getdetails/{id}', [DeviceController::class, 'getdetail']);
 
 
 

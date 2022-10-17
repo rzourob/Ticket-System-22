@@ -246,7 +246,7 @@
 
         function getSubdepartments(departmentId) {
             // axios.get(`/admin/departments/${departmentId}`)   
-            axios.get(`/departments/${departmentId}`)
+            axios.get(`/admin/departments/${departmentId}`)
                 .then(function(response) {
                     console.log(response);
                     if (response.data.subDepartment.length != 0) {

@@ -43,9 +43,9 @@
                             <a class="nav-link" id="profile-07-tab" data-toggle="tab" href="#profile-07" role="tab"
                                 aria-controls="profile-07" aria-selected="false">تنقلات الجهاز</a>
                         </li>
-                        {{-- <li class="nav-item">
-                              <a class="nav-link" id="portfolio-07-tab" data-toggle="tab" href="#portfolio-07" role="tab" aria-controls="portfolio-07" aria-selected="false"><i class="fa fa-picture-o"></i> Portfolio </a>
-                            </li> --}}
+                        <li class="nav-item">
+                              <a class="nav-link" id="portfolio-07-tab" data-toggle="tab" href="#portfolio-07" role="tab" aria-controls="portfolio-07" aria-selected="false"><i class="fa fa-picture-o"></i> عمليات الصيانة </a>
+                            </li>
                         {{-- <li class="nav-item">
                               <a class="nav-link" id="contact-07-tab" data-toggle="tab" href="#contact-07" role="tab" aria-controls="contact-07" aria-selected="false"><i class="fa fa-check-square-o"></i> Contact </a>
                             </li> --}}
@@ -214,12 +214,7 @@
                             @endforeach
                         </div>
                         <div class="tab-pane fade" id="portfolio-07" role="tabpanel" aria-labelledby="portfolio-07-tab">
-                            <p>Benjamin Franklin, inventor, statesman, writer, publisher and economist relates in his
-                                autobiography that early in his life he decided to focus on arriving at moral
-                                perfection. He made a list of 13 virtues, assigning a page to each. Under each virtue he
-                                wrote a summary that gave it fuller meaning. Then he practiced each one for a certain
-                                length of time. To make these virtues a habit, Franklin can up with a method to grade
-                                himself on his daily actions.</p>
+                            <p>جاري العمل على تجهيز هذا القسم</p>
                         </div>
                         <div class="tab-pane fade" id="contact-07" role="tabpanel" aria-labelledby="contact-07-tab">
                             <p>The other virtues practice in succession by Franklin were silence, order, resolution,

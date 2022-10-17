@@ -305,7 +305,7 @@
 
             // axios.get(`/admin/departments/${departmentId}`)
 
-            axios.get(`/departments/${departmentId}`)
+            axios.get(`/admin/departments/${departmentId}`)
 
 
                 .then(function(response) {
@@ -361,7 +361,7 @@
             e.preventDefault();
             if (sn.value.length === 9) {
                 $.ajax({
-                    url: "{{ URL::to('getdetails') }}/" + sn.value,
+                    url: "{{ URL::to('admin/getdetails') }}/" + sn.value,
                     type: "GET",
                     dataType: "json",
                     success: function(data) {
@@ -398,4 +398,5 @@
 
     });
 </script>
+
 @endsection

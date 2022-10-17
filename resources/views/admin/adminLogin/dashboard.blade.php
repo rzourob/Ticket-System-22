@@ -113,13 +113,13 @@ wrapper -->
             <div class="card-body">
                 <div class="row">
                     <div class="col-xl-6">
-                        <h5 class="card-title">أحصائيات سنوية</h5>
-                        <canvas id="myChart" width="800" height="200"></canvas>
+                        <h5 class="card-title">عدد التذاكر المنتهية</h5>
+                        <canvas id="myChart" width="700" height="400"></canvas>
                       </div>
 
                       <div class="col-xl-6">
-                        <h5 class="card-title">أحصائيات سنوية</h5>
-                        <canvas id="myChart2" width="450" height="200"></canvas>
+                        <h5 class="card-title">أحصائيات شهرية</h5>
+                        <canvas id="myChart2" width="700" height="400"></canvas>
                       </div>
                 </div>
             </div>
@@ -222,18 +222,22 @@ wrapper -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+  
+
 
   <script>
+    var qq = '{!!json_encode( array_values($aaa)) !!}'
+    var manths = $.parseJSON(qq);
+
+    // console.log(qq);
     const ctx = document.getElementById('myChart2').getContext('2d');
     const myChart2 = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
             datasets: [{
-                label: 'نسبة ',
-                data: [{{ \App\Models\Maintenance\MaintenanceRequest::query()->where('status', 'Todo')->count()}},
-                {{ \App\Models\Maintenance\MaintenanceRequest::query()->where('status', 'Done')->count()}},60
-                      ],
+                label: 'نسبة التذاكر الشهرية ',
+                data: manths,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -262,6 +266,50 @@ wrapper -->
         }
     });
     </script>
+
+
+
+<script>
+  var xx = '{!!json_encode( array_values($ttt)) !!}'
+  var manths3 = $.parseJSON(xx);
+
+  // console.log(qq);
+  const ctxx= document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctxx, {
+      type: 'bar',
+      data: {
+          labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+          datasets: [{
+              label: 'نسبة التذاكر المنتهية الشهرية ',
+              data: manths3,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+  </script>
 
 
 @endsection

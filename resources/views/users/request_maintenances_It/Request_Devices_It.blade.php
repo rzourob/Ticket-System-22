@@ -38,7 +38,7 @@
                         <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
-                                <label> حالة القسم</label>
+                                <label> أختار القسم</label>
                                 <select class="custom-select" id="departments">
                                     <option value="">أختار القسم</option>
                                     @foreach ($departments as $department)
@@ -51,12 +51,12 @@
                         <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
-                                <label> حالة الوحدة</label>
+                                <label> أختار الوحدة</label>
                                 <select class="custom-select" id="subdepartments">
                                     <option value="">يرجي أختيار اسم الوحدة</option>
-                                    @foreach ($subdepartments as $subdepartment)
+                                    {{-- @foreach ($subdepartments as $subdepartment)
                                         <option value="{{ $subdepartment->id }}">{{ $subdepartment->title }}</option>
-                                    @endforeach
+                                    @endforeach --}}
                                 </select>
                             </div>
                         </div>
@@ -207,16 +207,16 @@
     });
 
 
-    $('#subdepartments').change(function() {
+    // $('#subdepartments').change(function() {
+    //     $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -5);
+    // });
+
+    // $('#departments').change(function() {
+    //     $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
+    // });
+
+    $('#departments').change(function() {
         $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -5);
-    });
-
-    $('#departments').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
-    });
-
-    $('#departments').change(function() {
-        $('#request_maintenances_It').dataTable().fnFilter($(this).val(), -6);
     });
 
     $('#fromDate').change(function() {
@@ -246,7 +246,7 @@
 
         function getSubdepartments(departmentId) {
             // axios.get(`/admin/departments/${departmentId}`)   
-            axios.get(`/departments/${departmentId}`)
+            axios.get(`/admin/departments/${departmentId}`)
                 .then(function(response) {
                     console.log(response);
                     if (response.data.subDepartment.length != 0) {
