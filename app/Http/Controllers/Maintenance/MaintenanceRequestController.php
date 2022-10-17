@@ -299,7 +299,7 @@ class MaintenanceRequestController extends Controller
             'deviceTypes'  => 'required',
             'title'        => 'required| string',
             'content'      => 'required| string',
-            'department'=> 'required', 
+            // 'department'=> 'required', 
 
         ], [
 
@@ -308,7 +308,7 @@ class MaintenanceRequestController extends Controller
             'deviceTypes.required' => 'الرجاء أختار نوع الجهاز   ',
             'title.required' =>'الرجاء أضافة عنوان للمشكلة',
             'content.required' => 'الرجاء أضافة وصف مختصر للمشكلة',
-            'department.required' => 'الرجاء أختار القسم ',
+            // 'department.required' => 'الرجاء أختار القسم ',
 
 
         ]);
