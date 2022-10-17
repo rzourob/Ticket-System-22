@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Dashborad\DashbordController;
-use App\Http\Controllers\Maintenance\MaintenanceRequestController;
 use App\Http\Controllers\User\Device_IT\Device_ItController;
 use App\Http\Controllers\User\Device_Medical\Device_MedicalController;
 use App\Http\Controllers\User\UserLoginController;
@@ -90,7 +89,7 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
     Route::get('Maintenance_It/create',[Request_Maintenance_ItController::class, 'create'])->name('user.Device_It.create');
 
-    Route::post('maintenances_It/store',[MaintenanceRequestController::class, 'store'])->name('user.Request_Device_It.store');
+    Route::post('maintenances_It/store',[Request_Maintenance_ItController::class, 'store'])->name('user.Request_Device_It.store');
 
     Route::get('cmments/{id}', [Request_Maintenance_ItController::class, 'comment_show'])->name('user.cmmentShowIt.data');
 

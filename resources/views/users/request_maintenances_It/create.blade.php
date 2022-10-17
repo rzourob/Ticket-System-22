@@ -345,7 +345,7 @@
             // active: document.getElementById('active').checked,
         };
 
-        store('/user/maintenances_It/store/', data);
+        store('/user/maintenances_It/store', data);
     }
 </script>
 
