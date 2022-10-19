@@ -53,14 +53,14 @@ class CommentController extends Controller
 
             // 'title' => 'required| string|min:3| max:35',
             'body' => 'required| string|min:3| max:100',
-            'newLocation' => 'required|string'
+            // 'newLocation' => 'required'
 
         ], [
 
 
                'body.required' => 'الرجاء أضافة تعليق على طلب الصيانة ',
             //    'body.required' => 'الرجاء ادخال اسم القسم باللغة الانجيلزية',
-               'newLocation.required' => 'الرجاء تحديد حالة التذكرة',
+            //    'newLocation.required' => 'الرجاء تحديد حالة التذكرة',
 
         ]);
 

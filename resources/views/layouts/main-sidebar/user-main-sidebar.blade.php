@@ -3,11 +3,13 @@
         <!-- menu item Dashboard-->
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard">
-                <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">لوحة التحكم</span>
+                <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text" >لوحة التحكم</span>
                 </div>
                 <div class="pull-right"></i></div>
                 <div class="clearfix"></div>
+                
             </a>
+            {{-- <li> <a href="{{ route('user.DevicesMedical') }}">عرض الأجهزة الطبية</a> </li> --}}
         </li>
         <!-- menu title -->
         <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">نظام RMB الأدارة طلبات الصبانة </li>
