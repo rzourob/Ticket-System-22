@@ -117,12 +117,12 @@ wrapper -->
                     <div class="card-body">
                       <h5 class="card-title">أحصائيات شهرية للتذاكر</h5>
                       <div class="row d-flex align-items-center">
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                           <span class="round-chart" data-percent="77" data-width="5" data-color="#84ba3f"> 
                             <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">77</span>
                           <canvas height="160" width="160"></canvas></span>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                           <h2 class="theme-color font-weight-bold">70.45 GB</h2>
                           <small>Current Plan</small>
                           <h5 class="mt-2 text-dark">263 GB Per Month</h5></div>
