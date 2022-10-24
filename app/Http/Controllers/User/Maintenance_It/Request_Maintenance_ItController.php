@@ -175,7 +175,7 @@ class Request_Maintenance_ItController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
-                Mail::to(auth()->user()->department_id)->send(new TicketEmail());
+                Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
                 // $users =User :: all();
 
             //     $admins = Admin::all();
