@@ -334,15 +334,15 @@ class MaintenanceRequestController extends Controller
 
             $isSaved = $maintenancerequests->save();
 
-            if ($isSaved) {
-                // Mail::to('info@ticket.it-rmb.com')->send(new TicketEmail());
-                // $users =User :: all();
+            // if ($isSaved) {
+            //     Mail::to('info@ticket.it-rmb.com')->send(new TicketEmail());
+            //     $users =User :: all();
 
-                // $admins = Admin::all();
-                // foreach ($admins as $admin) {
-                //     Mail::to($admin->email)->send(new TicketEmail());
-                // }
-            }
+            //     $admins = Admin::all();
+            //     foreach ($admins as $admin) {
+            //         Mail::to($admin->email)->send(new TicketEmail());
+            //     }
+            // }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الطلب بنجاح" : "فشل أضافة الطلب"], $isSaved ? 201 : 400);
         } else {

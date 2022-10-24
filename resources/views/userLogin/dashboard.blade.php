@@ -8,7 +8,12 @@
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle')
-    لوحة تحكم رئيس القسم
+<div class="col-sm-6" >
+  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم رئيس قسم</h4>
+  <br>
+  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">اهلا بك {{Auth::user()->name}} في نظام MRB</h4>
+  <br>
+</div>
 
 @endsection
 @section('PageTitle2')
@@ -32,8 +37,8 @@ wrapper -->
               </span>
             </div>
             <div class="float-right text-right">
-              <p class="card-text text-dark">Visitors</p>
-              <h4>{{65,650}}</h4>
+              <p class="card-text text-dark">أجهزة طبية</p>
+              <h4>{{$devicesMedical}}</h4>
             </div>
           </div>
           <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -52,8 +57,8 @@ wrapper -->
               </span>
             </div>
             <div class="float-right text-right">
-              <p class="card-text text-dark">Orders</p>
-              <h4>656</h4>
+              <p class="card-text text-dark">أجهزة تكنولوجيا المعلومات</p>
+              <h4>{{ $devicesIt}}</h4>
             </div>
           </div>
           <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -72,8 +77,8 @@ wrapper -->
               </span>
             </div>
             <div class="float-right text-right">
-              <p class="card-text text-dark">Revenue</p>
-              <h4>$65656</h4>
+              <p class="card-text text-dark">طلبات صيانة تكنلوجيا المعلومات</p>
+              <h4>{{$maintenanceRequestIT}}</h4>
             </div>
           </div>
           <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -92,8 +97,8 @@ wrapper -->
               </span>
             </div>
             <div class="float-right text-right">
-              <p class="card-text text-dark">Followers</p>
-              <h4>62,500+</h4>
+              <p class="card-text text-dark">طلبات صيانة أجهزة طبية</p>
+              <h4>{{$maintenanceRequestMedical}}</h4>
             </div>
           </div>
           <p class="text-muted pt-3 mb-0 mt-2 border-top">

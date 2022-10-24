@@ -203,9 +203,9 @@ Route::get('email', function () {
     return new WelcomeEmail();
 });
 
-Route::get('aaa', function () {
-    return new TicketEmail();
-});
+// Route::get('aaa', function () {
+//     return new TicketEmail();
+// });
 
 Route::group(['prefix' => 'admin','middleware' => ['auth:admin,web']], function () {
 

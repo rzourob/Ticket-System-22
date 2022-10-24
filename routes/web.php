@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Dashborad\DashboradUserController;
 use App\Http\Controllers\Dashborad\DashbordController;
 use App\Http\Controllers\User\Device_IT\Device_ItController;
 use App\Http\Controllers\User\Device_Medical\Device_MedicalController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\User\Maintenance_Medical\Request_Maintenance_MedicalCon
 use App\Http\Controllers\User\Maintenance_User\MaintenanceRequestUsersController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Mail\TicketEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +45,10 @@ Route::group(['namespace'=>'user'],function () {
 
 Route::prefix('user')->middleware('auth')->group(function () {
 
-    Route::get('dashboard', [DashbordController::class, 'dashboard'])->name('dashboard');
+    // Route::get('dashboard', [DashbordController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('dashboard', [DashboradUserController::class, 'dashboard'])->name('dashboard');
+
 
     Route::put('changepassword/user', [UserController::class, 'updatePassword'])->name('user.updatepassword');
 
@@ -123,6 +128,8 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
 
 
+   
+
 
 
     // Route::get('DevicesMedical', [ViewDeviceMedicalController::class,'index'])->name('medicalDevicesView');
@@ -158,5 +165,6 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 // });
 
 
-
-
+Route::get('aaa', function () {
+    return new TicketEmail();
+});

@@ -84,9 +84,8 @@
                     <ul id="maintenances-level" class="collapse" data-parent="#sidebarnav">
 
                         <li>
-                            <a href="javascript:void(0);" data-toggle="collapse"
-                                data-target="#maintenances-level1"> قائمة الأجهزة<div class="pull-right"><i
-                                        class="ti-plus"></i></div>
+                            <a href="javascript:void(0);" data-toggle="collapse" data-target="#maintenances-level1"> قائمة
+                                الأجهزة<div class="pull-right"><i class="ti-plus"></i></div>
                                 <div class="clearfix"></div>
                             </a>
                             <ul id="maintenances-level1" class="collapse">
@@ -133,8 +132,8 @@
                         </li>
                         @canany(['Index-R-Man.', 'View-R-Man.', 'Create-R-Man.-IT', ' Create-R-Man.-Medical'])
                             <li>
-                                <a href="javascript:void(0);" data-toggle="collapse"
-                                    data-target="#maintenances-level4"> قائمة تذاكر الصيانة<div class="pull-right">
+                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#maintenances-level4"> قائمة تذاكر
+                                    الصيانة<div class="pull-right">
                                         <i class="ti-plus"></i>
                                     </div>
                                     <div class="clearfix"></div>
@@ -151,7 +150,7 @@
                                     @endcan
 
                                     @can('Create-R-Man.-IT')
-                                        <li> <a href="{{ route('admin.Request_Device_It') }}">عرض تذاكر أجهزة تكنولوجيا المعلومات 
+                                        <li> <a href="{{ route('admin.Request_Device_It') }}">عرض تذاكر أجهزة تكنولوجيا المعلومات
                                             </a> </li>
                                     @endcan
 
@@ -304,24 +303,23 @@
                     @endcan
 
                     @can('Index-Roles')
-                        <li> <a href="{{ route('roles.index') }}"><i class="fa fa-server"
-                                    aria-hidden="true"></i>المسؤوليات</a> </li>
+                        <li> <a href="{{ route('roles.index') }}"><i class="fa fa-server" aria-hidden="true"></i>المسؤوليات</a>
+                        </li>
                     @endcan
 
                     {{-- <li> <a href="{{ route('roles.index') }}"><i class="fa fa-server" aria-hidden="true"></i>المسؤوليات</a> </li> --}}
-                    <li> <a href="{{ route('users.index') }}"><i class="fa fa-user-plus"
-                                aria-hidden="true"></i>أضافة رئيس قسم</a> </li>
+                    <li> <a href="{{ route('users.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>أضافة رئيس
+                            قسم</a> </li>
 
 
                     @can('Index-Admin')
-                        <li> <a href="{{ route('admin.index') }}"><i class="fa fa-user-plus"
-                                    aria-hidden="true"></i>
+                        <li> <a href="{{ route('admin.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>
                                 أضافة مسؤولين</a> </li>
                     @endcan
 
                     {{-- <li> <a href="{{ route('admin.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> أضافة مسؤولين</a> </li> --}}
-                    <li> <a href="{{ route('technicians.index') }}"><i class="fa fa-user-plus"
-                                aria-hidden="true"></i>أضافة فنيين</a> </li>
+                    <li> <a href="{{ route('technicians.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>أضافة
+                            فنيين</a> </li>
                     {{-- <li> <a href="form-input.html">Form input</a> </li>
                     <li> <a href="form-wizard.html">form wizard</a> </li>
                     <li> <a href="form-repeater.html">form repeater</a> </li>
@@ -405,9 +403,8 @@
                         الموازنة العامة<div class="pull-right"></i></div></a>
                     <ul id="auth" class="collapse">
                         <li>
-                            <a href="javascript:void(0);" data-toggle="collapse"
-                                data-target="#login">أدارة طلبات الشراء<div class="pull-right"><i
-                                        class="ti-plus"></i></div>
+                            <a href="javascript:void(0);" data-toggle="collapse" data-target="#login">أدارة طلبات
+                                الشراء<div class="pull-right"><i class="ti-plus"></i></div>
                                 <div class="clearfix"></div>
                             </a>
                             <ul id="login" class="collapse">
@@ -551,8 +548,8 @@
                 <ul id="custom-page" class="collapse" data-parent="#sidebarnav">
 
                     @can('View-departments')
-                        <li> <a href="{{ route('departments.index') }}"><i class="fa fa-plus"
-                                    aria-hidden="true"></i>أضافة قسم</a> </li>
+                        <li> <a href="{{ route('departments.index') }}"><i class="fa fa-plus" aria-hidden="true"></i>أضافة
+                                قسم</a> </li>
                     @endcan
 
                     @can('View-Subdepartments')

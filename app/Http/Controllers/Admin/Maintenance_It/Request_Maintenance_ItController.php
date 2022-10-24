@@ -14,6 +14,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TicketEmail;
 
 class Request_Maintenance_ItController extends Controller
 {
@@ -173,13 +175,15 @@ class Request_Maintenance_ItController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
-                // Mail::to('info@ticket.it-rmb.com')->send(new TicketEmail());
+                Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
+
+                Mail::to('ticket@ticket.it-rmb.com')->send(new TicketEmail());
                 // $users =User :: all();
 
-                // $admins = Admin::all();
-                // foreach ($admins as $admin) {
-                //     Mail::to($admin->email)->send(new TicketEmail());
-                // }
+            //     $admins = Admin::all();
+            //     foreach ($admins as $admin) {
+            //         Mail::to($admin->email)->send(new TicketEmail());
+            //     }
             }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الطلب بنجاح" : "فشل أضافة الطلب"], $isSaved ? 201 : 400);

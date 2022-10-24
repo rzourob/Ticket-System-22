@@ -8,10 +8,14 @@ use App\Models\Department\Department;
 use App\Models\Device\Device;
 use App\Models\Maintenance\MaintenanceRequest;
 use App\Models\SubDepartment\SubDepartment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use  Yajra\DataTables\DataTables;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TicketEmail;
+use App\Models\Admin;
 
 class Request_Maintenance_ItController extends Controller
 {
@@ -37,8 +41,7 @@ class Request_Maintenance_ItController extends Controller
     public function data()
 
     {
-        return DataTables::of(MaintenanceRequest::query()->where('deviceTypes', 2))
-
+        return DataTables::of(MaintenanceRequest::where('department_id', auth()->user()->department_id)->where('deviceTypes', 2))
             // ->addColumn('record_select', 'admin.users.data_table.record_select')tiket_no
 
 
@@ -172,13 +175,13 @@ class Request_Maintenance_ItController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
-                // Mail::to('info@ticket.it-rmb.com')->send(new TicketEmail());
+                Mail::to(auth()->user()->department_id)->send(new TicketEmail());
                 // $users =User :: all();
 
-                // $admins = Admin::all();
-                // foreach ($admins as $admin) {
-                //     Mail::to($admin->email)->send(new TicketEmail());
-                // }
+            //     $admins = Admin::all();
+            //     foreach ($admins as $admin) {
+            //         Mail::to($admin->email)->send(new TicketEmail());
+            //     }
             }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الطلب بنجاح" : "فشل أضافة الطلب"], $isSaved ? 201 : 400);

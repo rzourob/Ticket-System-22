@@ -13,6 +13,9 @@ use  Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TicketEmail;
+
 
 class Device_ItController extends Controller
 {
@@ -157,6 +160,10 @@ class Device_ItController extends Controller
 
 
             $isSaved = $device->save();
+            // if ($isSaved) {
+
+            //     Mail::to( Auth::user()->email)->send(new TicketEmail());
+            // }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الجهاز بنجاح" : "فشل أضافة الجهاز"], $isSaved ? 201 : 400);
         } else {

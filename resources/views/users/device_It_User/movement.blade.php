@@ -24,6 +24,17 @@
                 <form>
                     <div class="row">
                         <input type="hidden" id="device_id" name="device_id" value="{{ $devices->id }}">
+                        <div class="col-sm-4 mb-30">
+                            <!-- select -->
+                            <div class="col">
+                                <label> نوع الحركة</label>
+                                <select class="custom-select" id="new_status">
+                                    <option value=""> اختارح نوع الحركة</option>
+                                    <option value="1">حركة داخل القسم</option>
+                                    <option value="2">حركة خارج القسم</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class="col">
                                 <label for="title" class="mr-sm-2"> عنوان الحركة </label>

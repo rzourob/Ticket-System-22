@@ -12,6 +12,9 @@ use Illuminate\Http\Request;
 use  Yajra\DataTables\DataTables;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TicketEmail;
+
 class Request_Maintenance_MedicalController extends Controller
 {
     const MEDICAL = 2;
@@ -36,8 +39,7 @@ class Request_Maintenance_MedicalController extends Controller
     public function data()
 
     {
-        return DataTables::of(MaintenanceRequest::query()->where('deviceTypes', 1))
-
+        return DataTables::of(MaintenanceRequest::where('department_id', auth()->user()->department_id)->where('deviceTypes', 1))
             // ->addColumn('record_select', 'admin.users.data_table.record_select')tiket_no
 
 
@@ -171,13 +173,13 @@ class Request_Maintenance_MedicalController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
-                // Mail::to('info@ticket.it-rmb.com')->send(new TicketEmail());
+                Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
                 // $users =User :: all();
 
-                // $admins = Admin::all();
-                // foreach ($admins as $admin) {
-                //     Mail::to($admin->email)->send(new TicketEmail());
-                // }
+            //     $admins = Admin::all();
+            //     foreach ($admins as $admin) {
+            //         Mail::to($admin->email)->send(new TicketEmail());
+            //     }
             }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الطلب بنجاح" : "فشل أضافة الطلب"], $isSaved ? 201 : 400);

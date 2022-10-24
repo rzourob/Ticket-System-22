@@ -73,6 +73,7 @@ class CommentController extends Controller
            $comments->new_status = $request->get('new_status');
            $comments->Created_by  = Auth::user()->name;
             $isSaved = $comments->save();
+            
 
             return response()->json(['message' => $isSaved ? "تم أضافة الرد بنجاح" : "فشل أضافة الرد"], $isSaved ? 201 : 400);
         } else {

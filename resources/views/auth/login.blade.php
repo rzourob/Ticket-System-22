@@ -58,7 +58,7 @@ login-->
                 </div>
                 <div class="col-lg-4 col-md-6 bg-white">
                     <div class="login-fancy pb-40 clearfix">
-                        @if($type == 'head')
+                        @if($type == 'user')
                             <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول رئيس قسم</h3>
                         @elseif($type == 'technician')
                             <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول  فني الصيانة</h3>
