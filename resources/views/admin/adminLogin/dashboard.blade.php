@@ -114,7 +114,7 @@ wrapper -->
                 <div class="row">
                   ////
 
-                    <div class="card-body">
+                    {{-- <div class="card-body">
                       <h5 class="card-title">أحصائيات شهرية للتذاكر</h5>
                       <div class="row d-flex align-items-center">
                         <div class="col-sm-2">
@@ -128,15 +128,15 @@ wrapper -->
                           <h5 class="mt-2 text-dark">263 GB Per Month</h5></div>
                       </div>
                       <p><strong>Note:</strong> You can upgrade your existing Premium Plan to a plan with more features, or a longer subscription period.</p>
-                    </div>
+                    </div> --}}
                   ///
                   
-                    <div class="col-xl-4">
+                    <div class="col-xl-6">
                         <h5 class="card-title">نسبة التذاكر المغلقة لكل شهر</h5>
                         <canvas id="myChart" width="700" height="400"></canvas>
                       </div>
 
-                      <div class="col-xl-4">
+                      <div class="col-xl-6">
                         <h5 class="card-title">أحصائيات شهرية</h5>
                         <canvas id="myChart2" width="700" height="400"></canvas>
                       </div>
