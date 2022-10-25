@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Maintenance\MaintenanceRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -18,9 +19,12 @@ class TicketEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    private MaintenanceRequest $maintenancerequests;
+
+    public function __construct(MaintenanceRequest $maintenancerequests )
     {
         //
+        $this->maintenancerequests = $maintenancerequests;
     }
 
     /**
@@ -31,7 +35,13 @@ class TicketEmail extends Mailable
     public function build()
     {
         return $this->subject('MBR | Ticket | System')
-        ->markdown('emails.Ticket');
+        ->markdown('emails.Ticket')->with([
+
+            'author_email'=>$this->maintenancerequests->author_email,
+            'author_name'=>$this->maintenancerequests->author_name,
+            'tiket_no'=>$this->maintenancerequests->tiket_no,
+            
+        ]);
         // return $this->markdown('emails.Ticket');
     }
 }

@@ -7,13 +7,12 @@ Welcom in RMB Ticket System
 @component('mail::panel')
  يرجي فحص النظام يوجد لديك تذاكر بنتظار الرد عليها
 
-رقم التذكرة : 
+رقم التذكرة : {{$tiket_no}}
 
-أسم المرسل :
+أسم المرسل :{{$author_name}}
 
-البريد الاكتروني :
+البريد الاكتروني :{{$author_email}}
 
-نوع الجهاز :
 @endcomponent
 
 {{-- @component('mail::button', ['url' => ''])

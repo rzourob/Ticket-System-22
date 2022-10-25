@@ -164,7 +164,9 @@ class Request_Maintenance_MedicalController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
-                Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
+                // Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
+                Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
+
                 // $users =User :: all();
 
             //     $admins = Admin::all();
