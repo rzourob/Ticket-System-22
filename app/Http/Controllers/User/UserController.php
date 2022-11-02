@@ -197,7 +197,7 @@ class UserController extends Controller
     {
         $validator = Validator($request->all(), [
 
-            'password' => 'required|string|current_password:admin',
+            'password' => 'required|string|current_password:web',
             'new_password' => 'required|string|min:3|max:15|confirmed',
             'new_password_confirmation' => 'required|string|min:3|max:15',
         ], [
@@ -210,9 +210,10 @@ class UserController extends Controller
 
         ]);
 
+
         if (!$validator->fails()) {
 
-            $user = auth('user')->user();
+            $user = auth('web')->user();
             $user->password = Hash::make($request->get('new_password'));
             $isSaved = $user->save();
 

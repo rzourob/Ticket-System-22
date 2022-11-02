@@ -52,6 +52,9 @@ Route::prefix('user')->middleware('auth')->group(function () {
 
     Route::put('changepassword/user', [UserController::class, 'updatePassword'])->name('user.updatepassword');
 
+    Route::get('AAAAA/user', [UserController::class, 'editPassword'])->name('user.changepassword');
+
+    // Route::put('changepassword/admin', [AdminController::class, 'updatePassword'])->name('admin.updatepassword');
 
 
 });

@@ -109,7 +109,7 @@
 
 <script>
     function updatePassword() {
-        axios.put('/user/changepassword/user', {
+        axios.put('/admin/changepassword/admin', {
                 password: document.getElementById('password').value,
                 new_password: document.getElementById('new_password').value,
                 new_password_confirmation: document.getElementById('new_password_confirmation').value

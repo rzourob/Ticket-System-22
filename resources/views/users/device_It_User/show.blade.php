@@ -160,7 +160,7 @@
 
                                     <div class="row no-print col-md-12 text-center table-responsive p-20">
                                         <div class="col-12">
-                                            <a class="btn btn-primary btn-outline backForm btn-lg " href="{{ route('admin.DevicesIt') }}"
+                                            <a class="btn btn-primary btn-outline backForm btn-lg " href="{{ route('user.DevicesIt') }}"
                                                 type="button">العودة الى قائمة الرئيسية
                                             </a>
                                         </div>   

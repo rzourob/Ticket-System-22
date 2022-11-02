@@ -123,7 +123,7 @@
                             </select> --}}
                                 <input type="text" name="subdepartments" class="form-control" id="subdepartments"
                                     disabled placeholder="{{ trans('maintenance_trans.enter_email') }}" data-max="6"
-                                    required value="{{ $maintenancerequest->sub_department_id }}">
+                                    required value="{{ $maintenancerequest->subdepartment->title }}">
                             </div>
                         </div>
 

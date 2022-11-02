@@ -11,7 +11,7 @@
 <div class="col-sm-6" >
   <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم رئيس قسم</h4>
   <br>
-  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">اهلا بك {{Auth::user()->name}} في نظام MRB</h4>
+  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">اهلا بك {{Auth::user()->name}} في نظام RMB</h4>
   <br>
 </div>
 
@@ -33,7 +33,7 @@ wrapper -->
           <div class="clearfix">
             <div class="float-left">
               <span class="text-danger">
-                <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i>
+                <i class="fa fa-h-square highlight-icon" aria-hidden="true"></i>
               </span>
             </div>
             <div class="float-right text-right">
@@ -53,7 +53,7 @@ wrapper -->
           <div class="clearfix">
             <div class="float-left">
               <span class="text-warning">
-                <i class="fa fa-shopping-cart highlight-icon" aria-hidden="true"></i>
+                <i class="fa fa-desktop highlight-icon" aria-hidden="true"></i>
               </span>
             </div>
             <div class="float-right text-right">
@@ -73,7 +73,7 @@ wrapper -->
           <div class="clearfix">
             <div class="float-left">
               <span class="text-success">
-                <i class="fa fa-dollar highlight-icon" aria-hidden="true"></i>
+                <i class="fa  fa-history highlight-icon" aria-hidden="true"></i>
               </span>
             </div>
             <div class="float-right text-right">
@@ -93,7 +93,7 @@ wrapper -->
           <div class="clearfix">
             <div class="float-left">
               <span class="text-primary">
-                <i class="fa fa-twitter highlight-icon" aria-hidden="true"></i>
+                <i class="fa fa-history highlight-icon" aria-hidden="true"></i>
               </span>
             </div>
             <div class="float-right text-right">

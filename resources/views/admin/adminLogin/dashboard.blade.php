@@ -10,6 +10,9 @@
 @section('PageTitle')
 <div class="col-sm-6" >
   <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم مدير النظام</h4>
+  <br>
+  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">اهلا بك {{Auth::user()->name}} في نظام RMB</h4>
+  <br>
 </div>
 @endsection
 @section('PageTitle2')
