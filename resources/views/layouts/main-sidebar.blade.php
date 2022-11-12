@@ -15,7 +15,7 @@
             @endif
 
             @if(auth('technician')->check())
-
+            @include('layouts.main-sidebar.technician-main-sidebar');
             @endif
         </div>
 

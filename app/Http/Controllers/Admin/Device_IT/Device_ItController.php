@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
-
+use App\Models\Device\DeviceAttachment;
 
 class Device_ItController extends Controller
 {
@@ -88,6 +88,22 @@ class Device_ItController extends Controller
             ->rawColumns(['actions'])
             ->toJson();
     } // end of data
+
+
+    public function devices_request_show($id)
+    {
+        $devices = Device :: where('id',$$id)->first();
+        $departments = Department::where('active', true)->get();
+        $subdepartments = SubDepartment::where('active', true)->get();
+
+        return response()->view('admin.device_It_Admin.create', [
+            'devices' => $devices,
+            'departments' => $departments,
+            'subdepartments' => $subdepartments
+        ]);
+
+
+    }
 
     public function create()
     {
@@ -179,11 +195,15 @@ class Device_ItController extends Controller
         $departments = Department::get();
         $subdepartments = SubDepartment::get();
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
+        // $maintenancerequests  = MaintenanceRequest::where('device_id', $id)->get();
+        $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
 
         return response()->view('admin.device_It_Admin.show', [
             'devices' => $devices,
+            // 'maintenancerequests' => $maintenancerequests,
             'departments' => $departments,
             'subdepartments' => $subdepartments,
+            'deviceattachments' => $deviceattachments,
             'deviceMovements' => $deviceMovements
 
         ]);
@@ -278,5 +298,13 @@ class Device_ItController extends Controller
         // $patients = DB::table("patients")->where("id_no", $id)->pluck("first_name", "id");
         $devices = DB::table("devices")->where("sn", $id)->get();
         return json_encode($devices);
+    }
+
+    public function viewFile($id)
+
+    {
+
+        $deviceattachments  = DeviceAttachment::where('id', $id)->first();
+        return response()->view('admin.device_It_Admin.viewFile', [ 'deviceattachments' => $deviceattachments]);
     }
 }

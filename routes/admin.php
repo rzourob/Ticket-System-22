@@ -17,6 +17,7 @@ use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Department\DepartmentController;
+use App\Http\Controllers\Device\DeviceAttachmentController;
 use App\Http\Controllers\Device\DeviceController;
 use App\Http\Controllers\Device\DeviceMovementController;
 use App\Http\Controllers\Maintenance\MaintenanceRequestController;
@@ -117,6 +118,10 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('Movements_It/{id}', [Device_ItController::class, 'Movements_show'])->name('admin.Movements_It.Movements_show');
 
     Route::post('Movements/store', [Device_ITDeviceMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
+
+    Route::resource('Attachment', DeviceAttachmentController::class);
+
+    Route::get('View_file_Admin/{id}', [Device_ItController::class, 'viewFile'])->name('View_file_Admin_pdf');
 
 
 

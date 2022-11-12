@@ -13,9 +13,9 @@
             @if(auth('admin')->check())
              @include('layouts.main-header.admin-main-header');
             @endif
-
+            
             @if(auth('technician')->check())
-
+            @include('layouts.main-header.technician-main-header');
             @endif
         </div>
 

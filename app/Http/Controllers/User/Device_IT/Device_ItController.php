@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User\Device_IT;
 use App\Http\Controllers\Controller;
 use App\Models\Department\Department;
 use App\Models\Device\Device;
+use App\Models\Device\DeviceAttachment;
 use App\Models\DeviceMovement\DeviceMovement;
 use App\Models\Maintenance\MaintenanceRequest;
 use App\Models\SubDepartment\SubDepartment;
@@ -96,10 +97,16 @@ class Device_ItController extends Controller
 
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
 
+        $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
+
+        // $maintenancerequests  = MaintenanceRequest::where('device_id', $id)->get();
+
         return response()->view('users.device_It_User.show', [
             'devices' => $devices,
+            // 'maintenancerequests' => $maintenancerequests,
             'departments' => $departments,
             'subdepartments' => $subdepartments,
+            'deviceattachments' => $deviceattachments,
             'deviceMovements' => $deviceMovements
 
         ]);
@@ -114,5 +121,14 @@ class Device_ItController extends Controller
         return response()->view('users.device_It_User.movement', [
         'devices' => $devices, 
         'deviceMovements' => $deviceMovements]);
+    }
+
+
+    public function viewFile($id)
+
+    {
+
+        $deviceattachments  = DeviceAttachment::where('id', $id)->first();
+        return response()->view('users.device_It_User.viewFile', [ 'deviceattachments' => $deviceattachments]);
     }
 }

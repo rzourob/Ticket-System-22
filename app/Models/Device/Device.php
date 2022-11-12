@@ -37,5 +37,11 @@ class Device extends Model
 
     }
 
+
+    public function deviceattachment()
+    {
+        return $this->hasOne(DeviceAttachment::class, 'device_id', 'id');
+    }
+
    
 }

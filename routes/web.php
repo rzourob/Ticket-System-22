@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Dashborad\DashboradUserController;
 use App\Http\Controllers\Dashborad\DashbordController;
+use App\Http\Controllers\Device\DeviceAttachmentController;
 use App\Http\Controllers\User\Device_IT\Device_ItController;
 use App\Http\Controllers\User\Device_Medical\Device_MedicalController;
 use App\Http\Controllers\User\UserLoginController;
@@ -72,6 +73,11 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
     Route::get('devices_It/{id}', [Device_ItController::class, 'show'])->name('user.devices_It.show');
 
     Route::get('Movements_It/{id}', [Device_ItController::class, 'Movements_show'])->name('user.Movements_It');
+
+    Route::resource('Attachments', DeviceAttachmentController::class);
+
+    Route::get('View_file/{id}', [Device_ItController::class, 'viewFile'])->name('View_file_pdf');
+
 
 
 
