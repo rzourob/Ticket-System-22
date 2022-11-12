@@ -232,29 +232,32 @@
                                                 <table id="example1" class="table table-bordered table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th style="font-family: 'Cairo', sans-serif">ID</th>
+                                                            <th >
+                                                                <h6 style="font-family: 'Cairo', sans-serif">ID
+                                                                </h6>
+                                                            </th>
                                                             <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">أسم الجهاز
-                                                                </h5>
+                                                                <h6 style="font-family: 'Cairo', sans-serif">أسم الجهاز
+                                                                </h6>
                                                             </th>
                                                             {{-- <th>
                                                                 <h5 style="font-family: 'Cairo', sans-serif">السيريل
                                                                     نمبر</h5>
                                                             </th> --}}
                                                              <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">أسم المرفق</h5>
+                                                                <h6 style="font-family: 'Cairo', sans-serif">أسم المرفق</h6>
                                                             </th>
                                                             <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">تاريخ
-                                                                    الاضافة</h5>
+                                                                <h6 style="font-family: 'Cairo', sans-serif">تاريخ
+                                                                    الاضافة</h6>
                                                             </th>
                                                             <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">اسم الموظف
-                                                                </h5>
+                                                                <h6 style="font-family: 'Cairo', sans-serif">اسم الموظف
+                                                                </h6>
                                                             </th>
                                                             <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">الاجراءات
-                                                                </h5>
+                                                                <h6 style="font-family: 'Cairo', sans-serif">الاجراءات
+                                                                </h6>
                                                             </th>
                                                         </tr>
                                                     </thead>
