@@ -16,7 +16,7 @@
 @endsection
 @section('content')
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 ">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
@@ -27,7 +27,6 @@
     </div>
 </div>
 <!-- row -->
-<br>
 <div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">

@@ -101,7 +101,8 @@
                 <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span
                         class="badge badge-info">6</span> </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ route('user.changepassword') }}"><i class="text-info ti-settings"></i>Settings</a>
+                <a class="dropdown-item" href="{{ route('user.changepassword') }}"><i
+                        class="text-info ti-settings"></i>Settings</a>
                 {{-- <a class="dropdown-item" href="{{ route('auth.changepassword') }}"><i class="bx bx-slider-alt"></i>تغير
                     الباسورد</a> --}}
                 {{-- <a class="dropdown-item" href="#"><i class="text-danger ti-unlock"></i>Logout</a> --}}
@@ -123,11 +124,6 @@
                     onclick="event.preventDefault();this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل
                     الخروج</a>
                 </form>
-
-
-
-
-
 
             </div>
         </li>

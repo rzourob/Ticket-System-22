@@ -3,11 +3,11 @@
         <!-- menu item Dashboard-->
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard">
-                <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text" >لوحة التحكم</span>
+                <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">لوحة التحكم</span>
                 </div>
                 <div class="pull-right"></i></div>
                 <div class="clearfix"></div>
-                
+
             </a>
             {{-- <li> <a href="{{ route('user.DevicesMedical') }}">عرض الأجهزة الطبية</a> </li> --}}
         </li>
@@ -29,9 +29,8 @@
                     <ul id="maintenances-level" class="collapse" data-parent="#sidebarnav">
 
                         <li>
-                            <a href="javascript:void(0);" data-toggle="collapse"
-                                data-target="#maintenances-level1">قائمة الأجهزة<div class="pull-right"><i
-                                        class="ti-plus"></i></div>
+                            <a href="javascript:void(0);" data-toggle="collapse" data-target="#maintenances-level1">قائمة
+                                الأجهزة<div class="pull-right"><i class="ti-plus"></i></div>
                                 <div class="clearfix"></div>
                             </a>
                             <ul id="maintenances-level1" class="collapse">
@@ -44,22 +43,21 @@
                                     <li> <a href="{{ route('user.DevicesMedical') }}">عرض الأجهزة الطبية</a> </li>
                                 @endcan
 
-                                
+
                                 @can('View-IT')
                                     {{-- <li> <a href="{{ route('admin.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a>
                                     </li> --}}
                                     <li> <a href="{{ route('user.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a> </li>
-
                                 @endcan
 
 
-                                
+
                             </ul>
                         </li>
                         @canany(['Index-R-Man.', 'View-R-Man.', 'Create-R-Man.-IT', ' Create-R-Man.-Medical'])
                             <li>
-                                <a href="javascript:void(0);" data-toggle="collapse"
-                                    data-target="#maintenances-level4">تذاكر الصيانة<div class="pull-right">
+                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#maintenances-level4">تذاكر
+                                    الصيانة<div class="pull-right">
                                         <i class="ti-plus"></i>
                                     </div>
                                     <div class="clearfix"></div>
@@ -74,7 +72,7 @@
                                         <li> <a href="{{ route('user.View_Request_Medical') }}">عرض تذاكر أجهزة الطبية</a>
                                         </li>
                                     @endcan
-                                    
+
                                     @can('Create-R-Man.-IT')
                                         <li> <a href="{{ route('user.View_Request_IT') }}">عرض تذاكر أجهزة تكنولوجيا المعلومات
                                             </a> </li>
@@ -135,18 +133,10 @@
         @canany(['Create-Request'])
             <li>
                 {{-- <a href="{{ route('maintenances.create') }}"><i class="ti-comments"></i><span --}}
-                <a href="{{ route('user.Device_It.create') }}"><i class="ti-comments"></i><span
-                        class="right-nav-text">أنشاء تذكرة</span></a>
+                <a href="{{ route('user.Device_It.create') }}"><i class="ti-comments"></i><span class="right-nav-text">أنشاء
+                        تذكرة</span></a>
             </li>
         @endcanany
-
-        
-
-  
-
-
-
-      
 
     </ul>
 </div>

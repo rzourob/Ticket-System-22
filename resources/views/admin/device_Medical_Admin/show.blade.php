@@ -2,13 +2,13 @@
 @section('css')
 
 @section('title')
-    تنقلات الجهاز
+تفاصيل وتنقلات الجهاز
 @stop
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle2')
-    تنقلات الجهاز
+تفاصيل وتنقلات الجهاز
 @stop
 <!-- breadcrumb -->
 @endsection

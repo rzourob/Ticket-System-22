@@ -60,7 +60,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::resource('user.permissions', UserPermissionController::class);
         Route::resource('role.permissions', RolePermissionController::class);
 
-        Route::get('AAAAA/admin', [AdminController::class, 'editPassword'])->name('admin.changepassword');
+        Route::get('admin_profil', [AdminController::class, 'editPassword'])->name('admin.changepassword');
 
         Route::put('changepassword/admin', [AdminController::class, 'updatePassword'])->name('admin.updatepassword');
 

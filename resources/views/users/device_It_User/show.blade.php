@@ -2,13 +2,13 @@
 @section('css')
 
 @section('title')
-    تنقلات الجهاز
+تفاصيل وتنقلات الجهاز
 @stop
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle2')
-    تنقلات الجهاز
+تفاصيل وتنقلات الجهاز
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -44,8 +44,8 @@
                                 aria-controls="profile-07" aria-selected="false">تنقلات الجهاز</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="portfolio-07-tab" data-toggle="tab" href="#portfolio-07"
-                                role="tab" aria-controls="portfolio-07" aria-selected="false"><i
+                            <a class="nav-link" id="portfolio-07-tab2" data-toggle="tab" href="#portfolio-072"
+                                role="tab" aria-controls="portfolio-072" aria-selected="false"><i
                                     class="fa fa-picture-o"></i> مرفقات الجهاز </a>
                         </li>
                         {{-- <li class="nav-item">
@@ -218,8 +218,8 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="tab-pane fade" id="portfolio-07" role="tabpanel"
-                            aria-labelledby="portfolio-07-tab">
+                        <div class="tab-pane fade" id="portfolio-072" role="tabpanel"
+                            aria-labelledby="portfolio-07-tab2">
                             <h3>
                                 <p class="text-danger">جاري العمل علي تجهيزة هذا القسم قريباً.</p>
                             </h3>
