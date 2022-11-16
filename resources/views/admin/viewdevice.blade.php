@@ -229,7 +229,7 @@
 
 
     $('#subdepartments').change(function() {
-        $('#devices-table').dataTable().fnFilter($(this).val(), -6);
+        $('#devices-table').dataTable().fnFilter($(this).val(), -5);
     });
 
     $('#departments').change(function() {

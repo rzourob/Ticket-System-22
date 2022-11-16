@@ -16,7 +16,7 @@
         <!-- menu item Elements-->
 
 
-        @canany(['View-Deives', 'View-IT', 'View-Medical', 'Index-Deives', 'Dep-Medical'])
+        @canany(['View-Deives', 'قائمة أجهزة تكنولوجيا المعلومات', 'قائمة الأجهزة الطبية', 'قائمة جميع الأجهزة', 'Dep-Medical'])
 
             @can('View-Deives')
                 <li>
@@ -39,12 +39,12 @@
                                     <li> <a href="{{ route('admin.viewdevice') }}">عرض الأجهزة </a> </li>
                                 @endcan --}}
 
-                                @can('View-Medical')
+                                @can('قائمة الأجهزة الطبية')
                                     <li> <a href="{{ route('user.DevicesMedical') }}">عرض الأجهزة الطبية</a> </li>
                                 @endcan
 
 
-                                @can('View-IT')
+                                @can('قائمة أجهزة تكنولوجيا المعلومات')
                                     {{-- <li> <a href="{{ route('admin.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a>
                                     </li> --}}
                                     <li> <a href="{{ route('user.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a> </li>
@@ -54,7 +54,7 @@
 
                             </ul>
                         </li>
-                        @canany(['Index-R-Man.', 'View-R-Man.', 'Create-R-Man.-IT', ' Create-R-Man.-Medical'])
+                        @canany(['قائمة طلبات الصيانة', 'View-R-Man.', 'عرض طلبات تكنولوجيا المعلومات', 'عرض طلبات الأجهزة الطبية'])
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#maintenances-level4">تذاكر
                                     الصيانة<div class="pull-right">
@@ -68,12 +68,12 @@
                                         </li>
                                     @endcan
 
-                                    @can('Create-R-Man.-Medical')
+                                    @can('عرض طلبات الأجهزة الطبية')
                                         <li> <a href="{{ route('user.View_Request_Medical') }}">عرض تذاكر أجهزة الطبية</a>
                                         </li>
                                     @endcan
 
-                                    @can('Create-R-Man.-IT')
+                                    @can('عرض طلبات تكنولوجيا المعلومات')
                                         <li> <a href="{{ route('user.View_Request_IT') }}">عرض تذاكر أجهزة تكنولوجيا المعلومات
                                             </a> </li>
                                     @endcan
@@ -130,7 +130,7 @@
 
 
         <!-- menu item Ticket-->
-        @canany(['Create-Request'])
+        @canany(['أنشاء طلب صيانة'])
             <li>
                 {{-- <a href="{{ route('maintenances.create') }}"><i class="ti-comments"></i><span --}}
                 <a href="{{ route('user.Device_It.create') }}"><i class="ti-comments"></i><span class="right-nav-text">أنشاء

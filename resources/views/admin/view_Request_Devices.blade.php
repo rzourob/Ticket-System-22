@@ -161,13 +161,14 @@
                 data: 'department_id',
                 name: 'department_id'
             },
-            {
-                data: 'sub_department_id',
-                name: 'sub_department_id'
-            },
+          
             {
                 data: 'status',
                 name: 'status'
+            },
+            {
+                data: 'content',
+                name: 'content'
             },
             {
                 data: 'Created_by',

@@ -1,32 +1,32 @@
-@canany(['Delete-Deives', 'Edit-Deives', 'Detiles-Deives', 'Movements-Deives'])
+@canany(['حذف جهاز', 'تعديل بيانات جهاز', 'Show-Deives', 'أضافة حركة','عرض تفاصيل الجهاز'])
     <div class="btn-group mb-1">
 
         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false" _msthash="3150394" _msttexthash="95992" style="direction: ltr;">الأجراءات</button>
         <div class="dropdown-menu" x-placement="bottom-start"
             style="position: absolute; transform: translate3d(0px, 33px, 0px); top: 0px; left: 0px; will-change: transform;">
-            @can('Edit-Deives')
+            @can('تعديل بيانات جهاز')
                 {{-- <a class="dropdown-item" href="{{ route('devices.edit', $id) }}"><i class="fa fa-pencil-square-o"
                         aria-hidden="true"></i>
                     تعديل بيانات</a> --}}
             @endcan
 
-            @can('Detiles-Deives')
+            @can('عرض تفاصيل الجهاز')
                 <a class="dropdown-item" href="{{ route('user.devices_It.show', $id) }}"><i class="fa fa-eye" aria-hidden="true"></i>
                     عرض تفاصيل الجهاز</a>
             @endcan
 
-            @can('Movements-Deives')
+            @can('أضافة حركة')
                 <a class="dropdown-item" href="{{ route('user.Movements_It', $id) }}"><i class="fa fa-eye"
                         aria-hidden="true"></i>
                     أضافة حركة</a>
             @endcan
 
 
-            @can('Delete-Deives')
+            @can('حذف جهاز')
                 <a class="dropdown-item" href="#" onclick="performDestroy({{ $id }}, this)  "
                     class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                    حذف قسم</a>
+                    حذف جهاز</a>
             @endcan
 
         </div>

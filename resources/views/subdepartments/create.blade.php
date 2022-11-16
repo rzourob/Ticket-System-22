@@ -123,7 +123,7 @@ function performStore(){
        active: document.getElementById('active').checked,
    };
        
-   store('/subdepartments',data);
+   store('/admin/subdepartments',data);
 }
 </script>
 @endsection

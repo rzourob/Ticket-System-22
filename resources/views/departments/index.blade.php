@@ -197,7 +197,7 @@
         // store('/admin/departments',data,redirectUrl);
 
         let redirectUrl = '/departments'
-        store('/departments',data,redirectUrl);
+        store('/admin/departments',data,redirectUrl);
     }
 </script>
 

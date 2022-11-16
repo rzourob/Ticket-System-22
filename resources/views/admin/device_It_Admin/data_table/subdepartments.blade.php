@@ -1,1 +1,1 @@
-{{$device->subDepartment->title}}
+{{$device->subdepartment->title}}

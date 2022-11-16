@@ -28,9 +28,12 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('Created_by');
             $table->boolean('active')->default(false);
+            // $table->string('sub_department_id');
+
             $table->foreignId('department_id');
-            $table->foreignId('sub_department_id');
             $table->foreign('department_id')->on('departments')->references('id');
+
+            $table->foreignId('sub_department_id');
             $table->foreign('sub_department_id')->on('sub_departments')->references('id');
             $table->timestamps();
         });

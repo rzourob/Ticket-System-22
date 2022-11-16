@@ -211,7 +211,7 @@
                             @endforeach
                         </select> --}}
                                 <input type="text" name="subdepartments" class="form-control" id="sub_department_id"
-                                    placeholder="" value="{{ $devices->subDepartment->title }}">
+                                    placeholder="" value="{{ $devices->sub_department_id }}">
                             </div>
                         </div>
                         <div class="col-md-3">

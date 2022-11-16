@@ -1,4 +1,4 @@
-@canany(['Delete-Deives', 'تعديل بيانات جهاز', 'Show-Deives', 'Movements-Deives','عرض تفاصيل الجهاز'])
+@canany(['حذف جهاز', 'تعديل بيانات جهاز', 'Show-Deives', 'أضافة حركة','عرض تفاصيل الجهاز'])
     <div class="btn-group mb-1">
 
         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -17,14 +17,14 @@
                     عرض تفاصيل الجهاز</a>
             @endcan
 
-            @can('Movements-Deives')
+            @can('أضافة حركة')
                 <a class="dropdown-item" href="{{ route('admin.Movements_show.Movements_show', $id) }}"><i class="fa fa-eye"
                         aria-hidden="true"></i>
                     أضافة حركة</a>
             @endcan
 
 
-            @can('Delete-Deives')
+            @can('حذف جهاز')
                 <a class="dropdown-item" href="#" onclick="performDestroy({{ $id }}, this)  "
                     class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
                     حذف قسم</a>

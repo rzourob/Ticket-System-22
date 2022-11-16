@@ -236,7 +236,7 @@
                                                             {{-- {{ csrf_field() }} --}}
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input"
-                                                                    id="file_name" name="file_name" required>
+                                                                    id="file_name" name="file_name" >
 
                                                                 <input type="hidden" name="device_id" id="device_id"
                                                                     {{-- value="{{ $familydetails->form_no }}" --}}

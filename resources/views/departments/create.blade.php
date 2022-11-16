@@ -101,7 +101,7 @@ Create Roles
             active: document.getElementById('active').checked,
         };
             
-        store('/departments',data);
+        store('/admin/departments',data);
     }
 </script>
 @endsection

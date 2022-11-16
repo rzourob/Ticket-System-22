@@ -15,6 +15,7 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
+       
         //أضافة مدير للنظام
         Permission::create(['name' => 'أضافة مدير', 'guard_name' => 'admin']);
         Permission::create(['name' => 'تعديل بيانات مدير', 'guard_name' => 'admin']);
@@ -28,25 +29,35 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'حذف حساب رئيس قسم', 'guard_name' => 'admin']);
 
         //أضافة جهاز للنظام
+        Permission::create(['name' => 'قائمة الأجهزة الطبية', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'قائمة أجهزة تكنولوجيا المعلومات','guard_name' => 'admin']);
+        Permission::create(['name' => 'قائمة جميع الأجهزة', 'guard_name' => 'admin']);
         Permission::create(['name' => 'أضافة جهازجديد', 'guard_name' => 'admin']);
         Permission::create(['name' => 'تعديل بيانات جهاز', 'guard_name' => 'admin']);
         Permission::create(['name' => 'عرض قائمةالأجهزة', 'guard_name' => 'admin']);
         Permission::create(['name' => 'حذف جهاز', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'View-Deives', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض تفاصيل الجهاز', 'guard_name' => 'admin']);
 
         //أضافة مسؤوليات
+        Permission::create(['name' => 'قائمة المسؤوليات', 'guard_name' => 'admin']);
         Permission::create(['name' => 'أضافة مسؤولية', 'guard_name' => 'admin']);
         Permission::create(['name' => 'تعديل مسؤولية', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'عرض قائمة المسؤوليات', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض المسؤوليات', 'guard_name' => 'admin']);
         Permission::create(['name' => 'حذف مسؤولية', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض قائمة المسؤوليات', 'guard_name' => 'admin']);
 
         //أضافة صلاحيات
+        Permission::create(['name' => 'قائمة الصلاحيات', 'guard_name' => 'admin']);
         Permission::create(['name' => 'أضافة صلاحية', 'guard_name' => 'admin']);
         Permission::create(['name' => 'تعديل صلاحية', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'عرض قائمة الصلاحيات', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض الصلاحيات', 'guard_name' => 'admin']);
         Permission::create(['name' => 'حذف صلاحية', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'عرض قائمة الصلاحيات', 'guard_name' => 'admin']);
+
 
         // طلب تكنلوجيا المعلومات الصيانة
+        Permission::create(['name' => 'قائمة طلبات الصيانة', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'أنشاء طلب صيانة', 'guard_name' => 'admin']);
         Permission::create(['name' => 'عرض طلبات تكنولوجيا المعلومات', 'guard_name' => 'admin']);
         Permission::create(['name' => 'حذف طلبات تكنولوجيا المعلومات', 'guard_name' => 'admin']);
         Permission::create(['name' => 'تعديل طلبات تكنولوجيا المعلومات', 'guard_name' => 'admin']);
@@ -59,12 +70,14 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'أنشاء طلبات الأجهزة الطبية ', 'guard_name' => 'admin']);
 
         //أضافة قسم للنظام
+        Permission::create(['name' => 'قائمة الأقسام الرئيسية', 'guard_name' => 'admin']);
         Permission::create(['name' => 'أضافة قسم', 'guard_name' => 'admin']);
         Permission::create(['name' => 'تعديل قسم', 'guard_name' => 'admin']);
         Permission::create(['name' => 'حذف قسم', 'guard_name' => 'admin']);
         Permission::create(['name' => 'عرض قسم', 'guard_name' => 'admin']);
 
         //أضافة وحدة للنظام
+        Permission::create(['name' => 'قائمة الوحدات الفرعية', 'guard_name' => 'admin']);
         Permission::create(['name' => 'أضافة وحدة', 'guard_name' => 'admin']);
         Permission::create(['name' => 'تعديل وحدة', 'guard_name' => 'admin']);
         Permission::create(['name' => 'حذف وحدة', 'guard_name' => 'admin']);
@@ -87,24 +100,6 @@ class PermissionSeeder extends Seeder
         //أضافة صلاحيات
         Permission::create(['name' => 'Movements-Deives', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Detiles', 'guard_name' => 'admin']);
-
-
-
-
-        // Permission::create(['name' => 'Create-Professional', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Edit-Professional', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Index-Professional', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Delete-Professional', 'guard_name' => 'admin']);
-
-        // Permission::create(['name' => 'Create-Customer', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Edit-Customer', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Index-Customer', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Delete-Customer', 'guard_name' => 'admin']);
-
-        // Permission::create(['name' => 'Create-', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Edit-', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Index-', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Delete-', 'guard_name' => 'admin']);
 
     }
 }

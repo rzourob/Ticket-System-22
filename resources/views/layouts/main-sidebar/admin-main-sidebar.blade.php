@@ -71,7 +71,7 @@
                     الصيانة</span> </a>
         </li> --}}
 
-        @canany(['View-Deives', 'View-IT', 'View-Medical', 'Index-Deives', 'Dep-Medical'])
+        @canany(['View-Deives', 'قائمة أجهزة تكنولوجيا المعلومات', 'قائمة الأجهزة الطبية', 'قائمة جميع الأجهزة', 'Dep-Medical'])
 
             @can('View-Deives')
                 <li>
@@ -90,16 +90,16 @@
                             </a>
                             <ul id="maintenances-level1" class="collapse">
 
-                                @can('Index-Deives')
+                                @can('قائمة جميع الأجهزة')
                                     <li> <a href="{{ route('admin.viewdevice') }}">عرض جميع الأجهزة </a> </li>
                                 @endcan
 
-                                @can('View-Medical')
+                                @can('قائمة الأجهزة الطبية')
                                     <li> <a href="{{ route('admin.DevicesMedical') }}">عرض الأجهزة الطبية</a> </li>
                                 @endcan
 
 
-                                @can('View-IT')
+                                @can('قائمة أجهزة تكنولوجيا المعلومات')
                                     <li> <a href="{{ route('admin.DevicesIt') }}">عرض أجهزة تكنولوجيا المعلومات</a>
                                     </li>
                                 @endcan
@@ -130,7 +130,7 @@
                                 {{-- <li> <a href="#">level item 1.2</a> </li> --}}
                             </ul>
                         </li>
-                        @canany(['Index-R-Man.', 'View-R-Man.', 'Create-R-Man.-IT', ' Create-R-Man.-Medical'])
+                        @canany(['قائمة طلبات الصيانة', 'View-R-Man.', 'عرض طلبات تكنولوجيا المعلومات', 'عرض طلبات الأجهزة الطبية'])
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#maintenances-level4"> قائمة تذاكر
                                     الصيانة<div class="pull-right">
@@ -139,17 +139,18 @@
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="maintenances-level4" class="collapse">
-                                    @can('Index-R-Man.')
+
+                                    @can('قائمة طلبات الصيانة')
                                         <li> <a href="{{ route('maintenances.viewDeviceMedical') }}">عرض جميع التذاكر</a>
                                         </li>
                                     @endcan
 
-                                    @can('Create-R-Man.-Medical')
+                                    @can('عرض طلبات الأجهزة الطبية')
                                         <li> <a href="{{ route('admin.Request_Device_Medical') }}">عرض تذاكر أجهزة الطبية</a>
                                         </li>
                                     @endcan
 
-                                    @can('Create-R-Man.-IT')
+                                    @can('عرض طلبات تكنولوجيا المعلومات')
                                         <li> <a href="{{ route('admin.Request_Device_It') }}">عرض تذاكر أجهزة تكنولوجيا المعلومات
                                             </a> </li>
                                     @endcan
@@ -206,7 +207,7 @@
 
 
         <!-- menu item Ticket-->
-        @canany(['Create-Request'])
+        @canany(['أنشاء طلب صيانة'])
             <li>
                 {{-- <a href="{{ route('maintenances.create') }}"><i class="ti-comments"></i><span --}}
                 <a href="{{ route('admin.Request_Device_Medical.create') }}"><i class="ti-comments"></i><span
@@ -277,7 +278,7 @@
         <!-- menu title -->
 
 
-        @canany(['Index-Admin', 'Index-Roles', 'Index-Permissions'])
+        @canany(['أضافة مدير', 'قائمة المسؤوليات', 'قائمة الصلاحيات','أضافة رئيس قسم','أضافة فنيين'])
 
             <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">أدارة المسخدمين و صلاحيات</li>
             <!-- menu item Widgets-->
@@ -297,22 +298,25 @@
                 </a>
                 <ul id="Form" class="collapse" data-parent="#sidebarnav">
 
-                    @can('Index-Permissions')
+                    @can('قائمة الصلاحيات')
                         <li> <a href="{{ route('permissions.index') }}"><i class="fa fa-server"
                                     aria-hidden="true"></i>الصلاحيات</a> </li>
                     @endcan
 
-                    @can('Index-Roles')
+                    @can('قائمة المسؤوليات')
                         <li> <a href="{{ route('roles.index') }}"><i class="fa fa-server" aria-hidden="true"></i>المسؤوليات</a>
                         </li>
                     @endcan
 
                     {{-- <li> <a href="{{ route('roles.index') }}"><i class="fa fa-server" aria-hidden="true"></i>المسؤوليات</a> </li> --}}
+                    @can('أضافة رئيس قسم')
                     <li> <a href="{{ route('users.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>أضافة رئيس
-                            قسم</a> </li>
+                        قسم</a> </li>
+                    @endcan
+                    
 
 
-                    @can('Index-Admin')
+                    @can('أضافة مدير')
                         <li> <a href="{{ route('admin.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>
                                 أضافة مسؤولين</a> </li>
                     @endcan
@@ -385,7 +389,7 @@
         </li> --}}
 
         <!-- menu item Multi level-->
-        <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">الشؤون المالية والادارية</li>
+        {{-- <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">الشؤون المالية والادارية</li>
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#multi-level">
                 <div class="pull-left"><i class="ti-layers"></i><span class="right-nav-text">قسم
@@ -394,7 +398,7 @@
                 <div class="clearfix"></div>
             </a>
             <ul id="multi-level" class="collapse" data-parent="#sidebarnav">
-                {{-- <li> <a href="#">أدارة طلبات الشراء</a> </li> --}}
+                <li> <a href="#">أدارة طلبات الشراء</a> </li>
                 <li> <a href="{{ route('purchaseOrder.index') }}">عرض طلبات الشراء</a> </li>
 
 
@@ -425,7 +429,7 @@
                     </ul>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
         {{-- <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#multi-level">
