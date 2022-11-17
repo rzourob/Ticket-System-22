@@ -40,7 +40,7 @@
                             <!-- select -->
                             <div class="form-group">
                                 <label> نوع طلب الصيانة</label>
-                                <select class="custom-select" id="deviceTypes" disabled>
+                                <select class="custom-select" id="deviceTypes" >
                                     <option value=""> اختارح نوع الطلب</option>
                                     <option value="1"
                                         {{ $maintenancerequest->deviceTypes == '1' ? 'selected' : '' }}> جهاز طبي
@@ -57,7 +57,7 @@
                         <div class="col-md-4 mb-30">
                             <div class="col">
                                 <label for="author_name ">أسم المرسل</label>
-                                <input type="text" name="author_name" class="form-control" id="author_name" disabled
+                                <input type="text" name="author_name" class="form-control" id="author_name" disabled id="disabledSelect"
                                     placeholder="يرجي ادخال اسم المرسل" value="{{ $maintenancerequest->author_name }}">
                             </div>
                         </div>

@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('device_movements', function (Blueprint $table) {
             $table->id();
-            $table->string('title');  
+            $table->string('title');
+            $table->string('movement_type');  
             $table->text('body');
             $table->string('created_by');
             $table->string('newLocation');

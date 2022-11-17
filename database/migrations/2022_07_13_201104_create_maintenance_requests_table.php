@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('mobile');
             $table->enum('status',['Todo','Done'])->default('Todo');
-            $table->string('device_id');
+            // $table->string('device_id');
             $table->string('department_id');
             $table->string('sub_department_id');
             // $table->foreignId('device_id');

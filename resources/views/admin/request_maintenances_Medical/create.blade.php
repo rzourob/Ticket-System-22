@@ -33,7 +33,7 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <h5 class="card-title" style="font-family: 'Cairo', sans-serif">معلومات الأتصال</h5>
-                <form>
+                <form id="create_form">
                     <div class="row">
 
                         <div class="col-md-4 mb-30">

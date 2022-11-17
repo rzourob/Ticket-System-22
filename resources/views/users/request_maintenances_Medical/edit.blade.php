@@ -16,7 +16,7 @@
 @section('content')
 <!-- row -->
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
@@ -58,7 +58,7 @@
                           <div class="col">
                               <label for="mobile" class="mr-sm-2">رقم الجوال</label>
                               <input type="text" name="mobile" class="form-control" id="mobile"
-                              placeholder="يرجي أدخال رقم الجوال" value="{{$maintenancerequest->mobile}}">
+                              placeholder="يرجي أدخال رقم الجوال" value="{{$maintenancerequest->mobile}}" >
                           </div>
                       </div> 
                   </div>

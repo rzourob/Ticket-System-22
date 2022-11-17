@@ -177,7 +177,8 @@
                             @foreach ($deviceMovements as $deviceMovement)
                                 <div class="card mt-3">
                                     <h5 class="card-header" style="font-family: 'Cairo', sans-serif">
-                                        {{ $deviceMovement->title }}
+                                        عنوان الحركة : {{ $deviceMovement->title }} 
+                                        
 
                                         <span class="badge rounded-pill bg-warning text-dark">
                                             {{ $deviceMovement->created_by }}
@@ -188,10 +189,21 @@
                                     <div class="card-body">
                                         <div class="card-text">
                                             <div class="float-start">
+                                                <h6 class="" style="font-family: 'Cairo', sans-serif">
+                                                نوع الحركة :
+                                                <span class="badge rounded-pill bg-warning text-dark">
+                                                        @if ($deviceMovement->movement_type == '1')
+                                                            حركة داخل القسم
+                                                        @elseif($deviceMovement->movement_type == '2')
+                                                            حركة خارج القسم
+                                                        @endif
+                                                    </span>
+                                                        <br>
                                                 {{ $deviceMovement->body }}
+                                                </h6>
                                             </div>
-                                            <br>
-
+                                         
+                                              
                                             <small>أخرتحديث - {{ $deviceMovement->updated_at->diffForHumans() }}
                                             </small>
 

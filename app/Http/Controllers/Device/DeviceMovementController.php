@@ -57,9 +57,10 @@ class DeviceMovementController extends Controller
 
 
         if (!$validator->fails()) {
-
+            
             $deviceMovements = new DeviceMovement();
             $deviceMovements->title = $request->get('title');
+            $deviceMovements->movement_type = $request->get('movement_type');
             $deviceMovements->body = $request->get('body');
             $deviceMovements->device_id = $request->get('device_id');
             $deviceMovements->newLocation = $request->get('newLocation');

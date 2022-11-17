@@ -7,13 +7,8 @@ use App\Http\Controllers\Device\DeviceAttachmentController;
 use App\Http\Controllers\User\Device_IT\Device_ItController;
 use App\Http\Controllers\User\Device_Medical\Device_MedicalController;
 use App\Http\Controllers\User\UserLoginController;
-use App\Http\Controllers\User\Maintenance_User\RequestDeviceItController;
-use App\Http\Controllers\User\Maintenance_User\RequestDeviceMedicalController;
-use App\Http\Controllers\User\Device_User\ViewDeviceItController;
-use App\Http\Controllers\User\Device_User\ViewDeviceMedicalController;
 use App\Http\Controllers\User\Maintenance_It\Request_Maintenance_ItController;
 use App\Http\Controllers\User\Maintenance_Medical\Request_Maintenance_MedicalController;
-use App\Http\Controllers\User\Maintenance_User\MaintenanceRequestUsersController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Mail\TicketEmail;
@@ -101,7 +96,7 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
     Route::PUT('xxxxxxx/update/{id}',[Request_Maintenance_ItController::class,'update'])->name('user.Request_Device_It.update');
 
-    Route::get('Maintenance_It/create',[Request_Maintenance_ItController::class, 'create'])->name('user.Device_It.create');
+    Route::get('Maintenance/create',[Request_Maintenance_ItController::class, 'create'])->name('user.Device_It.create');
 
     Route::post('maintenances_It/store',[Request_Maintenance_ItController::class, 'store'])->name('user.Request_Device_It.store');
 

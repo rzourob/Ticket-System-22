@@ -17,6 +17,18 @@
 
 <!-- row -->
 <div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form>
+                    <h4 style="font-family: 'Cairo', sans-serif"> أضافة حركة  </h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- row -->
+<div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
@@ -28,7 +40,7 @@
                             <!-- select -->
                             <div class="col">
                                 <label> نوع الحركة</label>
-                                <select class="custom-select" id="new_status">
+                                <select class="custom-select" id="movement_type">
                                     <option value=""> اختارح نوع الحركة</option>
                                     <option value="1">حركة داخل القسم</option>
                                     <option value="2">حركة خارج القسم</option>
@@ -60,7 +72,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-sm-4 mb-30">
                             <!-- select -->
                             <div class="col">
@@ -73,7 +85,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> --}}
                     <!-- /.card-body -->
                     <div class="modal-footer">
                         <button type="button" onclick="performStore()" class="btn btn-primary">أضافة رد</button>
@@ -94,6 +106,7 @@
     function performStore() {
         let data = {
             title: document.getElementById('title').value,
+            movement_type: document.getElementById('movement_type').value,
             body: document.getElementById('body').value,
             device_id: document.getElementById('device_id').value,
             newLocation: document.getElementById('newLocation').value,

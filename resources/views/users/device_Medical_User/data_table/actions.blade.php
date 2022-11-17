@@ -25,7 +25,7 @@
             @can('حذف جهاز')
                 <a class="dropdown-item" href="#" onclick="performDestroy({{ $id }}, this)  "
                     class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                    حذف قسم</a>
+                    حذف جهاز</a>
             @endcan
 
         </div>

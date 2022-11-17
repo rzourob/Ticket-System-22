@@ -21,7 +21,7 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
-                    <h4 style="font-family: 'Cairo', sans-serif"> أضافة حركة للجهاز </h4>
+                    <h4 style="font-family: 'Cairo', sans-serif"> أضافة حركة  </h4>
                 </form>
             </div>
         </div>
@@ -36,6 +36,17 @@
                 <form>
                     <div class="row">
                         <input type="hidden" id="device_id" name="device_id" value="{{ $devices->id }}">
+                        <div class="col-sm-4 mb-30">
+                            <!-- select -->
+                            <div class="col">
+                                <label> نوع الحركة</label>
+                                <select class="custom-select" id="movement_type">
+                                    <option value=""> اختارح نوع الحركة</option>
+                                    <option value="1">حركة داخل القسم</option>
+                                    <option value="2">حركة خارج القسم</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class="col">
                                 <label for="title" class="mr-sm-2"> عنوان الحركة </label>
@@ -61,7 +72,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-sm-4 mb-30">
                             <!-- select -->
                             <div class="col">
@@ -74,10 +85,10 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> --}}
                     <!-- /.card-body -->
                     <div class="modal-footer">
-                        <button type="button" onclick="performStore()" class="btn btn-primary">أضافة حركة</button>
+                        <button type="button" onclick="performStore()" class="btn btn-primary">أضافة رد</button>
                     </div>
                 </form>
             </div>
@@ -95,6 +106,7 @@
     function performStore() {
         let data = {
             title: document.getElementById('title').value,
+            movement_type: document.getElementById('movement_type').value,  
             body: document.getElementById('body').value,
             device_id: document.getElementById('device_id').value,
             newLocation: document.getElementById('newLocation').value,
