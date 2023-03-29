@@ -78,7 +78,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3 ">
+                        {{-- <div class="col-sm-3 ">
                             <!-- select -->
                             <div class="form-group ">
                                 <label> نوع الجهاز </label>
@@ -88,7 +88,7 @@
                                     <option value="2">أجهزة تكنولوجيا المعلومات</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-sm-6">
                             <div class="form-group ">

@@ -71,7 +71,7 @@
     <div class="col-md-12 mb-30">     
       <div class="card card-statistics h-100"> 
         <div class="card-body">    
-          <h5 class="card-title">معلومات التذكرة</h5>
+          <h5 class="card-title" style="font-family: 'Cairo', sans-serif">معلومات التذكرة</h5>
           <form >
                 <div class="row">
                     <div class="col-sm-4">
@@ -249,7 +249,7 @@
     <div class="col-md-12 mb-30">     
       <div class="card card-statistics h-100"> 
         <div class="card-body">   
-          <h5 class="card-title">وصف المشكلة </h5>
+          <h5 class="card-title" style="font-family: 'Cairo', sans-serif">وصف المشكلة </h5>
           <form>
             <div class="row">
                 <div class="col-md-3">
@@ -307,7 +307,6 @@ $('#subdepartments').attr('disabled',this.value == -1);
         // axios.get(`/admin/departments/${departmentId}`)
 
      axios.get(`/departments/${departmentId}`)
-
 
         .then(function (response) {
             console.log(response);

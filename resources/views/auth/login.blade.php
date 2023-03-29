@@ -40,7 +40,7 @@ login-->
 
     <section class="height-100vh d-flex align-items-center page-section-ptb login"
              {{-- style="background-image: url('{{ asset('assets/images/sativa.png')}}'); background-size:cover; background-repeate: ni-repeate ;" alt=""> --}}
-        style="background-image: url('{{ asset('assets/images/sativa.png')}}');">
+        style="background:#fff">
 
         <div class="container">
             <div class="row justify-content-center no-gutters vertical-align">

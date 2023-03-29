@@ -18,11 +18,6 @@ class DeviceController extends Controller
 
     const MEDICAL = 1;
     const IT = 2;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function medicalDep()
     {
@@ -87,84 +82,19 @@ class DeviceController extends Controller
             ->toJson();
     } // end of data
 
-    // public function index()
-    // {
-    //     //
-    //     return view('devices.index');
-    // }
-    // public function data()
-    // {
-    //     // $patients = Department::with(['nationality:id,title_ar','city:id,title_ar'])->select();
-    //     $devices = Device::get();
-
-
-    //     return DataTables::of($devices)
-    //         // ->addColumn('record_select', 'admin.users.data_table.record_select')
-
-    //         // ->filterColumn('city_id', function ($query, $value) {
-    //         //     $query->whereHas('city', function ($q) use ($value) {
-    //         //         $q->where(DB::raw("CONCAT_WS(' ',title_ar)"), 'like', "%" . $value . "%");
-    //         //     });
-    //         // })
-
-    //         ->addColumn('title', function (device $device) {
-    //             return view('devices.data_table.title', compact('device'));
-    //         })
-    //         ->addColumn('description', function (device $device) {
-    //             return view('devices.data_table.description', compact('device'));
-    //         })
-
-    //         ->addColumn('department_id', function (device $device) {
-    //             return view('devices.data_table.departments', compact('device'));
-    //         })
-
-    //         ->addColumn('image', function (device $device) {
-    //             return view('devices.data_table.image', compact('device'));
-    //         })
-
-    //         ->addColumn('sub_department_id', function (device $device) {
-    //             return view('devices.data_table.subdepartments', compact('device'));
-    //         })
-
-    //         ->addColumn('active', function (device $device) {
-    //             return view('devices.data_table.active', compact('device'));
-    //         })
-
-    //         ->addColumn('deviceTypes', function (device $device) {
-    //             return view('devices.data_table.deviceTypes', compact('device'));
-    //         })
-
-
-    //         // ->addColumn('gender', function (department $department) {
-    //         //     return view('social.patients.data_table.gender', compact('department'));
-    //         // })
-
-    //         ->editColumn('created_at', function (device $device) {
-    //             return $device->created_at->format('Y-m-d');
-    //         })
-    //         ->addColumn('actions', 'devices.data_table.actions')
-    //         ->rawColumns(['actions'])
-    //         ->toJson();
-    // } // end of data
-
-    public function getdeviceMedical(Request $request)
+        public function getdeviceMedical(Request $request)
     {
         //
 
         $devices = Device::where('deviceTypes', 1)->get();
-        // $sss = $request->user('web')->department->devicee;
         return view('devices.getdeviceMedical', [
             'devices' => $devices,
-            // 'sss' => $sss,
         ]);
     }
     public function devicesData(Request $request)
     {
-        // $devices = $request->user('web')->department->devicee;
 
         $devices = auth()->user()->department->devicee->where('deviceTypes', $this::MEDICAL);
-
-        // dd(auth()->user()->department->devicee);
 
         return DataTables::of($devices)
             // ->addColumn('record_select', 'admin.users.data_table.record_select')
@@ -209,9 +139,7 @@ class DeviceController extends Controller
     {
         //
         $devices = Device::where(['deviceTypes',2])->select();
-        // $viewDevice = Auth::user()->department->device;
 
-        // $devices = Device::where('deviceTypes', 2)->get();
         $sss = $request->user('web')->department->devicee;
 
         return view('devices.getdeviceit', [
@@ -222,7 +150,6 @@ class DeviceController extends Controller
     }
     public function iTData(Request $request)
     {
-        // $devices = Device::where('deviceTypes', 2)->get();
 
         $devices = auth()->user()->department->devicee ->where('deviceTypes',$this::IT);
 
@@ -264,14 +191,6 @@ class DeviceController extends Controller
             ->toJson();
     } // end of data
 
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -284,12 +203,6 @@ class DeviceController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
@@ -307,7 +220,6 @@ class DeviceController extends Controller
             //    'model.required' => 'الرجاء ادخال اسنوع الجهاز الطبي',
             //    'supplier.required' => 'الرجاء ادخال الموردة',
         ]);
-
 
         if (!$validator->fails()) {
 
@@ -346,13 +258,6 @@ class DeviceController extends Controller
         }
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
@@ -373,12 +278,6 @@ class DeviceController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
@@ -403,14 +302,6 @@ class DeviceController extends Controller
         return response()->view('devices.device_movement', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Device $device)
     {
         //
@@ -432,8 +323,6 @@ class DeviceController extends Controller
 
         if (!$validator->fails()) {
 
-            // $device->codeDevices = $request->get('codeDevices');
-
             $device->codeDevices = $request->get('codeDevices');
             $device->title = $request->get('title');
             $device->deviceTypes = $request->get('deviceTypes');
@@ -442,7 +331,6 @@ class DeviceController extends Controller
             $device->sn = $request->get('sn');
             $device->supplier = $request->get('supplier');
             $device->warranty = $request->get('warranty');
-            // $device->image = $request->get('image');
             $device->description = $request->get('description');
             $device->department_id = $request->get('department_id');;
             $device->sub_department_id = $request->get('sub_department_id');
@@ -468,12 +356,6 @@ class DeviceController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
@@ -481,7 +363,6 @@ class DeviceController extends Controller
 
     public function getdetail($id)
     {
-        // $patients = DB::table("patients")->where("id_no", $id)->pluck("first_name", "id");
         $devices = DB::table("devices")->where("sn", $id)->get();
         return json_encode($devices);
     }

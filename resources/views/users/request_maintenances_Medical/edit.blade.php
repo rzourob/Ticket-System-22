@@ -249,7 +249,7 @@
                         <!-- select -->
                         <div class="form-group">
                             <label> حالة التذكرة</label>
-                          <select class="custom-select"   id="status">
+                          <select class="custom-select"   id="status" disabled>
                             <option value=""> اختارح نوع الطلب</option>
                             <option value="1" {{ $maintenancerequest->status == "Todo"  ? 'selected' : ''}}>مفتوحة</option>
                             <option value="2" {{ $maintenancerequest->status == "Done"  ? 'selected' : ''}}>مغلقة</option>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\Device_IT;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDevice_It;
+use App\Mail\DeviceEmail;
 use App\Models\Department\Department;
 use App\Models\Device\Device;
 use App\Models\DeviceMovement\DeviceMovement;
@@ -16,85 +18,45 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
 use App\Models\Device\DeviceAttachment;
+use App\RepositoryInterface\Admins\Device_ItInterface;
 
 class Device_ItController extends Controller
 {
     //
-    const MEDICAL = 1;
-    const IT = 2;
-    //
+    protected $Device;
+
+    public function __construct(Device_ItInterface $Device)
+    {
+        $this->Device = $Device;
+    }
+
     public function index()
     {
-        $subdepartments = SubDepartment::get();
-        $departments = Department::get();
-        $maintenancerequests = MaintenanceRequest::get();
+        $subdepartments = $this->Device->getSubdepartments();
+        $departments = $this->Device->getDepartments();
+        $maintenancerequests = $this->Device->getMaintenanceRequests(); 
+
         return view('admin.device_It_Admin.device_It', [
             'subdepartments' => $subdepartments,
             'departments' => $departments,
             'maintenancerequests' => $maintenancerequests
         ]);
-    }
+
+    }// end of index
+
     public function data()
     {
-        $devices =  Device::where('deviceTypes', 2);
+        return $this->Device->data();
 
-
-        return DataTables::of($devices)
-            // ->addColumn('record_select', 'admin.users.data_table.record_select')
-
-            ->filterColumn('deviceTypes', function ($query, $deviceTypes) {
-                $query->where('deviceTypes', $deviceTypes);
-            })
-
-            ->filterColumn('sub_department_id', function ($query, $sub_department_id) {
-                $query->where('sub_department_id', $sub_department_id);
-            })
-
-            ->filterColumn('department_id', function ($query, $department_id) {
-                $query->where('department_id', $department_id);
-            })
-
-            ->addColumn('title', function (device $device) {
-                return view('admin.device_It_Admin.data_table.titleRequest', compact('device'));
-            })
-            ->addColumn('description', function (device $device) {
-                return view('admin.device_It_Admin.data_table.description', compact('device'));
-            })
-
-            ->addColumn('department_id', function (device $device) {
-                return view('admin.device_It_Admin.data_table.departments', compact('device'));
-            })
-
-            ->addColumn('image', function (device $device) {
-                return view('admin.device_It_Admin.data_table.image', compact('device'));
-            })
-
-            ->addColumn('sub_department_id', function (device $device) {
-                return view('admin.device_It_Admin.data_table.subdepartments', compact('device'));
-            })
-
-            ->addColumn('active', function (device $device) {
-                return view('admin.device_It_Admin.data_table.active', compact('device'));
-            })
-
-            ->addColumn('deviceTypes', function (device $device) {
-                return view('admin.device_It_Admin.data_table.deviceTypes', compact('device'));
-            })
-
-            ->editColumn('created_at', function (device $device) {
-                return $device->created_at->format('Y-m-d');
-            })
-            ->addColumn('actions', 'admin.device_It_Admin.data_table.actions')
-            ->rawColumns(['actions'])
-            ->toJson();
     } // end of data
 
 
     public function devices_request_show($id)
     {
-        $devices = Device :: where('id',$$id)->first();
-        $departments = Department::where('active', true)->get();
-        $subdepartments = SubDepartment::where('active', true)->get();
+
+        $devices = Device :: where('id',$id)->first();
+        $subdepartments = $this->Device->getSubdepartments();
+        $departments = $this->Device->getDepartments();
 
         return response()->view('admin.device_It_Admin.create', [
             'devices' => $devices,
@@ -102,98 +64,32 @@ class Device_ItController extends Controller
             'subdepartments' => $subdepartments
         ]);
 
-
-    }
+    }// end of devices_request_show
 
     public function create()
     {
-        $departments = Department::where('active', true)->get();
-        $subdepartments = SubDepartment::where('active', true)->get();
+        $subdepartments = $this->Device->getSubdepartments();
+        $departments = $this->Device->getDepartments();
         return response()->view('admin.device_It_Admin.create', [
             'departments' => $departments,
             'subdepartments' => $subdepartments
         ]);
-    }
 
-    public function store(Request $request)
+    }// end of create
+
+    public function store(StoreDevice_It $request)
     {
-        //
-        $validator = Validator($request->all(), [
+        
+        return $this->Device->storeDevice_It($request);
 
-            'codeDevices' => 'required| string',
-            'deviceTypes' => 'required| string',
-            'title' => 'required|string',
-            'sn' => 'required|string',
-            'department_id' => 'required|string',
-            'room' => 'required|string',
-            'manufacturer' => 'required|string',
-            'model' => 'required|string',
-            'supplier' => 'required|string',
-            'warranty' => 'required|string',
-          
-
-        ], [
-            'codeDevices.required' => 'الرجاء ادخال الباركود الخاص بالجهاز',
-            'deviceTypes.required' => 'الرجاء تحديد نوع الجهاز',
-            'title.required' => 'الرجاء أدخال اسم الجهاز',
-            'sn.required' => 'الرجاء ادخال السيريال نمبر الخاص بالجهاز',
-            'sn.unique' => 'الرجاء ادخال اسم الشركة ?????????',
-            'department_id.required' => 'الرجاء اختيار القسم',
-            'room.required' => 'الرجاء ادخال رقم الغرفة',
-            'manufacturer.required' => 'الرجاء ادخال اسم الشركة المصنعة',
-            'model.required' => 'الرجاء ادخال موديل الجهاز',
-            'supplier.required' => 'الرجاء ادخال اسم الشركة الموردة',
-            'warranty.required' => 'الرجاء ادخال اسم الشركة الموردة',
-        ]);
-
-
-        if (!$validator->fails()) {
-
-            $device = new Device();
-            $device->codeDevices = $request->get('codeDevices');
-            $device->title = $request->get('title');
-            $device->deviceTypes = $request->get('deviceTypes');
-            $device->manufacturer = $request->get('manufacturer');
-            $device->model = $request->get('model');
-            $device->sn = $request->get('sn');
-            $device->supplier = $request->get('supplier');
-            $device->warranty = $request->get('warranty');
-            // $device->image = $request->get('image');
-            $device->room = $request->get('room'); 
-            $device->description = $request->get('description');
-            $device->department_id = $request->get('department_id');;
-            $device->sub_department_id = $request->get('sub_department_id');
-            $device->Created_by  = Auth::user()->name;
-
-            if ($request->hasFile('image')) {
-                Storage::disk('public')->delete("devices/$device->image");
-                $image = $request->file('image');
-                $imageName = time() . '_' . $device->name . '.' . $image->getClientOriginalExtension();
-                $request->file('image')->storePubliclyAs('devices', $imageName, ['disk' => 'public']);
-                $device->image = $imageName;
-            }
-            // $devicedetail->image = $file_name;
-
-
-            $isSaved = $device->save();
-            // if ($isSaved) {
-
-            //     Mail::to( Auth::user()->email)->send(new TicketEmail());
-            // }
-
-            return response()->json(['message' => $isSaved ? "تم أضافة الجهاز بنجاح" : "فشل أضافة الجهاز"], $isSaved ? 201 : 400);
-        } else {
-            return response()->json(['message' => $validator->getMessageBag()->first()], 400);
-            //    return response()->json(['message' => "Failed to save"], 400);
-        }
-    }
+    }// end of store
 
     public function show($id)
     {
         //
-        $devices  = Device::where('id', $id)->first();
-        $departments = Department::get();
-        $subdepartments = SubDepartment::get();
+        $devices  = $this->Device->getDevice_It($id);
+        $subdepartments = $this->Device->getSubdepartments();
+        $departments = $this->Device->getDepartments();
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
         // $maintenancerequests  = MaintenanceRequest::where('device_id', $id)->get();
         $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
@@ -207,22 +103,22 @@ class Device_ItController extends Controller
             'deviceMovements' => $deviceMovements
 
         ]);
-    }
+
+    }// end of show
 
     public function edit($id)
     {
-        //
-        // $devices = Device::findOrFail($id);
+
         $devices = Device::findOrFail($id);
-        $departments = Department::where('active', true)->get();
-        $subdepartments = SubDepartment::where('active', true)->get();
+        $subdepartments = $this->Device->getSubdepartments();
+        $departments = $this->Device->getDepartments();
         return response()->view('admin.device_It_Admin.edit', [
             'departments' => $departments,
             'subdepartments' => $subdepartments,
             'devices' => $devices,
-
         ]);
-    }
+
+    }// end of edit
 
     public function Movements_show($id)
     {
@@ -231,7 +127,8 @@ class Device_ItController extends Controller
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
 
         return response()->view('admin.device_It_Admin.device_movement', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
-    }
+
+    }// end of Movements_show
 
     public function update(Request $request, Device $device,$id)
     {
@@ -284,21 +181,21 @@ class Device_ItController extends Controller
             return response()->json(['message' => $validator->getMessageBag()->first()], 400);
             //    return response()->json(['message' => "Failed to save"], 400);
         }
-    }
+
+    }// end of update
+
     public function destroy($id)
     {
-        //
-
-
-        
-    }
+        //       
+    }// end of destroy
 
     public function getdetail($id)
     {
         // $patients = DB::table("patients")->where("id_no", $id)->pluck("first_name", "id");
         $devices = DB::table("devices")->where("sn", $id)->get();
         return json_encode($devices);
-    }
+        
+    }// end of getdetail
 
     public function viewFile($id)
 
@@ -306,5 +203,6 @@ class Device_ItController extends Controller
 
         $deviceattachments  = DeviceAttachment::where('id', $id)->first();
         return response()->view('admin.device_It_Admin.viewFile', [ 'deviceattachments' => $deviceattachments]);
-    }
+
+    }// end of viewFile
 }

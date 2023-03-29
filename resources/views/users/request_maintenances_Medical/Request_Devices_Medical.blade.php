@@ -232,7 +232,7 @@
     // });
 </script>
 
-{{-- <script>
+<script>
     $('#subdepartments').attr('disabled', true);
     $('#departments').on('change', function() {
         $('#subdepartments').attr('disabled', this.value == -1);
@@ -260,6 +260,6 @@
                 })
         }
     })
-</script> --}}
+</script>
 
 @endsection

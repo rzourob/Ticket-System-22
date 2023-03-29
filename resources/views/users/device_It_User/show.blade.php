@@ -280,7 +280,7 @@
                                                                 <td>
                                                                     <div class="btn-group">
                                 
-                                                                    <a class="btn btn-info" href="{{ route('View_file_pdf', $deviceattachment->id)}}"  role="button">عرض
+                                                                    <a class="btn btn-info" href="{{ route('View_file_pdf', $deviceattachment->id)}}"  target="_blank" role="button">عرض
                                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                 
                                                                     </a>
