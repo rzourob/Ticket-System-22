@@ -57,15 +57,15 @@
                             <h3 style="font-family: 'Cairo', sans-serif;color: #8d183d;" class="mb-30"><strong>حدد طريقة الدخول</strong></h3>
                             <div class="form-inline">
                                 <a class="btn btn-default col-lg-4" title="مسؤول النظام" href="{{ route('show.login','admin')}}">
-                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/مدير نظام.png')}}">
+                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/مسؤولنظام2.png')}}">
                                     <h5 style="font-family: 'Cairo', sans-serif ;color: #8d183d ;" class="mt-2 text-center "><strong class="">مسؤول النظام</strong></h5>
                                 </a>
                                 <a class="btn btn-default col-lg-4" title="فنيي صيانة" href="{{ route('show.login','technician')}}">
-                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/فني.png')}}">
+                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/فني2.png')}}">
                                     <h5 style="font-family: 'Cairo', sans-serif;color: #8d183d ;" class="mt-2 text-center "><strong class="">فني صيانة</strong></h5>
                                 </a>
                                 <a class="btn btn-default col-lg-4" title="رئيس قسم" href="{{ route('show.login','user')}}">
-                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/manager.png')}}">
+                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/رئيس قسم2.png')}}">
                                     <h5 style="font-family: 'Cairo', sans-serif ;color: #8d183d ;" class="mt-2 text-center "><strong class="">رئيس قسم</strong></h5>
                                 </a>
                                 {{-- <a class="btn btn-default col-lg-3" title="ادمن" href="#">
