@@ -43,7 +43,7 @@
                </div> --}}
                 <div class="row justify-content-center no-gutters vertical-align">
 
-                    <div style="border-radius: 15px;" class="col-lg-8 col-md-8 bg-white">
+                    <div style="border-radius: 15px;" class="col-lg-8 col-md-8 ">
                         <div class="login-fancy  clearfix">
                            <div class="row mb-30 justify-content-center" >
 
@@ -52,21 +52,21 @@
                             <h4 style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;background-color: #8d183d;color:#fff; border-radius: 15px;width:600px" class="mt-30 p-2 text-center border  "><strong class="">برنامج RMB الأدارة <br>الأجهزة وطلبات الصيانة</strong></h4>
 
                            </div>
-<hr>
+<hr style="background-color:#fff">
 
-                            <h3 style="font-family: 'Cairo', sans-serif;color: #8d183d;" class="mb-30"><strong>حدد طريقة الدخول</strong></h3>
+                            <h3 style="font-family: 'Cairo', sans-serif;" class="mb-30"><strong>حدد طريقة الدخول</strong></h3>
                             <div class="form-inline">
                                 <a class="btn btn-default col-lg-4" title="مسؤول النظام" href="{{ route('show.login','admin')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/مسؤولنظام2.png')}}">
-                                    <h5 style="font-family: 'Cairo', sans-serif ;color: #8d183d ;" class="mt-2 text-center "><strong class="">مسؤول النظام</strong></h5>
+                                    <h5 style="font-family: 'Cairo', sans-serif ;" class="mt-2 text-center "><strong class="">مسؤول النظام</strong></h5>
                                 </a>
                                 <a class="btn btn-default col-lg-4" title="فنيي صيانة" href="{{ route('show.login','technician')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/فني2.png')}}">
-                                    <h5 style="font-family: 'Cairo', sans-serif;color: #8d183d ;" class="mt-2 text-center "><strong class="">فني صيانة</strong></h5>
+                                    <h5 style="font-family: 'Cairo', sans-serif;" class="mt-2 text-center "><strong class="">فني صيانة</strong></h5>
                                 </a>
                                 <a class="btn btn-default col-lg-4" title="رئيس قسم" href="{{ route('show.login','user')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/رئيس قسم2.png')}}">
-                                    <h5 style="font-family: 'Cairo', sans-serif ;color: #8d183d ;" class="mt-2 text-center "><strong class="">رئيس قسم</strong></h5>
+                                    <h5 style="font-family: 'Cairo', sans-serif;" class="mt-2 text-center "><strong class="">رئيس قسم</strong></h5>
                                 </a>
                                 {{-- <a class="btn btn-default col-lg-3" title="ادمن" href="#">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/admin.png')}}">

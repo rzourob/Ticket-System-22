@@ -24,6 +24,7 @@ class Device_ItController extends Controller
         $devices = auth()->user()->department->devicee->where('deviceTypes', $this::IT);
         $subdepartments = SubDepartment::get();
         $departments = Department::get();
+        // $departments = auth()->user()->department->where('department_id',1);
         return view('users.device_It_User.device_it', [
             'devices' => $devices,
             'subdepartments' => $subdepartments,

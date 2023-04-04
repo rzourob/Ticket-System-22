@@ -59,13 +59,13 @@ login-->
                 <div class="col-lg-4 col-md-6 bg-white">
                     <div class="login-fancy pb-40 clearfix">
                         @if($type == 'user')
-                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول رئيس قسم</h3>
+                            <h3 style="font-family: 'Cairo', sans-serif;color: #8d183d" class="mb-30">تسجيل دخول رئيس قسم</h3>
                         @elseif($type == 'technician')
-                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول  فني الصيانة</h3>
+                            <h3 style="font-family: 'Cairo', sans-serif;color: #8d183d" class="mb-30">تسجيل دخول  فني الصيانة</h3>
                         {{-- @elseif($type == 'teacher')
                             <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول معلم</h3> --}}
                         @else
-                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول مدير النظام</h3>
+                            <h3 style="font-family: 'Cairo', sans-serif;color: #8d183d" class="mb-30">تسجيل دخول مدير النظام</h3>
                         @endif
                         <form method="POST" action="{{route('login')}}">
                             @csrf
@@ -101,7 +101,7 @@ login-->
                                 <div class="remember-checkbox mb-30">
                                     <input type="checkbox" class="form-control" name="two" id="two" />
                                     <label for="two"> تذكرني</label>
-                                    <a href="#" class="float-right">هل نسيت كلمةالمرور ؟</a>
+                                    <a style="color: #8d183d" href="#" class="float-right">هل نسيت كلمةالمرور ؟</a>
                                 </div>
                             </div>
                             <button class="button"><span>دخول</span><i class="fa fa-check"></i></button>
