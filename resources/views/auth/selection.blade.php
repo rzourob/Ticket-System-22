@@ -47,7 +47,7 @@
                         <div class="login-fancy  clearfix">
                            <div class="row mb-30 justify-content-center" >
 
-                            <img  style="margin:auto ; width:300px" src="{{URL::asset('assets/images/Layer 0.png')}}" alt="">
+                            <img  style="margin:auto ; width:300px" src="{{URL::asset('assets/images/Layer.png')}}" alt="">
 
                             <h4 style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;background-color: #8d183d;color:#fff; border-radius: 15px;width:600px" class="mt-30 p-2 text-center border  "><strong class="">برنامج RMB الأدارة <br>الأجهزة وطلبات الصيانة</strong></h4>
 
