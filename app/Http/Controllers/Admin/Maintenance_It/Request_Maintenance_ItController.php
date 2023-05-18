@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Maintenance_It;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\CreatedMaintenance_Medical_Job;
 use App\Models\Comment\Comment;
 use App\Models\Department\Department;
 use App\Models\Device\Device;
@@ -176,9 +177,10 @@ class Request_Maintenance_ItController extends Controller
 
             if ($isSaved) {
                 // Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
-                Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
+                
+                // Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
 
-
+                dispatch(new CreatedMaintenance_Medical_Job($maintenancerequests))->delay(5);
                 // Mail::to('ticket@ticket.it-rmb.com')->send(new TicketEmail());
                 // $users =User :: all();
 

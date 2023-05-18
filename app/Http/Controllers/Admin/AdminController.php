@@ -12,6 +12,8 @@ use Illuminate\Validation\Rules\Password;
 use App\Http\Traits\UserTrait;
 use App\Http\Traits\AdminTrait;
 use App\Mail\WelcomeEmail;
+use App\Notifications\CreatedAdminNotification;
+use App\Notifications\CreateUserNotification;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
@@ -97,6 +99,8 @@ class AdminController extends Controller
             if ($isSaved) {
 
                 $admin->assignRole($role);
+                
+                $admin->notify(new CreatedAdminNotification($admin));
 
                 // Mail::to($admin->email)->send(new WelcomeEmail());
             }

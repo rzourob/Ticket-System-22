@@ -10,10 +10,16 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Traits\UserTrait;
+use App\Jobs\CreatedUser;
 use App\Models\Admin;
 use App\Models\Department\Department;
+use App\Notifications\CreateUserNotification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Symfony\Component\HttpFoundation\Response;
+use Notifications;
+use Mail;
+use App\Jobs;
 
 class UserController extends Controller
 {
@@ -92,17 +98,24 @@ class UserController extends Controller
            $user->department_id = $request->get('department_id');
            $user->status = $request->get('status');
            $user->image = $request->get('image');
-
+           
            $img_name = $this->saveImg($request, $user, 'users/$user->image');
            
            $isSaved = $user->save();
 
            if($isSaved) $user->assignRole($role);
+           
+           $user->notify(new CreateUserNotification($user));
+
+        //    dispatch(new CreatedUser($user))->delay(5);
+
+        //    Notification::send($user , new CreateUserNotification($user));
+
 
             return response()->json(['message' => $isSaved ? trans('تم اضافة المستخدم بنجاح') : "فشل عملية اضافة المسنتخدم"], $isSaved ? 201 : 400);
         } else {
             return response()->json(['message' => $validator->getMessageBag()->first()], 400);
-        }
+         }
     }
 
     /**

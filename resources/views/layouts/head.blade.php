@@ -11,7 +11,8 @@
 <link rel="stylesheet" type="text/css" href="{{URL :: asset('assets/css/style.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{URL :: asset('assets/css/rtl.css')}}" />
 
-
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" /> --}}
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" /> --}}
 
 @yield('css')
  

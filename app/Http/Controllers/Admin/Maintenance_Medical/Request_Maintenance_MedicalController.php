@@ -14,6 +14,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
+use App\Jobs\CreatedMaintenance_It_Job;
+
 
 class Request_Maintenance_MedicalController extends Controller
 {
@@ -165,8 +167,8 @@ class Request_Maintenance_MedicalController extends Controller
 
             if ($isSaved) {
                 // Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
-                Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
-
+                // Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
+                dispatch(new CreatedMaintenance_It_Job($maintenancerequests))->delay(5);
                 // $users =User :: all();
 
             //     $admins = Admin::all();

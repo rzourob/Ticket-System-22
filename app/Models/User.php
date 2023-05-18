@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Comment\Comment;
 use App\Models\Department\Department;
 use App\Models\Maintenance\MaintenanceRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -60,5 +61,20 @@ class User extends Authenticatable
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function comment()
+    {
+        // return $this->belongsToMany(MaintenanceRequest::class ,'maintenancerequest_id' ,'id');
+
+        // return $this->hasMany(MaintenanceRequest::class );
+
+        return $this->hasMany(Comment::class ,'user_id' ,'id');
+
+    }
+
+    public function routeNotificationForMail($notification = null)
+    {
+        return $this->email;
     }
 }

@@ -1,5 +1,11 @@
 @extends('layouts.master')
 @section('css')
+{{-- <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
+<link rel="stylesheet" href="{{asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}"> --}}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"> 
+
+
 
 @section('title')
     نظام RMB الادارة طلبات الصيانة
@@ -140,7 +146,7 @@ wrapper -->
     <div class="row">
         <div class="col-12 sm-mb-30">
             <a href="#" data-toggle="modal" data-target="#add-category" class="btn btn-primary btn-block m-t-20">
-                    <i class="fa fa-plus pr-2"></i> Create New
+                    <i class="fa fa-plus pr-2"></i> أنشاء موعد
                 </a>
             <div id="external-events" class="m-t-20">
                 <br>
@@ -184,18 +190,18 @@ wrapper -->
           <div class="modal-dialog">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title">Add a category</h5>
+                      <h5 class="modal-title">أنشاء موعد جديد</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                   </div>
                   <div class="modal-body p-20">
                       <form>
                           <div class="row">
                               <div class="col-md-6">
-                                  <label class="control-label">Category Name</label>
+                                  <label class="control-label">أسم الموعد</label>
                                   <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name" />
                               </div>
                               <div class="col-md-6">
-                                  <label class="control-label">Choose Category Color</label>
+                                  <label class="control-label">أختيار صنف الموعد</label>
                                   <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
                                       <option value="success">Success</option>
                                       <option value="danger">Danger</option>
@@ -208,8 +214,8 @@ wrapper -->
                       </form>
                   </div>
                   <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-success save-category" data-dismiss="modal">Save</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">أعلاق</button>
+                      <button type="button" class="btn btn-success save-category" data-dismiss="modal">حفظ</button>
                   </div>
               </div>
           </div>
@@ -315,6 +321,9 @@ wrapper -->
       }
   });
   </script>
+
+
+
 
 
 @endsection

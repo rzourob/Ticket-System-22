@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment\Comment;
 use App\Models\Maintenance\MaintenanceRequest;
+use App\Notifications\NewCommentNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -69,10 +70,21 @@ class CommentController extends Controller
 
            $comments = new Comment();
            $comments->maintenancerequest_id = $request->get('maintenancerequest_id');
+        //    $comments->user_id = $request->get('user_id');
            $comments->body = $request->get('body');
            $comments->new_status = $request->get('new_status');
            $comments->Created_by  = Auth::user()->name;
-            $isSaved = $comments->save();
+           $isSaved = $comments->save();
+
+            //  $user = $comments->user;
+
+            //  dd( Auth()->user());
+
+            if($isSaved){
+
+                auth()->user()->notify(new NewCommentNotification($comments));
+            //    $comments()->notify(new NewCommentNotification($comments));
+            }
             
 
             return response()->json(['message' => $isSaved ? "تم أضافة الرد بنجاح" : "فشل أضافة الرد"], $isSaved ? 201 : 400);

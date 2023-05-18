@@ -143,7 +143,7 @@
                         <hr  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;background-color: #8d183d;width=2px ">
                         <div class="float-end " class="d-flex justify-center align-center">
 
-
+                            @if( $comment->Created_by  === Auth::user()->name)
 
                             <a href="#" class="btn btn-success left justify-center">
                                 تعديل الرد</i>
@@ -153,7 +153,7 @@
                             <a href="#" onclick="performDestroy({{ $comment->id }},this)  "
                                 class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                 حذف الرد</a>
-
+                                @endif
 
 
 

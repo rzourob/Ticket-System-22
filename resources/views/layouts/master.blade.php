@@ -58,8 +58,8 @@ wrapper -->
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
-              <li class="breadcrumb-item"><a href="index.html" class="default-color" style="color: #8d183d;font-size: 20px;">الصفحة الرئيسية</a></li>
-              <li class="breadcrumb-item active" style="color: #8d183d;font-size: 20px;">@yield('PageTitle2')</li>
+              <li class="breadcrumb-item"><a href="index.html" class="default-color" style="color: #8d183d">الصفحة الرئيسية</a></li>
+              <li class="breadcrumb-item active" style="color: #8d183d">@yield('PageTitle2')</li>
             </ol>
           </div>
         </div>
