@@ -2,24 +2,24 @@
 @section('css')
 
 @section('title')
-    تفاصيل الجها
+    تفاصيل التذكرة
 @stop
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle2')
-    تفاصيل الجهاز
+    تفاصيل التذكرة
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <!-- row -->
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12">
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form>
-                    <h4 style="font-family: 'Cairo', sans-serif"> تفاصيل الجهاز </h4>
+                    <h4 style="font-family: 'Cairo', sans-serif; color: #8d183d;"> تفاصيل التذكرة </h4>
                 </form>
             </div>
         </div>
@@ -29,17 +29,9 @@
 <div class="row">
     <div class="col-md-12 mb-30">
 
-        <div>
-
-            <div class="float-start">
-                <h4 class="pb-3">تفاصيل التذكرة</h4>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
 
         <div class="card mt-3">
-            <h5 class="card-header">
+            <h5 class="card-header"  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;color: #8d183d ;width=2px; ">
                 @if ($maintenancerequests->status === 'Todo')
                     {{ $maintenancerequests->title }}
                 @else
@@ -90,9 +82,11 @@
             </div>
         </div>
 
+       
+
         @foreach ($comments as $comment)
             <div class="card mt-3">
-                <h5 class="card-header">
+                <h5 class="card-header"  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;color: #8d183d;width=2px ">
                     @if ($comment->new_status === 'Todo')
                         {{ $comment->maintenancerequest->title }}
                     @else
@@ -145,11 +139,13 @@
 
                         {{-- @if (!Auth::user()->id == $comment->id)
                         @else --}}
-                        <div class="float-end ">
 
+                        <hr  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;background-color: #8d183d;width=2px ">
+                        <div class="float-end " class="d-flex justify-center align-center">
 
+                            @if( $comment->Created_by  === Auth::user()->name)
 
-                            <a href="#" class="btn btn-success left ">
+                            <a href="#" class="btn btn-success left justify-center">
                                 تعديل الرد</i>
                             </a>
 
@@ -157,7 +153,7 @@
                             <a href="#" onclick="performDestroy({{ $comment->id }},this)  "
                                 class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                 حذف الرد</a>
-
+                                @endif
 
 
 
