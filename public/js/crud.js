@@ -101,7 +101,7 @@ function showAlert(data) {
         showConfirmButton: false,
         timerProgressBar: false,
         willOpen: () => {
-            // Swal.showLoading()
+            Swal.showLoading()
         },
         willClose: () => {
 

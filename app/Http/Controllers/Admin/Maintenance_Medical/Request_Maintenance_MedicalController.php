@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
 use App\Jobs\CreatedMaintenance_It_Job;
-
+use App\Notifications\NewRequestMedicalNotification;
 
 class Request_Maintenance_MedicalController extends Controller
 {
@@ -166,9 +166,10 @@ class Request_Maintenance_MedicalController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
+                auth()->user()->notify(new NewRequestMedicalNotification($maintenancerequests));
                 // Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
                 // Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
-                dispatch(new CreatedMaintenance_It_Job($maintenancerequests))->delay(5);
+                // dispatch(new CreatedMaintenance_It_Job($maintenancerequests))->delay(5);
                 // $users =User :: all();
 
             //     $admins = Admin::all();

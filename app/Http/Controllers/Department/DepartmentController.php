@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Department;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department\Department;
+use App\Models\Maintenance\MaintenanceRequest;
+use App\Models\SubDepartment\SubDepartment;
 use Illuminate\Http\Request;
 use  Yajra\DataTables\DataTables;
 
@@ -190,6 +192,18 @@ class DepartmentController extends Controller
     public function destroy($id)
     {
         //
+        $departments =Department::findOrFail($id);
+
+        if( $departments){
+
+        $subDepartmentsdelete = SubDepartment::where('department_id', $id)->delete();
+
+        }
+
+        $isDeleted = Department::destroy($id);
+
+        return response()->json(['message' => $isDeleted ? "تم عملية الحذف بنجاح" : "فشل تنفيذ عملية الحذف"], $isDeleted ? 200 : 400);
+        // return response()->json(['message' => $isDeleted ? "تم حذف الصلاحية " : "فشل حذف الصلاحية"], $isDeleted ? 200 : 400);
     }
 
 

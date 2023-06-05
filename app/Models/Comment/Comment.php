@@ -13,17 +13,12 @@ class Comment extends Model
 
     public function maintenancerequest()
     {
-        // return $this->belongsToMany(MaintenanceRequest::class ,'maintenancerequest_id' ,'id');
-
-        // return $this->hasMany(MaintenanceRequest::class );
-
         return $this->belongsTo(MaintenanceRequest::class ,'maintenancerequest_id' ,'id');
-
     }
 
     public function user()
     {
-        return $this->hasMany(User::class ,'user_id' ,'id');
+        return $this->belongsTo(User::class  ,'id');
 
     }
 }

@@ -44,9 +44,10 @@
                                 aria-controls="profile-07" aria-selected="false">تنقلات الجهاز</a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" id="portfolio-07-tab" data-toggle="tab" href="#portfolio-07" role="tab"
-                               aria-controls="portfolio-07" aria-selected="false"><i class="fa fa-picture-o"></i> مرفقات الجهاز </a>
-                            </li>
+                            <a class="nav-link" id="portfolio-07-tab" data-toggle="tab" href="#portfolio-07"
+                                role="tab" aria-controls="portfolio-07" aria-selected="false"><i
+                                    class="fa fa-picture-o"></i> مرفقات الجهاز </a>
+                        </li>
                         {{-- <li class="nav-item">
                               <a class="nav-link" id="contact-07-tab" data-toggle="tab" href="#contact-07" role="tab" 
                               aria-controls="contact-07" aria-selected="false"><i class="fa fa-check-square-o"></i> مرفقات الجهاز </a>
@@ -61,31 +62,31 @@
                             <div class="col-sm-12 invoice-col">
                                 <div class="row">
                                     <div class="col-md-12 mb-60">
-                                <div class="col-sm-12 invoice-col">
-                                    <!-- -->
-                                <div class="row invoice-info text-left">
-                                    <div class="col-sm-4 ">
-                                    </div>
-                                    <div class="col-sm-5">
-                                    </div>
-                                    <div class="col-sm-3 ">
-    
-                                        {{-- <img class="img-circle img-bordered-sm" height="250" with="150" src="{{Storage::url('public/patients/' . $familydetails->patient->image)}}"  alt="User profile picture"> --}}
-                                        {{-- <img class="img-circle img-bordered-sm" height="200" with="80"   src="{{Storage::url('public/devices/' . $devices->image ?? '')}}" alt="User profile picture"> --}}
-    
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <img class="profile-user-img img-fluid img-circle"
-                                                    style="width:200px; height:200px; position:absolute; top:-1px; left:100px; border-radius:50%"
-                                                    src="{{ Storage::url('public/devices/' . $devices->image ?? '') }}"
-                                                    alt="User profile picture">
+                                        <div class="col-sm-12 invoice-col">
+                                            <!-- -->
+                                            <div class="row invoice-info text-left">
+                                                <div class="col-sm-4 ">
+                                                </div>
+                                                <div class="col-sm-5">
+                                                </div>
+                                                <div class="col-sm-3 ">
+
+                                                    {{-- <img class="img-circle img-bordered-sm" height="250" with="150" src="{{Storage::url('public/patients/' . $familydetails->patient->image)}}"  alt="User profile picture"> --}}
+                                                    {{-- <img class="img-circle img-bordered-sm" height="200" with="80"   src="{{Storage::url('public/devices/' . $devices->image ?? '')}}" alt="User profile picture"> --}}
+
+                                                    <div class="form-group">
+                                                        <div class="form-group">
+                                                            <img class="profile-user-img img-fluid img-circle"
+                                                                style="width:200px; height:200px; position:absolute; top:-1px; left:100px; border-radius:50%"
+                                                                src="{{ Storage::url('public/devices/' . $devices->image ?? '') }}"
+                                                                alt="User profile picture">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
                                 <!-- -->
 
                             </div>
@@ -101,7 +102,7 @@
                                         <h5 style="font-family: 'Cairo', sans-serif"><strong>اسم الجهاز :
                                                 {{ $devices->title }}</strong></h5><br>
                                         <h5 style="font-family: 'Cairo', sans-serif"><strong> فترة الضمان :
-                                                    {{ $devices->warranty }}</strong></h5><br>
+                                                {{ $devices->warranty }}</strong></h5><br>
 
                                     </address>
                                 </div>
@@ -127,7 +128,7 @@
                                         <h5 style="font-family: 'Cairo', sans-serif"><strong>الشركة المصنعة :
                                                 {{ $devices->manufacturer }}</strong></h5><br>
                                         <h5 style="font-family: 'Cairo', sans-serif"><strong> الشركة الموردة :
-                                                    {{ $devices->supplier }}</strong></h5><br>
+                                                {{ $devices->supplier }}</strong></h5><br>
                                     </address>
                                 </div>
                                 <!-- /.col -->
@@ -162,10 +163,11 @@
 
                                     <div class="row no-print col-md-12 text-center table-responsive p-20">
                                         <div class="col-12">
-                                            <a class="btn btn-primary btn-outline backForm btn-lg " href="{{ route('admin.DevicesIt') }}"
-                                                type="button">العودة الى قائمة الرئيسية
+                                            <a class="btn btn-primary btn-outline backForm btn-lg "
+                                                href="{{ route('admin.DevicesIt') }}" type="button">العودة الى قائمة
+                                                الرئيسية
                                             </a>
-                                        </div>   
+                                        </div>
                                     </div>
 
                                 </div>
@@ -215,8 +217,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="tab-pane fade" id="portfolio-07" role="tabpanel"
-                            aria-labelledby="portfolio-07-tab">
+                        <div class="tab-pane fade" id="portfolio-07" role="tabpanel" aria-labelledby="portfolio-07-tab">
                             <h3>
                                 <p class="text-danger">جاري العمل علي تجهيزة هذا القسم قريباً.</p>
                             </h3>
@@ -231,7 +232,8 @@
 
                                                     <div class="card-body">
                                                         <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
-                                                        <h5 style="font-family: 'Cairo', sans-serif" class="card-title">اضافة مرفقات</h5>
+                                                        <h5 style="font-family: 'Cairo', sans-serif"
+                                                            class="card-title">اضافة مرفقات</h5>
                                                         <form>
                                                             {{-- {{ csrf_field() }} --}}
                                                             <div class="custom-file">
@@ -239,10 +241,7 @@
                                                                     id="file_name" name="file_name" required>
 
                                                                 <input type="hidden" name="device_id" id="device_id"
-                                                                    {{-- value="{{ $familydetails->form_no }}" --}}
-                                                                     value="{{ $devices->id }}"
-                                                                     
-                                                                     >
+                                                                    {{-- value="{{ $familydetails->form_no }}" --}} value="{{ $devices->id }}">
 
 
                                                                 <label class="custom-file-label" for="customFile">حدد
@@ -273,7 +272,7 @@
                                                 <table id="example1" class="table table-bordered table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th >
+                                                            <th>
                                                                 <h6 style="font-family: 'Cairo', sans-serif">ID
                                                                 </h6>
                                                             </th>
@@ -285,8 +284,9 @@
                                                                 <h5 style="font-family: 'Cairo', sans-serif">السيريل
                                                                     نمبر</h5>
                                                             </th> --}}
-                                                             <th>
-                                                                <h6 style="font-family: 'Cairo', sans-serif">أسم المرفق</h6>
+                                                            <th>
+                                                                <h6 style="font-family: 'Cairo', sans-serif">أسم المرفق
+                                                                </h6>
                                                             </th>
                                                             <th>
                                                                 <h6 style="font-family: 'Cairo', sans-serif">تاريخ
@@ -316,26 +316,31 @@
                                                                 <td>{{ $deviceattachment->file_name }}</td>
 
                                                                 <td>{{ $deviceattachment->created_at->format('Y-m-d H:i') }}
-                                                                </td> 
+                                                                </td>
                                                                 <td>{{ $deviceattachment->Created_by }}</td>
                                                                 <td>
                                                                     <div class="btn-group">
-                                
-                                                                    <a class="btn btn-info" href="{{ route('View_file_Admin_pdf', $deviceattachment->id)}}" target="_blank"
-                                                                        role="button">عرض
-                                                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                
-                                                                    </a>
-                                                                    
-                                                                    <a class="btn btn-secondary" href="">تحميل
-                                                                        <i class="fas fa-cloud-download-alt"></i>
-                                
-                                                                    </a>
-                                
-                                                                        <a href="#" onclick="performDestroy({{$deviceattachment->id }},this)  " class="btn btn-danger">حذف
+
+                                                                        <a class="btn btn-info"
+                                                                            href="{{ route('View_file_Admin_pdf', $deviceattachment->id) }}"
+                                                                            target="_blank" role="button">عرض
+                                                                            <i class="fa fa-eye"
+                                                                                aria-hidden="true"></i>
+
+                                                                        </a>
+
+                                                                        <a class="btn btn-secondary"
+                                                                            href="">تحميل
+                                                                            <i class="fas fa-cloud-download-alt"></i>
+
+                                                                        </a>
+
+                                                                        <a href="#"
+                                                                            onclick="performDestroy({{ $deviceattachment->id }},this)  "
+                                                                            class="btn btn-danger">حذف
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
-                                                            
+
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -489,26 +494,20 @@
 @endsection
 @section('js')
 <script type="text/javascript">
+    function performStore() {
 
+        let formData = new FormData();
+        formData.append('device_id', document.getElementById('device_id').value);
+        formData.append('file_name', document.getElementById('file_name').files[0]);
 
-    function performStore(){
-
-    let formData = new FormData();
-    formData.append('device_id',document.getElementById('device_id').value);
-    formData.append('file_name',document.getElementById('file_name').files[0]);
-
-   store('/admin/Attachment',formData);
-}
-
-
-  </script>
+        store('/admin/Attachment', formData);
+    }
+</script>
 
 <script>
+    function performDestroy(id, ref) {
+        confirmDestroy('/admin/Attachment/' + id, ref);
 
- function performDestroy(id,ref){
-confirmDestroy('/admin/Attachment/'+id,ref);    
-
-}
-
+    }
 </script>
 @endsection

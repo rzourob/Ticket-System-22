@@ -44,11 +44,12 @@ class DeviceAttachmentController extends Controller
         //
         $validator = Validator($request->all(), [
 
-            'file_name' => 'mimes:pdf,jpeg,png,jpg',  
+       
+            'file_name' => 'required|mimes:pdf',  
 
         ], [
             'file_name.required' => 'لايوجد مرفق',
-            'file_name.mimes' => 'صيغة المرفق يجب ان تكون   pdf, jpeg , png , jpg',
+            'file_name.mimes' => 'صيغة المرفق يجب ان تكون   pdf',
         ]);
 
         if (!$validator->fails()) {

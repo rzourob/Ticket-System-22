@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
+use App\Notifications\NewRequestMedicalNotification;
 
 class Request_Maintenance_MedicalController extends Controller
 {
@@ -174,7 +175,10 @@ class Request_Maintenance_MedicalController extends Controller
 
             if ($isSaved) {
                 // Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
-                Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
+                // Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
+                auth()->user()->notify(new NewRequestMedicalNotification($maintenancerequests));
+
+                
 
                 // $users =User :: all();
 

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
+use App\Notifications\NewRequestItNotification;
 
 class Request_Maintenance_ItController extends Controller
 {
@@ -176,11 +177,12 @@ class Request_Maintenance_ItController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
+                auth()->user()->notify(new NewRequestItNotification($maintenancerequests));
                 // Mail::to($maintenancerequests->author_email)->send(new TicketEmail());
                 
                 // Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
 
-                dispatch(new CreatedMaintenance_Medical_Job($maintenancerequests))->delay(5);
+                // dispatch(new CreatedMaintenance_Medical_Job($maintenancerequests))->delay(5);
                 // Mail::to('ticket@ticket.it-rmb.com')->send(new TicketEmail());
                 // $users =User :: all();
 

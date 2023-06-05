@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Dashborad\DashboradUserController;
 use App\Http\Controllers\Dashborad\DashbordController;
 use App\Http\Controllers\Device\DeviceAttachmentController;
+use App\Http\Controllers\Device\DeviceController;
 use App\Http\Controllers\User\Device_IT\Device_ItController;
 use App\Http\Controllers\User\Device_Medical\Device_MedicalController;
 use App\Http\Controllers\User\UserLoginController;
@@ -104,6 +105,8 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
     Route::post('cmments/store', [CommentController::class, 'store'])->name('user.Request_Device_It_cmments.store');
 
+    Route::delete('Request/comments/{id}', [CommentController::class, 'destroy'])->name('user.Request_Device_It_cmments.destroy');
+
 
     
     
@@ -128,7 +131,7 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
     // Route::post('cmments/store', [CommentController::class, 'store'])->name('user.Request_Device_Medical_cmments.store');
     
-    Route::get('/getdetails/{id}', [DeviceController::class, 'getdetail']);
+    // Route::get('/getdetails/{id}', [DeviceController::class, 'getdetail']);
 
 
 

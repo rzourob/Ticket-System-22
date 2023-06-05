@@ -35,6 +35,8 @@ public function data();
 
 public function storeDevice_It($request);
 
+public function show_Devic_IT($id);
+
 
 
 }

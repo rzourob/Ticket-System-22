@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
 use App\Models\Admin;
+use App\Notifications\NewRequestItNotification;
 
 class Request_Maintenance_ItController extends Controller
 {
@@ -31,10 +32,13 @@ class Request_Maintenance_ItController extends Controller
         $maintenancerequests = MaintenanceRequest::get();
         $subdepartments = SubDepartment::get();
         $departments = Department::get();
+        $users = User::get();
+
         return view('users.request_maintenances_It.Request_Devices_It', [
             'maintenancerequests' => $maintenancerequests,
             'subdepartments' => $subdepartments,
-            'departments' => $departments
+            'departments' => $departments,
+            'users' => $users
         ]);
     }
 
@@ -175,13 +179,8 @@ class Request_Maintenance_ItController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
-                Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
-                // $users =User :: all();
-
-            //     $admins = Admin::all();
-            //     foreach ($admins as $admin) {
-            //         Mail::to($admin->email)->send(new TicketEmail());
-            //     }
+                // Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
+                auth()->user()->notify(new NewRequestItNotification($maintenancerequests));
             }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الطلب بنجاح" : "فشل أضافة الطلب"], $isSaved ? 201 : 400);
@@ -242,6 +241,7 @@ class Request_Maintenance_ItController extends Controller
 
         $maintenancerequests = MaintenanceRequest::where('id', $id)->first();
         $comments = Comment::where('maintenancerequest_id', $id)->get();
+
 
         return response()->view('users.request_maintenances_It.cmment', ['maintenancerequests' => $maintenancerequests, 'comments' => $comments]);
     }

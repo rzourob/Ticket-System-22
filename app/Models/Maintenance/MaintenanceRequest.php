@@ -6,6 +6,7 @@ use App\Models\Comment\Comment;
 use App\Models\Department\Department;
 use App\Models\Device\Device;
 use App\Models\SubDepartment\SubDepartment;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,6 +50,17 @@ class MaintenanceRequest extends Model
         // return $this->hasMany(Comment::class );
 
         return $this->belongsTo(Comment::class ,'maintenancerequest_id' ,'id')->withDefault(['id'=> 'id not found']);
+
+    }
+
+
+    public function user()
+    {
+        // return $this->belongsToMany(Comment::class );
+
+        // return $this->hasMany(Comment::class );
+
+        return $this->belongsTo(User::class )->withDefault(['id'=> 'id not found']);
 
     }
 

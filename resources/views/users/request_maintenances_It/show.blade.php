@@ -156,6 +156,7 @@
                                 class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                 حذف الرد</a>
                                 
+                                
                                 @endif
 
 
@@ -198,10 +199,29 @@
 @section('js')
 
 <script>
+
     function performDestroy(id, ref) {
-        confirmDestroy('/Request/maintenances/' + id, ref);
+        let td ='/hamad/SS/users'
+        confirmDestroy('/user/Request/comments/'+id, ref);
+
+
+        // confirmDestroy('/user/Request/comments/{comment}' + id, ref);
+
 
     }
 </script>
 
 @endsection
+
+
+
+{{-- <script>
+
+    function performDestroy(id, ref) {
+        confirmDestroy('/user/Request/comments/{$id}' + id, ref);
+
+
+        // confirmDestroy('/user/Request/comments/{comment}' + id, ref);
+
+
+    } --}}

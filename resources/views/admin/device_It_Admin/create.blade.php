@@ -327,8 +327,6 @@
             // axios.get(`/admin/departments/${departmentId}`)
     
          axios.get(`/departments/${departmentId}`)
-    
-    
             .then(function (response) {
                 console.log(response);
                 if(response.data.subDepartment.length !=0){

@@ -158,7 +158,10 @@ public function data()
         }
     }
 
-   
+    public function show_Devic_IT($id)
+    {
+        
+    }
 
 
 }

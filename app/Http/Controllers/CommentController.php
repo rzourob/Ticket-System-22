@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment\Comment;
 use App\Models\Maintenance\MaintenanceRequest;
+use App\Models\User;
 use App\Notifications\NewCommentNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,13 +30,14 @@ class CommentController extends Controller
     {
         //
 
-        // $maintenancerequest = MaintenanceRequest::first();
+        $maintenancerequests = MaintenanceRequest::first();
 
         // $comments = Comment::get();
+        $users = User::get();
 
         // $departments = Department::where('active', true)->get();
         // $devices = Device::where('active', true)->get();
-        // return response()->view('comments.create',['maintenancerequest'=>$maintenancerequest, 'comments'=>$comments]);
+        return response()->view('users.request_maintenances_It.cmment',['maintenancerequests'=>$maintenancerequests, 'users'=>$users]);
     }
 
     /**
@@ -72,18 +74,21 @@ class CommentController extends Controller
            $comments->maintenancerequest_id = $request->get('maintenancerequest_id');
         //    $comments->user_id = $request->get('user_id');
            $comments->body = $request->get('body');
-           $comments->new_status = $request->get('new_status');
+           $comments->new_status = $request->get('new_status');   
            $comments->Created_by  = Auth::user()->name;
            $isSaved = $comments->save();
 
             //  $user = $comments->user;
 
-            //  dd( Auth()->user());
+            //  dd($isSaved);
 
             if($isSaved){
 
                 auth()->user()->notify(new NewCommentNotification($comments));
-            //    $comments()->notify(new NewCommentNotification($comments));
+
+                // $sss =$comments->maintenancerequest->author_email->get();
+
+                // $sss->notify(new NewCommentNotification($comments));
             }
             
 
@@ -134,8 +139,25 @@ class CommentController extends Controller
      * @param  \App\Models\Comment\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
         //
+
+        // $isDeleted = Comment::destroy($id);
+
+        // $isDeleted = $comment
+
+        $comments =Comment::findOrFail($id);
+
+        $isDeleted = $comments->delete();
+
+        // $isDeleted = comment::where('id', $id)->first()->delete();
+        // return response()->json(['message' => $isDeleted ? "تم حذف التعليق " : "فشل حذف التعليق"], $isDeleted ? 200 : 400);
+           return response()->json(['message' => $isDeleted ? "تم حذف التعليق " : "فشل حذف التعليق"], 400);
+
+
     }
 }
+
+
+

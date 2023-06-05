@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewCommentNotification extends Notification
+class NewCommentNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -47,11 +47,13 @@ class NewCommentNotification extends Notification
         return (new MailMessage)
                     ->subject('new comment')
                     ->from('info@ticket.it-rmb.com',config('app.name'))
-                    ->greeting('Hello:name',['name'=>$notifiable->name])
-                    ->line(':name has commenton your post ":name"',[
-                        'Created_by'=> $this->comments->Created_by,
-                        'title'=> $this->comments->maintenancerequest->title,
-                        ])
+                    ->greeting('Hello.name','name'.$notifiable->name)
+                    // ->line(':name has commenton your post ":name"',[
+                    //     'Created_by'=> $this->comments->Created_by,
+                    //     'title'=> $this->comments->maintenancerequest->title,
+                    //     ])
+                    ->line('Created_by:'.$this->comments->Created_by)
+                    ->line('title:'.$this->comments->maintenancerequest->title)
                     ->action('View Cmment', url('/'),[
                         $this->comments->maintenancerequest_id
                         ])

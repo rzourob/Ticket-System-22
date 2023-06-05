@@ -40,10 +40,10 @@
                 <input type="hidden" id="maintenancerequest_id" name="maintenancerequest_id"
                 
                         value="{{ $maintenancerequests->id }}" >
-{{-- 
+
                 <input type="" id="user_id" name="user_id"
                 
-                        value="{{ $user->comment->id }}" > --}}
+                        value="{{ $users->id}}" >
 
                     <div class="col-md-12 mb-30">
                         <div class="col">
@@ -90,7 +90,7 @@
     function performStore(){
         let data = {
             maintenancerequest_id: document.getElementById('maintenancerequest_id').value,
-            // user_id: document.getElementById('user_id').value,
+            user_id: document.getElementById('user_id').value,
             body: document.getElementById('body').value,
             new_status: document.getElementById('new_status').value,
 

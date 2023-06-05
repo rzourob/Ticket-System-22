@@ -147,7 +147,7 @@
 
                             @if( $comment->Created_by  === Auth::user()->name)
 
-                            <a href="#" class="btn btn-success left justify-center">
+                            <a  href="#" class="btn btn-success left justify-center">
                                 تعديل الرد</i>
                             </a>
 

@@ -15,13 +15,14 @@ class ViewAdminDeviceController extends Controller
 {
     const MEDICAL = 1;
     const IT = 2;
+    
     //
     public function index()
     {
         $subdepartments = SubDepartment::get();
         $departments = Department::get();
         $maintenancerequests = MaintenanceRequest::get();
-        return view('admin.viewdevice', [
+        return view('admins.devices.all_devices.index', [
             'subdepartments' => $subdepartments,
             'departments' => $departments,
             'maintenancerequests' => $maintenancerequests

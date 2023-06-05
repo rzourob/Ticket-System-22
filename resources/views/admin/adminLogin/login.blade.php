@@ -20,6 +20,11 @@
     <!-- css -->
     <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
 
+        <!-- Font -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+        @section('css')
+
 </head>
 
 <body>
@@ -144,6 +149,12 @@ login-->
 <script src="{{ URL::asset('assets/js/lobilist.js') }}"></script>
 <!-- custom -->
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
+
+<script src="{{ URL::asset('js/crud.js') }}"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
+
 
 </body>
 

@@ -69,7 +69,17 @@ class User extends Authenticatable
 
         // return $this->hasMany(MaintenanceRequest::class );
 
-        return $this->hasMany(Comment::class ,'user_id' ,'id');
+        return $this->hasMany(Comment::class ,'comment_id' ,'id');
+
+    }
+
+    public function maintenancerequest()
+    {
+        // return $this->belongsToMany(MaintenanceRequest::class ,'maintenancerequest_id' ,'id');
+
+        // return $this->hasMany(MaintenanceRequest::class );
+
+        return $this->hasMany(MaintenanceRequest::class ,'maintenancerequest_id' ,'id');
 
     }
 

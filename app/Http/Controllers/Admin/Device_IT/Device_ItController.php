@@ -36,7 +36,7 @@ class Device_ItController extends Controller
         $departments = $this->Device->getDepartments();
         $maintenancerequests = $this->Device->getMaintenanceRequests(); 
 
-        return view('admin.device_It_Admin.device_It', [
+        return view('admins.devices.it_devices.index', [
             'subdepartments' => $subdepartments,
             'departments' => $departments,
             'maintenancerequests' => $maintenancerequests
@@ -58,13 +58,14 @@ class Device_ItController extends Controller
         $subdepartments = $this->Device->getSubdepartments();
         $departments = $this->Device->getDepartments();
 
-        return response()->view('admin.device_It_Admin.create', [
+        return response()->view('admins.devices.it_devices.create', [
             'devices' => $devices,
             'departments' => $departments,
             'subdepartments' => $subdepartments
         ]);
 
     }// end of devices_request_show
+    
 
     public function create()
     {
