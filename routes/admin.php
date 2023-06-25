@@ -21,13 +21,16 @@ use App\Http\Controllers\Device\DeviceAttachmentController;
 use App\Http\Controllers\Device\DeviceController;
 use App\Http\Controllers\Device\DeviceMovementController;
 use App\Http\Controllers\Maintenance\MaintenanceRequestController;
+use App\Http\Controllers\ProblemController;
+use App\Http\Controllers\ProblemTypeController;
 use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\SubDepartment\SubDepartmenController;
+use App\Http\Controllers\SubProblemController;
 use App\Http\Controllers\Technician\TechnicianController;
 use App\Mail\TicketEmail;
 use App\Mail\WelcomeEmail;
-
-
+use App\Models\ProblemType;
+use App\Models\SubProblem;
 
 /*
 |--------------------------------------------------------------------------
@@ -247,6 +250,28 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:admin,web']], function 
 
         Route::resource('subdepartments', SubDepartmenController::class);
         Route::get('subdepartment/data', [SubDepartmenController::class, 'data'])->name('subdepartments.data');
+    });
+
+    // Route::namespace('App\Http\Controllers')->group(function () {
+
+    //     Route::resource('problemTypes', ProblemTypeController::class);
+    //     Route::get('problemType/data', [ProblemTypeController::class, 'data'])->name('problemTypes.data');
+
+    //     // Route::get('getsubDepartment', [DepartmentController::class ,'getsubDepartment'])->name('getsubDepartments');
+    // });
+
+    Route::namespace('App\Http\Controllers')->group(function () {
+
+        Route::resource('problems', ProblemController::class);
+        Route::get('problem/data', [ProblemController::class, 'data'])->name('problem.data');
+
+        // Route::get('getsubDepartment', [DepartmentController::class ,'getsubDepartment'])->name('getsubDepartments');
+    });
+
+    Route::namespace('App\Http\Controllers')->group(function () {
+
+        Route::resource('subproblems', SubProblemController::class);
+        Route::get('subproblem/data', [SubProblemController::class, 'data'])->name('subProblems.data');
     });
 });
 

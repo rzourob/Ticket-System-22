@@ -42,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="col">
                                     <label for="title_ar" class="mr-sm-2">أسم القسم</label>
-                                    <input type="text" name="title" class="form-control" id="title" value="{{$departments->title}}"
+                                    <input type="text" name="title" class="form-control" id="title" value="{{$problems->title}}"
                                     placeholder="ادخل اسم القسم باللغة العربية">
                                 </div>
                             </div> 
@@ -51,7 +51,7 @@
                             <div class="col-md-6">
                                 <div class="col">
                                      <label for="title_en" class="mr-sm-2">أسم القسم</label>
-                                     <input type="text" name="title_en" class="form-control" id="title_en" value="{{$departments->title_en}}"
+                                     <input type="text" name="title_en" class="form-control" id="title_en" value="{{$problems->title_en}}"
                                        placeholder="ادخل اسم المدينة القسم الانجيليزية">
                                 </div>
                             </div> 
@@ -65,7 +65,7 @@
                                  <div class="col">
                                        <label for="description">وصف القسم</label>
                                        <textarea class="form-control" style="resize: none;"  type="text" id="description" name="description" rows="4"
-                                        placeholder="وصف القسم" cols="50" >{{$departments->description}}</textarea>
+                                        placeholder="وصف القسم" cols="50" >{{$problems->description}}</textarea>
                                  </div>
                              </div>
                         </div>
@@ -74,13 +74,14 @@
 
                         <div class="form-check">
                             <input type="checkbox" name="active"class="form-check-input" id="active" 
-                            @if($departments->active) checked @endif>
+                            @if($problems->active) checked @endif>
                             <label class="form-check-label" for="active">تفعيل</label>
                         </div>
+                    </div>
                     <!-- /.card-body -->
 
                         <div class="modal-footer">
-                            <button type="button" onclick="performUpdate({{$departments->id}})" class="btn btn-primary">تعديل البيانات</button>
+                            <button type="button" onclick="performUpdate({{$problems->id}})" class="btn btn-primary">تعديل البيانات</button>
                         </div>
                 </form> 
             </div>
@@ -104,8 +105,8 @@
             
         };
 
-        let redirectUrl = '/admin/departments'
-        update('/admin/departments/'+id,data,redirectUrl);
+        let redirectUrl = '/admin/problems'
+        update('/admin/problems/'+id,data,redirectUrl);
     }
 </script>
 @endsection

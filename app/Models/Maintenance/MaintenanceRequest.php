@@ -5,6 +5,7 @@ namespace App\Models\Maintenance;
 use App\Models\Comment\Comment;
 use App\Models\Department\Department;
 use App\Models\Device\Device;
+use App\Models\ProblemType;
 use App\Models\SubDepartment\SubDepartment;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,6 +28,11 @@ class MaintenanceRequest extends Model
     {
         return $this->belongsTo(Department::class);
     } 
+
+    public function problemType()
+    {
+        return $this->belongsTo(ProblemType::class);
+    }
 
     public function subDepartment()
     {

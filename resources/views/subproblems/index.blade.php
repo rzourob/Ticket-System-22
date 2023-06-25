@@ -22,7 +22,7 @@
         <tbody>
             <tr>
                 <td>
-                    <a href="{{ route('subdepartments.create') }}" class="btn btn-block btn-outline-success btn-lg"> أضافة
+                    <a href="{{ route('subproblems.create') }}" class="btn btn-block btn-outline-success btn-lg"> أضافة
                         وحدة</a>
                 </td>
             </tr>
@@ -49,18 +49,18 @@
             <div class="card-body">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <input type="text" id="subdepartments-table-search" class="form-control" autofocus
+                        <input type="text" id="subProblems-table-search" class="form-control" autofocus
                             placeholder=" بحث ">
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table id="subdepartments-table" class="table table-striped table-bordered p-0"
+                    <table id="subProblems-table" class="table table-striped table-bordered p-0"
                         class="table datatable">
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>الاسم باللغة العربية</th>
-                                <th> القسم </th>
+                                <th>الاسم العطل الفني</th>
+                                <th> المشكلة الرئيسية </th>
                                 <th>الحالة</th>
                                 <th>ملاحظات</th>
                                 <th>تاريخ الانشاء</th>
@@ -80,17 +80,16 @@
 @section('js')
 
 <script>
-    let subDepartmentTable = $('#subdepartments-table').DataTable({
+    let subProblemTable = $('#subProblems-table').DataTable({
         dom: "tiplr",
         responsive: true,
         serverSide: true,
         processing: true,
         ajax: {
-            url: '{{ route('subdepartments.data') }}',
+            url: '{{ route('subProblems.data') }}',
         },
         columns: [
             // {data: 'record_select', name: 'record_select', searchable: false, sortable: false, width: '1%'},
-
             {
                 data: null,
                 name: null,
@@ -105,8 +104,8 @@
                 name: 'title'
             },
             {
-                data: 'department_id',
-                name: 'department_id'
+                data: 'problem_types_id',
+                name: 'problem_types_id'
             },
             {
                 data: 'active',
@@ -140,9 +139,9 @@
         // }
     });
 
-    $('#subdepartments-table-search').keyup(function() {
-        subDepartmentTable.search(this.value).draw();
-    })
+    // $('#subproblems-table-search').keyup(function () {
+    //     subProblemTable.search(this.value).draw();
+    // })
 
     // $('.data-table-search').keyup(function () {
     //     patientsTable.column ( $(this).data('column') )

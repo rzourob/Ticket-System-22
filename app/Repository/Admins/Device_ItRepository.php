@@ -24,6 +24,7 @@ class Device_ItRepository implements Device_ItInterface{
     public function getDevice_It($id)
     {
         return  Device::where('id', $id)->first();
+        
     }
 
 //تستخدم لجلب الاقسام الرئيسية

@@ -151,7 +151,15 @@
         },
         columns: [
             // {data: 'record_select', name: 'record_select', searchable: false, sortable: false, width: '1%'},
-            {data: 'id', name: 'id'},
+            {
+                data: null,
+                name: null,
+                orderable: false,
+                className: "NameRTL width50",
+                render: function(data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
             {data: 'title', name: 'title'},
             {data: 'active', name: 'active'},
             {data: 'description', name: 'description'},

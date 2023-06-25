@@ -28,7 +28,8 @@ return new class extends Migration
             $table->string('date');
             $table->string('mobile');
             $table->enum('status',['Todo','Done'])->default('Todo');
-            // $table->string('device_id');
+            $table->string('problem_id');
+            $table->string('sub_problem_id');
             $table->string('department_id');
             $table->string('sub_department_id');
             // $table->foreignId('device_id');
@@ -36,7 +37,7 @@ return new class extends Migration
             // $table->foreignId('sub_department_id');
             // $table->foreign('device_id')->on('devices')->references('id');
             $table->foreign('department_id')->on('departments')->references('id');
-            // $table->foreign('sub_department_id')->on('sub_departments')->references('id');
+            $table->foreign('problem_id')->on('problems')->references('id');
             $table->timestamps();
         });
     }

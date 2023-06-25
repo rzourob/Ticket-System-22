@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
 use App\Models\Admin;
+use App\Models\Problem;
+use App\Models\ProblemType;
+use App\Models\SubProblem;
 use App\Notifications\NewRequestItNotification;
 
 class Request_Maintenance_ItController extends Controller
@@ -104,8 +107,15 @@ class Request_Maintenance_ItController extends Controller
         //
         $subdepartments = SubDepartment::where('active', true)->get();
         $departments = Department::where('active', true)->get();
+        $problems = Problem::where('active', true)->get();
+        $subproblemTypes = SubProblem::where('active', true)->get();
         $devices = Device::where('active', true)->get();
-        return response()->view('users.request_maintenances_It.create', ['subdepartments' => $subdepartments, 'departments' => $departments, 'devices' => $devices]);
+        return response()->view('users.request_maintenances_It.create', ['subdepartments' => $subdepartments, 
+        'departments' => $departments,
+         'devices' => $devices,
+         'problems' => $problems,
+         'subproblemTypes' => $subproblemTypes,
+        ]);
     }
 
     /**
@@ -167,6 +177,10 @@ class Request_Maintenance_ItController extends Controller
             $maintenancerequests->author_email = $request->get('author_email');
             $maintenancerequests->department_id = $request->get('department_id');
             $maintenancerequests->sub_department_id = $request->get('sub_department_id');
+
+            $maintenancerequests->problem_id = $request->get('problem_id');
+            $maintenancerequests->sub_problem_id = $request->get('sub_problem_id');
+
             $maintenancerequests->mobile = $request->get('mobile');
             // $maintenancerequests->device_id = $request->get('device_id');
             $maintenancerequests->sn = $request->get('sn');

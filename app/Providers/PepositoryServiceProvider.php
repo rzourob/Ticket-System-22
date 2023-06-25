@@ -14,8 +14,20 @@ class PepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
+
             'App\RepositoryInterface\Admins\Device_ItInterface',
             'App\Repository\Admins\Device_ItRepository',
+
+
+
+            'App\RepositoryInterface\Department\DepartmentInterface',
+            'App\Repository\Department\DepartmentRepository',
+        );
+        
+        $this->app->bind(
+
+            'App\RepositoryInterface\Department\DepartmentInterface',
+            'App\Repository\Department\DepartmentRepository',
         );
     }
 

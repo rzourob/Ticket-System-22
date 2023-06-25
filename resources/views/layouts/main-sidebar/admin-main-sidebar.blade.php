@@ -551,7 +551,14 @@
 
                 <ul id="custom-page" class="collapse" data-parent="#sidebarnav">
 
-                    @can('View-departments')
+                    {{-- @can('View-problemType')
+                        <li> <a href="{{ route('problems.index') }}"><i class="fa fa-plus" aria-hidden="true"></i>أضافة
+                                عطل فني</a> 
+                            
+                            </li>
+                    @endcan --}}
+
+                    {{-- @can('View-departments')
                         <li> <a href="{{ route('departments.index') }}"><i class="fa fa-plus" aria-hidden="true"></i>أضافة
                                 قسم</a> </li>
                     @endcan
@@ -559,7 +566,68 @@
                     @can('View-Subdepartments')
                         <li> <a href="{{ route('subdepartments.index') }}"><i class="fa fa-plus"
                                     aria-hidden="true"></i>أضافة وحدة</a> </li>
-                    @endcan
+                    @endcan --}}
+                    <!-- menu item timeline-->
+
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#custom-page11">
+                            <div class="pull-left"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                    class="right-nav-text">أدارة الأقسام الطبية </span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+           
+                        <ul id="custom-page11" class="collapse" data-parent="#sidebarnav11">
+           
+                            @can('View-departments')
+                            <li> <a href="{{ route('departments.index') }}"><i class="fa fa-plus" aria-hidden="true"></i>أضافة
+                                    قسم</a> </li>
+                        @endcan
+    
+                        @can('View-Subdepartments')
+                            <li> <a href="{{ route('subdepartments.index') }}"><i class="fa fa-plus"
+                                        aria-hidden="true"></i>أضافة وحدة</a> </li>
+                        @endcan
+                            {{-- <li> <a href="profile.html"></a> </li>
+                            <li> <a href="app-contacts.html">App contacts</a> </li>
+                            <li> <a href="contacts.html">Contacts</a> </li>
+                            <li> <a href="file-manager.html">file manager</a> </li>
+                            <li> <a href="invoice.html">Invoice</a> </li>
+                            <li> <a href="blank.html">Blank page</a> </li>
+                            <li> <a href="layout-container.html">layout container</a> </li>
+                            <li> <a href="error.html">Error</a> </li>
+                            <li> <a href="faqs.html">faqs</a> </li> --}}
+                        </ul>
+           
+                    </li>
+        
+         <!-- menu item Custom pages-->
+         <li>
+             <a href="javascript:void(0);" data-toggle="collapse" data-target="#custom-page12">
+                 <div class="pull-left"><i class="fa fa-cog" aria-hidden="true"></i><span
+                         class="right-nav-text">أدارة الاعطال الفنية</span></div>
+                 <div class="pull-right"><i class="ti-plus"></i></div>
+                 <div class="clearfix"></div>
+             </a>
+
+             <ul id="custom-page12" class="collapse" data-parent="#sidebarnav12">
+
+                     <li> <a href="{{ route('problems.index') }}"><i class="fa fa-plus" aria-hidden="true"></i>أضافة عطل فني رئيسي</a> </li>
+
+                     <li> <a href="{{ route('subproblems.index') }}"><i class="fa fa-plus"
+                                 aria-hidden="true"></i>أضافة عطل فني فرعي</a> </li>
+                 {{-- <li> <a href="profile.html"></a> </li>
+                 <li> <a href="app-contacts.html">App contacts</a> </li>
+                 <li> <a href="contacts.html">Contacts</a> </li>
+                 <li> <a href="file-manager.html">file manager</a> </li>
+                 <li> <a href="invoice.html">Invoice</a> </li>
+                 <li> <a href="blank.html">Blank page</a> </li>
+                 <li> <a href="layout-container.html">layout container</a> </li>
+                 <li> <a href="error.html">Error</a> </li>
+                 <li> <a href="faqs.html">faqs</a> </li> --}}
+             </ul>
+
+         </li>
                     {{-- <li> <a href="profile.html"></a> </li>
                     <li> <a href="app-contacts.html">App contacts</a> </li>
                     <li> <a href="contacts.html">Contacts</a> </li>
@@ -573,7 +641,12 @@
                 {{-- @endcanany --}}
 
             </li>
+            
+            
         @endcanany
+
+         
+     
 
     </ul>
 </div>
