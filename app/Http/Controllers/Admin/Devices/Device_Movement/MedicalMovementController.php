@@ -1,17 +1,46 @@
 <?php
-namespace App\Http\Controllers\Admin\Device_Medical;
+
+namespace App\Http\Controllers\Admin\Devices\Device_Movement;
 
 use App\Http\Controllers\Controller;
+use App\Models\Device\AccessoryMedical;
+use App\Models\Device\Device;
 use App\Models\DeviceMovement\DeviceMovement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Device_Med_MovementController extends Controller
+class MedicalMovementController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         //
+        
         // dd($request->all());
 
         $validator = Validator($request->all(), [
@@ -44,17 +73,47 @@ class Device_Med_MovementController extends Controller
         }
     }
 
-    public function edit(DeviceMovement $deviceMovement)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
         //
     }
 
-    public function update(Request $request, DeviceMovement $deviceMovement)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
 
-    public function destroy(DeviceMovement $deviceMovement)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
         //
     }

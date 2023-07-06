@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User\Device_IT;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department\Department;
+use App\Models\Device\AccessoryMedical;
 use App\Models\Device\Device;
 use App\Models\Device\DeviceAttachment;
 use App\Models\DeviceMovement\DeviceMovement;
@@ -100,6 +101,9 @@ class Device_ItController extends Controller
 
         $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
 
+        $accessorymedicals = AccessoryMedical::where('device_id', $id)->get();
+
+
         // $maintenancerequests  = MaintenanceRequest::where('device_id', $id)->get();
 
         return response()->view('users.device_It_User.show', [
@@ -108,7 +112,8 @@ class Device_ItController extends Controller
             'departments' => $departments,
             'subdepartments' => $subdepartments,
             'deviceattachments' => $deviceattachments,
-            'deviceMovements' => $deviceMovements
+            'deviceMovements' => $deviceMovements,
+            'accessorymedicals' => $accessorymedicals
 
         ]);
     }

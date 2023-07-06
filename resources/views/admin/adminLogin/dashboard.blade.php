@@ -124,12 +124,12 @@ wrapper -->
 
                   
                     <div class="col-xl-6">
-                        <h5 class="card-title">نسبة التذاكر المغلقة لكل شهر</h5>
+                        <h5 class="card-title" style="font-family: 'Cairo', sans-serif">نسبة التذاكر المغلقة لكل شهر</h5>
                         <canvas id="myChart" width="700" height="400"></canvas>
                       </div>
 
                       <div class="col-xl-6">
-                        <h5 class="card-title">أحصائيات شهرية</h5>
+                        <h5 class="card-title" style="font-family: 'Cairo', sans-serif">أحصائيات شهرية</h5>
                         <canvas id="myChart2" width="700" height="400"></canvas>
                       </div>
                 </div>

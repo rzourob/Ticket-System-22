@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Problem;
 
-use App\Models\Problem;
+use App\Http\Controllers\Controller;
+use App\Models\Problem\Problem;
 use App\Models\SubProblem;
 use Illuminate\Http\Request;
 use  Yajra\DataTables\DataTables;
@@ -10,6 +11,10 @@ use  Yajra\DataTables\DataTables;
 
 class ProblemController extends Controller
 {
+    public function __construct(){
+        $this -> authorizeResource( Problem::class,'problem'); 
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -11,11 +11,18 @@ use App\Http\Requests\Departments;
 class DepartmentController extends Controller
 {
 
+    // public function __construct(){
+    //     $this -> authorizeResource( Department::class,'department'); 
+    // }
+
      protected $Department;
 
      public function __construct(DepartmentInterface $Department)
      {
+        $this->authorizeResource( Department::class,'department'); 
+
         return $this->Department = $Department;
+
      }
 
 

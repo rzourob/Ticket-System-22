@@ -71,7 +71,8 @@
                     الصيانة</span> </a>
         </li> --}}
 
-        @canany(['View-Deives', 'قائمة أجهزة تكنولوجيا المعلومات', 'قائمة الأجهزة الطبية', 'قائمة جميع الأجهزة', 'Dep-Medical'])
+        @canany(['View-Deives', 'قائمة أجهزة تكنولوجيا المعلومات', 'قائمة الأجهزة الطبية', 'قائمة جميع الأجهزة',
+            'Dep-Medical'])
 
             @can('View-Deives')
                 <li>
@@ -130,7 +131,8 @@
                                 {{-- <li> <a href="#">level item 1.2</a> </li> --}}
                             </ul>
                         </li>
-                        @canany(['قائمة طلبات الصيانة', 'View-R-Man.', 'عرض طلبات تكنولوجيا المعلومات', 'عرض طلبات الأجهزة الطبية'])
+                        @canany(['قائمة طلبات الصيانة', 'View-R-Man.', 'عرض طلبات تكنولوجيا المعلومات', 'عرض طلبات الأجهزة
+                            الطبية'])
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#maintenances-level4"> قائمة تذاكر
                                     الصيانة<div class="pull-right">
@@ -278,7 +280,7 @@
         <!-- menu title -->
 
 
-        @canany(['أضافة مدير', 'قائمة المسؤوليات', 'قائمة الصلاحيات','أضافة رئيس قسم','أضافة فنيين'])
+        @canany(['أضافة مدير', 'قائمة المسؤوليات', 'قائمة الصلاحيات', 'أضافة رئيس قسم', 'أضافة فنيين'])
 
             <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">أدارة المسخدمين و صلاحيات</li>
             <!-- menu item Widgets-->
@@ -310,10 +312,10 @@
 
                     {{-- <li> <a href="{{ route('roles.index') }}"><i class="fa fa-server" aria-hidden="true"></i>المسؤوليات</a> </li> --}}
                     @can('أضافة رئيس قسم')
-                    <li> <a href="{{ route('users.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>أضافة رئيس
-                        قسم</a> </li>
+                        <li> <a href="{{ route('users.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>أضافة رئيس
+                                قسم</a> </li>
                     @endcan
-                    
+
 
 
                     @can('أضافة مدير')
@@ -537,7 +539,7 @@
 
         <!-- menu item timeline-->
         @canany(['View-departments', 'View-Subdepartments', 'Edit-departments', 'Delete-departments',
-            'Show-departments'])
+            'Show-departments', 'View-Problem', 'View-SubProblem'])
             <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">أعدادات النظام</li>
             <!-- menu item Custom pages-->
             <li>
@@ -576,18 +578,19 @@
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-           
+
                         <ul id="custom-page11" class="collapse" data-parent="#sidebarnav11">
-           
+
                             @can('View-departments')
-                            <li> <a href="{{ route('departments.index') }}"><i class="fa fa-plus" aria-hidden="true"></i>أضافة
-                                    قسم</a> </li>
-                        @endcan
-    
-                        @can('View-Subdepartments')
-                            <li> <a href="{{ route('subdepartments.index') }}"><i class="fa fa-plus"
-                                        aria-hidden="true"></i>أضافة وحدة</a> </li>
-                        @endcan
+                                <li> <a href="{{ route('departments.index') }}"><i class="fa fa-plus"
+                                            aria-hidden="true"></i>أضافة
+                                        قسم</a> </li>
+                            @endcan
+
+                            @can('View-Subdepartments')
+                                <li> <a href="{{ route('subdepartments.index') }}"><i class="fa fa-plus"
+                                            aria-hidden="true"></i>أضافة وحدة</a> </li>
+                            @endcan
                             {{-- <li> <a href="profile.html"></a> </li>
                             <li> <a href="app-contacts.html">App contacts</a> </li>
                             <li> <a href="contacts.html">Contacts</a> </li>
@@ -598,25 +601,29 @@
                             <li> <a href="error.html">Error</a> </li>
                             <li> <a href="faqs.html">faqs</a> </li> --}}
                         </ul>
-           
+
                     </li>
-        
-         <!-- menu item Custom pages-->
-         <li>
-             <a href="javascript:void(0);" data-toggle="collapse" data-target="#custom-page12">
-                 <div class="pull-left"><i class="fa fa-cog" aria-hidden="true"></i><span
-                         class="right-nav-text">أدارة الاعطال الفنية</span></div>
-                 <div class="pull-right"><i class="ti-plus"></i></div>
-                 <div class="clearfix"></div>
-             </a>
 
-             <ul id="custom-page12" class="collapse" data-parent="#sidebarnav12">
+                    <!-- menu item Custom pages-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#custom-page12">
+                            <div class="pull-left"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                    class="right-nav-text">أدارة الاعطال الفنية</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
 
-                     <li> <a href="{{ route('problems.index') }}"><i class="fa fa-plus" aria-hidden="true"></i>أضافة عطل فني رئيسي</a> </li>
+                        <ul id="custom-page12" class="collapse" data-parent="#sidebarnav12">
 
-                     <li> <a href="{{ route('subproblems.index') }}"><i class="fa fa-plus"
-                                 aria-hidden="true"></i>أضافة عطل فني فرعي</a> </li>
-                 {{-- <li> <a href="profile.html"></a> </li>
+                            @can('View-Problem')
+                                <li> <a href="{{ route('problems.index') }}"><i class="fa fa-plus"
+                                            aria-hidden="true"></i>أضافة عطل فني رئيسي</a> </li>
+                            @endcan
+                            @can('View-SubProblem')
+                                <li> <a href="{{ route('subproblems.index') }}"><i class="fa fa-plus"
+                                            aria-hidden="true"></i>أضافة عطل فني فرعي</a> </li>
+                            @endcan
+                            {{-- <li> <a href="profile.html"></a> </li>
                  <li> <a href="app-contacts.html">App contacts</a> </li>
                  <li> <a href="contacts.html">Contacts</a> </li>
                  <li> <a href="file-manager.html">file manager</a> </li>
@@ -625,9 +632,9 @@
                  <li> <a href="layout-container.html">layout container</a> </li>
                  <li> <a href="error.html">Error</a> </li>
                  <li> <a href="faqs.html">faqs</a> </li> --}}
-             </ul>
+                        </ul>
 
-         </li>
+                    </li>
                     {{-- <li> <a href="profile.html"></a> </li>
                     <li> <a href="app-contacts.html">App contacts</a> </li>
                     <li> <a href="contacts.html">Contacts</a> </li>
@@ -641,12 +648,12 @@
                 {{-- @endcanany --}}
 
             </li>
-            
-            
+
+
         @endcanany
 
-         
-     
+
+
 
     </ul>
 </div>

@@ -203,42 +203,45 @@
 <script src="{{ asset('admin/plugins/select2/js/select2.full.min.js') }}"></script>
 
 <script>
-    $('#subdepartments').attr('disabled', true);
 
+    $('#subdepartments').attr('disabled',true);
+    
     $('#departments').on('change', function() {
-
-        $('#subdepartments').attr('disabled', this.value == -1);
-
-        if (this.value != -1) {
+    
+    $('#subdepartments').attr('disabled',this.value == -1);
+    
+        if(this.value != -1){
             // alert (this.value);
             getSubdepartments(this.value);
-
-            // console.log(getSubdepartments);
-
+    
+            console.log(getSubdepartments);
+    
         }
-
+    
         function getSubdepartments(departmentId) {
-
+    
             // axios.get(`/admin/departments/${departmentId}`)
-
-            axios.get(`/departments/${departmentId}`)
-
-
-                .then(function(response) {
-                    console.log(response);
-                    if (response.data.subDepartment.length != 0) {
-                        $('#subdepartments').empty();
-                        $.each(response.data.subDepartment, function(i, item) {
-                            $('#subdepartments').append(new Option(item['title'], item['id']))
-                        });
-                    } else {
-                        $('#subdepartments').attr('disabled', true);
-                    }
-                })
-
-        }
+    
+         axios.get(`/admin/departments/${departmentId}`)
+    
+    
+            .then(function (response) {
+                console.log(response);
+                if(response.data.subDepartment.length !=0){
+                    $('#subdepartments').empty();
+                       $.each(response.data.subDepartment , function(i,item){
+                        $('#subdepartments').append(new Option(item['title'], item['id']))
+                       });
+                }else{
+                    $('#subdepartments').attr('disabled',true);
+                }
+            })
+    
+        }  
     })
-</script>
+    
+    </script>
+    
 
 <script>
     function performStore() {
@@ -256,8 +259,8 @@
             // description: document.getElementById('image').value,devices
             deviceTypes: document.getElementById('deviceTypes').value,
             // device_id: document.getElementById('devices').value,
-            department_id: document.getElementById('departments').value,
-            sub_department_id: document.getElementById('subdepartments').value,
+            department_id: document.getElementById('departments22').value,
+            sub_department_id: document.getElementById('subdepartments22').value,
             // active: document.getElementById('active').checked,
         };
 

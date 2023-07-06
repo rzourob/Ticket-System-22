@@ -82,8 +82,6 @@
             </div>
         </div>
 
-       
-
         @foreach ($comments as $comment)
             <div class="card mt-3">
                 <h5 class="card-header"  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;color: #8d183d;width=2px ">
@@ -124,7 +122,6 @@
                         </div>
                         <br>
 
-
                         {{-- @if ($comment->new_status === 'Todo')
                     <span class="badge rounded-pill bg-info text-dark">
                         Todo
@@ -140,12 +137,14 @@
                         {{-- @if (!Auth::user()->id == $comment->id)
                         @else --}}
 
-                        <hr  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;background-color: #8d183d;width=2px ">
-                        <div class="float-end " class="d-flex justify-center align-center">
+                        {{-- <hr  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;background-color: #8d183d;width=2px "> --}}
+                        <div class="modal-footer" class="d-flex justify-center align-center">
+
+
 
                             @if( $comment->Created_by  === Auth::user()->name)
 
-                            <a href="#" class="btn btn-success left justify-center">
+                            <a  href="#" class="btn btn-success left justify-center">
                                 تعديل الرد</i>
                             </a>
 
@@ -153,13 +152,9 @@
                             <a href="#" onclick="performDestroy({{ $comment->id }},this)  "
                                 class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                 حذف الرد</a>
+                                
                                 @endif
-
-
-
                         </div>
-
-
 
                         {{-- @endif --}}
 
@@ -186,8 +181,6 @@
     </div>
 
 </div>
-
-
 
 <!-- row closed -->
 @endsection

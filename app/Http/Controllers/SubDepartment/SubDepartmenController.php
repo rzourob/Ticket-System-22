@@ -10,6 +10,11 @@ use  Yajra\DataTables\DataTables;
 
 class SubDepartmenController extends Controller
 {
+
+    public function __construct(){
+
+        $this->authorizeResource(SubDepartment::class,'subdepartment'); 
+    }
     /**
      * Display a listing of the resource.
      *

@@ -1,15 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\SubProblem;
 
-use App\Models\Problem;
+use App\Http\Controllers\Controller;
+use App\Models\Problem\Problem;
 use App\Models\ProblemType;
-use App\Models\SubProblem;
+use App\Models\SubProblem\SubProblem;
 use Illuminate\Http\Request;
 use  Yajra\DataTables\DataTables;
 
 class SubProblemController extends Controller
 {
+
+    public function __construct(){
+        
+        $this -> authorizeResource( SubProblem::class,'subproblem'); 
+    }
+
     /**
      * Display a listing of the resource.
      *

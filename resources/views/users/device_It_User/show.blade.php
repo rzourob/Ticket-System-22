@@ -2,13 +2,13 @@
 @section('css')
 
 @section('title')
-تفاصيل وتنقلات الجهاز
+    تنقلات الجهاز
 @stop
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle2')
-تفاصيل وتنقلات الجهاز
+    تنقلات الجهاز
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -44,15 +44,15 @@
                                 aria-controls="profile-07" aria-selected="false">تنقلات الجهاز</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="portfolio-07-tab2" data-toggle="tab" href="#portfolio-072"
-                                role="tab" aria-controls="portfolio-072" aria-selected="false"><i
+                            <a class="nav-link" id="portfolio-07-tab" data-toggle="tab" href="#portfolio-07"
+                                role="tab" aria-controls="portfolio-07" aria-selected="false"><i
                                     class="fa fa-picture-o"></i> مرفقات الجهاز </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" id="contact-07-tab" data-toggle="tab" href="#contact-07" role="tab"
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-08-tab" data-toggle="tab" href="#contact-08" role="tab"
                                 aria-controls="contact-07" aria-selected="false"><i class="fa fa-check-square-o"></i>
-                                عمليات الصيانة </a>
-                        </li> --}}
+                                محلحقات الجهاز </a>
+                        </li>
                     </ul>
                     <h5 class="card-title"> </h5>
 
@@ -140,22 +140,7 @@
                                     <h5 style="font-family: 'Cairo', sans-serif"><strong>السيريال نمبر:
                                             {{ $devices->sn }}</strong></h5><br>
                                     <br>
-                                </div>
-
-                                {{-- <div class="col-sm-3 invoice-col">
-                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> الشركة الموردة :
-                                            {{ $devices->supplier }}</strong></h5><br>
-
-                                    <br>
-                                </div> --}}
-
-                                {{-- <div class="col-sm-3 invoice-col">
-
-                                    <h5 style="font-family: 'Cairo', sans-serif"><strong> فترة الضمان :
-                                            {{ $devices->warranty }}</strong></h5><br>
-                                    <br>
-                                </div> --}}
-
+                                    </div>
 
                                 <div class="col-sm-12 invoice-col">
                                     <h5 style="font-family: 'Cairo', sans-serif"><strong>ملاحظات: </strong></h5><br>
@@ -165,7 +150,7 @@
                                     <div class="row no-print col-md-12 text-center table-responsive p-20">
                                         <div class="col-12">
                                             <a class="btn btn-primary btn-outline backForm btn-lg "
-                                                href="{{ route('user.DevicesIt') }}" type="button">العودة الى قائمة
+                                                href="{{ route('admin.DevicesIt') }}" type="button">العودة الى قائمة
                                                 الرئيسية
                                             </a>
                                         </div>
@@ -176,265 +161,13 @@
                                 <!-- /.col -->
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="profile-07" role="tabpanel" aria-labelledby="profile-07-tab">
 
-                            @foreach ($deviceMovements as $deviceMovement)
-                                <div class="card mt-3">
-                                    <h5 class="card-header" style="font-family: 'Cairo', sans-serif">
-                                        {{ $deviceMovement->title }}
+                        @include('users.device_It_User.form.device_movements.deviceMovement')
 
-                                        <span class="badge rounded-pill bg-warning text-dark">
-                                            {{ $deviceMovement->created_by }}
-                                        </span>
-
-                                    </h5>
-
-                                    <div class="card-body">
-                                        <div class="card-text">
-                                            <div class="float-start">
-                                                {{ $deviceMovement->body }}
-                                            </div>
-                                            <br>
-
-                                            <small>أخرتحديث - {{ $deviceMovement->updated_at->diffForHumans() }}
-                                            </small>
-
-                                            {{-- <div class="float-end ">
-                                                <a href="#" class="btn btn-success left ">
-                                                 تعديل الرد</i>
-                                                </a>
-                                
-                                
-                                                <a href="#" onclick="performDestroy({{ $deviceMovement->id }},this)  " class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                    حذف الرد</a>
-                                
-                                
-                                            </div> --}}
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            @endforeach
-                        </div>
-                        <div class="tab-pane fade" id="portfolio-072" role="tabpanel"
-                            aria-labelledby="portfolio-07-tab2">
-                            <h3>
-                                <p class="text-danger">جاري العمل علي تجهيزة هذا القسم قريباً.</p>
-                            </h3>
-                            <div class="panel panel-primary tabs-style-2">
-
-                                <div class="panel-body tabs-menu-body main-content-body-right border">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab0130">
-                                            <div class="card-body">
-                                                <table id="example1" class="table table-bordered table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th >
-                                                                <h6 style="font-family: 'Cairo', sans-serif">ID
-                                                                </h6>
-                                                            </th>
-                                                            <th>
-                                                                <h6 style="font-family: 'Cairo', sans-serif">أسم الجهاز
-                                                                </h6>
-                                                            </th>
-                                                            {{-- <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">السيريل
-                                                                    نمبر</h5>
-                                                            </th> --}}
-                                                             <th>
-                                                                <h6 style="font-family: 'Cairo', sans-serif">أسم المرفق</h6>
-                                                            </th>
-                                                            <th>
-                                                                <h6 style="font-family: 'Cairo', sans-serif">تاريخ
-                                                                    الاضافة</h6>
-                                                            </th>
-                                                            <th>
-                                                                <h6 style="font-family: 'Cairo', sans-serif">اسم الموظف
-                                                                </h6>
-                                                            </th>
-                                                            <th>
-                                                                <h6 style="font-family: 'Cairo', sans-serif">الاجراءات
-                                                                </h6>
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-
-                                                        @foreach ($deviceattachments as $deviceattachment)
-                                                            <tr>
-                                                                <td>{{ $deviceattachment->id }}</td>
-                                                                {{-- <td><a href="{{ route('familydetails.show', $familydetail->id) }}"
-                                                                        class="btn btn-info">{{ $familydetail->form_no }}</a>
-                                                                </td>  --}}
-
-                                                                <td>{{ $deviceattachment->device->title }}</td>
-                                                                <td>{{ $deviceattachment->file_name }}</td>
-
-                                                                <td>{{ $deviceattachment->created_at->format('Y-m-d H:i') }}
-                                                                </td> 
-                                                                <td>{{ $deviceattachment->Created_by }}</td>
-                                                                <td>
-                                                                    <div class="btn-group">
-                                
-                                                                    <a class="btn btn-info" href="{{ route('View_file_pdf', $deviceattachment->id)}}"  target="_blank" role="button">عرض
-                                                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                
-                                                                    </a>
-                                                                    
-                                                                    <a class="btn btn-secondary" href="">تحميل
-                                                                        <i class="fas fa-cloud-download-alt"></i>
-                                
-                                                                    </a>
-                                
-                                                                        {{-- <a href="#" onclick="performDestroy({{$deviceattachment->id }},this)  " class="btn btn-danger">حذف
-                                                                            <i class="fa fa-trash"></i>
-                                                                        </a> --}}
-                                                            
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- /.card-body -->
-                                        </div>
-                                        <div class="tab-pane" id="tab0140">
-                                            <p>dignissimos ducimus qui blanditiis praesentium
-                                                voluptatum deleniti atque corrupti quos dolores et
-                                                quas molestias excepturi sint occaecati cupiditate
-                                                non provident, similique sunt in culpa qui officia
-                                                deserunt mollitia animi, id est laborum et dolorum
-                                                fuga.</p>
-                                            <p>Et harum quidem rerum facilis est et expedita
-                                                distinctio. Nam libero tempore, cum soluta nobis est
-                                                eligendi optio cumque nihil impedit quo minus id
-                                                quod maxime</p>
-                                            <p class="mb-0">placeat facere possimus, omnis
-                                                voluptas assumenda est, omnis dolor repellendus.</p>
-                                        </div>
-                                        <div class="tab-pane" id="tab0150">
-                                            <p>praesentium voluptatum deleniti atque corrupti quos
-                                                dolores et quas molestias excepturi sint occaecati
-                                                cupiditate non provident,</p>
-                                            <p class="mb-0">similique sunt in culpa qui officia
-                                                deserunt mollitia animi, id est laborum et dolorum
-                                                fuga. Et harum quidem rerum facilis est et expedita
-                                                distinctio. Nam libero tempore, cum soluta nobis est
-                                                eligendi optio cumque nihil impedit quo minus id
-                                                quod maxime placeat facere possimus, omnis voluptas
-                                                assumenda est, omnis dolor repellendus.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- row closed -->
-                        </div>
-                        <div class="tab-pane fade" id="contact-07" role="tabpanel" aria-labelledby="contact-07-tab">
-                            <h3>
-                                <p class="text-danger">جاري العمل علي تجهيزة هذا القسم قريباً.</p>
-                            </h3>
-
-                            <div class="panel panel-primary tabs-style-2">
-
-                                <div class="panel-body tabs-menu-body main-content-body-right border">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab0130">
-                                            <div class="card-body">
-                                                {{-- <div class="col-md-12 text-center ">
-                                                    <table class="card-title ">
-                                                        <strong>
-                                                            <h4 class=" card-header  mb-5 my-auto">
-                                                                الاستبانة الاجتماعية</h4>
-                                                        </strong>
-                                                    </table>
-                                                </div> --}}
-                                                <table id="example1" class="table table-bordered table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="font-family: 'Cairo', sans-serif">ID</th>
-                                                            <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">رقم المرفق
-                                                                </h5>
-                                                            </th>
-                                                            <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">أسم الجهاز
-                                                                </h5>
-                                                            </th>
-                                                            <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">السيريل
-                                                                    نمبر</h5>
-                                                            </th>
-                                                            <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">تاريخ
-                                                                    الاضافة</h5>
-                                                            </th>
-                                                            <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">اسم الموظف
-                                                                </h5>
-                                                            </th>
-                                                            <th>
-                                                                <h5 style="font-family: 'Cairo', sans-serif">الأجراءات
-                                                                </h5>
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-
-                                                        {{-- @foreach ($familydetails as $familydetail)
-                                                            <tr>
-                                                                <td>{{ $familydetail->id }}</td>
-                                                                <td><a href="{{ route('familydetails.show', $familydetail->id) }}"
-                                                                        class="btn btn-info">{{ $familydetail->form_no }}</a>
-                                                                </td>
-
-                                                                <td>{{ $familydetail->created_at->format('Y-m-d H:i') }}
-                                                                </td>
-                                                                <td>{{ $familydetail->user }}</td>
-                                                            </tr>
-                                                        @endforeach --}}
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- /.card-body -->
-                                        </div>
-                                        <div class="tab-pane" id="tab0140">
-                                            <p>dignissimos ducimus qui blanditiis praesentium
-                                                voluptatum deleniti atque corrupti quos dolores et
-                                                quas molestias excepturi sint occaecati cupiditate
-                                                non provident, similique sunt in culpa qui officia
-                                                deserunt mollitia animi, id est laborum et dolorum
-                                                fuga.</p>
-                                            <p>Et harum quidem rerum facilis est et expedita
-                                                distinctio. Nam libero tempore, cum soluta nobis est
-                                                eligendi optio cumque nihil impedit quo minus id
-                                                quod maxime</p>
-                                            <p class="mb-0">placeat facere possimus, omnis
-                                                voluptas assumenda est, omnis dolor repellendus.</p>
-                                        </div>
-                                        <div class="tab-pane" id="tab0150">
-                                            <p>praesentium voluptatum deleniti atque corrupti quos
-                                                dolores et quas molestias excepturi sint occaecati
-                                                cupiditate non provident,</p>
-                                            <p class="mb-0">similique sunt in culpa qui officia
-                                                deserunt mollitia animi, id est laborum et dolorum
-                                                fuga. Et harum quidem rerum facilis est et expedita
-                                                distinctio. Nam libero tempore, cum soluta nobis est
-                                                eligendi optio cumque nihil impedit quo minus id
-                                                quod maxime placeat facere possimus, omnis voluptas
-                                                assumenda est, omnis dolor repellendus.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @include('users.device_It_User.form.device_attachment.deviceattachment')
+                        
+                        @include('users.device_It_User.form.accessory_medical.accessorymedical')
+                        
                     </div>
                 </div>
 
@@ -446,38 +179,41 @@
 <!-- row closed -->
 @endsection
 @section('js')
-{{-- 
-<!--Internal Fileuploads js-->
-    <script src="{{ URL::asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
-    <!--Internal Fancy uploader js-->
-    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script> --}}
-
-    <script type="text/javascript">
-
-
-        function performStore(){
+{{-- <script type="text/javascript">
+    function performStore() {
 
         let formData = new FormData();
-        formData.append('device_id',document.getElementById('device_id').value);
-        formData.append('file_name',document.getElementById('file_name').files[0]);
+        formData.append('device_id', document.getElementById('device_id').value);
+        formData.append('file_name', document.getElementById('file_name').files[0]);
 
-       store('/user/Attachments',formData);
+        store('/admin/Attachment', formData);
     }
+</script> --}}
 
-
-      </script>
-
-<script>
-
-     function performDestroy(id,ref){
-    confirmDestroy('/user/Attachments/'+id,ref);    
+{{-- <script>
+    function performDestroy(id, ref) {
+        confirmDestroy('/admin/Attachment/' + id, ref);
 
     }
+</script> --}}
 
+
+
+<script type="text/javascript">
+    function performStore() {
+
+        let formData = new FormData();
+        formData.append('title', document.getElementById('title').value);
+        formData.append('sn', document.getElementById('sn').value);
+        // formData.append('image', document.getElementById('image').value);
+        formData.append('description', document.getElementById('description').value);
+        // formData.append('active', document.getElementById('active').value);
+        formData.append('device_id', document.getElementById('device').value);
+
+        store('/admin/Accessory', formData);
+
+    }
 </script>
+
+
 @endsection

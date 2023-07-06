@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Device;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department\Department;
+use App\Models\Device\AccessoryMedical;
 use App\Models\Device\Device;
 use App\Models\DeviceMovement\DeviceMovement;
 use App\Models\SubDepartment\SubDepartment;
@@ -269,13 +270,17 @@ class DeviceController extends Controller
 
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
 
+        $accessorymedicals = AccessoryMedical::where('device_id', $id)->get();
+
         return response()->view('devices.show', [
             'devices' => $devices,
             'departments' => $departments,
             'subdepartments' => $subdepartments,
-            'deviceMovements' => $deviceMovements
+            'deviceMovements' => $deviceMovements,
+            'accessorymedicals'=> $accessorymedicals
 
         ]);
+        
     }
 
     public function edit($id)

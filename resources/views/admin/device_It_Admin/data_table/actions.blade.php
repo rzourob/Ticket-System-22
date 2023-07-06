@@ -30,6 +30,15 @@
                     حذف جهاز</a>
             @endcan
 
+            {{-- @can('تعديل بيانات جهاز') --}}
+                <a class="dropdown-item" href="{{ route('admin.devices_It.accessoryit_show', $id) }}"><i class="fa fa-pencil-square-o"
+                        aria-hidden="true"></i>
+                    أضافة ملحق
+                </a>
+            {{-- @endcan --}}
+
+            
+
         </div>
     </div>
 @endcanany

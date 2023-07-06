@@ -2,6 +2,7 @@
 
 namespace App\Models\Device;
 
+use App\Models\AccessoryIt\AccessoryIt;
 use App\Models\Department\Department;
 use App\Models\DeviceMovement\DeviceMovement;
 use App\Models\SubDepartment\SubDepartment;
@@ -41,6 +42,16 @@ class Device extends Model
     public function deviceattachment()
     {
         return $this->hasOne(DeviceAttachment::class, 'device_id', 'id');
+    }
+
+    public function accessorymedical()
+    {
+        return $this->hasOne(AccessoryMedical::class, 'device_id', 'id');
+    }
+
+    public function accessorit()
+    {
+        return $this->hasOne(AccessoryIt::class, 'device_id', 'id');
     }
 
    

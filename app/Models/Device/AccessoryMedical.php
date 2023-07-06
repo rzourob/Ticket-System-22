@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Device;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Problem extends Model
+class AccessoryMedical extends Model
 {
     use HasFactory;
 
@@ -13,9 +13,10 @@ class Problem extends Model
     {
         return $this->active ? "مفعل" : "غير مفعل";
     }
-
-    public function subProblems()
+    
+    public function device()
     {
-        return $this->hasMany(SubProblem::class);
+        return $this->belongsTo(Device::class, 'device_id', 'id');
     }
+    
 }

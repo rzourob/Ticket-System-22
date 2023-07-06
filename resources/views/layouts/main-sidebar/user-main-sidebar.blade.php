@@ -12,7 +12,7 @@
             {{-- <li> <a href="{{ route('user.DevicesMedical') }}">عرض الأجهزة الطبية</a> </li> --}}
         </li>
         <!-- menu title -->
-        <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">نظام RMB الأدارة طلبات الصبانة </li>
+        <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">نظام RMB لأدارة الأجهزة و طلبات الصيانة </li>
         <!-- menu item Elements-->
 
 

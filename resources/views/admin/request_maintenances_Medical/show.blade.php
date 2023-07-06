@@ -1,203 +1,104 @@
+
 @extends('layouts.master')
 @section('css')
-
+<link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
+<link rel="stylesheet" href="{{asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 @section('title')
-    تفاصيل التذكرة
+أضافة تعليق
 @stop
 @endsection
-@section('page-header')
+@section('PageTitle')
 <!-- breadcrumb -->
 @section('PageTitle2')
-    تفاصيل التذكرة
+أضافة تعليق
+
 @stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
-<!-- row -->
 <div class="row">
-    <div class="col-md-12">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
-                <form>
-                    <h4 style="font-family: 'Cairo', sans-serif; color: #8d183d;"> تفاصيل التذكرة </h4>
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="col-md-12">
+      <div class="card card-statistics h-100">
+          <div class="card-body">
+              <form>
+                  <h4 style="font-family: 'Cairo', sans-serif">أضافة تعليق</h4>
+              </form>
+          </div>
+      </div>
+  </div>
 </div>
 <!-- row -->
+
 <div class="row">
-    <div class="col-md-12 mb-30">
+    <div class="col-md-12 mb-30">     
+      <div class="card card-statistics h-100"> 
+        <div class="card-body">   
+          {{-- <h5 class="card-title" style="font-family: 'Cairo', sans-serif">أضافة تعليق </h5> --}}
+          <form>
+            <div class="row">
 
+                <input type="hidden" id="maintenancerequest_id" name="maintenancerequest_id"
+                
+                        value="{{ $maintenancerequests->id }}" >
 
-        <div class="card mt-3">
-            <h5 class="card-header"  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;color: #8d183d ;width=2px; ">
-                @if ($maintenancerequests->status === 'Todo')
-                    {{ $maintenancerequests->title }}
-                @else
-                    {{-- <del>{{ $maintenancerequests->title }}</del> --}}
-                    {{ $maintenancerequests->title }}
-                @endif
+                <input type="" id="user_id" name="user_id"
+                
+                        {{-- value="{{ $users->id}}" > --}}
 
-                <span class="badge rounded-pill bg-warning text-dark">
-                    {{ $maintenancerequests->Created_by }}
-                </span>
+                    <div class="col-md-12 mb-30">
+                        <div class="col">
+                            <label for="body">التعليق</label>
+                            <textarea class="form-control" style="resize: none;"  type="text" id="body" name="body" rows="4"
+                                placeholder="أضافة تعليق" cols="50"></textarea>
+                        </div>
+                    </div>                
+            </div>  
+            
+            <div class="row">
 
-                <span class="badge rounded-pill bg-warning text-dark">
-                    {{ $maintenancerequests->created_at->diffForHumans() }}
-                </span>
-            </h5>
-
-            <div class="card-body">
-                <div class="card-text">
-                    <div class="float-start">
-                        @if ($maintenancerequests->status === 'Todo')
-                            {{ $maintenancerequests->content }}
-
-                            {{-- {{ $maintenancerequests->comment->body }} --}}
-                        @else
-                            {{-- <del>{{ $maintenancerequests->content }}</del> --}}
-                            {{ $maintenancerequests->content }}
-
-                            {{-- <del>{{ $maintenancerequests->comment->body }}</del> --}}
-                        @endif
-                        <br>
-
-                        @if ($maintenancerequests->status === 'Todo')
-                            <span class="badge rounded-pill bg-info text-dark">
-                                Todo
-                            </span>
-                        @else
-                            <span class="badge rounded-pill bg-success text-white">
-                                Done
-                            </span>
-                        @endif
-
-
-                        <small>أخرتحديث - {{ $maintenancerequests->updated_at->diffForHumans() }} </small>
+                <div class="col-sm-4 mb-30">
+                    <!-- select -->
+                    <div class="col">
+                        <label> حالة التذكرة</label>
+                      <select class="custom-select"   id="new_status">
+                        <option value=""> اختارح نوع الطلب</option>
+                        <option value="1">مفتوحة</option>
+                        <option value="2">مغلقة</option>
+                      </select>
                     </div>
+                  </div>
 
-                    <div class="clearfix"></div>
-                </div>
             </div>
+            <!-- /.card-body -->
+            <div class="modal-footer">
+                <button type="button" onclick="performStore()" class="btn btn-primary">أضافة تعليق</button>
+            </div>
+        </form> 
         </div>
-
-       
-
-        @foreach ($comments as $comment)
-            <div class="card mt-3">
-                <h5 class="card-header"  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;color: #8d183d;width=2px ">
-                    @if ($comment->new_status === 'Todo')
-                        {{ $comment->maintenancerequest->title }}
-                    @else
-                        {{-- <del>{{ $comment->maintenancerequest->title }}</del> --}}
-                        {{ $comment->maintenancerequest->title }}
-                    @endif
-
-                    <span class="badge rounded-pill bg-warning text-dark">
-                        {{ $comment->Created_by }}
-                    </span>
-
-                    <span>
-                        @if ($comment->new_status === 'Todo')
-                            <span class="badge rounded-pill bg-info text-dark">
-                                Todo
-                            </span>
-                        @else
-                            <span class="badge rounded-pill bg-success text-white">
-                                Done
-                            </span>
-                        @endif
-                    </span>
-                </h5>
-
-                <div class="card-body">
-                    <div class="card-text">
-                        <div class="float-start">
-                            @if ($comment->new_status === 'Todo')
-                                {{ $comment->body }}
-                            @else
-                                {{-- <del>{{ $comment->body }}</del> --}}
-                                {{ $comment->body }}
-                            @endif
-
-                        </div>
-                        <br>
-
-
-                        {{-- @if ($comment->new_status === 'Todo')
-                    <span class="badge rounded-pill bg-info text-dark">
-                        Todo
-                    </span>
-                @else
-                    <span class="badge rounded-pill bg-success text-white">
-                        Done
-                    </span>
-                @endif --}}
-
-                        <small>أخرتحديث - {{ $comment->updated_at->diffForHumans() }} </small>
-
-                        {{-- @if (!Auth::user()->id == $comment->id)
-                        @else --}}
-
-                        <hr  style="font-family: 'Cairo', sans-serif ;line-height: 1.5 ;background-color: #8d183d;width=2px ">
-                        <div class="float-end " class="d-flex justify-center align-center">
-
-                            @if( $comment->Created_by  === Auth::user()->name)
-
-                            <a href="#" class="btn btn-success left justify-center">
-                                تعديل الرد</i>
-                            </a>
-
-
-                            <a href="#" onclick="performDestroy({{ $comment->id }},this)  "
-                                class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                                حذف الرد</a>
-                                @endif
-
-
-
-                        </div>
-
-
-
-                        {{-- @endif --}}
-
-
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                {{-- <h5 class="card-header">
-        @if ($comment->new_status === 'Todo')
-            <span class="badge rounded-pill bg-info text-dark">
-                Todo
-            </span>
-        @else
-            <span class="badge rounded-pill bg-success text-white">
-                Done
-            </span>
-        @endif
-        
-        <small>أخرتحديث - {{ $comment->updated_at->diffForHumans() }} </small>
-    </h5> --}}
-            </div>
-        @endforeach
-
-    </div>
-
+      </div>   
+    </div> 
 </div>
-
-
 
 <!-- row closed -->
 @endsection
 @section('js')
-
+<link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
+<script src="{{asset('admin/plugins/select2/js/select2.full.min.js')}}"></script>
+    
 <script>
-    function performDestroy(id, ref) {
-        confirmDestroy('/Request/maintenances/' + id, ref);
 
+    function performStore(){
+        let data = {
+            maintenancerequest_id: document.getElementById('maintenancerequest_id').value,
+            // user_id: document.getElementById('user_id').value,
+            body: document.getElementById('body').value,
+            new_status: document.getElementById('new_status').value,
+
+        };
+            
+        store('/user/cmments/store',data);
     }
 </script>
 
 @endsection
+

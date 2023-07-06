@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccessoryMedical\AccessoryMedicalController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\Maintenance_Admin\RequestMaintenanceMedicalController;
@@ -8,8 +9,16 @@ use App\Http\Controllers\Admin\Device_IT\Device_ItController;
 use App\Http\Controllers\Admin\Device_IT\DeviceMovementController as Device_ITDeviceMovementController;
 use App\Http\Controllers\Admin\Device_Medical\Device_Med_MovementController;
 use App\Http\Controllers\Admin\Device_Medical\Device_MedicalController;
+use App\Http\Controllers\Admin\Devices\ALL_DeviceController;
+use App\Http\Controllers\Admin\Devices\Device_Movement\ItMovement;
+use App\Http\Controllers\Admin\Devices\Device_Movement\ItMovementController;
+use App\Http\Controllers\Admin\Devices\Device_Movement\MedicalMovement;
+use App\Http\Controllers\Admin\Devices\Device_Movement\MedicalMovementController;
+use App\Http\Controllers\Admin\Devices\ItController;
+use App\Http\Controllers\Admin\Devices\MedicalController;
 use App\Http\Controllers\Admin\Maintenance_It\Request_Maintenance_ItController;
 use App\Http\Controllers\Admin\Maintenance_Medical\Request_Maintenance_MedicalController;
+use App\Http\Controllers\Admin\RequestMaintrnance\ItController as RequestMaintrnanceItController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Dashborad\DashbordController;
 use App\Http\Controllers\User\UserController;
@@ -21,14 +30,15 @@ use App\Http\Controllers\Device\DeviceAttachmentController;
 use App\Http\Controllers\Device\DeviceController;
 use App\Http\Controllers\Device\DeviceMovementController;
 use App\Http\Controllers\Maintenance\MaintenanceRequestController;
-use App\Http\Controllers\ProblemController;
+use App\Http\Controllers\Problem\ProblemController;
 use App\Http\Controllers\ProblemTypeController;
 use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\SubDepartment\SubDepartmenController;
-use App\Http\Controllers\SubProblemController;
+use App\Http\Controllers\SubProblem\SubProblemController;
 use App\Http\Controllers\Technician\TechnicianController;
 use App\Mail\TicketEmail;
 use App\Mail\WelcomeEmail;
+use App\Models\Device\AccessoryMedical;
 use App\Models\ProblemType;
 use App\Models\SubProblem;
 
@@ -100,31 +110,35 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-    Route::get('devices', [ViewAdminDeviceController::class, 'index'])->name('admin.viewdevice');
+    Route::get('devices', [ALL_DeviceController::class, 'index'])->name('admin.viewdevice');
 
-    Route::get('device/data', [ViewAdminDeviceController::class, 'data'])->name('viewdevices.data');
+    Route::get('device/data', [ALL_DeviceController::class, 'data'])->name('viewdevices.data');
 
-    Route::get('devices_It', [Device_ItController::class, 'index'])->name('admin.DevicesIt');
+    Route::get('devices_It', [ItController::class, 'index'])->name('admin.DevicesIt');
 
-    Route::get('devices_It/data', [Device_ItController::class, 'data'])->name('DevicesIt.data');
+    Route::get('devices_It/data', [ItController::class, 'data'])->name('DevicesIt.data');
 
-    Route::get('devices_It/create', [Device_ItController::class, 'create'])->name('admin.devices_It.create');
+    Route::get('devices_It/create', [ItController::class, 'create'])->name('admin.devices_It.create');
 
-    Route::post('devices_It/store', [Device_ItController::class, 'store'])->name('admin.devices_It.store');
+    Route::post('devices_It/store', [ItController::class, 'store'])->name('admin.devices_It.store');
 
-    Route::get('devices_It/{id}/edit', [Device_ItController::class, 'edit'])->name('admin.devices_It.edit');
+    Route::get('devices_It/{id}/edit', [ItController::class, 'edit'])->name('admin.devices_It.edit');
 
-    Route::put('devices_It/update/{id}', [Device_ItController::class, 'update'])->name('admin.devices_It.update');
+    Route::put('devices_It/update/{id}', [ItController::class, 'update'])->name('admin.devices_It.update');
 
-    Route::get('devices_It/{id}', [Device_ItController::class, 'show'])->name('admin.devices_It.show');
+    Route::get('devices_It/{id}', [ItController::class, 'show'])->name('admin.devices_It.show');
 
-    Route::get('Movements_It/{id}', [Device_ItController::class, 'Movements_show'])->name('admin.Movements_It.Movements_show');
+    Route::get('Movements_It/{id}', [ItController::class, 'Movements_show'])->name('admin.Movements_It.Movements_show');
 
-    Route::post('Movements/store', [Device_ITDeviceMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
+    Route::post('Movements/store', [ItMovement::class, 'store'])->name('admin.Request_Device_It_Movements.store');
 
     Route::resource('Attachment', DeviceAttachmentController::class);
 
-    Route::get('View_file_Admin/{id}', [Device_ItController::class, 'viewFile'])->name('View_file_Admin_pdf');
+    Route::get('Accessory/{id}', [ItController::class ,'accessoryit_show'])->name('admin.devices_It.accessoryit_show');
+
+    Route::post('Accessory_It/store', [AccessoryMedicalController::class, 'store'])->name('admin.accessoryit.store');
+
+    Route::get('View_file_Admin/{id}', [ItController::class, 'viewFile'])->name('View_file_Admin_pdf');
 
 
 
@@ -134,23 +148,29 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-    Route::get('devices_Medical', [Device_MedicalController::class, 'index'])->name('admin.DevicesMedical');
+    Route::get('devices_Medical', [MedicalController::class, 'index'])->name('admin.DevicesMedical');
 
-    Route::get('devices_Medical/data', [Device_MedicalController::class, 'data'])->name('DevicesMedical.data');
+    Route::get('devices_Medical/data', [MedicalController::class, 'data'])->name('DevicesMedical.data');
 
-    Route::get('devices_Medical/create', [Device_MedicalController::class, 'create'])->name('admin.devices_Medical.create');
+    Route::get('devices_Medical/create', [MedicalController::class, 'create'])->name('admin.devices_Medical.create');
 
-    Route::post('devices_Medical/store', [Device_MedicalController::class, 'store'])->name('admin.devices_Medical.store');
+    Route::post('devices_Medical/store', [MedicalController::class, 'store'])->name('admin.devices_Medical.store');
 
-    Route::get('devices_Medical/edit/{id}', [Device_MedicalController::class, 'edit'])->name('admin.devices_Medical.edit');
+    Route::get('devices_Medical/edit/{id}', [MedicalController::class, 'edit'])->name('admin.devices_Medical.edit');
 
-    Route::put('devices_Medical/update/{id}', [Device_MedicalController::class, 'update'])->name('admin.devices_Medical.update');
+    Route::put('devices_Medical/update/{id}', [MedicalController::class, 'update'])->name('admin.devices_Medical.update');
 
-    Route::get('devices_Medical/{id}', [Device_MedicalController::class, 'show'])->name('admin.devices_Medical.show');
+    Route::get('devices_Medical/{id}', [MedicalController::class, 'show'])->name('admin.devices_Medical.show');
 
-    Route::get('Movements_show/{id}', [Device_MedicalController::class, 'Movements_show'])->name('admin.Movements_show.Movements_show');
+    Route::get('Movements_show/{id}', [MedicalController::class, 'Movements_show'])->name('admin.Movements_show.Movements_show');
 
-    Route::post('device_Movements/store', [Device_Med_MovementController::class, 'store'])->name('admin.device_Movements.store');
+    Route::post('device_Movements/store', [MedicalMovementController::class, 'store'])->name('admin.device_Movements.store');
+
+    Route::get('Accessory_Med/{id}', [MedicalController::class ,'accessorymedicals_show'])->name('admin.device_Medical_Admin.accessorymedicals_show');
+
+    Route::post('Accessory_Medi/store', [AccessoryMedicalController::class, 'store'])->name('admin.accessorymedicals.store');
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -162,21 +182,21 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('maintenance/data', [RequestMaintenanceMedicalController::class, 'data'])->name('viewDeviceMedical.data');
 
-    Route::get('maintenances_It',[Request_Maintenance_ItController::class, 'index'])->name('admin.Request_Device_It');
+    Route::get('maintenances_It',[RequestMaintrnanceItController::class, 'index'])->name('admin.Request_Device_It');
 
-    Route::get('maintenances_It/data',[Request_Maintenance_ItController::class, 'data'])->name('Request_Device_It.data');
+    Route::get('maintenances_It/data',[RequestMaintrnanceItController::class, 'data'])->name('Request_Device_It.data');
 
-    Route::get('maintenances_It/create',[Request_Maintenance_ItController::class, 'create'])->name('admin.Request_Device_It.create');
+    Route::get('maintenances_It/create',[RequestMaintrnanceItController::class, 'create'])->name('admin.Request_Device_It.create');
 
-    Route::post('maintenances_It/store',[Request_Maintenance_ItController::class, 'store'])->name('admin.Request_Device_It.store');
+    Route::post('maintenances_It/store',[RequestMaintrnanceItController::class, 'store'])->name('admin.Request_Device_It.store');
 
-    Route::get('vvvvvvvvv_It/edit/{id}',[Request_Maintenance_ItController::class, 'edit'])->name('admin.Request_Device_It.edit');
+    Route::get('vvvvvvvvv_It/edit/{id}',[RequestMaintrnanceItController::class, 'edit'])->name('admin.Request_Device_It.edit');
 
-    Route::PUT('xxxxxxx/update/{id}',[Request_Maintenance_ItController::class,'update'])->name('admin.Request_Device_It.update');
+    Route::PUT('xxxxxxx/update/{id}',[RequestMaintrnanceItController::class,'update'])->name('admin.Request_Device_It.update');
 
-    Route::get('maintenances_It/{id}', [Request_Maintenance_ItController::class,'show'])->name('admin.Request_Device_It.show');
+    Route::get('maintenances_It/{id}', [RequestMaintrnanceItController::class,'show'])->name('admin.Request_Device_It.show');
 
-    Route::get('cmments/{id}', [Request_Maintenance_ItController::class, 'comment_show'])->name('cmmentShow.data');
+    Route::get('cmments/{id}', [RequestMaintrnanceItController::class, 'comment_show'])->name('cmmentShow.data');
 
     // Route::post('Movements/store', [Device_ITDeviceMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
 
@@ -260,7 +280,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:admin,web']], function 
     //     // Route::get('getsubDepartment', [DepartmentController::class ,'getsubDepartment'])->name('getsubDepartments');
     // });
 
-    Route::namespace('App\Http\Controllers')->group(function () {
+    Route::namespace('App\Http\Controllers\Problem')->group(function () {
 
         Route::resource('problems', ProblemController::class);
         Route::get('problem/data', [ProblemController::class, 'data'])->name('problem.data');
@@ -268,7 +288,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:admin,web']], function 
         // Route::get('getsubDepartment', [DepartmentController::class ,'getsubDepartment'])->name('getsubDepartments');
     });
 
-    Route::namespace('App\Http\Controllers')->group(function () {
+    Route::namespace('App\Http\Controllers\SubProblem')->group(function () {
 
         Route::resource('subproblems', SubProblemController::class);
         Route::get('subproblem/data', [SubProblemController::class, 'data'])->name('subProblems.data');

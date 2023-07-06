@@ -16,14 +16,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketEmail;
 use App\Models\Admin;
-use App\Models\Problem;
-use App\Models\ProblemType;
-use App\Models\SubProblem;
+use App\Models\Problem\Problem;
+use App\Models\SubProblem\SubProblem;
 use App\Notifications\NewRequestItNotification;
 
 class Request_Maintenance_ItController extends Controller
 {
-    const MEDICAL = 2;
+    const IT = 2;
 
     /**
      * Display a listing of the resource.

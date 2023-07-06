@@ -2,16 +2,16 @@
 @section('css')
 
 @section('title')
-    نظام RMB الادارة طلبات الصيانة
+    نظام RMB الادارة الأجهزة و طلبات الصيانة
 @stop
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle')
 <div class="col-sm-6" >
-  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم رئيس قسم</h4>
+  {{-- <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم رئيس قسم</h4> --}}
   <br>
-  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">اهلا بك {{Auth::user()->name}} في نظام RMB</h4>
+  {{-- <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">اهلا بك {{Auth::user()->name}} في نظام RMB</h4> --}}
   <br>
 </div>
 
@@ -37,12 +37,12 @@ wrapper -->
               </span>
             </div>
             <div class="float-right text-right">
-              <p class="card-text text-dark">أجهزة طبية</p>
+              {{-- <p class="card-text text-dark">أجهزة طبية</p> --}}
               <h4>{{$devicesMedical}}</h4>
             </div>
           </div>
           <p class="text-muted pt-3 mb-0 mt-2 border-top">
-            <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> 81% lower growth
+            <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> أجهزة طبية
           </p>
         </div>
       </div>
@@ -57,12 +57,12 @@ wrapper -->
               </span>
             </div>
             <div class="float-right text-right">
-              <p class="card-text text-dark">أجهزة تكنولوجيا المعلومات</p>
+              {{-- <p class="card-text text-dark">أجهزة تكنولوجيا المعلومات</p> --}}
               <h4>{{ $devicesIt}}</h4>
             </div>
           </div>
           <p class="text-muted pt-3 mb-0 mt-2 border-top">
-            <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total sales
+            <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> أجهزة تكنولوجيا المعلومات
           </p>
         </div>
       </div>
@@ -77,12 +77,12 @@ wrapper -->
               </span>
             </div>
             <div class="float-right text-right">
-              <p class="card-text text-dark">طلبات صيانة تكنلوجيا المعلومات</p>
+              {{-- <p class="card-text text-dark">طلبات صيانة تكنلوجيا المعلومات</p> --}}
               <h4>{{$maintenanceRequestIT}}</h4>
             </div>
           </div>
           <p class="text-muted pt-3 mb-0 mt-2 border-top">
-            <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week 
+            <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> طلبات صيانة تكنلوجيا المعلومات 
           </p>
         </div>
       </div>
@@ -97,12 +97,12 @@ wrapper -->
               </span>
             </div>
             <div class="float-right text-right">
-              <p class="card-text text-dark">طلبات صيانة أجهزة طبية</p>
+              {{-- <p class="card-text text-dark">طلبات صيانة أجهزة طبية</p> --}}
               <h4>{{$maintenanceRequestMedical}}</h4>
             </div>
           </div>
           <p class="text-muted pt-3 mb-0 mt-2 border-top">
-            <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
+            <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> طلبات صيانة أجهزة طبية
           </p>
         </div>
       </div>
