@@ -93,6 +93,13 @@ class MedicalMovementController extends Controller
     public function edit($id)
     {
         //
+        $deviceMovements = DeviceMovement::findOrFail($id);
+
+     $devices = Device::where('id', $id)->first();
+
+    //  $deviceMovements = DeviceMovement::where('device_id', $id)->get();
+
+     return response()->view('admins.devices.medical_devices.devices_Movements.edit', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
     }
 
     /**
@@ -102,9 +109,37 @@ class MedicalMovementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,DeviceMovement $deviceMovements, $id)
     {
         //
+        $validator = Validator($request->all(), [
+
+            'title' => 'required| string|min:3| max:35',
+            'newLocation' => 'required|string|min:3| max:35',
+            'body' => 'required| string|min:3| max:100',
+        ], [
+
+               'title.required' => 'الرجاء أدخل عنوان للحركة',
+               'newLocation.required' => 'الرجاء تحديد موقع الجهاز',
+               'body.required' => 'الرجاء ادخال تعليق مختصر لعملية النقل',
+        ]);
+
+
+        if (!$validator->fails()) {
+            $deviceMovements = DeviceMovement::findOrFail($id);
+            $deviceMovements->title = $request->get('title');
+            $deviceMovements->body = $request->get('body');
+            $deviceMovements->device_id = $request->get('device_id');
+            $deviceMovements->movement_type = $request->get('movement_type');
+            $deviceMovements->newLocation = $request->get('newLocation');
+            $deviceMovements->Created_by  = Auth::user()->name;
+            $isSaved = $deviceMovements->save();
+
+            return response()->json(['message' => $isSaved ? "تم أضافة الحركة بنجاح" : "فشل أضافة الحركة"], $isSaved ? 201 : 400);
+        } else {
+            return response()->json(['message' => $validator->getMessageBag()->first()], 400);
+            //    return response()->json(['message' => "Failed to save"], 400);
+        }
     }
 
     /**

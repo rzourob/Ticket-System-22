@@ -126,19 +126,20 @@ class DeviceAttachmentController extends Controller
     {
           //
           $device = Device::where('id', $id)->first();
+
           $deviceattachments = DeviceAttachment::where('id', $id)->first();
-  
+
           $isDeleted = $deviceattachments->delete();
-  
+
+          
+
            if ($isDeleted) {
               // $PatientAttachmentDeleted = Storage::delete($patientattachments->file_name);
             //   $deviceattachments = Storage::delete($deviceattachments->file_name);
             $PatientAttachmentDeleted = Storage::disk('public')->delete("deviceattachments/$deviceattachments->file_name");
 
           }
-
          
-
           return response()->json(['message' => $isDeleted ?
               " تم حذف المرفق بنجاح" : "فشل حذف المرفق"], $isDeleted ? 200 : 400);
     }

@@ -199,9 +199,36 @@ $('#subdepartments').attr('disabled',this.value == -1);
     function performStore(){
         let data = {
             // tiket_no: document.getElementById('tiket_no').value,
+            title: document.getElementById('title').value,
+            content: document.getElementById('content').value,
+            author_name	: document.getElementById('author_name').value,
+            author_email: document.getElementById('author_email').value,
+            date: document.getElementById('date').value,
+            mobile: document.getElementById('mobile').value,
+            model: document.getElementById('model').value,
+            sn: document.getElementById('sn').value,
+            room: document.getElementById('room').value,
+            // description: document.getElementById('image').value,devices
+            deviceTypes: document.getElementById('deviceTypes').value,
+            // device_id: document.getElementById('devices').value,
+            department_id: document.getElementById('departments').value,
+            sub_department_id: document.getElementById('subdepartments').value,
+            problem_id: document.getElementById('problems').value,
+            sub_problem_id: document.getElementById('subproblems').value,
+            // active: document.getElementById('active').checked,
+        };
+            
+        store('/user/maintenances_It/store', data);
+    }
+</script>
+
+<script>
+    function performStore22() {
+        let data = {
+            // tiket_no: document.getElementById('tiket_no').value,
             title: document.getElementById('title22').value,
             content: document.getElementById('content22').value,
-            author_name	: document.getElementById('author_name22').value,
+            author_name: document.getElementById('author_name22').value,
             author_email: document.getElementById('author_email22').value,
             date: document.getElementById('date22').value,
             mobile: document.getElementById('mobile22').value,
@@ -209,17 +236,15 @@ $('#subdepartments').attr('disabled',this.value == -1);
             sn: document.getElementById('sn22').value,
             room: document.getElementById('room22').value,
             // description: document.getElementById('image').value,devices
-            deviceTypes: document.getElementById('deviceTypes22').value,
+            // deviceTypes: document.getElementById('deviceTypes22').value,
             // device_id: document.getElementById('devices').value,
             department_id: document.getElementById('departments22').value,
             sub_department_id: document.getElementById('subdepartments22').value,
-            problem_id: document.getElementById('problems22').value,
-            sub_problem_id: document.getElementById('subproblems22').value,
             // active: document.getElementById('active').checked,
         };
-            
-        store('/user/maintenances_It/store', data);
-    }problems
+
+        store('/user/maintenances_Medical/store', data);
+    }
 </script>
 
     <script>

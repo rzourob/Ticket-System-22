@@ -47,6 +47,7 @@ function confirmDestroy(url, td) {
     });
 }
 
+
 function destroy(url, td) {
     axios.delete(url)
         .then(function (response) {
@@ -64,6 +65,7 @@ function destroy(url, td) {
             // always executed
         });
 }
+
 
 function showToaster(message, status) {
     toastr.options = {

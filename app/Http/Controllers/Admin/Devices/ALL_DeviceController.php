@@ -9,6 +9,7 @@ use App\Models\Maintenance\MaintenanceRequest;
 use App\Models\SubDepartment\SubDepartment;
 use Illuminate\Http\Request;
 use  Yajra\DataTables\DataTables;
+use Carbon\Carbon;
 
 class ALL_DeviceController extends Controller
 {
@@ -47,6 +48,11 @@ class ALL_DeviceController extends Controller
 
             ->filterColumn('department_id', function ($query, $department_id) {
                 $query->where('department_id', $department_id);
+            })
+
+            ->filterColumn('created_at', function ($query, $value) {
+                list($from, $to) = explode('#', $value);
+                $query->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)]);
             })
 
             ->addColumn('title', function (device $device) {

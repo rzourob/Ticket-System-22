@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Problem;
 
 use App\Http\Controllers\Controller;
 use App\Models\Problem\Problem;
-use App\Models\SubProblem;
+use App\Models\SubProblem\SubProblem;
 use Illuminate\Http\Request;
 use  Yajra\DataTables\DataTables;
 

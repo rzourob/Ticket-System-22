@@ -39,7 +39,7 @@
                             <div class="form-group ">
                                 <label> حالة القسم</label>
                                 <select class="custom-select" id="departments">
-                                    <option value="">أختار القسم</option>
+                                    <option value="-1">أختار القسم</option>
                                     @foreach ($departments as $department)
                                         <option value="{{ $department->id }}">{{ $department->title }}</option>
                                     @endforeach
@@ -179,12 +179,11 @@
             {
                 data: 'Created_by',
                 name: 'Created_by',
-                searchable: false
             },
             {
                 data: 'created_at',
                 name: 'created_at',
-                searchable: false
+                searchable: true
             },
             // {
             //     data: 'actions',
@@ -195,7 +194,7 @@
             // },
         ],
         order: [
-            [9, 'desc']
+            [10, 'desc']
         ],
         // drawCallback: function (settings) {   
         //     $('.record__select').prop('checked', false);
@@ -225,6 +224,19 @@
     $('#departments').change(function() {
         $('#devices-table').dataTable().fnFilter($(this).val(), -6);
     });
+
+    $('#fromDate').change(function() {
+        var toDate = $('#toDate').val();
+        if (toDate.length > 0)
+            $('#devices-table').dataTable().fnFilter($(this).val() + '#' + toDate, -1);
+    });
+
+    $('#toDate').change(function() {
+        var fromDate = $('#fromDate').val();
+        if (fromDate.length > 0)
+            $('#devices-table').dataTable().fnFilter(fromDate + '#' + $(this).val(), -1);
+    });
+
 </script>
 
 <script>

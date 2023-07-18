@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccessoryIt\AccessoryItController;
 use App\Http\Controllers\AccessoryMedical\AccessoryMedicalController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminLoginController;
@@ -130,17 +131,40 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('Movements_It/{id}', [ItController::class, 'Movements_show'])->name('admin.Movements_It.Movements_show');
 
-    Route::post('Movements/store', [ItMovement::class, 'store'])->name('admin.Request_Device_It_Movements.store');
+    Route::post('Movements/store', [ItMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
 
     Route::resource('Attachment', DeviceAttachmentController::class);
 
-    Route::get('Accessory/{id}', [ItController::class ,'accessoryit_show'])->name('admin.devices_It.accessoryit_show');
 
-    Route::post('Accessory_It/store', [AccessoryMedicalController::class, 'store'])->name('admin.accessoryit.store');
+
+
+    Route::get('Accessory_It/{id}', [ItController::class ,'accessoryit_show'])->name('admin.devices_It.accessoryit_show');
+
+    Route::post('Accessory_It/store', [AccessoryItController::class, 'store'])->name('admin.accessoryit.store');
+
+    Route::delete('Accessory_It/{id}', [AccessoryItController::class, 'destroy'])->name('admin.accessoryit.destroy');
+
+
+
+
 
     Route::get('View_file_Admin/{id}', [ItController::class, 'viewFile'])->name('View_file_Admin_pdf');
 
+    Route::get('View_Image_it_Admin/{id}', [ItController::class, 'viewImage'])->name('View_Image_it_Admin');
 
+
+    // Route::resource('View_Image', AccessoryMedicalController::class);
+
+    Route::get('Movements_It/{id}/edit', [ItMovementController::class, 'edit'])->name('admin.Movements_it.edit');
+
+    Route::put('Movements_It/update/{id}', [ItMovementController::class, 'update'])->name('admin.Movements_it.update');
+
+    Route::delete('Movements_It/destroy/{id}', [ItMovementController::class, 'destroy'])->name('admin.Movements_it.destroy');
+
+
+    Route::get('Movements_Medicl/{id}/edit', [MedicalMovementController::class, 'edit'])->name('admin.Movements_medical.edit');
+
+    Route::put('Movements_Medicl/update/{id}', [MedicalMovementController::class, 'update'])->name('admin.Movements_medical.update');
 
 /*
 |--------------------------------------------------------------------------
@@ -162,15 +186,26 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('devices_Medical/{id}', [MedicalController::class, 'show'])->name('admin.devices_Medical.show');
 
+
+    Route::delete('devices_Medical/{id}', [MedicalController::class, 'destroy'])->name('admin.devices_Medical.destroy');
+
+
+
+
     Route::get('Movements_show/{id}', [MedicalController::class, 'Movements_show'])->name('admin.Movements_show.Movements_show');
 
+
     Route::post('device_Movements/store', [MedicalMovementController::class, 'store'])->name('admin.device_Movements.store');
+
 
     Route::get('Accessory_Med/{id}', [MedicalController::class ,'accessorymedicals_show'])->name('admin.device_Medical_Admin.accessorymedicals_show');
 
     Route::post('Accessory_Medi/store', [AccessoryMedicalController::class, 'store'])->name('admin.accessorymedicals.store');
+    
+    Route::delete('Accessory_Medi/{id}', [AccessoryMedicalController::class, 'destroy'])->name('admin.accessorymedicals.destroy');
 
 
+    Route::get('View_Image_Admin/{id}', [MedicalController::class, 'viewImage'])->name('View_Image_Admin');
 
 /*
 |--------------------------------------------------------------------------

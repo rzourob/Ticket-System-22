@@ -66,7 +66,7 @@ class AccessoryMedicalController extends Controller
 
           
 
-                 return response()->json(['message' => $isSaved ? "تم أضافة المرفق بنجاح" : "فشل أضافة المرفق"], $isSaved ? 201 : 400);
+                 return response()->json(['message' => $isSaved ? "تم أضافة الملحق بنجاح" : "فشل أضافة الملحق"], $isSaved ? 201 : 400);
                 } else {
                 return response()->json(['message' => $validator->getMessageBag()->first()], 400);
         }
@@ -87,8 +87,13 @@ class AccessoryMedicalController extends Controller
         //
     }
 
-    public function destroy(AccessoryMedical $accessoryMedical)
+    public function destroy($id,AccessoryMedical $accessoryMedical)
     {
-        //
+        $isDeleted = AccessoryMedical::destroy($id);
+
+        // $AccessoryMedical =AccessoryMedical::where('id',$id)->firstOrFail();
+        // $AccessoryMedical->delete();
+        return response()->json(['message' => $isDeleted ? "تم حذف الملحق " : "فشل حذف الملحق"], $isDeleted ? 200 : 400);
     }
-}
+    }
+

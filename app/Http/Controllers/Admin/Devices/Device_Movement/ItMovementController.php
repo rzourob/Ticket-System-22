@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Devices\Device_Movement;
 
 use App\Http\Controllers\Controller;
+use App\Models\Device\Device;
 use App\Models\DeviceMovement\DeviceMovement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -91,6 +92,13 @@ class ItMovementController extends Controller
     public function edit($id)
     {
         //
+        $deviceMovements = DeviceMovement::findOrFail($id);
+
+        $devices = Device::where('id', $id)->first();
+   
+       //  $deviceMovements = DeviceMovement::where('device_id', $id)->get();
+   
+        return response()->view('admins.devices.it_devices.devices_Movements.edit', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
     }
 
     /**
@@ -103,6 +111,35 @@ class ItMovementController extends Controller
     public function update(Request $request, $id)
     {
         //
+                //
+                $validator = Validator($request->all(), [
+
+                    'title' => 'required| string|min:3| max:35',
+                    'newLocation' => 'required|string|min:3| max:35',
+                    'body' => 'required| string|min:3| max:100',
+                ], [
+        
+                       'title.required' => 'الرجاء أدخل عنوان للحركة',
+                       'newLocation.required' => 'الرجاء تحديد موقع الجهاز',
+                       'body.required' => 'الرجاء ادخال تعليق مختصر لعملية النقل',
+                ]);
+        
+        
+                if (!$validator->fails()) {
+                    $deviceMovements = DeviceMovement::findOrFail($id);
+                    $deviceMovements->title = $request->get('title');
+                    $deviceMovements->body = $request->get('body');
+                    $deviceMovements->device_id = $request->get('device_id');
+                    $deviceMovements->movement_type = $request->get('movement_type');
+                    $deviceMovements->newLocation = $request->get('newLocation');
+                    $deviceMovements->Created_by  = Auth::user()->name;
+                    $isSaved = $deviceMovements->save();
+        
+                    return response()->json(['message' => $isSaved ? "تم أضافة الحركة بنجاح" : "فشل أضافة الحركة"], $isSaved ? 201 : 400);
+                } else {
+                    return response()->json(['message' => $validator->getMessageBag()->first()], 400);
+                    //    return response()->json(['message' => "Failed to save"], 400);
+                }
     }
 
     /**
@@ -113,6 +150,7 @@ class ItMovementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $isDeleted = DeviceMovement::destroy($id);
+        return response()->json(['message' => $isDeleted ? "تم حذف الصلاحية " : "فشل حذف الصلاحية"], $isDeleted ? 200 : 400);
     }
 }

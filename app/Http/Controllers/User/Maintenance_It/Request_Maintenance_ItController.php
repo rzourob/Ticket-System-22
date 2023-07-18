@@ -150,7 +150,8 @@ class Request_Maintenance_ItController extends Controller
             'sn'           => 'required| string',
             'title'        => 'required| string',
             'content'      => 'required| string',
-            // 'department'=> 'required', 
+            // 'department'=> 'required',
+            'date'         => 'required|date|after_or_equal:today' 
 
         ], [
 
@@ -162,6 +163,8 @@ class Request_Maintenance_ItController extends Controller
             'title.required'        =>'الرجاء أضافة عنوان للمشكلة',
             'content.required'      => 'الرجاء أضافة وصف مختصر للمشكلة',
             // 'department.required' => 'الرجاء أختار القسم ',
+            'date.required'          =>'الرجاء ادخال التاريخ',
+            'date.after_or_equal'          =>'تاريخ انشاء التذكرة لبد ان يكون مطابق لتاريخ اليوم'
 
 
         ]);
@@ -192,8 +195,8 @@ class Request_Maintenance_ItController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
-                // Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
-                auth()->user()->notify(new NewRequestItNotification($maintenancerequests));
+                Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
+                // auth()->user()->notify(new NewRequestItNotification($maintenancerequests));
             }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الطلب بنجاح" : "فشل أضافة الطلب"], $isSaved ? 201 : 400);

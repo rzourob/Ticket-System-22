@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Devices;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDevice_It;
+use App\Models\AccessoryIt\AccessoryIt;
 use App\Models\Device\Device;
 use App\Models\DeviceMovement\DeviceMovement;
 use Illuminate\Http\Request;
@@ -89,13 +90,16 @@ class ItController extends Controller
 
         $accessorymedicals = AccessoryMedical::where('device_id', $id)->get();
 
-        return response()->view('admin.device_It_Admin.show', [
+        $accessoryits = AccessoryIt::where('device_id', $id)->get();
+
+        return response()->view('admins.devices.it_devices.show', [
             'devices' => $devices,
             'departments' => $departments,
             'subdepartments' => $subdepartments,
             'deviceattachments' => $deviceattachments,
             'deviceMovements' => $deviceMovements,
-            'accessorymedicals'=> $accessorymedicals
+            'accessorymedicals'=> $accessorymedicals,
+            'accessoryits'=> $accessoryits
 
         ]);
 
@@ -107,7 +111,7 @@ class ItController extends Controller
         $devices = Device::findOrFail($id);
         $subdepartments = $this->Device->getSubdepartments();
         $departments = $this->Device->getDepartments();
-        return response()->view('admin.device_It_Admin.edit', [
+        return response()->view('admins.devices.it_devices.edit', [
             'departments' => $departments,
             'subdepartments' => $subdepartments,
             'devices' => $devices,
@@ -131,9 +135,10 @@ class ItController extends Controller
     {
 
         $devices = Device::where('id', $id)->first();
+        
         $accessorymedicals = AccessoryMedical::where('device_id', $id)->get();
 
-        return response()->view('admin.device_It_Admin.addAccessory', 
+        return response()->view('admins.devices.it_devices.devices_Accessory.create', 
         [
             'devices' => $devices, 
             'accessorymedicals' => $accessorymedicals
@@ -213,7 +218,17 @@ class ItController extends Controller
     {
 
         $deviceattachments  = DeviceAttachment::where('id', $id)->first();
-        return response()->view('admin.device_It_Admin.viewFile', [ 'deviceattachments' => $deviceattachments]);
+        return response()->view('admins.devices.it_devices.viewFile', [ 'deviceattachments' => $deviceattachments]);
+
+    }// end of viewFile
+
+
+    public function viewImage($id)
+
+    {
+
+        $deviceAccessory  = AccessoryIt::where('id', $id)->first();
+        return response()->view('admins.devices.it_devices.viewImage', [ 'deviceAccessory' => $deviceAccessory]);
 
     }// end of viewFile
 }

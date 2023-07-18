@@ -88,7 +88,7 @@
                     </div> --}}
                     <!-- /.card-body -->
                     <div class="modal-footer">
-                        <button type="button" onclick="performStore()" class="btn btn-primary">أضافة رد</button>
+                        <button type="button" onclick="performStore()" class="btn btn-primary">أضافة حركة</button>
                     </div>
                 </form>
             </div>
@@ -115,5 +115,15 @@
         store('/devices/Device_Movements', data);
     }
 </script>
+
+
+<script>
+    function performDestroy40(id, ref) {
+        confirmDestroy('/admin/Movements_It/destroy/' + id, ref);
+
+    }
+</script>
+
+
 
 @endsection

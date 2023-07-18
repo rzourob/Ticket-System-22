@@ -12,9 +12,9 @@
 
                                         <div class="col-md-4 mb-30">
                                             <div class="col">
-                                                <label for="author_name ">أسم المرسل</label>
+                                                <label for="author_name">أسم المرسل</label>
                                                 <input type="text" name="author_name" class="form-control"
-                                                    id="author_name" placeholder="يرجي ادخال اسم المرسل">
+                                                    id="author_name22" placeholder="يرجي ادخال اسم المرسل">
                                             </div>
                                         </div>
 
@@ -22,7 +22,7 @@
                                             <div class="col">
                                                 <label for="author_email ">البريد الاكتروني</label>
                                                 <input type="email" name="author_email" class="form-control"
-                                                    id="author_email" placeholder=" يرجي ادخل البريد الاكتروني"
+                                                    id="author_email22" placeholder=" يرجي ادخل البريد الاكتروني"
                                                     data-max="6" required>
                                             </div>
                                         </div>
@@ -33,7 +33,7 @@
                                         <div class="col-md-4 mb-30">
                                             <div class="col">
                                                 <label for="mobile" class="mr-sm-2">رقم الجوال</label>
-                                                <input type="text" name="mobile" class="form-control" id="mobile"
+                                                <input type="text" name="mobile" class="form-control" id="mobile22"
                                                     placeholder="يرجي أدخال رقم الجوال">
                                             </div>
                                         </div>
@@ -96,8 +96,8 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="date ">التاريخ</label>
-                                                <input type="date" name="date" class="form-control" id="date"
-                                                    placeholder="يرجي تجديد التاريخ" data-max="6" required>
+                                                <input type="date" name="date" class="form-control" id="date22"
+                                                    placeholder="يرجي تجديد التاريخ" data-max="6" required min="<?= date('Y-m-d'); ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@
                                             <div class="col">
                                                 <label for="title ">الموضوع</label>
                                                 <input type="text" name="title" class="form-control"
-                                                    id="title" placeholder="ادخال عنوان للمشكلة" data-max="6"
+                                                    id="title22" placeholder="ادخال عنوان للمشكلة" data-max="6"
                                                     required>
                                             </div>
                                         </div>
@@ -161,14 +161,14 @@
                                         <div class="col-md-12 mb-30">
                                             <div class="col">
                                                 <label for="content">وصف المشكلة</label>
-                                                <textarea class="form-control" style="resize: none;" type="text" id="content" name="content" rows="4"
+                                                <textarea class="form-control" style="resize: none;" type="text" id="content22" name="content" rows="4"
                                                     placeholder="وصف المشكلة" cols="50"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="modal-footer">
-                                        <button type="button" onclick="performStore()" class="btn btn-primary">أنشاء
+                                        <button type="button" onclick="performStore22()" class="btn btn-primary">أنشاء
                                             تذكرة</button>
                                     </div>
                                 </form>

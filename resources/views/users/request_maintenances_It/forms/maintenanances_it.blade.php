@@ -66,7 +66,7 @@
                                             <div class="form-group">
                                                 <label for="date ">التاريخ</label>
                                                 <input type="date" name="date" class="form-control" id="date"
-                                                    placeholder="يرجي تجديد التاريخ" data-max="6" required>
+                                                    placeholder="يرجي تجديد التاريخ" data-max="6" required min="<?= date('Y-m-d'); ?>">
                                             </div>
                                         </div>
 

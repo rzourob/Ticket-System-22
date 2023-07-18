@@ -1,0 +1,49 @@
+<div class="tab-pane fade" id="profile-06" role="tabpanel" aria-labelledby="profile-06-tab">
+
+    @foreach ($deviceMovements as $deviceMovement)
+        <div class="card mt-3">
+            <h5 class="card-header" style="font-family: 'Cairo', sans-serif">
+                {{ $deviceMovement->title }}
+
+                <span class="badge rounded-pill bg-warning text-dark">
+                    {{ $deviceMovement->created_by }}
+                </span>
+
+            </h5>
+
+            <div class="card-body">
+                <div class="card-text">
+                    <div class="float-start">
+                        {{ $deviceMovement->body }}
+                    </div>
+                    <br>
+
+                    <small>أخرتحديث - {{ $deviceMovement->updated_at->diffForHumans() }}
+                    </small>
+
+                    <div class="modal-footer" class="d-flex justify-center align-center">
+
+
+
+                        @if ($deviceMovement->created_by === Auth::user()->name)
+
+                        <a  href="{{ route('admin.Movements_medical.edit', $deviceMovement->id) }}" class="btn btn-success left justify-center"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                            تعديل الرد
+                        </a>
+
+
+                            <a href="#" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                حذف الرد
+                            </a>
+                        @endif
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+        </div>
+    @endforeach
+
+</div>

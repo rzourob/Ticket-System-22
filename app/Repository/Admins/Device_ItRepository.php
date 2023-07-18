@@ -13,6 +13,7 @@ use App\Models\Maintenance\MaintenanceRequest;
 use App\Models\SubDepartment\SubDepartment;
 use App\RepositoryInterface\Admins\Device_ItInterface;
 use Yajra\DataTables\Facades\DataTables;
+use Carbon\Carbon;
 
 class Device_ItRepository implements Device_ItInterface{
 
@@ -78,37 +79,42 @@ public function data()
                 $query->where('department_id', $department_id);
             })
 
+            ->filterColumn('created_at', function ($query, $value) {
+                list($from, $to) = explode('#', $value);
+                $query->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)]);
+            })
+
             ->addColumn('title', function (device $device) {
-                return view('admin.device_It_Admin.data_table.titleRequest', compact('device'));
+                return view('admins.devices.it_devices.data_table.titleRequest', compact('device'));
             })
             ->addColumn('description', function (device $device) {
-                return view('admin.device_It_Admin.data_table.description', compact('device'));
+                return view('admins.devices.it_devices.data_table.description', compact('device'));
             })
 
             ->addColumn('department_id', function (device $device) {
-                return view('admin.device_It_Admin.data_table.departments', compact('device'));
+                return view('admins.devices.it_devices.data_table.departments', compact('device'));
             })
 
             ->addColumn('image', function (device $device) {
-                return view('admin.device_It_Admin.data_table.image', compact('device'));
+                return view('admins.devices.it_devices.data_table.image', compact('device'));
             })
 
             ->addColumn('sub_department_id', function (device $device) {
-                return view('admin.device_It_Admin.data_table.subdepartments', compact('device'));
+                return view('admins.devices.it_devices.data_table.subdepartments', compact('device'));
             })
 
             ->addColumn('active', function (device $device) {
-                return view('admin.device_It_Admin.data_table.active', compact('device'));
+                return view('admins.devices.it_devices.data_table.active', compact('device'));
             })
 
             ->addColumn('deviceTypes', function (device $device) {
-                return view('admin.device_It_Admin.data_table.deviceTypes', compact('device'));
+                return view('admins.devices.it_devices.data_table.deviceTypes', compact('device'));
             })
 
             ->editColumn('created_at', function (device $device) {
                 return $device->created_at->format('Y-m-d');
             })
-            ->addColumn('actions', 'admin.device_It_Admin.data_table.actions')
+            ->addColumn('actions', 'admins.devices.it_devices.data_table.actions')
             ->rawColumns(['actions'])
             ->toJson();
     } // end of data

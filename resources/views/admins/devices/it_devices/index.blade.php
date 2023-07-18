@@ -204,7 +204,7 @@
             {
                 data: 'created_at',
                 name: 'created_at',
-                searchable: false
+                searchable: true
             },
             {
                 data: 'actions',
@@ -215,7 +215,7 @@
             },
         ],
         order: [
-            [9, 'desc']
+            [11, 'desc']
         ],
         // drawCallback: function (settings) {   
         //     $('.record__select').prop('checked', false);
@@ -245,12 +245,24 @@
     $('#departments').change(function() {
         $('#devicesIt-table').dataTable().fnFilter($(this).val(), -7);
     });
+
+    $('#fromDate').change(function() {
+        var toDate = $('#toDate').val();
+        if (toDate.length > 0)
+            $('#devicesIt-table').dataTable().fnFilter($(this).val() + '#' + toDate, -2);
+    });
+
+    $('#toDate').change(function() {
+        var fromDate = $('#fromDate').val();
+        if (fromDate.length > 0)
+            $('#devicesIt-table').dataTable().fnFilter(fromDate + '#' + $(this).val(), -2);
+    });
 </script>
 
 <script>
     $('#subdepartments').attr('disabled', true);
     $('#departments').on('change', function() {
-        $('#subdepartments').attr('disabled', this.value == -1);
+    $('#subdepartments').attr('disabled', this.value == -1);
 
         if (this.value != -1) {
             // alert (this.value);
