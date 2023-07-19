@@ -32,9 +32,9 @@
                         </a>
 
 
-                            <a href="#" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                                حذف الرد
-                            </a>
+                        <a href="#" onclick="performDestroy({{ $deviceMovement->id }},this)  "class="btn btn-danger">حذف
+                            <i class="fa fa-trash"></i>
+                        </a>
                         @endif
                     </div>
 
@@ -47,3 +47,16 @@
     @endforeach
 
 </div>
+
+@section('js')
+
+<script>
+    function performDestroy(id, ref) {
+        confirmDestroy('/admin/Accessory_Medi/destroy/' + id, ref);
+
+    }
+</script>
+
+@endsection
+
+

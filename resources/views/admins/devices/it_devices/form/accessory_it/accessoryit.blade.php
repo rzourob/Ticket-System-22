@@ -81,14 +81,14 @@
 
                                                 </a>
 
-                                                <a class="btn btn-secondary" href="">تحميل
+                                                {{-- <a class="btn btn-secondary" href="">تحميل
                                                     <i class="fas fa-cloud-download-alt"></i>
 
-                                                </a>
-
+                                                </a> --}}
+{{-- 
                                                 <a href="#" onclick="performDestroy({{ $accessoryit->id }},this)  " class="btn btn-danger">حذف
                                                     <i class="fa fa-trash"></i>
-                                                </a>
+                                                </a> --}}
 
                                             </div>
                                         </td>
@@ -115,17 +115,17 @@
                 formData.append('description', document.getElementById('description').value);
                 formData.append('active', document.getElementById('active').value);
                 formData.append('device_id', document.getElementById('device').value);
-                store('/admin/Accessory', formData);
+                store('/admin/Accessory_It/store/', formData);
 
             }
         </script>
 
-<script>
+{{-- <script>
 
     function performDestroy(id, ref) {
-        confirmDestroy('/admin/Accessory_It/' + id, ref);
+        confirmDestroy('/admin/Accessory_destroy/' + id, ref);
 
     }
-</script>
+</script> --}}
         
     @endsection

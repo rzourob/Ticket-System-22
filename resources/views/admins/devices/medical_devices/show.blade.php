@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('css')
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
 
 
 @section('title')
@@ -143,7 +144,7 @@
                                     <h5 style="font-family: 'Cairo', sans-serif"><strong>السيريال نمبر:
                                             {{ $devices->sn }}</strong></h5><br>
                                     <br>
-                                    </div>
+                                </div>
 
                                 <div class="col-sm-12 invoice-col">
                                     <h5 style="font-family: 'Cairo', sans-serif"><strong>ملاحظات: </strong></h5><br>
@@ -168,9 +169,9 @@
                         @include('admins.devices.medical_devices.form.device_movements.deviceMovement')
 
                         @include('admins.devices.medical_devices.form.device_attachment.deviceattachment')
-                        
+
                         @include('admins.devices.medical_devices.form.accessory_medical.accessorymedical')
-                        
+
                     </div>
                 </div>
 
@@ -182,44 +183,14 @@
 <!-- row closed -->
 @endsection
 @section('js')
-	<!-- JS -->
-		<!-- JS -->
 
-{{-- <script type="text/javascript">
-    function performStore() {
+<script>
 
-        let formData = new FormData();
-        formData.append('device_id', document.getElementById('device_id').value);
-        formData.append('file_name', document.getElementById('file_name').files[0]);
-
-        store('/admin/Attachment', formData);
-    }
-</script> --}}
-
-{{-- <script>
     function performDestroy(id, ref) {
-        confirmDestroy('/admin/Attachment/' + id, ref);
-
-    }
-</script> --}}
-
-
-
-<script type="text/javascript">
-    function performStore() {
-
-        let formData = new FormData();
-        formData.append('title', document.getElementById('title').value);
-        formData.append('sn', document.getElementById('sn').value);
-        // formData.append('image', document.getElementById('image').value);
-        formData.append('description', document.getElementById('description').value);
-        // formData.append('active', document.getElementById('active').value);
-        formData.append('device_id', document.getElementById('device').value);
-
-        // store('/admin/Accessory', formData);
-
+        confirmDestroy('/admin/Accessory_Medi/destroy/' + id, ref);
     }
 </script>
+
 
 
 @endsection

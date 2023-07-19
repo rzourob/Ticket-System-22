@@ -33,11 +33,11 @@
                         </a>
 
 
-                         <a href="#"
+                         {{-- <a href="#"
                         onclick="performDestroy({{ $deviceMovement->id }},this)  "
                         class="btn btn-danger">حذف
                         <i class="fa fa-trash"></i>
-                    </a>
+                    </a> --}}
                         @endif
                     </div>
 
@@ -54,11 +54,11 @@
 @section('js')
 
 
-    <script>
+    {{-- <script>
         function performDestroy(id, ref) {
             confirmDestroy('/admin/Movements_It/destroy/' + id, ref);
 
         }
-    </script>
+    </script> --}}
 @endsection
 

@@ -150,7 +150,7 @@ class ItMovementController extends Controller
      */
     public function destroy($id)
     {
-        $isDeleted = DeviceMovement::destroy($id);
-        return response()->json(['message' => $isDeleted ? "تم حذف الصلاحية " : "فشل حذف الصلاحية"], $isDeleted ? 200 : 400);
+        // $isDeleted = DeviceMovement::destroy($id);
+        // return response()->json(['message' => $isDeleted ? "تم حذف الصلاحية " : "فشل حذف VVVVVVVVVVV"], $isDeleted ? 200 : 400);
     }
 }

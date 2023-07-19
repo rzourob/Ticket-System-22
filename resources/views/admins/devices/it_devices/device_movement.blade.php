@@ -117,12 +117,12 @@
 </script>
 
 
-<script>
+{{-- <script>
     function performDestroy40(id, ref) {
         confirmDestroy('/admin/Movements_It/destroy/' + id, ref);
 
     }
-</script>
+</script> --}}
 
 
 

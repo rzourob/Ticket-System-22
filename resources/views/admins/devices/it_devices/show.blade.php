@@ -199,7 +199,7 @@
 
 
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     function performStore() {
 
         let formData = new FormData();
@@ -212,6 +212,13 @@
 
         store('/admin/Accessory', formData);
 
+    }
+</script> --}}
+
+<script>
+
+    function performDestroy(id, ref) {
+        confirmDestroy('/admin/Accessory_destroy/' + id, ref);
     }
 </script>
 

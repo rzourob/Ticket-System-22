@@ -62,42 +62,37 @@
                                         <td>{{ $accessorymedical->device->title }}</td>
                                         <td>{{ $accessorymedical->title }}</td>
                                         <td>{{ $accessorymedical->sn }}</td>
-                                        <td><div class="form-group">
+                                        <td>
                                             <div class="form-group">
-                                                <img class="profile-user-img img-fluid img-circle"
-                                                    style="width:150px; height:100px;"
-                                                    src="{{ Storage::url('public/accessorymedicals/' . $accessorymedical->image ?? '') }}"
-                                                    alt="User profile picture">
+                                                <div class="form-group">
+                                                    <img class="profile-user-img img-fluid img-circle"
+                                                        style="width:150px; height:100px;"
+                                                        src="{{ Storage::url('public/accessorymedicals/' . $accessorymedical->image ?? '') }}"
+                                                        alt="User profile picture">
+                                                </div>
                                             </div>
-                                        </div></td>
+                                        </td>
                                         <td>{{ $accessorymedical->description }}</td>
                                         <td>{{ $accessorymedical->Created_by }}</td>
                                         <td>
                                             <div class="btn-group">
 
                                                 <a class="btn btn-info"
-                                                href="{{ route('View_Image_Admin', $accessorymedical->id) }}"
-                                                target="_blank" role="button">عرض
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    href="{{ route('View_Image_Admin', $accessorymedical->id) }}"
+                                                    target="_blank" role="button">عرض
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </a>
 
-                                            </a>
-
-                                            {{-- <a class="btn btn-secondary" href="">تحميل
-                                                <i class="fas fa-cloud-download-alt"></i>
-
-                                            </a> --}}
-
-                                            <a href="#"
-                                                onclick="performDestroy({{ $accessorymedical->id }},this)  "
-                                                class="btn btn-danger">حذف
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                                {{-- <a href="#"
+                                                    onclick="performDestroy({{ $accessorymedical->id }},this)  "
+                                                    class="btn btn-danger">حذف
+                                                    <i class="fa fa-trash"></i>
+                                                </a> --}}
 
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>
@@ -107,27 +102,5 @@
     </div>
 </div>
 
-    @section('js')
-        <script type="text/javascript">
-            function performStore22() {
-
-                let formData = new FormData();
-                formData.append('title', document.getElementById('title').value);
-                formData.append('sn', document.getElementById('sn').value);
-                // formData.append('image', document.getElementById('image').value);
-                formData.append('description', document.getElementById('description').value);
-                formData.append('active', document.getElementById('active').value);
-                formData.append('device_id', document.getElementById('device').value);
-                store('/admin/Accessory', formData);
-
-            }
-        </script>
-
-<script>
-
-    function performDestroy(id, ref) {
-        confirmDestroy('/admin.accessorymedicals.destroy/' + id, ref);
-
-    }
-</script>
-    @endsection
+@section('js')
+@endsection

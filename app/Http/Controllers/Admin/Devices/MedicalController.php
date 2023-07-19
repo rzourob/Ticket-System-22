@@ -335,4 +335,20 @@ class MedicalController extends Controller
         return response()->view('admins.devices.medical_devices.viewImage', [ 'deviceAccessory' => $deviceAccessory]);
 
     }// end of viewFile
+
+    public function devicesMedicalAttachment_show($id)
+    {
+
+        $devices = Device::where('id', $id)->first();
+        $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
+
+        return response()->view(
+            'admins.devices.medical_devices.Device_ِAttachment.create',
+            [
+                'devices' => $devices,
+                'deviceattachments' => $deviceattachments
+            ]
+        );
+    } // end of Movements_show
+
 }

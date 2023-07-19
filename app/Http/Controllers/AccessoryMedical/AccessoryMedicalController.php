@@ -89,11 +89,36 @@ class AccessoryMedicalController extends Controller
 
     public function destroy($id,AccessoryMedical $accessoryMedical)
     {
+
+        $device = Device::where('id', $id)->first();
+
+        $accessorymedicals = AccessoryMedical::where('id', $id)->first();
+
+        if ($accessorymedicals) {
+
+          $PatientAttachmentDeleted = Storage::disk('public')->delete("accessorymedicals/$accessorymedicals->image");
+    
+        }
+
         $isDeleted = AccessoryMedical::destroy($id);
+
 
         // $AccessoryMedical =AccessoryMedical::where('id',$id)->firstOrFail();
         // $AccessoryMedical->delete();
         return response()->json(['message' => $isDeleted ? "تم حذف الملحق " : "فشل حذف الملحق"], $isDeleted ? 200 : 400);
     }
     }
+ 
+
+
+
+
+
+
+
+
+    
+
+
+
 

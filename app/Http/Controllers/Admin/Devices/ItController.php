@@ -136,12 +136,12 @@ class ItController extends Controller
 
         $devices = Device::where('id', $id)->first();
         
-        $accessorymedicals = AccessoryMedical::where('device_id', $id)->get();
+        $accessoryits = AccessoryIt::where('device_id', $id)->get();
 
         return response()->view('admins.devices.it_devices.devices_Accessory.create', 
         [
             'devices' => $devices, 
-            'accessorymedicals' => $accessorymedicals
+            'accessoryits' => $accessoryits
     ]);
 
     }// end of Movements_show
@@ -231,4 +231,20 @@ class ItController extends Controller
         return response()->view('admins.devices.it_devices.viewImage', [ 'deviceAccessory' => $deviceAccessory]);
 
     }// end of viewFile
+
+
+    public function devicesItAttachment_show($id)
+    {
+
+        $devices = Device::where('id', $id)->first();
+        $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
+
+        return response()->view(
+            'admins.devices.it_devices.Device_ِAttachment.create',
+            [
+                'devices' => $devices,
+                'deviceattachments' => $deviceattachments
+            ]
+        );
+    } // end of Movements_show
 }

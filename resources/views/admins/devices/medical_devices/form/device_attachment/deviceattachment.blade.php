@@ -9,34 +9,7 @@
                 <div class="tab-pane active" id="tab0130">
                     <div class="card-body">
 
-                        <div class="card card-statistics">
 
-                            <div class="card-body">
-                                <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
-                                <h5 style="font-family: 'Cairo', sans-serif" class="card-title">اضافة مرفقات</h5>
-                                <form>
-                                    {{-- {{ csrf_field() }} --}}
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="file_name" name="file_name"
-                                            required>
-
-                                        <input type="hidden" name="device_id" id="device_id" {{-- value="{{ $familydetails->form_no }}" --}}
-                                            value="{{ $devices->id }}">
-
-
-                                        <label class="custom-file-label" for="customFile">حدد
-                                            المرفق</label>
-                                    </div><br><br>
-                                    {{-- <button type="submit" class="btn btn-primary btn-sm "
-                                        name="uploadedFile">تاكيد</button> --}}
-                                    {{-- <div class="card-footer"> --}}
-                                    <div class="">
-                                        <button type="button" name="uploadedFile" onclick="performStore()"
-                                            class="btn btn-primary ">تاكيد</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                         <!-- /.card-body -->
                         <!-- -->
                         {{-- <div class="col-md-12 text-center ">
@@ -107,16 +80,16 @@
 
                                                 </a>
 
-                                                <a class="btn btn-secondary" href="">تحميل
+                                                {{-- <a class="btn btn-secondary" href="">تحميل
                                                     <i class="fas fa-cloud-download-alt"></i>
 
-                                                </a>
+                                                </a> --}}
 
-                                                <a href="#"
+                                                {{-- <a href="#"
                                                     onclick="performDestroy({{ $deviceattachment->id }},this)  "
                                                     class="btn btn-danger">حذف
                                                     <i class="fa fa-trash"></i>
-                                                </a>
+                                                </a> --}}
 
                                             </div>
                                         </td>
@@ -162,7 +135,7 @@
 
 @section('js')
     <script type="text/javascript">
-        function performStore() {
+        function performStore(){
 
             let formData = new FormData();
             formData.append('device_id', document.getElementById('device_id').value);
@@ -172,10 +145,10 @@
         }
     </script>
 
-    <script>
+    {{-- <script>
         function performDestroy(id, ref) {
             confirmDestroy('/admin/Attachment/' + id, ref);
 
         }
-    </script>
+    </script> --}}
 @endsection

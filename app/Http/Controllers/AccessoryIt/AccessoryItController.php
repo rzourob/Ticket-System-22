@@ -128,7 +128,10 @@ class AccessoryItController extends Controller
     public function destroy(AccessoryIt $accessoryIt ,$id)
     {
         //
+        // dd($accessoryIt);
         $isDeleted = AccessoryIt::destroy($id);
+
+        // $accessoryIt->delete();
 
         // $AccessoryMedical =AccessoryMedical::where('id',$id)->firstOrFail();
         // $AccessoryMedical->delete();

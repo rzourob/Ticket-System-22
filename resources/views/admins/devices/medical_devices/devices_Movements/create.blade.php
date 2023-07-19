@@ -116,4 +116,11 @@
     }
 </script>
 
+<script>
+    function performDestroy(id, ref) {
+        // confirmDestroy('/admin/Attachment/' + id, ref);
+
+    }
+</script>
+
 @endsection

@@ -107,16 +107,16 @@
 
                                                 </a>
 
-                                                <a class="btn btn-secondary" href="">تحميل
+                                                {{-- <a class="btn btn-secondary" href="">تحميل
                                                     <i class="fas fa-cloud-download-alt"></i>
 
-                                                </a>
+                                                </a> --}}
 
-                                                <a href="#"
-                                                    onclick="performDestroy({{ $deviceattachment->id }},this)"
+                                                {{-- <a href="#"
+                                                    onclick="performDestroyy({{ $deviceattachment->id }},this)"
                                                     class="btn btn-danger">حذف
                                                     <i class="fa fa-trash"></i>
-                                                </a>
+                                                </a> --}}
 
                                             </div>
                                         </td>
@@ -172,10 +172,10 @@
         }
     </script>
 
-    <script>
-        function performDestroy(id, ref) {
+    {{-- <script>
+        function performDestroyy(id, ref) {
             confirmDestroy('/admin/Attachment/' + id, ref);
 
         }
-    </script>
+    </script> --}}
 @endsection

@@ -31,6 +31,10 @@ class DeviceAttachmentController extends Controller
     public function create()
     {
         //
+        $devices = Device::get();
+        return response()->view('admins.devices.medical_devices.Device_ِAttachment.create',[
+            'devices' => $devices
+        ]);
     }
 
     /**
@@ -91,7 +95,17 @@ class DeviceAttachmentController extends Controller
     public function show($id)
     {
         //
+        $devices  = Device::where('id', $id)->first();
+        $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
+
+
+        return response()->view('admins.devices.medical_devices.Device_ِAttachment.create', [
+            'devices' => $devices,
+            'deviceattachments' => $deviceattachments,
+
+        ]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -129,16 +143,18 @@ class DeviceAttachmentController extends Controller
 
           $deviceattachments = DeviceAttachment::where('id', $id)->first();
 
-          $isDeleted = $deviceattachments->delete();
+        //   $isDeleted = $deviceattachments->delete();
 
           
 
-           if ($isDeleted) {
+           if ($deviceattachments) {
               // $PatientAttachmentDeleted = Storage::delete($patientattachments->file_name);
             //   $deviceattachments = Storage::delete($deviceattachments->file_name);
             $PatientAttachmentDeleted = Storage::disk('public')->delete("deviceattachments/$deviceattachments->file_name");
 
           }
+
+          $isDeleted = DeviceAttachment::destroy($id);
          
           return response()->json(['message' => $isDeleted ?
               " تم حذف المرفق بنجاح" : "فشل حذف المرفق"], $isDeleted ? 200 : 400);

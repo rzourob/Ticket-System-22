@@ -3,45 +3,30 @@
 use App\Http\Controllers\AccessoryIt\AccessoryItController;
 use App\Http\Controllers\AccessoryMedical\AccessoryMedicalController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\Maintenance_Admin\RequestMaintenanceMedicalController;
-use App\Http\Controllers\Admin\Device_Admin\ViewAdminDeviceController;
-use App\Http\Controllers\Admin\Device_IT\Device_ItController;
-use App\Http\Controllers\Admin\Device_IT\DeviceMovementController as Device_ITDeviceMovementController;
-use App\Http\Controllers\Admin\Device_Medical\Device_Med_MovementController;
-use App\Http\Controllers\Admin\Device_Medical\Device_MedicalController;
 use App\Http\Controllers\Admin\Devices\ALL_DeviceController;
-use App\Http\Controllers\Admin\Devices\Device_Movement\ItMovement;
 use App\Http\Controllers\Admin\Devices\Device_Movement\ItMovementController;
-use App\Http\Controllers\Admin\Devices\Device_Movement\MedicalMovement;
 use App\Http\Controllers\Admin\Devices\Device_Movement\MedicalMovementController;
 use App\Http\Controllers\Admin\Devices\ItController;
 use App\Http\Controllers\Admin\Devices\MedicalController;
-use App\Http\Controllers\Admin\Maintenance_It\Request_Maintenance_ItController;
 use App\Http\Controllers\Admin\Maintenance_Medical\Request_Maintenance_MedicalController;
 use App\Http\Controllers\Admin\RequestMaintrnance\ItController as RequestMaintrnanceItController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Dashborad\DashbordController;
 use App\Http\Controllers\User\UserController;
-use GuzzleHttp\Middleware;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Department\DepartmentController;
 use App\Http\Controllers\Device\DeviceAttachmentController;
 use App\Http\Controllers\Device\DeviceController;
 use App\Http\Controllers\Device\DeviceMovementController;
-use App\Http\Controllers\Maintenance\MaintenanceRequestController;
 use App\Http\Controllers\Problem\ProblemController;
-use App\Http\Controllers\ProblemTypeController;
 use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\SubDepartment\SubDepartmenController;
 use App\Http\Controllers\SubProblem\SubProblemController;
 use App\Http\Controllers\Technician\TechnicianController;
-use App\Mail\TicketEmail;
 use App\Mail\WelcomeEmail;
-use App\Models\Device\AccessoryMedical;
-use App\Models\ProblemType;
-use App\Models\SubProblem;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -115,6 +100,8 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('device/data', [ALL_DeviceController::class, 'data'])->name('viewdevices.data');
 
+/*----------------------------------------------------------------------------------------------------------   */
+
     Route::get('devices_It', [ItController::class, 'index'])->name('admin.DevicesIt');
 
     Route::get('devices_It/data', [ItController::class, 'data'])->name('DevicesIt.data');
@@ -129,38 +116,48 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('devices_It/{id}', [ItController::class, 'show'])->name('admin.devices_It.show');
 
-    Route::get('Movements_It/{id}', [ItController::class, 'Movements_show'])->name('admin.Movements_It.Movements_show');
-
-    Route::post('Movements/store', [ItMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
-
-    Route::resource('Attachment', DeviceAttachmentController::class);
-
-
-
-
-    Route::get('Accessory_It/{id}', [ItController::class ,'accessoryit_show'])->name('admin.devices_It.accessoryit_show');
-
-    Route::post('Accessory_It/store', [AccessoryItController::class, 'store'])->name('admin.accessoryit.store');
-
-    Route::delete('Accessory_It/{id}', [AccessoryItController::class, 'destroy'])->name('admin.accessoryit.destroy');
-
-
-
-
-
     Route::get('View_file_Admin/{id}', [ItController::class, 'viewFile'])->name('View_file_Admin_pdf');
 
     Route::get('View_Image_it_Admin/{id}', [ItController::class, 'viewImage'])->name('View_Image_it_Admin');
 
+    /*----------------------------------------------------------------------------------------------------------   */
 
-    // Route::resource('View_Image', AccessoryMedicalController::class);
+    Route::get('Accessory_It/{id}', [ItController::class ,'accessoryit_show'])->name('admin.devices_It.accessoryit_show');
 
-    Route::get('Movements_It/{id}/edit', [ItMovementController::class, 'edit'])->name('admin.Movements_it.edit');
+    Route::get('Movements_It/{id}', [ItController::class, 'Movements_show'])->name('admin.Movements_It.Movements_show');
 
-    Route::put('Movements_It/update/{id}', [ItMovementController::class, 'update'])->name('admin.Movements_it.update');
 
-    Route::delete('Movements_It/destroy/{id}', [ItMovementController::class, 'destroy'])->name('admin.Movements_it.destroy');
+    /*----------------------------------------------------------------------------------------------------------   */
 
+    Route::post('Accessory_It/store', [AccessoryItController::class, 'store'])->name('admin.accessoryit.store');
+
+    Route::delete('Accessory_destroy/{id}', [AccessoryItController::class, 'destroy'])->name('admin.accessoryit.destroy');
+
+    /*----------------------------------------------------------------------------------------------------------   */
+
+
+        Route::post('Movements/store', [ItMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
+
+        // Route::resource('View_Image', AccessoryMedicalController::class);
+
+        Route::get('Movements_It/{id}/edit', [ItMovementController::class, 'edit'])->name('admin.Movements_it.edit');
+
+        Route::put('Movements_It/update/{id}', [ItMovementController::class, 'update'])->name('admin.Movements_it.update');
+    
+        Route::delete('Movements_It/destroy/{id}', [ItMovementController::class, 'destroy'])->name('admin.Movements_it.destroy');
+
+     /*----------------------------------------------------------------------------------------------------------   */
+
+    Route::resource('Attachment', DeviceAttachmentController::class);
+
+    Route::get('DeviceItAttachment/{id}', [ItController::class, 'devicesItAttachment_show'])->name('admin.devicesItAttachment_show');
+
+    Route::get('Attachment_medical/create', [DeviceAttachmentController::class, 'create'])->name('admin.Attachment_medical.create');
+
+    Route::post('Attachment_medical/store', [DeviceAttachmentController::class, 'store'])->name('admin.Attachment_medical.store');
+
+
+    /*----------------------------------------------------------------------------------------------------------   */
 
     Route::get('Movements_Medicl/{id}/edit', [MedicalMovementController::class, 'edit'])->name('admin.Movements_medical.edit');
 
@@ -186,13 +183,14 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('devices_Medical/{id}', [MedicalController::class, 'show'])->name('admin.devices_Medical.show');
 
-
     Route::delete('devices_Medical/{id}', [MedicalController::class, 'destroy'])->name('admin.devices_Medical.destroy');
 
 
-
-
     Route::get('Movements_show/{id}', [MedicalController::class, 'Movements_show'])->name('admin.Movements_show.Movements_show');
+
+    Route::get('DeviceMedAttachment/{id}', [MedicalController::class, 'devicesMedicalAttachment_show'])->name('admin.DeviceMedAttachment');
+
+    Route::delete('accessoryAttachment/destroy/{id}', [DeviceAttachmentController::class, 'destroy'])->name('admin.accessorymedicalsff.destroy');
 
 
     Route::post('device_Movements/store', [MedicalMovementController::class, 'store'])->name('admin.device_Movements.store');
@@ -202,7 +200,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::post('Accessory_Medi/store', [AccessoryMedicalController::class, 'store'])->name('admin.accessorymedicals.store');
     
-    Route::delete('Accessory_Medi/{id}', [AccessoryMedicalController::class, 'destroy'])->name('admin.accessorymedicals.destroy');
+    Route::delete('Accessory_Medi/destroy/{id}', [AccessoryMedicalController::class, 'destroy'])->name('admin.accessorymedicals.destroy');
 
 
     Route::get('View_Image_Admin/{id}', [MedicalController::class, 'viewImage'])->name('View_Image_Admin');
@@ -272,33 +270,14 @@ Route::get('email', function () {
 
 Route::group(['prefix' => 'admin','middleware' => ['auth:admin,web']], function () {
 
-    // Route::resource('devices', DeviceController::class);
-
-    // Route::get('device/data', [DeviceController::class, 'data'])->name('devices.data');
-
-
-    // Route::get('medicalDevices', [DeviceController::class, 'medicalDep'])->name('medicalDevices');
-
-    // Route::get('medicalDevice/medicalDevicee', [DeviceController::class, 'medicalDevicee'])->name('medicalDevices.medicalDevicee');
-
-    // Route::get('movementsShow/{id}', [DeviceController::class, 'deviceMovements_show'])->name('movementShow.data');
 
     Route::get('/getdetails/{id}', [DeviceController::class, 'getdetail']);
-
-    // Route::get('deviceMedical/devicesData', [DeviceController::class, 'devicesData'])->name('devices.medical');
-
-    // Route::get('deviceMedical', [DeviceController::class, 'getdeviceMedical'])->name('deviceMedical');
-
-    // Route::get('deviceIt/devicesData', [DeviceController::class, 'itData'])->name('devices.it');
-
-    // Route::get('deviceIt', [DeviceController::class, 'getdeviceIt'])->name('deviceIt');
 
     Route::namespace('App\Http\Controllers\Department')->group(function () {
 
         Route::resource('departments', DepartmentController::class);
         Route::get('department/data', [DepartmentController::class, 'data'])->name('departments.data');
 
-        // Route::get('getsubDepartment', [DepartmentController::class ,'getsubDepartment'])->name('getsubDepartments');
     });
 
     Route::namespace('App\Http\Controllers\SubDepartment')->group(function () {
@@ -307,20 +286,12 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:admin,web']], function 
         Route::get('subdepartment/data', [SubDepartmenController::class, 'data'])->name('subdepartments.data');
     });
 
-    // Route::namespace('App\Http\Controllers')->group(function () {
-
-    //     Route::resource('problemTypes', ProblemTypeController::class);
-    //     Route::get('problemType/data', [ProblemTypeController::class, 'data'])->name('problemTypes.data');
-
-    //     // Route::get('getsubDepartment', [DepartmentController::class ,'getsubDepartment'])->name('getsubDepartments');
-    // });
 
     Route::namespace('App\Http\Controllers\Problem')->group(function () {
 
         Route::resource('problems', ProblemController::class);
         Route::get('problem/data', [ProblemController::class, 'data'])->name('problem.data');
 
-        // Route::get('getsubDepartment', [DepartmentController::class ,'getsubDepartment'])->name('getsubDepartments');
     });
 
     Route::namespace('App\Http\Controllers\SubProblem')->group(function () {
@@ -332,34 +303,9 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:admin,web']], function 
 
 Route::group(['prefix' => 'Request', 'middleware' => ['auth:admin,web']], function () {
 
-    // Route::get('email',function(){
-    //     return new WelcomeEmail();
-    // });
-
-    // Route::resource('maintenances', MaintenanceRequestController::class);
-
-    // Route::get('maintenance/data', [MaintenanceRequestController::class, 'data'])->name('maintenances.data');
-
-    // Route::get('cmmentsShow/{id}', [MaintenanceRequestController::class, 'comment_show'])->name('cmmentShow.data');
-
-    // Route::get('aaaa/devicesW', [MaintenanceRequestController::class, 'iTRequest'])->name('wwwwwww');
-
-    // Route::get('deviceit', [MaintenanceRequestController::class, 'getdeviceit'])->name('ticket.devices_it');
-
-    // Route::get('qqq/devicesW', [MaintenanceRequestController::class, 'MedicalRequest'])->name('qqqq');
-
-    // Route::get('device_Medical', [MaintenanceRequestController::class, 'getdeviceMedical'])->name('ticket.device_Medical');
-
-    // Route::get('getsubDepartment', [DepartmentController::class ,'getsubDepartment'])->name('getsubDepartments');
 
 });
 
-// Route::group(['prefix' =>'Request','middleware'=>['auth:admin,web']],function() { 
-
-//     Route::resource('maintenances', RequestDeviceMedicalController::class); 
-
-//     Route::get('maintenance/data', [RequestDeviceMedicalController::class, 'data'])->name('Requestmaintenances.data');
-// });
 
 Route::group(['prefix' => 'Request', 'middleware' => ['auth:admin,web']], function () {
 

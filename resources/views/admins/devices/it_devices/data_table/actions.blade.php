@@ -35,6 +35,11 @@
                 aria-hidden="true"></i>
                 أضافة ملحق
                 </a>
+
+                <a class="dropdown-item" href="{{ route('admin.devicesItAttachment_show', $id) }}"><i
+                    class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                أضافة مرفق
+            </a
                             {{-- @endcan --}}
 
         </div>
@@ -44,7 +49,7 @@
 
 <script>
     function performDestroy(id, ref) {
-        confirmDestroy('/admin/devices/' + id, ref);
+        confirmDestroy('/admin/Attachment/' + id, ref);
 
     }
 </script>

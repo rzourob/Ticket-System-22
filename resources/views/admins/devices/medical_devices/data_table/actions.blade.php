@@ -1,4 +1,4 @@
-@canany(['حذف جهاز', 'تعديل بيانات جهاز', 'Show-Deives', 'أضافة حركة','عرض تفاصيل الجهاز'])
+@canany(['حذف جهاز', 'تعديل بيانات جهاز', 'Show-Deives', 'أضافة حركة', 'عرض تفاصيل الجهاز'])
     <div class="btn-group mb-1">
 
         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -13,7 +13,8 @@
             @endcan
 
             @can('عرض تفاصيل الجهاز')
-                <a class="dropdown-item" href="{{ route('admin.devices_Medical.show', $id) }}"><i class="fa fa-eye" aria-hidden="true"></i>
+                <a class="dropdown-item" href="{{ route('admin.devices_Medical.show', $id) }}"><i class="fa fa-eye"
+                        aria-hidden="true"></i>
                     عرض تفاصيل الجهاز</a>
             @endcan
 
@@ -30,12 +31,16 @@
                     حذف جهاز</a>
             @endcan
 
-                        {{-- @can('تعديل بيانات جهاز') --}}
-                        <a class="dropdown-item" href="{{ route('admin.device_Medical_Admin.accessorymedicals_show', $id) }}"><i class="fa fa-pencil-square-o"
-                            aria-hidden="true"></i>
-                        أضافة ملحق
-                    </a>
-                {{-- @endcan --}}
+            {{-- @can('تعديل بيانات جهاز') --}}
+            <a class="dropdown-item" href="{{ route('admin.device_Medical_Admin.accessorymedicals_show', $id) }}"><i
+                    class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                أضافة ملحق
+            </a>
+            <a class="dropdown-item" href="{{ route('admin.DeviceMedAttachment', $id) }}"><i
+                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            أضافة مرفق
+        </a>
+            {{-- @endcan --}}
 
         </div>
     </div>
