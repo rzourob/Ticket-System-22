@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Devices;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Device\Medical_Device_Request;
 use App\Models\Department\Department;
 use App\Models\Device\AccessoryMedical;
 use App\Models\Device\Device;
@@ -106,42 +107,17 @@ class MedicalController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Medical_Device_Request $request)
+
     {
-        $validator = Validator($request->all(), [
-
-            'codeDevices' => 'required| string',
-            // 'deviceTypes' => 'required| string',
-            'title' => 'required|string',
-            'sn' => 'required|string',
-            'department_id' => 'required|string',
-            'room' => 'required|string',
-            'manufacturer' => 'required|string',
-            'model' => 'required|string',
-            'supplier' => 'required|string',
-            'warranty' => 'required|string',
-
-
-        ], [
-            'codeDevices.required' => 'الرجاء ادخال الباركود الخاص بالجهاز',
-            // 'deviceTypes.required' => 'الرجاء تحديد نوع الجهاز',
-            'title.required' => 'الرجاء أدخال اسم الجهاز',
-            'sn.required' => 'الرجاء ادخال السيريال نمبر الخاص بالجهاز',
-            'department_id.required' => 'الرجاء اختيار القسم',
-            'room.required' => 'الرجاء ادخال رقم الغرفة',
-            'manufacturer.required' => 'الرجاء ادخال اسم الشركة المصنعة',
-            'model.required' => 'الرجاء ادخال موديل الجهاز',
-            'supplier.required' => 'الرجاء ادخال اسم الشركة الموردة',
-            'warranty.required' => 'الرجاء ادخال اسم الشركة الموردة',
-        ]);
-
+        $validator = Validator($request->all());
 
         if (!$validator->fails()) {
 
             $device = new Device();
             $device->codeDevices = $request->get('codeDevices');
             $device->title = $request->get('title');
-            // $device->deviceTypes = $request->get('deviceTypes');
+            $device->deviceTypes = $request->get('deviceTypes');
             $device->manufacturer = $request->get('manufacturer');
             $device->model = $request->get('model');
             $device->sn = $request->get('sn');
@@ -319,12 +295,16 @@ class MedicalController extends Controller
         return json_encode($devices);
     }
 
-    public function Movements_show($id)
+    public function MovementsMedical_show($id)
     {
 
         $devices = Device::where('id', $id)->first();
         $deviceMovements = DeviceMovement::where('device_id', $id)->get();
-        return response()->view('admins.devices.medical_devices.device_movement', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
+        return response()->view('admins.devices.medical_devices.devices_Movements.create',
+         [
+            'devices' => $devices, 
+            'deviceMovements' => $deviceMovements
+        ]);
     }
 
     public function viewImage($id)

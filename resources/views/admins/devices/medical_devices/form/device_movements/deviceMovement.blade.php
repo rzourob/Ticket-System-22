@@ -48,15 +48,6 @@
 
 </div>
 
-@section('js')
 
-<script>
-    function performDestroy(id, ref) {
-        confirmDestroy('/admin/Accessory_Medi/destroy/' + id, ref);
-
-    }
-</script>
-
-@endsection
 
 

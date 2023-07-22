@@ -8,7 +8,12 @@
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle')
-    لوحة تحكم رئيس القسم
+<div class="col-sm-6" >
+  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم مهندس الصيانة</h4>
+  <br>
+  {{-- <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">اهلا بك {{Auth::user()->name}} في نظام RMB</h4> --}}
+  <br>
+</div>
 
 @endsection
 @section('PageTitle2')
@@ -16,6 +21,7 @@
 @stop
 <!-- breadcrumb -->
 @endsection
+
 @section('content')
 <!-- row -->
  <!--=================================

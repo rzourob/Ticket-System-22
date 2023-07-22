@@ -166,7 +166,7 @@
 
                         @include('users.device_It_User.form.device_attachment.deviceattachment')
                         
-                        @include('users.device_It_User.form.accessory_medical.accessorymedical')
+                        @include('users.device_It_User.form.accessory_It.accessoryIt')
                         
                     </div>
                 </div>

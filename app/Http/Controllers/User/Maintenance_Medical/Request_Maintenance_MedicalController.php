@@ -162,6 +162,10 @@ class Request_Maintenance_MedicalController extends Controller
             $maintenancerequests->author_email = $request->get('author_email');
             $maintenancerequests->department_id = $request->get('department_id');
             $maintenancerequests->sub_department_id = $request->get('sub_department_id');
+
+            $maintenancerequests->problem_id = $request->get('problem_id');
+            $maintenancerequests->sub_problem_id = $request->get('sub_problem_id');
+            
             $maintenancerequests->mobile = $request->get('mobile');
             // $maintenancerequests->device_id = $request->get('device_id');
             $maintenancerequests->sn = $request->get('sn');

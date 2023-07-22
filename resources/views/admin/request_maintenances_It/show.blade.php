@@ -171,11 +171,11 @@
 @endsection
 @section('js')
 
-<script>
+{{-- <script>
     function performDestroy(id, ref) {
         confirmDestroy('/Request/maintenances/' + id, ref);
 
     }
-</script>
+</script> --}}
 
 @endsection

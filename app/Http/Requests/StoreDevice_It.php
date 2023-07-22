@@ -28,7 +28,7 @@ class StoreDevice_It extends FormRequest
             'codeDevices' => 'required|string:min=3|regex:/^[a-zA-Z0-9\-]*$/i',
             // 'codeDevices' => ['required','string'],
             'deviceTypes' => 'required|string:min=3',
-            'title' => 'required|string|regex:/^[a-zA-Z]*$/i',
+            'title' => 'required|string',
             'sn' => 'required|string|regex:/^[a-zA-Z0-9]*$/i',
             'department_id' => 'required|numeric',
             'room' => 'required|string|regex:/^[a-zA-Z0-9\-]*$/i',
@@ -49,7 +49,7 @@ class StoreDevice_It extends FormRequest
             'deviceTypes.required' => 'الرجاء تحديد نوع الجهاز',
 
             'title.required' => 'الرجاء أدخال اسم الجهاز',
-            'title.regex' => 'صيغة اسم الجهاز غير صحيحة',
+            // 'title.string' => 'صيغة اسم الجهاز غير صحيحة',
 
             'sn.required' => 'الرجاء ادخال السيريال نمبر الخاص بالجهاز',
             'sn.unique' => 'الرجاء ادخال اسم الشركة ?????????',

@@ -21,12 +21,12 @@
 
 @endcanany
 
-{{-- <script>
+<script>
 
         function performDestroy(id,ref){
             confirmDestroy('/admin/devices/'+id,ref);    
 
         }
-</script> --}}
+</script>
 
 

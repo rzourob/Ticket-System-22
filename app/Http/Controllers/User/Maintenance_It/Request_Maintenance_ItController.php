@@ -19,6 +19,8 @@ use App\Models\Admin;
 use App\Models\Problem\Problem;
 use App\Models\SubProblem\SubProblem;
 use App\Notifications\NewRequestItNotification;
+use Illuminate\Support\Facades\Notification;
+
 
 class Request_Maintenance_ItController extends Controller
 {
@@ -195,8 +197,10 @@ class Request_Maintenance_ItController extends Controller
             $isSaved = $maintenancerequests->save();
 
             if ($isSaved) {
-                Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
-                // auth()->user()->notify(new NewRequestItNotification($maintenancerequests));
+                // Mail::to($maintenancerequests->author_email)->send(new TicketEmail($maintenancerequests));
+                auth()->user()->notify(new NewRequestItNotification($maintenancerequests));
+                // $maintenancerequests->notify(new NewRequestItNotification($maintenancerequests));
+
             }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الطلب بنجاح" : "فشل أضافة الطلب"], $isSaved ? 201 : 400);

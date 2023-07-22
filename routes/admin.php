@@ -116,6 +116,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('devices_It/{id}', [ItController::class, 'show'])->name('admin.devices_It.show');
 
+    Route::delete('devices_IT/{id}', [ItController::class, 'destroy'])->name('admin.devices_IT.destroy');
+
+
     Route::get('View_file_Admin/{id}', [ItController::class, 'viewFile'])->name('View_file_Admin_pdf');
 
     Route::get('View_Image_it_Admin/{id}', [ItController::class, 'viewImage'])->name('View_Image_it_Admin');
@@ -159,9 +162,14 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     /*----------------------------------------------------------------------------------------------------------   */
 
+    Route::get('DeviceMedMovements/{id}', [MedicalController::class, 'MovementsMedical_show'])->name('admin.MovementsMedical_show');
+
     Route::get('Movements_Medicl/{id}/edit', [MedicalMovementController::class, 'edit'])->name('admin.Movements_medical.edit');
 
     Route::put('Movements_Medicl/update/{id}', [MedicalMovementController::class, 'update'])->name('admin.Movements_medical.update');
+
+    Route::delete('Movements_Medicl/destroy/{id}', [MedicalMovementController::class, 'destroy'])->name('admin.Movements_Medicl.destroy');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -186,7 +194,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::delete('devices_Medical/{id}', [MedicalController::class, 'destroy'])->name('admin.devices_Medical.destroy');
 
 
-    Route::get('Movements_show/{id}', [MedicalController::class, 'Movements_show'])->name('admin.Movements_show.Movements_show');
+    Route::get('Movements_show/{id}', [MedicalController::class, 'MovementsMedical_show'])->name('admin.Movements_show.Movements_show');
 
     Route::get('DeviceMedAttachment/{id}', [MedicalController::class, 'devicesMedicalAttachment_show'])->name('admin.DeviceMedAttachment');
 
@@ -230,6 +238,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('maintenances_It/{id}', [RequestMaintrnanceItController::class,'show'])->name('admin.Request_Device_It.show');
 
     Route::get('cmments/{id}', [RequestMaintrnanceItController::class, 'comment_show'])->name('cmmentShow.data');
+
+    Route::delete('maintenances_It/{id}', [RequestMaintrnanceItController::class, 'destroy'])->name('admin.maintenances_It.destroy');
+
 
     // Route::post('Movements/store', [Device_ITDeviceMovementController::class, 'store'])->name('admin.Request_Device_It_Movements.store');
 

@@ -151,7 +151,7 @@
                                 @endforeach 
                             </select> --}}
                             <input type="text" name="subdepartments" class="form-control" id="subdepartments" disabled
-                             placeholder="{{trans('maintenance_trans.enter_email')}}" data-max="6"  required value="{{$maintenancerequest->subdepartment->title}}">
+                             placeholder="{{trans('maintenance_trans.enter_email')}}" data-max="6"  required value="{{$maintenancerequest->subDepartment->title}}">
                         </div>
                     </div>
 

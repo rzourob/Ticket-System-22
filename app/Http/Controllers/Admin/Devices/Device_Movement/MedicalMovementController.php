@@ -151,5 +151,8 @@ class MedicalMovementController extends Controller
     public function destroy($id)
     {
         //
+        $isDeleted = DeviceMovement::destroy($id);
+        
+        return response()->json(['message' => $isDeleted ? "تم حذف الصلاحية " : "فشل حذف الصلاحية"], $isDeleted ? 200 : 400);
     }
 }

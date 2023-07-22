@@ -8,9 +8,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewRequestItNotification extends Notification implements ShouldQueue
+class NewRequestItNotification extends Notification  implements ShouldQueue
 {
     use Queueable;
+
+
     public $maintenancerequests;
     /**
      * Create a new notification instance.
@@ -42,19 +44,35 @@ class NewRequestItNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        // return (new MailMessage)
+        //     ->subject('New Ticket')
+        //     ->from('info@ticket.it-rmb.com', config('app.name'))
+        //     ->greeting('Hello:name', ['name' => $notifiable->name])
+        //     ->line(':name has commenton your post ":name"', [
+        //     'author_email'=>$this->maintenancerequests->author_email,
+        //     'author_name'=>$this->maintenancerequests->author_name,
+        //     'tiket_no'=>$this->maintenancerequests->tiket_no,
+        //     ])
+        //     ->action('View Cmment', url('/'), [
+        //         $this->maintenancerequests->maintenancerequest_id
+        //     ])
+        //     ->line('Thank you for using our application!');
+        $greeting = sprintf('Hello %s!', $notifiable->name);
+        $fullName =sprintf('User Name: %s', $this->maintenancerequests->author_name);
+        $tiket_no =sprintf('Tiket No: %s', $this->maintenancerequests->tiket_no);
+        $email =sprintf('Email: %s', $this->maintenancerequests->author_email);
         return (new MailMessage)
-            ->subject('New Ticket')
-            ->from('info@ticket.it-rmb.com', config('app.name'))
-            ->greeting('Hello:name', ['name' => $notifiable->name])
-            ->line(':name has commenton your post ":name"', [
-            'author_email'=>$this->maintenancerequests->author_email,
-            'author_name'=>$this->maintenancerequests->author_name,
-            'tiket_no'=>$this->maintenancerequests->tiket_no,
-            ])
-            ->action('View Cmment', url('/'), [
-                $this->maintenancerequests->maintenancerequest_id
-            ])
-            ->line('Thank you for using our application!');
+                ->subject('لقد تم أنشاء حسابكم على موقع RMB')
+                ->from('info@ticket.it-rmb.com',config('app.name'))
+                ->greeting($greeting)
+                
+                ->line($fullName)
+                ->line($tiket_no)
+                ->line($email)
+                ->action('View Cmment', url('/'))
+                ->line('Thank you for using our application!');
+
+
     }
 
     /**

@@ -55,7 +55,8 @@ class AccessoryMedicalController extends Controller
                    if($request ->hasFile('image')){
                     Storage::disk('public')->delete("accessorymedicals/$accessorymedicals->image");
                     $image = $request->file('image');
-                    $imageName = time() . '_' . $accessorymedicals->name . '.' . $image->getClientOriginalExtension();
+                    $imageName =  $image->getClientOriginalName();
+                    // $imageName = time() . '_' . $accessorymedicals->name . '.' . $image->getClientOriginalExtension();
                     $request->file('image')->storePubliclyAs('accessorymedicals', $imageName , ['disk'=>'public']);
                     $accessorymedicals->image = $imageName; 
                }

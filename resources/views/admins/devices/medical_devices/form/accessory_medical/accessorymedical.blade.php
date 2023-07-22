@@ -56,9 +56,13 @@
 
                             <tbody>
 
+                                <?php $i=0; ?>
+
                                 @foreach ($accessorymedicals as $accessorymedical)
+
+                                <?php $i++; ?>
                                     <tr>
-                                        <td>{{ $accessorymedical->id }}</td>
+                                        <td>{{ $i }}</td>
                                         <td>{{ $accessorymedical->device->title }}</td>
                                         <td>{{ $accessorymedical->title }}</td>
                                         <td>{{ $accessorymedical->sn }}</td>

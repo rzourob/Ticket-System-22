@@ -1,6 +1,4 @@
 <!-- jquery -->
-
-<!-- jquery -->
 <script src="{{ URL :: asset('assets/js/jquery-3.3.1.min.js')}}"></script>
 
 <!-- plugins-jquery -->
@@ -48,18 +46,8 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{asset('js/crud.js')}}"></script>
 
-
-
-
-
-
 <script src="{{ asset('assets/js/bootstrap-datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-
-
-
-
-    
 
 @yield('js')
 

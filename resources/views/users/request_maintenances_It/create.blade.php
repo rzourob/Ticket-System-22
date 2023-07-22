@@ -112,11 +112,11 @@ $('#subdepartments').attr('disabled',this.value == -1);
 
 <script>
 
-    $('#subproblems').attr('disabled',true);
+    $('#subproblems22').attr('disabled',true);
     
-    $('#problems').on('change', function() {
+    $('#problems22').on('change', function() {
     
-    $('#subproblems').attr('disabled',this.value == -1);
+    $('#subproblems22').attr('disabled',this.value == -1);
     // alert (this.value);
 
         if(this.value != -1){
@@ -135,12 +135,12 @@ $('#subdepartments').attr('disabled',this.value == -1);
         .then(function (response) {
             console.log(response);
             if(response.data.subproblems.length !=0){
-                $('#subproblems').empty();
+                $('#subproblems22').empty();
                    $.each(response.data.subproblems , function(i,item){
-                    $('#subproblems').append(new Option(item['title'], item['id']))
+                    $('#subproblems22').append(new Option(item['title'], item['id']))
                    });
             }else{
-                $('#subproblems').attr('disabled',true);
+                $('#subproblems22').attr('disabled',true);
             }
         })
 
@@ -236,10 +236,12 @@ $('#subdepartments').attr('disabled',this.value == -1);
             sn: document.getElementById('sn22').value,
             room: document.getElementById('room22').value,
             // description: document.getElementById('image').value,devices
-            // deviceTypes: document.getElementById('deviceTypes22').value,
+            deviceTypes: document.getElementById('deviceTypes').value,
             // device_id: document.getElementById('devices').value,
             department_id: document.getElementById('departments22').value,
             sub_department_id: document.getElementById('subdepartments22').value,
+            problem_id: document.getElementById('problems22').value,
+            sub_problem_id: document.getElementById('subproblems22').value,
             // active: document.getElementById('active').checked,
         };
 

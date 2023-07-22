@@ -53,7 +53,7 @@
                     <!-- select -->
                     <div class="form-group">
                         <label> نوع الجهاز</label>
-                      <select class="custom-select"   id="deviceTypes">
+                      <select class="custom-select" id="deviceTypes">
                         <option value=""> اختارح نوع الجهاز</option>
                         <option value="1" > جهاز طبي</option>
                         <option value="2">تكنولوجيا المعلومات</option>
@@ -303,7 +303,6 @@
         formData.append('sub_department_id',document.getElementById('subdepartments').value);
         formData.append('active',document.getElementById('active').value);     
         formData.append('image',document.getElementById('image').files[0]);
-
     //    store('/devices',formData);
     store('/admin/devices_Medical/store',formData);
     }

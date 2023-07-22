@@ -9,7 +9,7 @@
 <!-- breadcrumb -->
 @section('PageTitle')
 <div class="col-sm-6" >
-  {{-- <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم رئيس قسم</h4> --}}
+  <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم رئيس قسم</h4>
   <br>
   {{-- <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">اهلا بك {{Auth::user()->name}} في نظام RMB</h4> --}}
   <br>

@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
 
+use Illuminate\Support\Facades\Notification;
+
+
 class AdminController extends Controller
 {
     use UserTrait;
@@ -101,6 +104,10 @@ class AdminController extends Controller
                 $admin->assignRole($role);
                 
                 $admin->notify(new CreatedAdminNotification($admin));
+
+                // $admin->notify(new CreatedAdminNotification($admin));
+
+                // dd($admin->notifications);
 
                 // Mail::to($admin->email)->send(new WelcomeEmail());
             }

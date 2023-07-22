@@ -1,7 +1,12 @@
 @extends('layouts.master')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<!---Internal Fileupload css-->
+<link href="{{ URL::asset('assets/fileuploads/css/fileupload.css') }}" rel="stylesheet" type="text/css" />
+<!---Internal Fancy uploader css-->
+<link href="{{ URL::asset('assets/fancyuploder/fancy_fileupload.css') }}" rel="stylesheet" />
+
+<link rel="stylesheet" href="{{asset('assets/js/select2/css/select2.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/js/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 @section('title')
     حركة الجهاز
 @stop
@@ -27,13 +32,24 @@
         </div>
     </div>
 </div>
-<!-- row -->
-<div class="row">
-    <div class="col-md-12 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
-                {{-- <h5 class="card-title">أضافة تعليق </h5> --}}
-                <form>
+
+<div class="card-body">
+    <!-- Large modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">أضافة حركة</button> 
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title"><div class="mb-10">
+              <h4 style="font-family: 'Cairo', sans-serif">أضافة حركة جديد</h4>
+            </div>
+            </div>
+          </div>
+          <div class="modal-body">
+
+            <form id="create_form">
+                @csrf
+
                     <div class="row">
                         <input type="hidden" id="device_id" name="device_id" value="{{ $devices->id }}">
                         <div class="col-sm-4 mb-30">
@@ -90,7 +106,70 @@
                     <div class="modal-footer">
                         <button type="button" onclick="performStore()" class="btn btn-primary">أضافة رد</button>
                     </div>
-                </form>
+                
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- row -->
+<div class="row">
+    <div class="col-md-12 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                {{-- <h5 class="card-title">أضافة تعليق </h5> --}}
+
+                <div  >
+
+                    @foreach ($deviceMovements as $deviceMovement)
+                        <div class="card mt-3">
+                            <h5 class="card-header" style="font-family: 'Cairo', sans-serif">
+                                {{ $deviceMovement->title }}
+                
+                                <span class="badge rounded-pill bg-warning text-dark">
+                                    {{ $deviceMovement->created_by }}
+                                </span>
+                
+                            </h5>
+                
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <div class="float-start">
+                                        {{ $deviceMovement->body }}
+                                    </div>
+                                    <br>
+                
+                                    <small>أخرتحديث - {{ $deviceMovement->updated_at->diffForHumans() }}
+                                    </small>
+                
+                                    <div class="modal-footer" class="d-flex justify-center align-center">
+                
+                
+                
+                                        @if ($deviceMovement->created_by === Auth::user()->name)
+                
+                                        <a  href="{{ route('admin.Movements_medical.edit', $deviceMovement->id) }}" class="btn btn-success left justify-center"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            تعديل الرد
+                                        </a>
+                
+                
+                                        <a href="#" onclick="performDestroy({{ $deviceMovement->id }},this)  "class="btn btn-danger">حذف
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                        @endif
+                                    </div>
+                
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                
+                
+                        </div>
+                    @endforeach
+                
+                </div>
+
             </div>
         </div>
     </div>
@@ -118,7 +197,7 @@
 
 <script>
     function performDestroy(id, ref) {
-        // confirmDestroy('/admin/Attachment/' + id, ref);
+        confirmDestroy('/admin/Movements_Medicl/destroy/' + id, ref);
 
     }
 </script>

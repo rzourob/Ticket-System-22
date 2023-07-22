@@ -16,12 +16,12 @@
 	</div>
 </div>
 
-{{-- <script>
+<script>
 
         function performDestroy(id,ref){
-            confirmDestroy('/admin/devices/'+id,ref);    
+            confirmDestroy('/admin/maintenances_It/'+id,ref);    
 
         }
-</script> --}}
+</script>
 
 

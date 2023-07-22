@@ -1,0 +1,3 @@
+
+{{$maintenanceRequest->content}}
+

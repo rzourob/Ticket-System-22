@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Devices;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDevice_It;
 use App\Models\AccessoryIt\AccessoryIt;
+use App\Models\Comment\Comment;
 use App\Models\Device\Device;
 use App\Models\DeviceMovement\DeviceMovement;
 use Illuminate\Http\Request;
@@ -203,6 +204,26 @@ class ItController extends Controller
     public function destroy($id)
     {
         //       
+        $devices =Device::findOrFail($id);
+
+        if( $devices){
+
+        $movementdelete = DeviceMovement::where('device_id', $id)->delete();
+
+        // $commentdelete =Comment::where('device_id', $id)->delete();
+
+        $attachmentdelete = DeviceAttachment::where('device_id', $id)->delete();
+
+        $accessorydelete = AccessoryIt::where('device_id', $id)->delete();
+
+        }
+
+        // dd($movementdelete);
+
+        $isDeleted = Device::destroy($id);
+
+        return response()->json(['message' => $isDeleted ? "تم عملية الحذف بنجاح" : "فشل تنفيذ عملية الحذف"], $isDeleted ? 200 : 400);
+        // return response()->json(['message' => $isDeleted ? "تم حذف الصلاحية " : "فشل حذف الصلاحية"], $isDeleted ? 200 : 400);
     }// end of destroy
 
     public function getdetail($id)

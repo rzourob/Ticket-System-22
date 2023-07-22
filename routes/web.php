@@ -10,6 +10,7 @@ use App\Http\Controllers\User\Device_Medical\Device_MedicalController;
 use App\Http\Controllers\User\UserLoginController;
 use App\Http\Controllers\User\Maintenance_It\Request_Maintenance_ItController;
 use App\Http\Controllers\User\Maintenance_Medical\Request_Maintenance_MedicalController;
+// use App\Http\Controllers\User\Maintenance_User\RequestDeviceItController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Mail\TicketEmail;
@@ -72,7 +73,11 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
     Route::resource('Attachments', DeviceAttachmentController::class);
 
-    Route::get('View_file/{id}', [Device_ItController::class, 'viewFile'])->name('View_file_pdf');
+    Route::get('View_file_user/{id}', [Device_ItController::class, 'viewFile'])->name('user.View_file_pdf_user');
+
+    // Route::get('View_file_Admin/{id}', [ItController::class, 'viewFile'])->name('View_file_Admin_pdf');
+
+    Route::get('View_Image_it_user/{id}', [Device_ItController::class, 'viewImage'])->name('user.View_Image_it_user');
 
 
 
@@ -84,6 +89,11 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
     Route::get('devices_Medical/{id}', [Device_MedicalController::class, 'show'])->name('user.devices_Medical.show');
 
     Route::get('Movements_Medical/{id}', [Device_MedicalController::class, 'Movements_show'])->name('user.Movements_Medical');
+
+    Route::get('View_fileMedical_user/{id}', [Device_MedicalController::class, 'viewFile'])->name('user.View_fileMedical_user');
+
+
+    Route::get('View_ImageMedical_it_user/{id}', [Device_MedicalController::class, 'viewImage'])->name('user.View_ImageMedical_user');
 
 
 
@@ -159,7 +169,7 @@ Route::group(['prefix' =>'user','middleware'=>['auth']],function() {
 
 //     Route::get('Request_Medical/data', [RequestDeviceMedicalController::class, 'data'])->name('Request_Medical.data');
 
-//     Route::get('Request_It', [RequestDeviceItController::class,'index'])->name('View_Request_It'); 
+    // Route::get('Request_It', [RequestDeviceItController::class,'index'])->name('View_Request_It'); 
 
 //     Route::get('Request_It/data', [RequestDeviceItController::class, 'data'])->name('Request_It.data');
 

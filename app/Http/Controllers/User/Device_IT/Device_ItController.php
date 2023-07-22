@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User\Device_IT;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccessoryIt\AccessoryIt;
 use App\Models\Department\Department;
 use App\Models\Device\AccessoryMedical;
 use App\Models\Device\Device;
@@ -37,7 +38,7 @@ class Device_ItController extends Controller
     {
         // $devices = Device::where('deviceTypes', 2)->get();
 
-        return DataTables::of(Device::where('department_id', auth()->user()->department_id)->where('deviceTypes',2))
+        return DataTables::of(Device::where('department_id', auth()->user()->department_id)->where('deviceTypes',2)->where('active', true))
             // ->addColumn('record_select', 'admin.users.data_table.record_select')
 
             ->filterColumn('created_at', function ($query, $value) {
@@ -101,7 +102,10 @@ class Device_ItController extends Controller
 
         $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
 
-        $accessorymedicals = AccessoryMedical::where('device_id', $id)->get();
+        // $accessorymedicals = AccessoryMedical::where('device_id', $id)->get();
+
+        $accessoryits = AccessoryIt::where('device_id', $id)->get();
+
 
 
         // $maintenancerequests  = MaintenanceRequest::where('device_id', $id)->get();
@@ -113,7 +117,8 @@ class Device_ItController extends Controller
             'subdepartments' => $subdepartments,
             'deviceattachments' => $deviceattachments,
             'deviceMovements' => $deviceMovements,
-            'accessorymedicals' => $accessorymedicals
+            // 'accessorymedicals' => $accessorymedicals,
+            'accessoryits' => $accessoryits
 
         ]);
     }
@@ -137,4 +142,14 @@ class Device_ItController extends Controller
         $deviceattachments  = DeviceAttachment::where('id', $id)->first();
         return response()->view('users.device_It_User.viewFile', [ 'deviceattachments' => $deviceattachments]);
     }
+
+    public function viewImage($id)
+
+    {
+
+        $deviceAccessory  = AccessoryIt::where('id', $id)->first();
+        return response()->view('users.device_It_User.viewImage', [ 'deviceAccessory' => $deviceAccessory]);
+
+    }// end of viewFile
+
 }

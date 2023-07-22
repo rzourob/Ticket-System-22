@@ -56,10 +56,13 @@
                             </thead>
 
                             <tbody>
+                                <?php $i=0; ?>
 
                                 @foreach ($deviceattachments as $deviceattachment)
+
+                                <?php $i++; ?>
                                     <tr>
-                                        <td>{{ $deviceattachment->id }}</td>
+                                        <td>{{ $i }}</td>
                                         {{-- <td><a href="{{ route('familydetails.show', $familydetail->id) }}"
                                                 class="btn btn-info">{{ $familydetail->form_no }}</a>
                                         </td>  --}}

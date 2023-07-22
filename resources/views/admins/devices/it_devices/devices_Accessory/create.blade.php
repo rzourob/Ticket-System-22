@@ -178,10 +178,12 @@
             </thead>
 
             <tbody>
-
+                <?php $i=0; ?>
                 @foreach ($accessoryits as $accessoryit)
+                <?php $i++; ?>
+
                     <tr>
-                        <td>{{ $accessoryit->id }}</td>
+                        <td>{{ $i }}</td>
                         <td>{{ $accessoryit->device->title }}</td>
                         <td>{{ $accessoryit->title }}</td>
                         <td>{{ $accessoryit->sn }}</td>

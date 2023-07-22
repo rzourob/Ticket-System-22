@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\User\Device_Medical;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccessoryIt\AccessoryIt;
+// use App\Models\AccessoryMedical\AccessoryMedical;
 use App\Models\Department\Department;
+use App\Models\Device\AccessoryMedical;
 use App\Models\Device\Device;
 use App\Models\Device\DeviceAttachment;
 use App\Models\DeviceMovement\DeviceMovement;
@@ -20,13 +23,15 @@ class Device_MedicalController extends Controller
     
         public function index()
         {
-            $devices = auth()->user()->department->devicee->where('deviceTypes', $this::MEDICAL);
+            $devices = Device::where('active', true)->get();
+            $userAuth= auth()->user()->department->devicee->where('deviceTypes', $this::MEDICAL);
             $subdepartments = SubDepartment::get();
             $departments = Department::get();
             return view('users.device_Medical_User.device_medical', [
                 'devices' => $devices,
                 'subdepartments' => $subdepartments,
-                'departments' => $departments
+                'departments' => $departments,
+                'userAuth' => $userAuth
             ]);
         }
         public function Data()
@@ -35,7 +40,7 @@ class Device_MedicalController extends Controller
     
             // $devices = auth()->user()->department->devicee->where('deviceTypes', $this::MEDICAL);
     
-            return DataTables::of(Device::where('department_id', auth()->user()->department_id)->where('deviceTypes', 1))
+            return DataTables::of(Device::where('department_id', auth()->user()->department_id)->where('deviceTypes', 1)->where('active', true))
                 // ->addColumn('record_select', 'admin.users.data_table.record_select')
     
                 ->filterColumn('created_at', function ($query, $value) {
@@ -100,12 +105,19 @@ class Device_MedicalController extends Controller
 
             $deviceattachments = DeviceAttachment::where('device_id', $id)->get();
     
+            $accessorymedicals = AccessoryMedical::where('device_id', $id)->get();
+    
+            $accessoryits = AccessoryIt::where('device_id', $id)->get();
+            
+    
             return response()->view('users.device_Medical_User.show', [
                 'devices' => $devices,
                 'departments' => $departments,
                 'subdepartments' => $subdepartments,
                 'deviceattachments' => $deviceattachments,
-                'deviceMovements' => $deviceMovements
+                'deviceMovements' => $deviceMovements,
+                'accessorymedicals' => $accessorymedicals,
+                'accessoryits' => $accessoryits
     
             ]);
         }
@@ -118,5 +130,28 @@ class Device_MedicalController extends Controller
     
             return response()->view('users.device_Medical_User.movement', ['devices' => $devices, 'deviceMovements' => $deviceMovements]);
         }
+
+
+        public function viewFile($id)
+
+        {
+    
+            $deviceattachments  = DeviceAttachment::where('id', $id)->first();
+            return response()->view('users.device_Medical_User.viewFile', [ 'deviceattachments' => $deviceattachments]);
+        }
+    
+        public function viewImage($id)
+    
+        {
+    
+            $deviceAccessory  = AccessoryMedical::where('id', $id)->first();
+            return response()->view('users.device_Medical_User.viewImage', [ 'deviceAccessory' => $deviceAccessory]);
+    
+        }// end of viewFile
+
+
+        
+
+    
     
 }

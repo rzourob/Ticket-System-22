@@ -6,40 +6,45 @@
         <div class="dropdown-menu" x-placement="bottom-start"
             style="position: absolute; transform: translate3d(0px, 33px, 0px); top: 0px; left: 0px; will-change: transform;">
 
-            @can('تعديل بيانات جهاز')
-                <a class="dropdown-item" href="{{ route('admin.devices_Medical.edit', $id) }}"><i class="fa fa-pencil-square-o"
-                        aria-hidden="true"></i>
-                    تعديل بيانات</a>
-            @endcan
-
             @can('عرض تفاصيل الجهاز')
                 <a class="dropdown-item" href="{{ route('admin.devices_Medical.show', $id) }}"><i class="fa fa-eye"
                         aria-hidden="true"></i>
                     عرض تفاصيل الجهاز</a>
             @endcan
 
+            @can('تعديل بيانات جهاز')
+                <a class="dropdown-item" href="{{ route('admin.devices_Medical.edit', $id) }}"><i class="fa fa-pencil-square-o"
+                        aria-hidden="true"></i>
+                    تعديل بيانات</a>
+            @endcan
+
             @can('أضافة حركة')
-                <a class="dropdown-item" href="{{ route('admin.Movements_show.Movements_show', $id) }}"><i class="fa fa-eye"
+                <a class="dropdown-item" href="{{ route('admin.Movements_show.Movements_show', $id) }}"><i class="fa fa-pencil-square-o"
                         aria-hidden="true"></i>
                     أضافة حركة</a>
             @endcan
 
-
-            @can('حذف جهاز')
-                <a class="dropdown-item" href="#" onclick="performDestroy({{ $id }}, this)  "
-                    class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                    حذف جهاز</a>
-            @endcan
 
             {{-- @can('تعديل بيانات جهاز') --}}
             <a class="dropdown-item" href="{{ route('admin.device_Medical_Admin.accessorymedicals_show', $id) }}"><i
                     class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 أضافة ملحق
             </a>
-            <a class="dropdown-item" href="{{ route('admin.DeviceMedAttachment', $id) }}"><i
-                class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            أضافة مرفق
-        </a>
+            <a class="dropdown-item" href="{{ route('admin.DeviceMedAttachment', $id) }}"><i class="fa fa-pencil-square-o"
+                    aria-hidden="true"></i>
+                أضافة مرفق
+            </a>
+
+            {{-- <a class="dropdown-item" href="{{ route('admin.MovementsMedical_show', $id) }}"><i class="fa fa-pencil-square-o"
+                    aria-hidden="true"></i>
+                أضافة حركة
+            </a> --}}
+
+            @can('حذف جهاز')
+                <a class="dropdown-item" href="#" onclick="performDestroy({{ $id }}, this)  "
+                    class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                    حذف جهاز</a>
+            @endcan
             {{-- @endcan --}}
 
         </div>

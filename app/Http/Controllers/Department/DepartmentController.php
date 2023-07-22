@@ -19,7 +19,7 @@ class DepartmentController extends Controller
 
      public function __construct(DepartmentInterface $Department)
      {
-        $this->authorizeResource( Department::class,'department'); 
+        // $this->authorizeResource( Department::class,'department'); 
 
         return $this->Department = $Department;
 

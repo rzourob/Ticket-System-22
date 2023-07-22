@@ -47,9 +47,9 @@ class DeviceAttachmentController extends Controller
     {
         //
         $validator = Validator($request->all(), [
-
        
-            'file_name' => 'required|mimes:pdf',  
+            // 'file_name' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,pdf|max:4048',  
+            'file_name' => 'required|mimes:pdf|max:10000', 
 
         ], [
             'file_name.required' => 'لايوجد مرفق',
@@ -72,7 +72,8 @@ class DeviceAttachmentController extends Controller
                     if($request ->hasFile('file_name')){
                         Storage::disk('public')->delete("deviceattachments/$deviceattachments->file_name");
                         $file_name = $request->file('file_name');
-                        $fileName = time() . '_' . $deviceattachments->name . '.' . $file_name->getClientOriginalExtension();
+                        $fileName =  $file_name->getClientOriginalName();
+                        // $fileName = time() . '_' . $deviceattachments->name . '.' . $file_name->getClientOriginalExtension();
                         $request->file('file_name')->storePubliclyAs('deviceattachments', $fileName , ['disk'=>'public']);
                         $deviceattachments->file_name = $fileName; 
                    }
