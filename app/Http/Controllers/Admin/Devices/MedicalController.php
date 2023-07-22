@@ -142,10 +142,10 @@ class MedicalController extends Controller
 
             $isSaved = $device->save();
 
-            if ($isSaved) {
-                auth()->user()->notify(new CreateNewDeviceNotification($device));
+            // if ($isSaved) {
+            //     auth()->user()->notify(new CreateNewDeviceNotification($device));
 
-            }
+            // }
 
             return response()->json(['message' => $isSaved ? "تم أضافة الجهاز بنجاح" : "فشل أضافة الجهاز"], $isSaved ? 201 : 400);
         } else {
