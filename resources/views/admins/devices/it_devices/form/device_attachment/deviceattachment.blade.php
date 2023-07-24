@@ -1,7 +1,7 @@
 <div class="tab-pane fade" id="portfolio-07" role="tabpanel" aria-labelledby="portfolio-07-tab">
-    <h3>
+    {{-- <h3>
         <p class="text-danger">جاري العمل علي تجهيزة هذا القسم قريباً.</p>
-    </h3>
+    </h3> --}}
     <div class="panel panel-primary tabs-style-2">
 
         <div class="panel-body tabs-menu-body main-content-body-right border">

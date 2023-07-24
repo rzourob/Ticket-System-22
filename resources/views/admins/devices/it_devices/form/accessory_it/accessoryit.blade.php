@@ -1,7 +1,7 @@
 <div class="tab-pane fade" id="contact-08" role="tabpanel" aria-labelledby="contact-08-tab">
-    <h3>
+    {{-- <h3>
         <p class="text-danger">جاري العمل علي تجهيزة هذا القسم الملحقات.</p>
-    </h3>
+    </h3> --}}
 
     <div class="panel panel-primary tabs-style-2">
 

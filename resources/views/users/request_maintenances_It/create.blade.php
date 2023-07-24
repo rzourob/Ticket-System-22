@@ -109,6 +109,49 @@ $('#subdepartments').attr('disabled',this.value == -1);
 
 </script>
 
+<script>
+
+    $('#subproblems').attr('disabled',true);
+    
+    $('#problems').on('change', function() {
+    
+    $('#subproblems').attr('disabled',this.value == -1);
+    // alert (this.value);
+
+        if(this.value != -1){
+            // alert (this.value);
+            getSubProblemtypes(this.value);
+    
+        }
+    
+        function getSubProblemtypes(problemId) {
+    
+            // axios.get(`/admin/departments/${departmentId}`)
+    
+         axios.get(`/admin/problems/${problemId}`)
+    
+        //  console.log( axios.get(`/admin/problemTypes/${problemTypeId}`));subproblems
+        .then(function (response) {
+            console.log(response);
+            if(response.data.subproblems.length !=0){
+                $('#subproblems').empty();
+                   $.each(response.data.subproblems , function(i,item){
+                    $('#subproblems').append(new Option(item['title'], item['id']))
+                   });
+            }else{
+                $('#subproblems').attr('disabled',true);
+            }
+        })
+
+
+    
+        }  
+    })
+    
+    </script>
+
+    ///////////////
+
 
 <script>
 

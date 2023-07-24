@@ -24,7 +24,7 @@
 <script>
 
         function performDestroy(id,ref){
-            confirmDestroy('/admin/devices/'+id,ref);    
+            confirmDestroy('/admin/maintenance_Medical/'+id,ref);    
 
         }
 </script>

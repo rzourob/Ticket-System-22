@@ -56,7 +56,7 @@
                         <div class="col-md-2 mb-30">
                             <div class="col">
         
-                                <input type="" id="device_id" name="device_id" value="{{ $devices->id }}">
+                                <input type="hidden" id="device_id" name="device_id" value="{{ $devices->id }}">
         
         
                             </div>

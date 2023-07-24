@@ -268,6 +268,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::get('cmments/{id}', [Request_Maintenance_MedicalController::class, 'comment_show'])->name('cmmentShow.data');
 
+    Route::delete('maintenance_Medical/{id}', [Request_Maintenance_MedicalController::class, 'destroy'])->name('admin.maintenance_Medical.destroy');
+
+
 
 });
 

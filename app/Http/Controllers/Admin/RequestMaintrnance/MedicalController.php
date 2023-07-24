@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\RequestMaintrnance;
 
 use App\Http\Controllers\Controller;
+use App\Models\Maintenance\MaintenanceRequest;
 use Illuminate\Http\Request;
 
 class MedicalController extends Controller
@@ -80,6 +81,10 @@ class MedicalController extends Controller
      */
     public function destroy($id)
     {
-        //
+                //
+                $isDeleted = MaintenanceRequest::destroy($id);
+
+                return response()->json(['message' => $isDeleted ? "تم عملية الحذف بنجاح" : "فشل تنفيذ عملية الحذف"], $isDeleted ? 200 : 400);
+                // return response()->json(['message' => $isDeleted ? "تم حذف الصلاحية " : "فشل حذف الصلاحية"], $isDeleted ? 200 : 400);
     }
 }
